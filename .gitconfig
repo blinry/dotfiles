@@ -1,0 +1,12 @@
+[core]
+    excludesfile = ~/.gitignore_global
+	autocrlf = input
+[color]
+    ui = true
+[alias]
+    c = commit
+    o = checkout
+    s = status
+    d = diff
+    l = log
+    g = log --graph --pretty=oneline --abbrev-commit --all --decorate
