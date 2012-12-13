@@ -10,6 +10,9 @@ export GIT_COMMITTER_EMAIL="$EMAIL"
 export PATH=$HOME/.bin.local:$HOME/.bin:$PATH
 export EDITOR=vim
 
+# Default permissions: (r)wx------
+umask 0022
+
 source ~/.aliases
 if [ -f ~/.aliases.local ]; then
     source ~/.aliases.local
