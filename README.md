@@ -27,9 +27,9 @@ Setup
 
 3. Execute the almighty setup script. It will set up the Vim bundles.
 
-        ./meta/setup
+        .meta/setup
 
-4. Create your `~/.secrets` file:
+4. Create your `.secrets` file:
 
         cp .secrets.example .secrets
 
