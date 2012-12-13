@@ -8,6 +8,7 @@ export GIT_COMMITTER_NAME="$FULLNAME"
 export GIT_COMMITTER_EMAIL="$EMAIL"
 
 export PATH=$HOME/.bin.local:$HOME/.bin:$PATH
+export EDITOR=vim
 
 source ~/.aliases
 if [ -f ~/.aliases.local ]; then
