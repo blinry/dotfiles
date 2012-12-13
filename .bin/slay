@@ -1,0 +1,3 @@
+#!/bin/bash
+
+killall -9 $1 && ps -e | grep $1
