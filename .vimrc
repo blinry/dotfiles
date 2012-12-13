@@ -18,6 +18,7 @@ Bundle 'blinry/vimgirl'
 filetype plugin indent on " activate filetype detection
 syntax on " enable syntax highlighting
 colorscheme elflord " <3
+set t_Co=256
 
 set nobackup " don't keep backups
 
