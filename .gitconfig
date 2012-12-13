@@ -4,9 +4,8 @@
 [color]
     ui = true
 [alias]
-    c = commit
-    o = checkout
-    s = status
-    d = diff
-    l = log
-    g = log --graph --pretty=oneline --abbrev-commit --all --decorate
+    ci = commit
+    co = checkout
+    st = status
+    df = diff
+    graph = log --graph --pretty=oneline --abbrev-commit --all --decorate
