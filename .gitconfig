@@ -9,3 +9,5 @@
     st = status
     df = diff
     graph = log --graph --pretty=oneline --abbrev-commit --all --decorate
+[push]
+	default = simple
