@@ -9,5 +9,6 @@
     st = status
     df = diff
     graph = log --graph --pretty=oneline --abbrev-commit --all --decorate
+    take = checkout -b
 [push]
 	default = simple
