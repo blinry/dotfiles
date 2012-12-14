@@ -5,22 +5,24 @@ promptinit
 autoload -U colors && colors
 autoload -Uz vcs_info
 
-zstyle ':vcs_info:*' stagedstr '%F{28}'"'"''
-zstyle ':vcs_info:*' unstagedstr '%F{11}'"'"''
-zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' enable git
-precmd () {
-    if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
-        zstyle ':vcs_info:*' formats '%F{2}%b%c%u%f '
-    } else {
-        zstyle ':vcs_info:*' formats '%F{2}%b%c%u'"'"'%f '
-    }
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr "'"
+zstyle ':vcs_info:*' stagedstr '°'
 
+VCS_PATH='%%F{blue}%R/%%U%S%%u'
+VCS_BRANCH='%%B%%F{green}%b%%F{yellow}%u%c%%b'
+
+zstyle ':vcs_info:*' nvcsformats "%F{blue}%3~%f "
+zstyle ':vcs_info:*' formats "$VCS_PATH $VCS_BRANCH "
+zstyle ':vcs_info:*' actionformats "$VCS_PATH $VCS_BRANCH %%F{red}(%a)%%f "
+
+precmd () {
     vcs_info
 }
 
 setopt prompt_subst
-PROMPT='%{%(!.$fg_bold[red].$fg_bold[blue])%}%~ ${vcs_info_msg_0_}%{$reset_color%}'
+PROMPT='%B${${vcs_info_msg_0_/\/%U./}/$HOME/~}%f'
 
 zstyle ':completion:*' menu select
 setopt completealiases
