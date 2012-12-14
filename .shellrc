@@ -1,5 +1,10 @@
+# This file is sourced for each interactive bash or zsh shell
+
 source ~/.secrets
-export FULLNAME
+
+export FULLNAME="$FIRST_NAME $LAST_NAME"
+export FIRST_NAME
+export LAST_NAME
 export EMAIL
 
 export GIT_AUTHOR_NAME="$FULLNAME"
