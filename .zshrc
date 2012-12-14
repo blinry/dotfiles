@@ -15,7 +15,7 @@ zstyle ':vcs_info:*' stagedstr '°'
 VCS_PATH='%%B%%F{blue}%R/%%U%S%%u'
 VCS_BRANCH='%%B%%F{green}%b%%F{yellow}%u%c%%b'
 
-zstyle ':vcs_info:*' nvcsformats "%F{blue}%3~%f "
+zstyle ':vcs_info:*' nvcsformats "%B%F{blue}%3~%b%f "
 zstyle ':vcs_info:*' formats "$VCS_PATH $VCS_BRANCH "
 zstyle ':vcs_info:*' actionformats "$VCS_PATH $VCS_BRANCH %%F{red}(%a)%%f "
 
