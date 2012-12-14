@@ -27,4 +27,8 @@ PROMPT='%B${${vcs_info_msg_0_/\/%U./}/$HOME/~}%f'
 zstyle ':completion:*' menu select
 setopt completealiases
 
+bindkey "^[[3~" delete-char             # Del
+bindkey "^[[7~" beginning-of-line       # Pos1
+bindkey "^[[8~" end-of-line             # End
+
 source ~/.shellrc
