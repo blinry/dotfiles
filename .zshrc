@@ -50,7 +50,7 @@ if [ "$(hostname)" != "$DEFAULT_HOSTNAME" ]; then
 fi
 
 setopt prompt_subst
-PROMPT='${USER}${HOSTNAME}${${vcs_info_msg_0_/\/%U./}/$HOME/~}%f'
+PROMPT='${USER}${HOSTNAME}${${vcs_info_msg_0_/\/%U.%u / }/$HOME/~}%f'
 
 zstyle ':completion:*' menu select
 setopt completealiases
