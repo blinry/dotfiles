@@ -6,6 +6,8 @@ export FULLNAME="$FIRST_NAME $LAST_NAME"
 export FIRST_NAME
 export LAST_NAME
 export EMAIL
+export LAT
+export LON
 
 export GIT_AUTHOR_NAME="$FULLNAME"
 export GIT_AUTHOR_EMAIL="$EMAIL"
