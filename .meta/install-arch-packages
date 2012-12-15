@@ -33,6 +33,7 @@ make \
 mlocate \
 mplayer \
 mtools \
+nmap \
 notmuch \
 offlineimap \
 openssh \
