@@ -1,0 +1,45 @@
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintslight
+
+urxvt*font: xft:Inconsolata:size=18,xft:IPAGothic:size=18
+urxvt*saveLines: 1000000000
+urxvt*scrollBar: false
+urxvt*perl-ext-common: default,matcher
+urxvt*urlLauncher: firefox
+urxvt*matcher.button: 1
+urxvt*matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+
+urxvt*background:	black
+urxvt*foreground:	white
+urxvt*cursorColor:	#ffffff
+urxvt*cursorColor2:	#000000
+
+! Tango colorscheme
+
+! Black
+*color0:  #2e3436
+*color8:  #555753
+! Red
+*color1:  #cc0000
+*color9:  #ef2929
+! Green
+*color2:  #4e9a06
+*color10: #8ae234
+! Yellow
+*color3:  #c4a000
+*color11: #fce94f
+! Blue
+*color4:  #3465a4
+*color12: #729fcf
+! Purple
+*color5:  #75507b
+*color13: #ad7fa8
+! Cyan
+*color6:  #06989a
+*color14: #34e2e2
+! White
+*color7:  #d3d7cf
+*color15: #eeeeec
