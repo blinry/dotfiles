@@ -14,6 +14,7 @@ Bundle 'Rip-Rip/clang_complete'
 Bundle 'SirVer/ultisnips'
 Bundle 'blinry/vimboy'
 Bundle 'blinry/vimgirl'
+Bundle 'godlygeek/tabular'
 
 filetype plugin indent on " activate filetype detection
 syntax on " enable syntax highlighting
