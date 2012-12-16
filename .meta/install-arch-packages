@@ -33,6 +33,7 @@ make \
 mlocate \
 mplayer \
 mtools \
+net-tools \
 nmap \
 notmuch \
 offlineimap \
