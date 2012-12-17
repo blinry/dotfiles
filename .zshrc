@@ -4,6 +4,16 @@ autoload -U compinit promptinit
 compinit
 promptinit
 
+export HISTSIZE=9999999999999
+export HISTFILE=~/.cache/zsh_history
+export SAVEHIST=9999999999999
+setopt INC_APPEND_HISTORY
+setopt share_history
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
+
 autoload -U colors && colors
 autoload -Uz vcs_info
 
