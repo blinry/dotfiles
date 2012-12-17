@@ -13,7 +13,7 @@ redshift -l "$LAT:$LON" -t 6000:4400 &
 firefox &
 urxvt &
 xsetroot -solid black
-setxkbmap de neo &
+setxkbmap de &
 
 synclient VertEdgeScroll=1
 synclient LeftEdge=0
