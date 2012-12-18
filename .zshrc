@@ -14,6 +14,11 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
 setopt HIST_VERIFY
 
+function take() {
+    mkdir $1
+    cd $1
+}
+
 autoload -U colors && colors
 autoload -Uz vcs_info
 
