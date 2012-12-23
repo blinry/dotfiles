@@ -19,4 +19,4 @@ synclient VertEdgeScroll=1
 synclient LeftEdge=0
 synclient RightEdge=0
 
-awesome -c ~/.awesome/rc.lua
+awesome -c ~/.awesome/main.lua
