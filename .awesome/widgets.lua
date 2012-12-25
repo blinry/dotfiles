@@ -46,9 +46,9 @@ volume = widget({ type = "textbox" })
 vicious.register(volume, vicious.widgets.volume, "$1$2", 60, "Master")
 
 battery = widget({ type = "textbox" })
-vicious.register(battery, vicious.widgets.bat, " $3$1", 60, "BAT0")
-battery2 = widget({ type = "textbox" })
-vicious.register(battery2, vicious.widgets.bat, "$3$1", 60, "BAT1")
+vicious.register(battery, vicious.widgets.bat, "$3$1", 60, "BAT0")
+--battery2 = widget({ type = "textbox" })
+--vicious.register(battery2, vicious.widgets.bat, "$3$1", 60, "BAT1")
 
 weather = widget({ type = "textbox" })
 vicious.register(weather, vicious.widgets.weather, "${tempc}°C", 600, "EDVE")
@@ -97,7 +97,7 @@ for s = 1, screen.count() do
         datewidget,
         separator,
         battery,
-        battery2,
+        --battery2,
         separator,
         volume,
         separator,
