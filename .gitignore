@@ -1,1 +1,19 @@
+# By default, ignore everything:
 /*
+
+# If you want to see which dotfiles are not tracked, comment out the previous
+# line and add the following lines to .git/info/exclude:
+#
+#      /*
+#      !/.*
+#
+# Followed by the and directories you are ignoring intentionally:
+#
+#     /.ssh/
+#     /.bitcoin/
+#     /.Xauthority
+#     ...
+
+# These are the two exceptions that are always private:
+/.secrets
+*.local
