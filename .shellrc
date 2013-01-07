@@ -24,3 +24,7 @@ source ~/.aliases
 if [ -f ~/.aliases.local ]; then
     source ~/.aliases.local
 fi
+
+if [ -f ~/.shellrc.local ]; then
+    source ~/.shellrc.local
+fi
