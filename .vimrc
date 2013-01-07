@@ -15,6 +15,9 @@ Bundle 'SirVer/ultisnips'
 Bundle 'blinry/vimboy'
 Bundle 'blinry/vimgirl'
 Bundle 'godlygeek/tabular'
+Bundle 'tpope/vim-commentary'
+Bundle 'kana/vim-textobj-user'
+Bundle 'kana/vim-textobj-entire'
 
 filetype plugin indent on " activate filetype detection
 syntax on " enable syntax highlighting
