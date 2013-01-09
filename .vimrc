@@ -18,6 +18,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-commentary'
 Bundle 'kana/vim-textobj-user'
 Bundle 'kana/vim-textobj-entire'
+Bundle 'tpope/vim-markdown'
 
 filetype plugin indent on " activate filetype detection
 syntax on " enable syntax highlighting
