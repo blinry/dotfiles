@@ -1,8 +1,9 @@
-require("awful")
+awful = require("awful")
+awful.rules = require("awful.rules")
 require("awful.autofocus")
-require("awful.rules")
-require("beautiful")
-require("naughty")
+wibox = require("wibox")
+beautiful = require("beautiful")
+naughty = require("naughty")
 vicious = require("vicious")
 
 terminal = "urxvt"
@@ -16,6 +17,7 @@ end
 local conf_dir = os.getenv("HOME") .. "/.awesome/"
 
 dofile(conf_dir .. "layout.lua")
+beautiful.init(conf_dir .. "theme.lua")
 
 dofile(conf_dir .. "bindings.lua")
 if file_exists(conf_dir .. "bindings.lua.local") then
@@ -23,7 +25,6 @@ if file_exists(conf_dir .. "bindings.lua.local") then
 end
 root.keys(globalkeys)
 
-beautiful.init(conf_dir .. "theme.lua")
 dofile(conf_dir .. "rules.lua")
 dofile(conf_dir .. "signals.lua")
 
@@ -35,7 +36,7 @@ end
 -- Handle runtime errors after startup
 do
     local in_error = false
-    awesome.add_signal("debug::error", function (err)
+    awesome.connect_signal("debug::error", function (err)
         -- Make sure we don't go into an endless error loop
         if in_error then return end
         in_error = true

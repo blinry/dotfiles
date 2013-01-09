@@ -1,14 +1,14 @@
-separator = widget({ type = "textbox" })
-separator.text  = " │ "
-blank = widget({ type = "textbox" })
-blank.text  = " "
-bar = widget({ type = "textbox" })
-bar.text  = "│"
+separator = wibox.widget.textbox()
+separator:set_text(" │ ")
+blank = wibox.widget.textbox()
+blank:set_text(" ")
+bar = wibox.widget.textbox()
+bar:set_text("│")
 
-datewidget = widget({ type = "textbox" })
+datewidget = wibox.widget.textbox()
 vicious.register(datewidget, vicious.widgets.date, "%a %Y-%m-%d %H:%M", 60)
 
-wifi = widget({ type = "textbox" })
+wifi = wibox.widget.textbox()
 vicious.register(wifi, vicious.widgets.wifi, "${ssid}:${link}", 60, "wlan0")
 
 function load_line()
@@ -21,7 +21,7 @@ function load_line()
     return {v}
 end
 
-cpuwidget = widget({ type = "textbox" })
+cpuwidget = wibox.widget.textbox()
 vicious.register(cpuwidget, load_line, " $1 ", 60)
 
 --cpuwidget = awful.widget.graph()
@@ -42,18 +42,18 @@ vicious.register(cpuwidget, load_line, " $1 ", 60)
 --                        return args["{wlan0 down_kb}"]
 --                    end, 0.5)
 
-volume = widget({ type = "textbox" })
+volume = wibox.widget.textbox()
 vicious.register(volume, vicious.widgets.volume, "$1$2", 60, "Master")
 
-battery = widget({ type = "textbox" })
+battery = wibox.widget.textbox()
 vicious.register(battery, vicious.widgets.bat, "$3$1", 60, "BAT0")
---battery2 = widget({ type = "textbox" })
+--battery2 = wibox.widget.textbox()
 --vicious.register(battery2, vicious.widgets.bat, "$3$1", 60, "BAT1")
 
-weather = widget({ type = "textbox" })
+weather = wibox.widget.textbox()
 vicious.register(weather, vicious.widgets.weather, "${tempc}°C", 600, "EDVE")
 
-mysystray = widget({ type = "systray" })
+mysystray = wibox.widget.systray()
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -72,46 +72,39 @@ awful.button({ }, 5, awful.tag.viewprev)
 
 for s = 1, screen.count() do
     -- Create a promptbox for each screen
-    mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright })
-    -- Create an imagebox widget which will contains an icon indicating which layout we're using.
-    -- We need one layoutbox per screen.
-    mylayoutbox[s] = awful.widget.layoutbox(s)
-    mylayoutbox[s]:buttons(awful.util.table.join(
-    awful.button({ }, 1, function () awful.layout.inc(layouts, 1) end),
-    awful.button({ }, 3, function () awful.layout.inc(layouts, -1) end),
-    awful.button({ }, 4, function () awful.layout.inc(layouts, 1) end),
-    awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
+    mypromptbox[s] = awful.widget.prompt()
     -- Create a taglist widget
-    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.label.all, mytaglist.buttons)
+    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
 
     -- Create the wibox
     mywibox[s] = awful.wibox({ position = "top", height = "25", screen = s })
-    -- Add widgets to the wibox - order matters
-    mywibox[s].widgets = {
-        {
-            --mylauncher,
-            mytaglist[s],
-            mypromptbox[s],
-            layout = awful.widget.layout.horizontal.leftright
-        },
-        datewidget,
-        separator,
-        battery,
-        --battery2,
-        separator,
-        volume,
-        separator,
-        wifi,
-        separator,
-        weather,
-        blank,
-        bar,
-        --netwidget.widget,
-        --bar,
-        cpuwidget,
-        bar,
-        blank,
-        s == 1 and mysystray or nil,
-        layout = awful.widget.layout.horizontal.rightleft
-    }
+
+    local left_layout = wibox.layout.fixed.horizontal()
+    left_layout:add(mytaglist[s])
+    left_layout:add(mypromptbox[s])
+
+    local right_layout = wibox.layout.fixed.horizontal()
+
+    if s == 1 then
+        right_layout:add(mysystray)
+        right_layout:add(bar)
+    end
+
+    right_layout:add(cpuwidget)
+    right_layout:add(bar)
+    right_layout:add(blank)
+    right_layout:add(weather)
+    right_layout:add(separator)
+    right_layout:add(wifi)
+    right_layout:add(separator)
+    right_layout:add(volume)
+    right_layout:add(separator)
+    right_layout:add(datewidget)
+
+    local layout = wibox.layout.align.horizontal()
+    layout:set_left(left_layout)
+    layout:set_right(right_layout)
+
+    mywibox[s]:set_widget(layout)
+    mywibox[s].visible = false
 end
