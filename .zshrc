@@ -14,6 +14,15 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
 setopt HIST_VERIFY
 
+autoload predict-on
+zle -N predict-on
+zle -N predict-off
+bindkey '^Z'   predict-on
+bindkey '^X^Z' predict-off
+zstyle :predict verbose yes
+zstyle :predict cursor key
+zstyle ':completion:predict:*' completer _oldlist _complete _ignored _history _prefix
+
 function take() {
     mkdir $1
     cd $1
