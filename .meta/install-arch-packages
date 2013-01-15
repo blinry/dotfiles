@@ -63,6 +63,7 @@ xbindkeys \
 xf86-input-synaptics \
 xf86-video-intel \
 xorg-server \
+xorg-xev \
 xorg-xinit \
 xorg-xinput \
 xorg-xkill \
