@@ -10,7 +10,6 @@ uim-toolbar-gtk-systray &
 
 xbindkeys &
 redshift -l "$LAT:$LON" -t 6000:4400 &
-firefox &
 urxvt &
 xsetroot -solid black
 setxkbmap de nodeadkeys &
