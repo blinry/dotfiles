@@ -24,6 +24,19 @@ end
 cpuwidget = wibox.widget.textbox()
 vicious.register(cpuwidget, load_line, " $1 ", 60)
 
+function battery_line()
+    local f = io.popen("battery-status")
+    local l = f:lines()
+    local v = ''
+    for line in l do
+        v = line
+    end
+    return {v}
+end
+
+battery = wibox.widget.textbox()
+vicious.register(battery, battery_line, "$1", 60)
+
 --cpuwidget = awful.widget.graph()
 --cpuwidget:set_width(100)
 --cpuwidget:set_height(25)
@@ -44,11 +57,6 @@ vicious.register(cpuwidget, load_line, " $1 ", 60)
 
 volume = wibox.widget.textbox()
 vicious.register(volume, vicious.widgets.volume, "$1$2", 60, "Master")
-
-battery = wibox.widget.textbox()
-vicious.register(battery, vicious.widgets.bat, "$3$1", 60, "BAT0")
---battery2 = wibox.widget.textbox()
---vicious.register(battery2, vicious.widgets.bat, "$3$1", 60, "BAT1")
 
 weather = wibox.widget.textbox()
 vicious.register(weather, vicious.widgets.weather, "${tempc}°C", 600, "EDVE")
@@ -98,6 +106,8 @@ for s = 1, screen.count() do
     right_layout:add(wifi)
     right_layout:add(separator)
     right_layout:add(volume)
+    right_layout:add(separator)
+    right_layout:add(battery)
     right_layout:add(separator)
     right_layout:add(datewidget)
 

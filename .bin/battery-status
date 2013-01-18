@@ -1,0 +1,23 @@
+#!/bin/sh
+
+PREFIX=/sys/devices/platform/smapi
+MINUTES=0
+SYMBOL="?"
+
+for BAT in $PREFIX/BAT*; do
+    if [ $(cat $BAT/installed) = "1" ]; then
+        if [ $(cat $BAT/state) = "charging" ]; then
+            MINUTES=$(($MINUTES + $(cat $BAT/remaining_charging_time)))
+            SYMBOL="+"
+        elif [ $(cat $BAT/state) = "discharging" ]; then
+            MINUTES=$(($MINUTES + $(cat $BAT/remaining_running_time)))
+            SYMBOL="-"
+        fi
+    fi
+done
+
+if [ $MINUTES == 0 ]; then
+    echo full
+else
+    echo $(printf %02d $(($MINUTES/60))):$(printf %02d $(($MINUTES % 60)))$SYMBOL
+fi
