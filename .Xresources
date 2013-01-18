@@ -5,7 +5,7 @@ Xft.hinting: true
 Xft.hintstyle: hintslight
 
 urxvt*font: xft:Inconsolata:size=18,xft:IPAGothic:size=18
-urxvt*saveLines: 1000000000
+urxvt*saveLines: 100000
 urxvt*scrollBar: false
 urxvt*perl-ext-common: default,matcher
 urxvt*urlLauncher: firefox
