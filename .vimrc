@@ -56,7 +56,9 @@ let mapleader="," " Use , instead of \ as <Leader>
 
 set dictionary+=/usr/share/dict/american-english,/usr/share/dict/german
 
-map <F5> <Esc>:wall!<CR>:!make<CR> " by default, <F5> saves all files and runs "make"
+" by default, <F5> saves all files and runs "make"
+map <F5> :wall!<CR>:!make<CR> 
+map! <F5> <Esc>:wall!<CR>:!make<CR>a
 nnoremap gf <C-W>gf " make gf open the file in a new tab
 " underline the current line with -'s or ='s
 nmap <Leader>- yyp:s/./-/g<CR>
