@@ -8,6 +8,7 @@ bash-completion \
 binutils-multilib \
 bison \
 blender \
+clang \
 cups \
 devmon \
 dialog \
