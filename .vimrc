@@ -19,6 +19,8 @@ Bundle 'tpope/vim-commentary'
 Bundle 'kana/vim-textobj-user'
 Bundle 'kana/vim-textobj-entire'
 Bundle 'tpope/vim-markdown'
+Bundle 'mileszs/ack.vim'
+Bundle 'tpope/vim-unimpaired'
 
 filetype plugin indent on " activate filetype detection
 syntax on " enable syntax highlighting
@@ -63,7 +65,7 @@ nnoremap gf <C-W>gf " make gf open the file in a new tab
 " underline the current line with -'s or ='s
 nmap <Leader>- yyp:s/./-/g<CR>
 nmap <Leader>= yyp:s/./=/g<CR>
-nnoremap J mzJ`z " when joining lines, stay on the current character
+" nnoremap J mzJ`z " when joining lines, stay on the current character
 
 " when opening a file, always jump to the last known cursor position.
 autocmd bufreadpost *
