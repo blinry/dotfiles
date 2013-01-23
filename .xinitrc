@@ -12,7 +12,7 @@ xbindkeys &
 redshift -l "$LAT:$LON" -t 6000:4400 &
 xterm &
 xsetroot -solid black
-setxkbmap -option ctrl:nocaps -option compose:rwin de nodeadkeys &
+setxkbmap -option ctrl:nocaps -option compose:lwin de nodeadkeys &
 
 synclient VertEdgeScroll=1
 synclient LeftEdge=0
