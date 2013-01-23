@@ -4,18 +4,21 @@ Xft.rgba: rgb
 Xft.hinting: true
 Xft.hintstyle: hintslight
 
+xterm*faceName: Inconsolata
+xterm*faceNameDoublesize: IPAGothic
+xterm*faceSize: 18
+xterm*saveLines: 100000
+! double-click to select whole URLs
+xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
 urxvt*font: xft:Inconsolata:size=18,xft:IPAGothic:size=18
 urxvt*saveLines: 100000
 urxvt*scrollBar: false
-urxvt*perl-ext-common: default,matcher
-urxvt*urlLauncher: firefox
-urxvt*matcher.button: 1
-urxvt*matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 
-urxvt*background:	black
-urxvt*foreground:	white
-urxvt*cursorColor:	#ffffff
-urxvt*cursorColor2:	#000000
+*background:	black
+*foreground:	white
+*cursorColor:	#ffffff
+*cursorColor2:	#000000
 
 ! Tango colorscheme
 
