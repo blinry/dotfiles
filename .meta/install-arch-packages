@@ -1,4 +1,5 @@
 sudo pacman -Sy \
+abs \
 acpi \
 alsa-utils \
 autoconf \
@@ -56,6 +57,7 @@ ttf-dejavu \
 ttf-inconsolata \
 ttf-linux-libertine \
 uim \
+unrar \
 vicious \
 vlc \
 wmname \
