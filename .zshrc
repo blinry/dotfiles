@@ -79,8 +79,11 @@ PROMPT='${USER}${HOSTNAME}${${vcs_info_msg_0_/\/%U.%u / }/$HOME/~}%f'
 zstyle ':completion:*' menu select
 setopt completealiases
 
-bindkey "^[[3~" delete-char             # Del
-bindkey "^[[7~" beginning-of-line       # Pos1
-bindkey "^[[8~" end-of-line             # End
-
 bindkey -v
+
+bindkey "^[[3~" delete-char             # Del
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+bindkey "^P" up-line-or-search
+bindkey "^P" down-line-or-search
+bindkey "^R" history-incremental-search-backward
