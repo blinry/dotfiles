@@ -35,6 +35,12 @@ set smartcase " ... unless pattern contains upper case charecters
 set incsearch " show matches while typing
 
 set linebreak " display line breaks at reasonable places
+
+set list
+set listchars=tab:▸\ ,trail:·
+au InsertEnter * :set listchars-=trail:·
+au InsertLeave * :set listchars+=trail:·
+
 set laststatus=2 " display status line for every window
 set mouse=a " enable mouse use in all modes
 set showbreak=… " display dots in front of wrapped lines
