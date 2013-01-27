@@ -12,10 +12,14 @@ xbindkeys &
 redshift -l "$LAT:$LON" -t 6000:4400 &
 xterm &
 xsetroot -solid black
+
 setxkbmap -option ctrl:nocaps -option compose:lwin de nodeadkeys &
 
+# Use the whole area of the touchpad for scrolling.
 synclient VertEdgeScroll=1
 synclient LeftEdge=0
 synclient RightEdge=0
+# Hide the mouse pointer after 1 second of inactivity.
+unclutter -idle 1 -jitter 2 -root &
 
 awesome -c ~/.awesome/main.lua
