@@ -37,7 +37,7 @@ set incsearch " show matches while typing
 set linebreak " display line breaks at reasonable places
 
 set list
-set listchars=tab:▸\ ,trail:·
+set listchars=tab:›\ ,trail:·
 au InsertEnter * :set listchars-=trail:·
 au InsertLeave * :set listchars+=trail:·
 
