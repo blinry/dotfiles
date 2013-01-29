@@ -85,5 +85,5 @@ bindkey "^[[3~" delete-char             # Del
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
 bindkey "^P" up-line-or-search
-bindkey "^P" down-line-or-search
+bindkey "^N" down-line-or-search
 bindkey "^R" history-incremental-search-backward
