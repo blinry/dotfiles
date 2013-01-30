@@ -1,3 +1,5 @@
 #!/bin/bash
 
 killall -9 $1 && ps -e | grep $1
+echo Any survivors?
+ps ax | grep $1
