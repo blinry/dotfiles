@@ -19,7 +19,7 @@ setxkbmap -option ctrl:nocaps -option compose:lwin de nodeadkeys &
 synclient VertEdgeScroll=1
 synclient LeftEdge=0
 synclient RightEdge=0
-# Hide the mouse pointer after 1 second of inactivity.
-unclutter -idle 1 -jitter 2 -root &
+# Hide the mouse pointer after 5 seconds of inactivity.
+unclutter -idle 5 -jitter 2 -root &
 
 awesome -c ~/.awesome/main.lua
