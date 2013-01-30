@@ -35,6 +35,7 @@ make \
 mlocate \
 mplayer \
 mtools \
+namcap \
 net-tools \
 nmap \
 notmuch \
