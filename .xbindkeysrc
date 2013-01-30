@@ -2,12 +2,12 @@
 #   Release, Control, Shift, Mod1 (Alt), Mod2 (NumLock),
 #   Mod3 (CapsLock), Mod4, Mod5 (Scroll).
 
-"amixer set Master toggle"
-    XF86AudioMute
-"amixer sset Master 5%-"
-    XF86AudioLowerVolume
-"amixer sset Master 5%+"
-    XF86AudioRaiseVolume
+# "amixer set Master toggle"
+#     XF86AudioMute
+# "amixer sset Master 5%-"
+#     XF86AudioLowerVolume
+# "amixer sset Master 5%+"
+#     XF86AudioRaiseVolume
 
 "firefox"
     F1 + Mod1

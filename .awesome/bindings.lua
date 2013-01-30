@@ -91,6 +91,19 @@ globalkeys = awful.util.table.join(
         mypromptbox[mouse.screen].widget,
         awful.util.eval, nil,
         awful.util.getdir("cache") .. "/history_eval")
+    end),
+
+    awful.key({}, "XF86AudioRaiseVolume", function()
+        awful.util.spawn("amixer sset Master 5%+")
+        vicious.force({volume})
+    end),
+    awful.key({}, "XF86AudioLowerVolume", function()
+        awful.util.spawn("amixer sset Master 5%-")
+        vicious.force({volume})
+    end),
+    awful.key({}, "XF86AudioMute", function()
+        awful.util.spawn("amixer sset Master toggle")
+        vicious.force({volume})
     end)
 )
 
