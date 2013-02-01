@@ -22,4 +22,6 @@ synclient RightEdge=0
 # Hide the mouse pointer after 5 seconds of inactivity.
 unclutter -idle 5 -jitter 2 -root &
 
+xset b off # turn off system bell
+
 awesome -c ~/.awesome/main.lua

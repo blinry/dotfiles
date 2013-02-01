@@ -1,10 +1,7 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# If X is running, turn off the terminal bell
-if [ "$(ps -e | grep X)" ]; then xset b off; fi
-
-# root gets a red prompt looking like "<path> $ ", everyone else a blue one
+# root gets a red prompt, everyone else a blue one
 if [ `whoami` == "root" ]; then
     export PS1="\[\e[1;31m\]\w\[\e[0m\] "
 else
