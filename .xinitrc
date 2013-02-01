@@ -1,6 +1,6 @@
 devmon --exec-on-drive "notify-send --icon=block-device --urgency=low \"%f has been mounted to %d\"; urxvt -cd %d" --exec-on-unmount "notify-send --icon=block-device --urgency=low \"%f has been unmounted from %d\""&
 
-xrdb ~/.Xresources
+xrdb ~/.xresources
 
 export GTK_IM_MODULE='uim'
 export QT_IM_MODULE='uim'
