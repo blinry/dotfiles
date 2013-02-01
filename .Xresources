@@ -9,41 +9,39 @@ xterm*faceName: Inconsolata
 xterm*faceNameDoublesize: IPAGothic
 xterm*faceSize: 18
 xterm*saveLines: 100000
-! double-click to select whole URLs
+! double-click to select whole URLs:
 xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 
 urxvt*font: xft:Inconsolata:size=18,xft:IPAGothic:size=18
 urxvt*saveLines: 100000
 urxvt*scrollBar: false
 
-*background:	black
-*foreground:	white
-*cursorColor:	#ffffff
-*cursorColor2:	#000000
+*background: black
+*foreground: white
 
-! Tango colorscheme
+! tango-like colorscheme
 
-! Black
+! black dark/light
 *color0:  #2e3436
 *color8:  #555753
-! Red
+! red dark/light
 *color1:  #cc0000
 *color9:  #ef2929
-! Green
+! green dark/light
 *color2:  #4e9a06
 *color10: #8ae234
-! Yellow
+! yellow dark/light
 *color3:  #c4a000
 *color11: #fce94f
-! Blue
+! blue dark/light
 *color4:  #3465a4
 *color12: #729fcf
-! Purple
+! purple dark/light
 *color5:  #75507b
 *color13: #ad7fa8
-! Cyan
+! cyan dark/light
 *color6:  #06989a
 *color14: #34e2e2
-! White
+! white dark/light
 *color7:  #d3d7cf
 *color15: #eeeeec
