@@ -48,7 +48,7 @@ set showcmd " show command as typing and area in visual mode
 set noshowmode " don't show mode in last line, the powerline plugin already does this
 set tabpagemax=99999 " don't limit the number of tabs created by the -p switch
 set viminfo+=n~/.cache/viminfo " save viminfo file in ~/.cache/
-set wildmenu " enhanced command-line completion
+set wildmode=longest:list,full " tab-complete to longest common match, then show all matches
 
 " indentation
 set autoindent " keep indent when starting a new line
