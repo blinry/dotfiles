@@ -66,6 +66,7 @@ set dictionary+=/usr/share/dict/american-english,/usr/share/dict/german
 
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " by default, <F5> saves all files and runs "make"
 map <F5> :wall!<CR>:!make<CR> 
