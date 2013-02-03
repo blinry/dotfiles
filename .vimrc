@@ -64,6 +64,9 @@ let mapleader="," " Use , instead of \ as <Leader>
 
 set dictionary+=/usr/share/dict/american-english,/usr/share/dict/german
 
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
 " by default, <F5> saves all files and runs "make"
 map <F5> :wall!<CR>:!make<CR> 
 map! <F5> <Esc>:wall!<CR>:!make<CR>a
