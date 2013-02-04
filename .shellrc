@@ -1,6 +1,6 @@
 # This file is sourced for each interactive bash or zsh shell
 
-source ~/.secrets
+source ~/.user.local
 
 export FULLNAME="$FIRST_NAME $LAST_NAME"
 export FIRST_NAME
