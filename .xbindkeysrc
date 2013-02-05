@@ -11,7 +11,7 @@
 
 "firefox"
     F1 + Mod1
-"urxvt -e mutt"
+"xterm -e mutt"
     F2 + Mod1
 "pidgin"
     F3 + Mod1
