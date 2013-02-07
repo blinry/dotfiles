@@ -21,6 +21,7 @@ Bundle 'kana/vim-textobj-entire'
 Bundle 'tpope/vim-markdown'
 Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'scrooloose/syntastic'
 
 filetype plugin indent on " activate filetype detection
 syntax on " enable syntax highlighting
