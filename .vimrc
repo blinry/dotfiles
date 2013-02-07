@@ -90,6 +90,10 @@ nnoremap gf <C-W>gf
 nmap <Leader>- yyp:s/./-/g<CR>
 nmap <Leader>= yyp:s/./=/g<CR>
 " }}}
+" n/N center around the cursor {{{
+nnoremap n nzzzv
+nnoremap N Nzzzv
+" }}}
 " }}}
 " Autocommands {{{
 " When opening a file, always jump to the last known cursor position {{{
