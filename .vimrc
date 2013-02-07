@@ -1,3 +1,4 @@
+" Vundle {{{
 set nocompatible " be improved!
 
 " initialize Vundle:
@@ -5,7 +6,8 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" load bundles:
+" }}}
+" Bundles {{{
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-powerline'
@@ -22,12 +24,14 @@ Bundle 'tpope/vim-markdown'
 Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
-
+" }}}
+" Preamble {{{
 filetype plugin indent on " activate filetype detection
 syntax on " enable syntax highlighting
 colorscheme elflord " <3
 set t_Co=256
-
+" }}}
+" Basic options {{{
 set nobackup " don't keep backups
 
 " search settings:
@@ -48,8 +52,11 @@ set showbreak=↳ " display dots in front of wrapped lines
 set showcmd " show command as typing and area in visual mode
 set noshowmode " don't show mode in last line, the powerline plugin already does this
 set tabpagemax=99999 " don't limit the number of tabs created by the -p switch
-set viminfo+=n~/.cache/viminfo " save viminfo file in ~/.cache/
+set history=1024
 set wildmode=longest:list,full " tab-complete to longest common match, then show all matches
+
+set undofile
+set noswapfile
 
 " indentation
 set autoindent " keep indent when starting a new line
@@ -61,11 +68,14 @@ set smartindent " do smart autoindenting for C-like languages
 set colorcolumn=+1 " draw a line after 'textwidth'
 
 set visualbell " flash instead of beeping
+set autoread " automatically read externally modified files
 
 let mapleader="," " Use , instead of \ as <Leader>
+set notimeout " don't timeout on mappings
 
 set dictionary+=/usr/share/dict/american-english,/usr/share/dict/german
-
+" }}}
+" Mappings {{{
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -81,11 +91,18 @@ nmap <Leader>= yyp:s/./=/g<CR>
 
 " when opening a file, always jump to the last known cursor position.
 autocmd bufreadpost *
-\ if line("'\"") > 1 && line("'\"") <= line("$") |
-\   exe "normal! g`\"" |
+\ if line("'\"") > 0 && line("'\"") <= line("$") |
+\   execute 'normal! g`"zvzz' |
 \ endif
 
-" settings for clang_complete:
+" Resize splits when the window is resized
+au Vimresized * :wincmd =
+" }}}
+" Directories {{{
+set undodir=~/.cache/
+set viminfo+=n~/.cache/viminfo " save viminfo file in ~/.cache/
+" }}}
+" clang_complete {{{
 let g:clang_auto_select = 1
 let g:clang_complete_auto = 1
 let g:clang_hl_errors = 1
@@ -93,15 +110,18 @@ let g:clang_close_preview = 1
 let g:clang_user_options = '|| exit 0'
 let g:clang_use_library = 1
 let g:clang_complete_macros = 0
-
-" settings for ultisnips
+" }}}
+" Ultisnips {{{
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=["ultisnips"]
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" include local version of this file, if it exists
+" }}}
+" Include ~.vimrc.local {{{
 if filereadable($HOME."/.vimrc.local")
     source $HOME/.vimrc.local
 endif
+" }}}
+
+" vim: set foldmethod=marker:
