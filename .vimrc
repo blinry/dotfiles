@@ -38,13 +38,13 @@ set incsearch " show matches while typing
 set linebreak " display line breaks at reasonable places
 
 set list
-set listchars=tab:›\ ,trail:·
+set listchars=tab:›\ ,trail:·,extends:❭,precedes:❬
 au InsertEnter * :set listchars-=trail:·
 au InsertLeave * :set listchars+=trail:·
 
 set laststatus=2 " display status line for every window
 set mouse=a " enable mouse use in all modes
-set showbreak=… " display dots in front of wrapped lines
+set showbreak=↳ " display dots in front of wrapped lines
 set showcmd " show command as typing and area in visual mode
 set noshowmode " don't show mode in last line, the powerline plugin already does this
 set tabpagemax=99999 " don't limit the number of tabs created by the -p switch
