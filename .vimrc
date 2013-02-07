@@ -58,6 +58,7 @@ set softtabstop=4 " when editing indentations, edit 4 characters at once
 set shiftwidth=4 " use 4 spaces when (auto)indenting
 set expandtab " on a <Tab>, insert spaces
 set smartindent " do smart autoindenting for C-like languages
+set colorcolumn=+1 " draw a line after 'textwidth'
 
 set visualbell " flash instead of beeping
 
