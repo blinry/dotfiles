@@ -6,7 +6,7 @@ beautiful = require("beautiful")
 naughty = require("naughty")
 vicious = require("vicious")
 
-terminal = "xterm"
+terminal = "urxvt"
 modkey = "Mod1"
 
 function file_exists(name)
