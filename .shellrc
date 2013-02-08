@@ -8,14 +8,13 @@ export LAST_NAME
 export EMAIL
 export LAT
 export LON
+export DEFAULT_USER
+export DEFAULT_HOSTNAME
 
 export GIT_AUTHOR_NAME="$FULLNAME"
 export GIT_AUTHOR_EMAIL="$EMAIL"
 export GIT_COMMITTER_NAME="$FULLNAME"
 export GIT_COMMITTER_EMAIL="$EMAIL"
-
-export DEFAULT_USER="$(whoami)"
-export DEFAULT_HOSTNAME="$(hostname)"
 
 export PATH=$HOME/.bin.local:$HOME/.bin:$PATH
 export EDITOR=vim
