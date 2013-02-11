@@ -39,6 +39,7 @@ namcap \
 net-tools \
 nmap \
 notmuch \
+ntfs-3g \
 offlineimap \
 openssh \
 pacman-color \
