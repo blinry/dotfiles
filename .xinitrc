@@ -11,6 +11,7 @@ uim-toolbar-gtk-systray &
 xbindkeys &
 redshift -l "$LAT:$LON" -t 6000:4400 &
 urxvt &
+mpd &
 xsetroot -solid black
 
 setxkbmap -option ctrl:nocaps -option compose:lwin de nodeadkeys &

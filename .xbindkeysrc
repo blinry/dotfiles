@@ -9,6 +9,15 @@
 # "amixer sset Master 5%+"
 #     XF86AudioRaiseVolume
 
+"mpc toggle"
+    XF86AudioPlay
+"mpc stop"
+     XF86AudioStop
+"mpc prev"
+    XF86AudioPrev
+"mpc next"
+    XF86AudioNext
+
 "firefox"
     F1 + Mod1
 "xterm -e mutt"
