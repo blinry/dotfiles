@@ -20,7 +20,9 @@
 
 "firefox"
     F1 + Mod1
-"xterm -e mutt"
+"urxvt -e mutt"
     F2 + Mod1
-"pidgin"
+"urxvt -e ncmpc"
     F3 + Mod1
+"pidgin"
+    F4 + Mod1
