@@ -20,8 +20,11 @@ setxkbmap -option ctrl:nocaps -option compose:lwin de nodeadkeys &
 synclient VertEdgeScroll=1
 synclient LeftEdge=0
 synclient RightEdge=0
+
 # Hide the mouse pointer after 5 seconds of inactivity.
 unclutter -idle 5 -jitter 2 -root &
+
+xset m 3 0 # move mouse 3 times as fast as normal, use "natural formula"
 
 xset b off # turn off system bell
 
