@@ -22,20 +22,7 @@ function ip_line()
 end
 
 ipwidget = wibox.widget.textbox()
-vicious.register(ipwidget, ip_line, "$1", 60)
-
-function load_line()
-    local f = io.popen("cat /proc/loadavg | cut -d' ' -f1-3")
-    local l = f:lines()
-    local v = ''
-    for line in l do
-        v = line
-    end
-    return {v}
-end
-
-cpuwidget = wibox.widget.textbox()
-vicious.register(cpuwidget, load_line, " $1 ", 60)
+vicious.register(ipwidget, ip_line, " $1", 60)
 
 function battery_line()
     local f = io.popen("battery-status")
@@ -70,9 +57,6 @@ vicious.register(battery, battery_line, "$1", 60)
 
 volume = wibox.widget.textbox()
 vicious.register(volume, vicious.widgets.volume, "$1$2", 60, "Master")
-
-weather = wibox.widget.textbox()
-vicious.register(weather, vicious.widgets.weather, "${tempc}°C", 600, "EDVE")
 
 mysystray = wibox.widget.systray()
 
@@ -111,11 +95,6 @@ for s = 1, screen.count() do
         right_layout:add(bar)
     end
 
-    right_layout:add(cpuwidget)
-    right_layout:add(bar)
-    right_layout:add(blank)
-    right_layout:add(weather)
-    right_layout:add(separator)
     right_layout:add(ipwidget)
     right_layout:add(separator)
     right_layout:add(wifi)
