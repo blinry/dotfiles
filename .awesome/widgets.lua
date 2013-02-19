@@ -8,15 +8,15 @@ bar:set_text("│")
 datewidget = wibox.widget.textbox()
 vicious.register(datewidget, vicious.widgets.date, "%a %Y-%m-%d %H:%M", 60)
 
-wifi = wibox.widget.textbox()
-vicious.register(wifi, vicious.widgets.wifi, "${ssid}:${link}", 60, "wlan0")
-
 function ip_line()
     local f = io.popen("ip addr show wlan0 | grep 'inet ' | cut -d' ' -f6")
     local l = f:lines()
     local v = ''
     for line in l do
         v = line
+    end
+    if v == '' then
+        v = "offline"
     end
     return {v}
 end
@@ -96,8 +96,6 @@ for s = 1, screen.count() do
     end
 
     right_layout:add(ipwidget)
-    right_layout:add(separator)
-    right_layout:add(wifi)
     right_layout:add(separator)
     right_layout:add(volume)
     right_layout:add(separator)
