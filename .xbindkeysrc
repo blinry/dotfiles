@@ -22,7 +22,7 @@
     F1 + Mod1
 "urxvt -e mutt"
     F2 + Mod1
-"urxvt -e ncmpc"
+"urxvt -e ncmpcpp"
     F3 + Mod1
 "pidgin"
     F4 + Mod1
