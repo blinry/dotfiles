@@ -1,9 +1,5 @@
 separator = wibox.widget.textbox()
 separator:set_text(" │ ")
-blank = wibox.widget.textbox()
-blank:set_text(" ")
-bar = wibox.widget.textbox()
-bar:set_text("│")
 
 datewidget = wibox.widget.textbox()
 vicious.register(datewidget, vicious.widgets.date, "%a %Y-%m-%d %H:%M", 60)
@@ -22,7 +18,7 @@ function ip_line()
 end
 
 ipwidget = wibox.widget.textbox()
-vicious.register(ipwidget, ip_line, " $1", 60)
+vicious.register(ipwidget, ip_line, "$1", 60)
 
 function battery_line()
     local f = io.popen("battery-status")
@@ -86,14 +82,12 @@ for s = 1, screen.count() do
 
     local left_layout = wibox.layout.fixed.horizontal()
     -- left_layout:add(mytaglist[s])
+    if s == 1 then
+        left_layout:add(mysystray)
+    end
     left_layout:add(mypromptbox[s])
 
     local right_layout = wibox.layout.fixed.horizontal()
-
-    if s == 1 then
-        right_layout:add(mysystray)
-        right_layout:add(bar)
-    end
 
     right_layout:add(ipwidget)
     right_layout:add(separator)
