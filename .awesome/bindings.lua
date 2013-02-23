@@ -104,6 +104,22 @@ globalkeys = awful.util.table.join(
     awful.key({}, "XF86AudioMute", function()
         awful.util.spawn("amixer sset Master toggle")
         vicious.force({volume})
+    end),
+    awful.key({}, "XF86AudioPlay", function()
+        awful.util.spawn("mpc toggle")
+        vicious.force({mpd})
+    end),
+    awful.key({}, "XF86AudioStop", function()
+        awful.util.spawn("mpc stop")
+        vicious.force({mpd})
+    end),
+    awful.key({}, "XF86AudioPrev", function()
+        awful.util.spawn("mpc prev")
+        vicious.force({mpd})
+    end),
+    awful.key({}, "XF86AudioNext", function()
+        awful.util.spawn("mpc next")
+        vicious.force({mpd})
     end)
 )
 

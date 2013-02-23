@@ -54,6 +54,15 @@ vicious.register(battery, battery_line, "$1", 60)
 volume = wibox.widget.textbox()
 vicious.register(volume, vicious.widgets.volume, "$1$2", 60, "Master")
 
+mpd = wibox.widget.textbox()
+vicious.register(mpd, vicious.widgets.mpd, function (widget, args)
+    if args["{state}"] ~= "Play" then 
+        return ""
+    else 
+        return args["{Artist}"]..' - '..args["{Album}"]..' - '..args["{Title}"]
+    end
+end, 10)
+
 mysystray = wibox.widget.systray()
 
 -- Create a wibox for each screen and add it
@@ -89,6 +98,8 @@ for s = 1, screen.count() do
 
     local right_layout = wibox.layout.fixed.horizontal()
 
+    right_layout:add(mpd)
+    right_layout:add(separator)
     right_layout:add(ipwidget)
     right_layout:add(separator)
     right_layout:add(volume)
