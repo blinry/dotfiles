@@ -100,9 +100,9 @@ for s = 1, screen.count() do
 
     right_layout:add(mpd)
     right_layout:add(separator)
-    right_layout:add(ipwidget)
-    right_layout:add(separator)
     right_layout:add(volume)
+    right_layout:add(separator)
+    right_layout:add(ipwidget)
     right_layout:add(separator)
     right_layout:add(battery)
     right_layout:add(separator)
