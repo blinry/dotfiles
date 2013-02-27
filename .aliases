@@ -22,6 +22,7 @@ alias ls='ls --color=auto -tr'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias df='df -h'
+alias make='make -j$(($(grep -c "^processor" /proc/cpuinfo) + 1))'
 
 # Lazyness
 
