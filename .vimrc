@@ -95,13 +95,6 @@ set fillchars=fold:\
 
 " Mappings
 
-" Disable inefficient commands
-noremap h <NOP>
-noremap j <NOP>
-noremap k <NOP>
-noremap l <NOP>
-noremap x <NOP>
-
 " <Space> to toggle folds
 nnoremap <Space> za
 vnoremap <Space> za
