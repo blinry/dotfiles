@@ -10,6 +10,7 @@ binutils-multilib \
 bison \
 blender \
 clang \
+cowsay \
 cups \
 devmon \
 dialog \
@@ -27,6 +28,7 @@ git \
 gnuplot \
 gparted \
 gvim \
+htop \
 inkscape \
 libtool \
 lsof \
