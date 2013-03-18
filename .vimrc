@@ -11,6 +11,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-endwise'
 Bundle 'blinry/vimboy'
+let g:vimboy_autolink = 1
 Bundle 'blinry/vimgirl'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-commentary'
@@ -37,6 +38,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 filetype plugin indent on " activate filetype detection
 syntax on " enable syntax highlighting
+
 
 " Colors, Hidden Characters
 colorscheme elflord " <3
@@ -142,3 +144,4 @@ au Vimresized * :wincmd =
 if filereadable($HOME."/.vimrc.local")
     source $HOME/.vimrc.local
 endif
+
