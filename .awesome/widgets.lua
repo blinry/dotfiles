@@ -20,6 +20,19 @@ end
 ipwidget = wibox.widget.textbox()
 vicious.register(ipwidget, ip_line, "$1", 60)
 
+function mail_line()
+    local f = io.popen("[ $(ls ~/permanent/mail/INBOX/new | wc -l) != '0' ] && echo ' m'")
+    local l = f:lines()
+    local v = ''
+    for line in l do
+        v = line
+    end
+    return {v}
+end
+
+mailwidget = wibox.widget.textbox()
+vicious.register(mailwidget, mail_line, "$1", 60*10)
+
 function battery_line()
     local f = io.popen("battery-status")
     local l = f:lines()
@@ -104,6 +117,7 @@ for s = 1, screen.count() do
     local right_layout = wibox.layout.fixed.horizontal()
 
     right_layout:add(mpd)
+    right_layout:add(mailwidget)
     right_layout:add(separator)
     right_layout:add(volume)
     right_layout:add(separator)
