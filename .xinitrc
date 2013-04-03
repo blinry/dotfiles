@@ -24,6 +24,7 @@ synclient RightEdge=0
 unclutter -idle 5 -jitter 2 -root &
 
 xset m 3 0 # move mouse 3 times as fast as normal, use "natural formula"
+xset r rate 200 # autorepeat starts after 200 ms
 
 xset b off # turn off system bell
 
