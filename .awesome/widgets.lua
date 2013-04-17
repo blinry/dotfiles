@@ -132,5 +132,5 @@ for s = 1, screen.count() do
     layout:set_right(right_layout)
 
     mywibox[s]:set_widget(layout)
-    mywibox[s].visible = false
+    mywibox[s].visible = true
 end
