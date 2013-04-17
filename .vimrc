@@ -109,7 +109,7 @@ cnoremap <C-n> <Down>
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " <F5> to save all files and run ":!make"
-map <F5> :wall!<CR>:!make<CR> 
+map <F5> :wall!<CR>:!make<CR>
 map! <F5> <Esc>:wall!<CR>:!make<CR>a
 
 " gf to open the file in a new tab
