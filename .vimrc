@@ -13,7 +13,6 @@ Bundle 'tpope/vim-endwise'
 Bundle 'blinry/vimboy'
 let g:vimboy_autolink = 1
 Bundle 'blinry/vimgirl'
-Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-commentary'
 Bundle 'kana/vim-textobj-user'
 Bundle 'kana/vim-textobj-entire'
@@ -22,6 +21,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
 Bundle 'Rip-Rip/clang_complete'
+Bundle 'vim-scripts/matchit.zip'
 let g:clang_auto_select = 1
 let g:clang_complete_auto = 1
 let g:clang_hl_errors = 1
