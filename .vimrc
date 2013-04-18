@@ -20,6 +20,9 @@ Bundle 'tpope/vim-markdown'
 Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
+let g:syntastic_mode_map = { 'mode': 'active',
+            \ 'active_filetypes': [],
+            \ 'passive_filetypes': ['java'] }
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'vim-scripts/matchit.zip'
 let g:clang_auto_select = 1
