@@ -1,3 +1,8 @@
 #!/bin/bash
 
-vim $(which "$1")
+FILENAME=$(which "$1")
+if [ "$FILENAME" = "" ]; then
+    vix "$HOME/.bin.local/$1"
+else
+    vim "$FILENAME"
+fi
