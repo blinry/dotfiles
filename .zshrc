@@ -87,3 +87,7 @@ bindkey "^E" end-of-line
 bindkey "^P" up-line-or-search
 bindkey "^N" down-line-or-search
 bindkey "^R" history-incremental-search-backward
+
+if [ -f ~/.zshrc.local ]; then
+    source ~/.zshrc.local
+fi
