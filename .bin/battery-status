@@ -27,4 +27,4 @@ else
     exit
 fi
 
-echo $(printf %02d $(($MINUTES/60))):$(printf %02d $(($MINUTES % 60)))$SYMBOL
+echo $(printf %1d $(($MINUTES/60))):$(printf %02d $(($MINUTES % 60)))$SYMBOL
