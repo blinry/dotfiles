@@ -24,8 +24,8 @@ export LC_TIME="de_DE.UTF-8"
 export LC_PAPER="de_DE.UTF-8"
 export LC_MONETARY="de_DE.UTF-8"
 
-# Default permissions: (r)wx------
-umask 0022
+# Default permissions: rw(x)------
+umask 0077
 
 source ~/.aliases
 if [ -f ~/.aliases.local ]; then
