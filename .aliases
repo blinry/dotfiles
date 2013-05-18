@@ -1,7 +1,7 @@
 # Aptitude
 
 alias ain='sudo apt-get install'
-alias aup='sudo apt-get update && sudo apt-get upgrade'
+alias aup='sudo apt-get update; sudo apt-get upgrade'
 alias a='apt-cache search'
 alias aout='sudo apt-get remove'
 alias as='aptitude show'
@@ -22,7 +22,6 @@ alias ls='ls --color=auto -tr'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias df='df -h'
-alias make='make -j$(($(grep -c "^processor" /proc/cpuinfo) + 1))'
 
 # Lazyness
 
@@ -37,7 +36,6 @@ alias die='sudo shutdown -h now'
 alias reboot='sudo reboot'
 alias pt='sudo powertop'
 alias pte='watch -n 0.1 ptest'
-alias refox='killall -9 firefox && firefox'
 alias j='jfe -c'
 alias k='rlwrap k'
 alias gemin='sudo gem install --no-user-install'
@@ -47,7 +45,6 @@ alias vimrc='vim ~/.vimrc'
 
 # Handy tools
 
-alias myip='wget -q -O - http://whatismyip.org && echo'
 alias ducks='du -cksh * | sort -h'
 alias ducksa='du -cksh * .??* | sort -h'
 alias murder='killall -9'
