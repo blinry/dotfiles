@@ -1,6 +1,6 @@
 function fish_prompt
     echo -n (set_color blue --bold)
-    echo -n (prompt_pwd)
+    echo -n (pwd | sed "s|^$HOME|~|")
     echo -n (set_color green --bold)
     echo -n " "
     if git rev-parse --git-dir > /dev/null 2>&1
