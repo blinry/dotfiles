@@ -17,7 +17,7 @@ set -x GIT_AUTHOR_EMAIL "$EMAIL"
 set -x GIT_COMMITTER_NAME "$FULLNAME"
 set -x GIT_COMMITTER_EMAIL "$EMAIL"
 
-set -x PATH $HOME/.bin.local $HOME/.bin $PATH
+set -x PATH $HOME/.bin.local $HOME/.bin /usr/sbin $PATH
 set -x EDITOR vim
 
 set -x LANG en_US.UTF-8
