@@ -66,7 +66,7 @@ globalkeys = awful.util.table.join(
         local cwd = f:read("*a")
         f:close()
 
-        awful.util.spawn_with_shell("cd " .. cwd:gsub("\n", "") .. " && " .. terminal)
+        awful.util.spawn_with_shell("cd " .. cwd:gsub("\n", "") .. "; " .. terminal)
     end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),

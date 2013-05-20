@@ -91,6 +91,7 @@ set tabpagemax=99999 " don't limit the number of tabs created by the -p switch
 set visualbell " flash instead of beeping
 let mapleader="," " Use , instead of \ as <Leader>
 set notimeout " don't timeout on mappings
+set shell=/bin/sh
 
 " Spell Checking
 set dictionary+=/usr/share/dict/american-english,/usr/share/dict/german
