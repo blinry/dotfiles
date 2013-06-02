@@ -1,27 +1,5 @@
-separator = wibox.widget.textbox()
-separator:set_text(" │ ")
-
-datewidget = wibox.widget.textbox()
-vicious.register(datewidget, vicious.widgets.date, "%a %Y-%m-%d %H:%M", 60)
-
-function ip_line()
-    local f = io.popen("ip addr show wlan0 | grep 'inet ' | cut -d' ' -f6")
-    local l = f:lines()
-    local v = ''
-    for line in l do
-        v = line
-    end
-    if v == '' then
-        v = "offline"
-    end
-    return {v}
-end
-
-ipwidget = wibox.widget.textbox()
-vicious.register(ipwidget, ip_line, "$1", 60)
-
-function mail_line()
-    local f = io.popen("[ $(ls ~/permanent/mail/INBOX/new | wc -l) != '0' ] && echo ' m'")
+function status_line()
+    local f = io.popen("status-line")
     local l = f:lines()
     local v = ''
     for line in l do
@@ -30,42 +8,8 @@ function mail_line()
     return {v}
 end
 
-mailwidget = wibox.widget.textbox()
-vicious.register(mailwidget, mail_line, "$1", 60*10)
-
-function battery_line()
-    local f = io.popen("battery-status")
-    local l = f:lines()
-    local v = ''
-    for line in l do
-        v = line
-    end
-    return {v}
-end
-
-battery = wibox.widget.textbox()
-vicious.register(battery, battery_line, "$1", 60)
-
---cpuwidget = awful.widget.graph()
---cpuwidget:set_width(100)
---cpuwidget:set_height(25)
---cpuwidget:set_background_color("#000000")
---cpuwidget:set_color("#FFFFFF")
---vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 0.5)
-
---netwidget = awful.widget.graph()
---netwidget:set_width(100)
---netwidget:set_height(25)
---netwidget:set_background_color("#000000")
---netwidget:set_max_value(4)
---netwidget:set_color("#96cbfe")
---vicious.register(netwidget, vicious.widgets.net,
---                    function (widget, args)
---                        return args["{wlan0 down_kb}"]
---                    end, 0.5)
-
-volume = wibox.widget.textbox()
-vicious.register(volume, vicious.widgets.volume, "$1$2", 60, "Master")
+status = wibox.widget.textbox()
+vicious.register(status, status_line, "$1", 60)
 
 mpd = wibox.widget.textbox()
 vicious.register(mpd, vicious.widgets.mpd, function (widget, args)
@@ -117,15 +61,7 @@ for s = 1, screen.count() do
     local right_layout = wibox.layout.fixed.horizontal()
 
     right_layout:add(mpd)
-    right_layout:add(mailwidget)
-    right_layout:add(separator)
-    right_layout:add(volume)
-    right_layout:add(separator)
-    right_layout:add(ipwidget)
-    right_layout:add(separator)
-    right_layout:add(battery)
-    right_layout:add(separator)
-    right_layout:add(datewidget)
+    right_layout:add(status)
 
     local layout = wibox.layout.align.horizontal()
     layout:set_left(left_layout)
