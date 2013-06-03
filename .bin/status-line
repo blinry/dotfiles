@@ -6,4 +6,4 @@ ip=`ip addr show wlan0 | grep 'inet ' | cut -d' ' -f6`
 batt=`battery-status`
 date=`date +"%a %Y-%m-%d %H:%M"`
 
-echo '<span color="#999">'$volume$mute │ $ip │ $batt │ $date'</span>'
+echo $volume$mute │ $ip │ $batt │ $date
