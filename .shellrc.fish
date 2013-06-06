@@ -36,3 +36,8 @@ end
 if test -f ~/.shellrc.local
     . ~/.shellrc.fish.local
 end
+
+function take
+    mkdir $argv
+    cd $argv
+end
