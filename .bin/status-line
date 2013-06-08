@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export LC_TIME=ja_JP.UTF-8
+
 volume=`amixer get 'Master' | grep -o '[0-9]\+%' | head -1 | grep -o '[0-9]\+'`
 mute=`test -n "$(amixer get 'Master'|grep '\[on\]')" && echo ♫ || echo ♩`
 ip=`ip addr show wlan0 | grep 'inet ' | cut -d' ' -f6`
