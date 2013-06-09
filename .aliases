@@ -15,6 +15,7 @@ alias yup='yaourt -Syu --aur --noconfirm'
 alias p='pacman -Ss'
 alias pout='sudo pacman -Rcs'
 alias y='yaourt --noconfirm'
+alias po='pacman -Qo'
 
 # Set default options for some tools
 
