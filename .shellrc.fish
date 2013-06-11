@@ -41,3 +41,5 @@ function take
     mkdir $argv
     cd $argv
 end
+
+test -z "$DISPLAY" -a (tty) = /dev/tty1; and x
