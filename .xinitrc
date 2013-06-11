@@ -26,4 +26,4 @@ xset r rate 150 50 # autorepeat of 50 Hz starts after 150 ms
 
 xset b off # turn off system bell
 
-awesome -c ~/.awesome/main.lua
+exec awesome -c ~/.awesome/main.lua
