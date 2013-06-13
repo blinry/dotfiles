@@ -16,8 +16,8 @@ vicious.register(mpd, vicious.widgets.mpd, function (widget, args)
     if args["{state}"] ~= "Play" then 
         return ""
     else 
-        local l = args["{Artist}"]..' - '..args["{Album}"]..' - '..args["{Title}"]
-        local max_length = 57
+        local l = args["{Artist}"]..' - '..args["{Album}"]..' - '..args["{Title}"]..' │ '
+        local max_length = 64
         if string.len(l) > max_length then
             l = '…'..l:sub(-(max_length-1))
         end
