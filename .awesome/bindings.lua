@@ -102,19 +102,19 @@ globalkeys = awful.util.table.join(
     end),
     awful.key({}, "XF86AudioPlay", function()
         awful.util.spawn("mpc toggle")
-        vicious.force({status})
+        vicious.force({mpd})
     end),
     awful.key({}, "XF86AudioStop", function()
         awful.util.spawn("mpc stop")
-        vicious.force({status})
+        vicious.force({mpd})
     end),
     awful.key({}, "XF86AudioPrev", function()
         awful.util.spawn("mpc prev")
-        vicious.force({status})
+        vicious.force({mpd})
     end),
     awful.key({}, "XF86AudioNext", function()
         awful.util.spawn("mpc next")
-        vicious.force({status})
+        vicious.force({mpd})
     end)
 )
 
