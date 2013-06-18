@@ -11,8 +11,6 @@ urxvt &
 mpd &
 xsetroot -solid black
 
-setxkbmap -option ctrl:nocaps -option compose:lwin de nodeadkeys &
-
 # Use the whole area of the touchpad for scrolling.
 synclient VertEdgeScroll=1
 synclient LeftEdge=0
@@ -22,8 +20,6 @@ synclient RightEdge=0
 unclutter -idle 5 -jitter 2 -root &
 
 xset m 4 0 # move mouse 4 times as fast as normal, use "natural formula"
-xset r rate 150 50 # autorepeat of 50 Hz starts after 150 ms
-
-xset b off # turn off system bell
+init-keyboard
 
 exec awesome -c ~/.awesome/main.lua
