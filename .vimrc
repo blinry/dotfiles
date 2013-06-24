@@ -23,7 +23,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'active_filetypes': [],
-            \ 'passive_filetypes': ['java'] }
+            \ 'passive_filetypes': ['java', 'tex'] }
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'vim-scripts/matchit.zip'
 let g:clang_auto_select = 1
@@ -136,12 +136,6 @@ autocmd bufreadpost *
 \   execute 'normal! g`"zvzz' |
 \   let b:doopenfold = 1 |
 \ endif
-" and open folds around cursor
-autocmd bufwinenter *
-\   if exists("b:doopenfold") |
-\   exe "normal zvzz" |
-\   unlet b:doopenfold |
-\   endif
 
 " Resize splits when the window is resized
 au Vimresized * :wincmd =
