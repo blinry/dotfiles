@@ -1,0 +1,5 @@
+#!/bin/sh
+# This script is designed for urxvt.
+
+SIZE=${1:-18}
+printf '\e]710;%s\007' "xft:monospace:size=$SIZE"
