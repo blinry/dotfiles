@@ -38,7 +38,7 @@ if test -f ~/.shellrc.local
 end
 
 function take
-    mkdir $argv
+    mkdir -p $argv
     cd $argv
 end
 
