@@ -123,6 +123,24 @@ nnoremap gf <C-W>gf
 nmap <Leader>- yyp:s/./-/g<CR>
 nmap <Leader>= yyp:s/./=/g<CR>
 
+map <Leader>, :call Zoomout()<CR><CR>
+map <Leader>. :!fontsize<CR><CR>
+
+function Zoomout()
+    let deffontsize=18
+    let rows=winheight(0)
+    let lines=line('$')
+    let newfontsize=deffontsize*rows/lines
+    if newfontsize > deffontsize
+        let newfontsize=deffontsize
+    endif
+    if newfontsize < 1
+        let newfontsize=1
+    endif
+    execute '!fontsize ' . newfontsize
+    normal zb
+endfunction
+
 " n/N center around the cursor
 nnoremap n nzzzv
 nnoremap N Nzzzv
