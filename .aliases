@@ -17,6 +17,14 @@ alias pout='sudo pacman -Rcs'
 alias y='yaourt --noconfirm'
 alias po='pacman -Qo'
 
+# Git
+
+alias gd='git diff'
+alias ga='git add'
+alias gc='git commit'
+alias gs='git status'
+alias gg='git graph'
+
 # Set default options for some tools
 
 alias ls='ls --color=auto -tr'
