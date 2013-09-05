@@ -72,7 +72,6 @@ set tabstop=4 " a <Tab> is 4 characters long
 set softtabstop=4 " when editing indentations, edit 4 characters at once
 set shiftwidth=4 " use 4 spaces when (auto)indenting
 set expandtab " on a <Tab>, insert spaces
-set smartindent " do smart autoindenting for C-like languages
 set colorcolumn=+1 " draw a line after 'textwidth'
 set linebreak " display line breaks at reasonable places
 
