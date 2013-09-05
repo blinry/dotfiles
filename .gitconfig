@@ -1,6 +1,6 @@
 [core]
     excludesfile = ~/.gitignore_global
-	autocrlf = input
+    autocrlf = input
 [color]
     ui = true
 [alias]
@@ -12,4 +12,6 @@
     graph = log --graph --pretty=oneline --abbrev-commit --all --decorate
     take = checkout -b
 [push]
-	default = current
+    default = current
+[log]
+    decorate = true
