@@ -1,5 +1,3 @@
-set nocompatible " be improved!
-
 " initialize Vundle:
 filetype off
 set rtp+=~/.vim/bundle/vundle/
