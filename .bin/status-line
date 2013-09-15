@@ -8,4 +8,8 @@ ip=`ip addr show wlan0 | grep 'inet ' | cut -d' ' -f6`
 batt=`battery-status`
 date=`date +"%a %Y-%m-%d %H:%M"`
 
+if [ "$ip" == "" ]; then
+    ip="offline"
+fi
+
 echo $volume$mute │ $ip │ $batt │ $date

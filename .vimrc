@@ -5,25 +5,25 @@ call vundle#rc()
 
 " Bundles
 Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'tpope/vim-endwise'
+"Bundle 'tpope/vim-fugitive'
+"Bundle 'Lokaltog/vim-powerline'
+"Bundle 'tpope/vim-endwise'
 Bundle 'blinry/vimboy'
 let g:vimboy_autolink = 1
 Bundle 'blinry/vimgirl'
-Bundle 'tpope/vim-commentary'
-Bundle 'kana/vim-textobj-user'
-Bundle 'kana/vim-textobj-entire'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-markdown'
-Bundle 'mileszs/ack.vim'
-Bundle 'tpope/vim-unimpaired'
+"Bundle 'tpope/vim-commentary'
+"Bundle 'kana/vim-textobj-user'
+"Bundle 'kana/vim-textobj-entire'
+"Bundle 'kien/ctrlp.vim'
+"Bundle 'tpope/vim-markdown'
+"Bundle 'mileszs/ack.vim'
+"Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'active_filetypes': [],
             \ 'passive_filetypes': ['java', 'tex'] }
-Bundle 'Rip-Rip/clang_complete'
-Bundle 'vim-scripts/matchit.zip'
+"Bundle 'Rip-Rip/clang_complete'
+"Bundle 'vim-scripts/matchit.zip'
 let g:clang_auto_select = 1
 let g:clang_complete_auto = 1
 let g:clang_hl_errors = 1
@@ -76,7 +76,7 @@ set linebreak " display line breaks at reasonable places
 " Status Line
 set laststatus=2 " display status line for every window
 set showcmd " show command as typing and area in visual mode
-set noshowmode " don't show mode in last line, the powerline plugin already does this
+"set noshowmode " don't show mode in last line, the powerline plugin already does this
 
 " History, Command mode
 set history=1024
