@@ -2,6 +2,6 @@ highlight -a Hint font-size: 18px;
 highlight -a StatusLine font-size: 18px;
 highlight -a CmdLine font-size: 18px;
 
-set defsearch=d
+set defsearch=google
 
 map w t !w<Left><Left><Left>
