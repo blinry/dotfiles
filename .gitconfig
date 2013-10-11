@@ -1,17 +1,17 @@
-[core]
-    excludesfile = ~/.gitignore_global
-    autocrlf = input
-[color]
-    ui = true
 [alias]
-    ci = commit
-    co = checkout
-    st = status
-    df = diff
-    dfw = diff --color-words
-    graph = log --graph --pretty=oneline --abbrev-commit --all --decorate
-    take = checkout -b
-[push]
-    default = current
+	ci = commit
+	co = checkout
+	df = diff
+	dfw = diff --color-words
+	graph = log --graph --pretty=oneline --abbrev-commit --all --decorate
+	st = status
+	take = checkout -b
+[core]
+	autocrlf = input
+	excludesfile = ~/.gitignore_global
+[color]
+	ui = true
 [log]
-    decorate = true
+	decorate = true
+[push]
+	default = current
