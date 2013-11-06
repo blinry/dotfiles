@@ -53,14 +53,14 @@ for s = 1, screen.count() do
 
     local left_layout = wibox.layout.fixed.horizontal()
     -- left_layout:add(mytaglist[s])
-    if s == 1 then
-        left_layout:add(mysystray)
-    end
     left_layout:add(mypromptbox[s])
 
     local right_layout = wibox.layout.fixed.horizontal()
 
     right_layout:add(mpd)
+    if s == 1 then
+        right_layout:add(mysystray)
+    end
     right_layout:add(status)
 
     local layout = wibox.layout.align.horizontal()
