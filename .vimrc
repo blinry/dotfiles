@@ -3,40 +3,48 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" Bundles
+" obligatory
 Bundle 'gmarik/vundle'
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'Lokaltog/vim-powerline'
-"Bundle 'tpope/vim-endwise'
+" support for the 'nutsh' language
+Bundle 'blinry/vim-nutsh'
+" dead simple personal wiki plugin
 Bundle 'blinry/vimboy'
-let g:vimboy_autolink = 1
-Bundle 'blinry/vimgirl'
-"Bundle 'tpope/vim-commentary'
-"Bundle 'kana/vim-textobj-user'
-"Bundle 'kana/vim-textobj-entire'
-"Bundle 'kien/ctrlp.vim'
-"Bundle 'tpope/vim-markdown'
-"Bundle 'mileszs/ack.vim'
-"Bundle 'tpope/vim-unimpaired'
+    let g:vimboy_autolink = 1
+" 'e' text object is the entire file
+Bundle 'kana/vim-textobj-entire'
+" needed for 'vim-textobj-entire'
+Bundle 'kana/vim-textobj-user'
+" open files *fast*!
+Bundle 'kien/ctrlp.vim'
+" :Ack function
+Bundle 'mileszs/ack.vim'
+" autocompletion for C/++ with clang
+Bundle 'Rip-Rip/clang_complete'
+    let g:clang_auto_select = 1
+    let g:clang_close_preview = 1
+    let g:clang_complete_auto = 1
+    let g:clang_complete_macros = 0
+    let g:clang_hl_errors = 1
+    let g:clang_use_library = 1
+    let g:clang_user_options = '|| exit 0'
+" show errors in code upon write
 Bundle 'scrooloose/syntastic'
-let g:syntastic_mode_map = { 'mode': 'active',
-            \ 'active_filetypes': [],
-            \ 'passive_filetypes': ['java', 'tex'] }
-"Bundle 'Rip-Rip/clang_complete'
-"Bundle 'vim-scripts/matchit.zip'
-let g:clang_auto_select = 1
-let g:clang_complete_auto = 1
-let g:clang_hl_errors = 1
-let g:clang_close_preview = 1
-let g:clang_user_options = '|| exit 0'
-let g:clang_use_library = 1
-let g:clang_complete_macros = 0
+    let g:syntastic_mode_map = { 'mode': 'active',
+                               \ 'active_filetypes': [],
+                               \ 'passive_filetypes': ['java', 'tex'] }
+" snippets, duh!
 Bundle 'SirVer/ultisnips'
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetDirectories=["ultisnips"]
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+    let g:UltiSnipsEditSplit="vertical"
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+    let g:UltiSnipsJumpForwardTrigger="<tab>"
+    let g:UltiSnipsSnippetDirectories=["ultisnips"]
+" in Ruby, insert 'end' statements automatically
+Bundle 'tpope/vim-endwise'
+" improved markdown support
+Bundle 'tpope/vim-markdown'
+" Enhance % for various languages
+Bundle 'vim-scripts/matchit.zip'
 
 filetype plugin indent on " activate filetype detection
 syntax on " enable syntax highlighting
