@@ -17,6 +17,9 @@ alias pout='sudo pacman -Rcs'
 alias y='yaourt --noconfirm'
 alias po='pacman -Qo'
 
+alias net-auto='sudo netctl stop-all; sudo systemctl restart netctl-auto@wlan0'
+alias net-profile='sudo systemctl stop netctl-auto@wlan0; sudo netctl restart'
+
 # Git
 
 alias gd='git diff'
