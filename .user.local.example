@@ -1,6 +1,7 @@
 FIRST_NAME="Firstname"
 LAST_NAME="Lastname"
 EMAIL="user@domain.tld"
+GPGKEYID="000000000"
 
 DEFAULT_USER="user"
 DEFAULT_HOSTNAME="hostname"

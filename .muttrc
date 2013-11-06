@@ -90,3 +90,4 @@ set from     = ${EMAIL}
 set sendmail = "/usr/bin/msmtp"
 set sendmail_wait = 0
 
+source ~/.mutt/gpg
