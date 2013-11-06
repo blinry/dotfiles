@@ -2,4 +2,4 @@
 
 setxkbmap -option ctrl:nocaps -option compose:lwin de nodeadkeys &
 xset b off # turn off system bell
-xset r rate 150 50 # autorepeat of 50 Hz starts after 150 ms
+xset r rate 130 70 # autorepeat of \1 Hz starts after \2 ms
