@@ -92,6 +92,7 @@ set wildmode=longest:list,full " tab-complete to longest common match, then show
 
 " User Interface
 set mouse=a " enable mouse use in all modes
+set completeopt=menu,menuone,longest
 set tabpagemax=99999 " don't limit the number of tabs created by the -p switch
 set visualbell " flash instead of beeping
 let mapleader="," " Use , instead of \ as <Leader>
