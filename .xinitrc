@@ -19,7 +19,7 @@ synclient RightEdge=0
 # Hide the mouse pointer after 5 seconds of inactivity.
 unclutter -idle 5 -jitter 2 -root &
 
-xset m 4 0 # move mouse 4 times as fast as normal, use "natural formula"
+xset m 3 0 # move mouse 3 times as fast as normal, use "natural formula" for acceleration
 init-keyboard
 
 exec awesome -c ~/.awesome/main.lua
