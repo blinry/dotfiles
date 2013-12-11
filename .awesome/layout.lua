@@ -22,7 +22,7 @@ for s = 1, screen.count() do
     --tags[s] = awful.tag({ "web", "dev", "chat", "music", "fs", "art" }, s, layouts[1])
     --tags[s] = awful.tag({ "1", "2", "3", "4", "5", "6" }, s, layouts[1])
     --tags[s] = awful.tag({ "木", "火", "土", "水", "金" }, s, layouts[1])
-    tags[s] = awful.tag({ "1", "2" }, s, layouts[1])
+    tags[s] = awful.tag({ "1", "2", "3" }, s, layouts[1])
     --tags[s] = awful.tag({ "月", "火", "水", "木", "金" , "土" , "日" }, s, layouts[1])
     --tags[s] = awful.tag({ "一", "二", "三", "四", "五" }, s, layouts[1])
 end
