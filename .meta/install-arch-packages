@@ -86,6 +86,6 @@ libgit2 \
 mutt-sidebar \
 otf-ipafont \
 rxvt-unicode-patched \
-ttf-google-webfonts \
+ttf-google-fonts-git \
 ttf-mac-fonts \
 ttf-ms-fonts
