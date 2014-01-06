@@ -23,11 +23,6 @@ hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 
 hc keybind $Mod-Return spawn urxvt
-hc keybind $Mod-F1 spawn firefox
-hc keybind $Mod-F2 spawn "urxvt -e mutt"
-hc keybind $Mod-F3 spawn "urxvt -e wiki"
-hc keybind $Mod-F4 spawn "urxvt -e ncmpcpp"
-hc keybind $Mod-F5 spawn "liferea"
 
 # basic movement
 # focusing clients
@@ -146,3 +141,5 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 # hc set_monitors 1280x1024+0+0 1280x1024+1280+0
 # or simply:
 # hc detect_monitors
+
+source ~/.herbstluftwm/autostart.local
