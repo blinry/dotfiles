@@ -55,6 +55,7 @@ alias gemin='sudo gem install --no-user-install'
 alias vi='vim'
 alias si='sudo vim'
 alias vimrc='vim ~/.vimrc'
+alias hc='herbstclient'
 
 # Handy tools
 
