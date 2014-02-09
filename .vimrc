@@ -45,6 +45,14 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-markdown'
 " Enhance % for various languages
 Bundle 'vim-scripts/matchit.zip'
+" Move visual selections around
+Bundle 'shinokada/dragvisuals.vim'
+    vmap <expr> H DVB_Drag('left')
+    vmap <expr> L DVB_Drag('right')
+    vmap <expr> J DVB_Drag('down')
+    vmap <expr> K DVB_Drag('up')
+    vmap <expr> P DVB_Duplicate()
+    let g:DVB_TrimWS = 1 " remove trailing whitespace after moving...
 
 filetype plugin indent on " activate filetype detection
 syntax on " enable syntax highlighting
