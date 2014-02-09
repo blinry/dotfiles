@@ -22,4 +22,4 @@ unclutter -idle 5 -jitter 2 -root &
 xset m 3 0 # move mouse 3 times as fast as normal, use "natural formula" for acceleration
 init-keyboard
 
-exec herbstluftwm -c ~/.herbstluftwm/autostart
+exec awesome -c ~/.awesome/main.lua
