@@ -156,10 +156,6 @@ function Zoomout()
     normal zb
 endfunction
 
-" n/N center around the cursor
-nnoremap n nzzzv
-nnoremap N Nzzzv
-
 " Autocommands
 
 " When opening a file, always jump to the last known cursor position
@@ -175,4 +171,3 @@ au Vimresized * :wincmd =
 if filereadable($HOME."/.vimrc.local")
     source $HOME/.vimrc.local
 endif
-
