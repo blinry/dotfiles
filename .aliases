@@ -7,7 +7,7 @@ alias aout='sudo apt-get remove'
 alias as='aptitude show'
 alias eas='sudo vi /etc/apt/sources.list'
 
-# Pacman
+# Arch
 
 alias pin='sudo pacman -S'
 alias pup='sudo pacman -Su'
@@ -19,6 +19,9 @@ alias po='pacman -Qo'
 
 alias net-auto='sudo netctl stop-all; sudo systemctl restart netctl-auto@wlan0'
 alias net-profile='sudo systemctl stop netctl-auto@wlan0; sudo netctl restart'
+
+alias mnt-auto='sudo systemctl restart mnt-usb.automount'
+alias mnt-stop='sudo systemctl stop mnt-usb.mount'
 
 # Git
 
