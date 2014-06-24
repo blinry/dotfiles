@@ -42,4 +42,12 @@ function take
     cd $argv
 end
 
+function unwrap
+    set DIR (aunpack -q "$argv" 2>&1 | grep -Po "(?<=\`).*(?=')")
+    if test -d "$DIR"
+        rm "$argv"
+        cd "$DIR"
+    end
+end
+
 test -z "$DISPLAY" -a (tty) = /dev/tty1; and x
