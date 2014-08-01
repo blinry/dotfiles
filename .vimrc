@@ -161,7 +161,7 @@ endfunction
 " When opening a file, always jump to the last known cursor position
 autocmd bufreadpost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
-\   execute 'normal! g`"zvzz' |
+\   execute 'normal! g`"zv' |
 \   let b:doopenfold = 1 |
 \ endif
 
