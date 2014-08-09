@@ -1,4 +1,4 @@
-snippet fmail "Formal mail (German)" !b
+snippet fmail
 Sehr geehrte${1: Damen und Herren},
 
 $0
@@ -7,7 +7,7 @@ Freundliche Grüße,
 `echo "$FIRST_NAME"`${2:`echo " $LAST_NAME"`}
 endsnippet
 
-snippet mail "Informal mail (German)" !b
+snippet mail
 ${1:Hey},
 
 $0
@@ -16,17 +16,17 @@ Freundliche Grüße,
 `echo "$FIRST_NAME"`
 endsnippet
 
-snippet fg "Freundliche Grüße, Name" !b
+snippet fg
 Freundliche Grüße,
 `echo "$FIRST_NAME"`${0:`echo " $LAST_NAME"`}
 endsnippet
 
-snippet lg "Liebe Grüße, Vorname" !b
+snippet lg
 Liebe Grüße,
 `echo "$FIRST_NAME"`
 endsnippet
 
-snippet kr "Kind regards, Name" !b
+snippet kr
 Kind regards,
 `echo "$FIRST_NAME"`${0:`echo " $LAST_NAME"`}
 endsnippet
