@@ -80,6 +80,10 @@ set ignorecase " ignore case in search patterns
 set smartcase " ... unless pattern contains upper case charecters
 set incsearch " show matches while typing
 
+" Editing
+
+set nojoinspaces " when joining lines, don't insert two spaces after punctuation
+
 " Indentation, Linebreak
 set autoindent " keep indent when starting a new line
 set tabstop=4 " a <Tab> is 4 characters long
