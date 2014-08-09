@@ -41,6 +41,7 @@ alias egrep='egrep --color=auto'
 alias df='df -h'
 alias free='free -h'
 alias mpv='mpv --save-position-on-quit'
+alias objdump='objdump -Mintel'
 
 # Lazyness
 
