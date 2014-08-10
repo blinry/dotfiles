@@ -47,6 +47,7 @@ Bundle 'Valloric/YouCompleteMe'
     let g:ycm_extra_conf_globlist = ['~/.ycm_extra_conf.py']
     let g:ycm_key_list_select_completion = ['<C-n>']
     let g:ycm_key_list_previous_completion = ['<C-p>']
+    let g:ycm_filetype_blacklist = {'qf':1, 'markdown':1, 'vimboy':1, 'mail':1 }
 " For compability between YCM and UltiSnips
 Bundle 'ervandew/supertab'
     let g:SuperTabDefaultCompletionType = '<C-n>'
