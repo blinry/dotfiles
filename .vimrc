@@ -54,7 +54,6 @@ Bundle 'ervandew/supertab'
 filetype plugin indent on " activate filetype detection
 syntax on " enable syntax highlighting
 
-
 " Colors, Hidden Characters
 colorscheme elflord " <3
 set t_Co=256
@@ -78,7 +77,6 @@ set smartcase " ... unless pattern contains upper case charecters
 set incsearch " show matches while typing
 
 " Editing
-
 set nojoinspaces " when joining lines, don't insert two spaces after punctuation
 
 " Indentation, Linebreak
@@ -133,7 +131,7 @@ map <F5> :wall!<CR>:!make<CR>
 map! <F5> <Esc>:wall!<CR>:!make<CR>a
 
 " gf to open the file in a new tab
-nnoremap gf <C-W>gf 
+nnoremap gf <C-W>g
 
 " <Leader>-/= to underline the current line with -'s or ='s
 nmap <Leader>- yyp:s/./-/g<CR>
