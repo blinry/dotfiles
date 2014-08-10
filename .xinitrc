@@ -1,11 +1,5 @@
 xrdb ~/.xresources
 
-export GTK_IM_MODULE='uim'
-export QT_IM_MODULE='uim'
-uim-xim &
-export XMODIFIERS=@im='uim'
-uim-toolbar-gtk-systray &
-
 redshift -l "$LAT:$LON" -t 6000:4400 &
 urxvt &
 mpd &
