@@ -16,17 +16,6 @@ Bundle 'kana/vim-textobj-entire'
 Bundle 'kana/vim-textobj-user'
 " open files *fast*!
 Bundle 'kien/ctrlp.vim'
-" :Ack function
-Bundle 'mileszs/ack.vim'
-" autocompletion for C/++ with clang
-Bundle 'Rip-Rip/clang_complete'
-    let g:clang_auto_select = 1
-    let g:clang_close_preview = 1
-    let g:clang_complete_auto = 1
-    let g:clang_complete_macros = 0
-    let g:clang_hl_errors = 1
-    let g:clang_use_library = 1
-    let g:clang_user_options = '|| exit 0'
 " show errors in code upon write
 Bundle 'scrooloose/syntastic'
     let g:syntastic_mode_map = { 'mode': 'active',
@@ -53,6 +42,14 @@ Bundle 'shinokada/dragvisuals.vim'
     vmap <expr> K DVB_Drag('up')
     vmap <expr> P DVB_Duplicate()
     let g:DVB_TrimWS = 1 " remove trailing whitespace after moving...
+" Very smart autocompletion
+Bundle 'Valloric/YouCompleteMe'
+    let g:ycm_extra_conf_globlist = ['~/.ycm_extra_conf.py']
+    let g:ycm_key_list_select_completion = ['<C-n>']
+    let g:ycm_key_list_previous_completion = ['<C-p>']
+" For compability between YCM and UltiSnips
+Bundle 'ervandew/supertab'
+    let g:SuperTabDefaultCompletionType = '<C-n>'
 
 filetype plugin indent on " activate filetype detection
 syntax on " enable syntax highlighting
