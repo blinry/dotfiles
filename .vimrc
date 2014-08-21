@@ -3,6 +3,7 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle 'tommcdo/vim-exchange'
 " obligatory
 Bundle 'gmarik/vundle'
 " support for the 'nutsh' language
@@ -47,7 +48,8 @@ Bundle 'Valloric/YouCompleteMe'
     let g:ycm_extra_conf_globlist = ['~/.ycm_extra_conf.py']
     let g:ycm_key_list_select_completion = ['<C-n>']
     let g:ycm_key_list_previous_completion = ['<C-p>']
-    let g:ycm_filetype_blacklist = {'qf':1, 'markdown':1, 'vimboy':1, 'mail':1 }
+    let g:ycm_filetype_blacklist = {'qf':1, 'markdown':1, 'vimboy':1,
+                                  \ 'mail':1, 'text':1}
 " For compability between YCM and UltiSnips
 Bundle 'ervandew/supertab'
     let g:SuperTabDefaultCompletionType = '<C-n>'
@@ -56,8 +58,7 @@ filetype plugin indent on " activate filetype detection
 syntax on " enable syntax highlighting
 
 " Colors, Hidden Characters
-colorscheme elflord " <3
-set t_Co=256
+colorscheme velvetopia
 set list
 set listchars=tab:›\ ,trail:·,extends:❭,precedes:❬
 au InsertEnter * :set listchars-=trail:·
@@ -112,7 +113,8 @@ set dictionary+=/usr/share/dict/american-english,/usr/share/dict/german
 
 " Folding
 set foldtext=getline(v:foldstart)
-set fillchars=fold:\ 
+"set fillchars=fold:\ 
+highlight Folded ctermbg=DarkBlue ctermfg=None
 
 " Mappings
 
@@ -127,9 +129,8 @@ cnoremap <C-n> <Down>
 " :%% expands to path of current file
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" <F5> to save all files and run ":!make"
-map <F5> :wall!<CR>:!make<CR>
-map! <F5> <Esc>:wall!<CR>:!make<CR>a
+" <F5> to save all files and run make
+map <F5> :wall!<CR>:make<CR>
 
 " gf to open the file in a new tab
 nnoremap gf <C-W>g
@@ -141,7 +142,7 @@ nmap <Leader>= yyp:s/./=/g<CR>
 map <Leader>, :call Zoomout()<CR><CR>
 map <Leader>. :!fontsize<CR><CR>
 
-function Zoomout()
+function! Zoomout()
     let deffontsize=18
     let rows=winheight(0)
     let lines=line('$')
