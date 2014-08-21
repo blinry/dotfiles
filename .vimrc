@@ -91,9 +91,7 @@ set colorcolumn=+1 " draw a line after 'textwidth'
 set linebreak " display line breaks at reasonable places
 
 " Status Line
-set laststatus=2 " display status line for every window
 set showcmd " show command as typing and area in visual mode
-"set noshowmode " don't show mode in last line, the powerline plugin already does this
 
 " History, Command mode
 set history=1024
@@ -113,16 +111,13 @@ set dictionary+=/usr/share/dict/american-english,/usr/share/dict/german
 
 " Folding
 set foldtext=getline(v:foldstart)
-"set fillchars=fold:\ 
+set fillchars=fold:\ 
 highlight Folded ctermbg=DarkBlue ctermfg=None
 
 " Mappings
 
-" <Space> to toggle folds
 nnoremap <Space> za
-vnoremap <Space> za
 
-" <C-p>/<C-n> for <Up>/<Down>
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
