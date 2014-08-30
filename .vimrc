@@ -121,6 +121,11 @@ nnoremap <Space> za
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
+nnoremap gj j
+nnoremap gk k
+nnoremap j gj
+nnoremap k gk
+
 " :%% expands to path of current file
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
