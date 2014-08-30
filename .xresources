@@ -12,20 +12,20 @@ urxvt*scrollBar: false
 *background: black
 *foreground: white
 
-! tango-like colorscheme
+! Tango colorscheme
 
 ! black dark/light
 *color0:  #2e3436
 *color8:  #555753
 ! red dark/light
-*color1:  #cc0000
-*color9:  #ef2929
+*color1:  #a40000
+*color9:  #cc0000
 ! green dark/light
-*color2:  #4e9a06
-*color10: #8ae234
+*color2:  #307000
+*color10: #4e9a06
 ! yellow dark/light
-*color3:  #c4a000
-*color11: #fce94f
+*color3:  #ce5c00
+*color11: #edd400
 ! blue dark/light
 *color4:  #3465a4
 *color12: #729fcf
