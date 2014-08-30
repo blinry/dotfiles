@@ -3,5 +3,6 @@ highlight -a StatusLine font-size: 18px;
 highlight -a CmdLine font-size: 18px;
 
 set defsearch=google
+set editor="urvxt -e vim"
 
 map w t !w<Left><Left><Left>
