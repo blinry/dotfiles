@@ -4,5 +4,8 @@ highlight -a CmdLine font-size: 18px;
 
 set defsearch=google
 set editor="urvxt -e vim"
+set shell="bash"
 
 map w t !w<Left><Left><Left>
+
+silent source ~/.vimperatorrc.local
