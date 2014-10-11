@@ -3,6 +3,8 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle 'derekwyatt/vim-scala'
+Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'tommcdo/vim-exchange'
 " obligatory
 Bundle 'gmarik/vundle'
