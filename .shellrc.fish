@@ -25,6 +25,8 @@ set -x LC_TIME de_DE.UTF-8
 set -x LC_PAPER de_DE.UTF-8
 set -x LC_MONETARY de_DE.UTF-8
 
+set -e GREP_OPTIONS
+
 # Default permissions: rw(x)------
 umask 0077
 
@@ -49,5 +51,3 @@ function unwrap
         cd "$DIR"
     end
 end
-
-test -z "$DISPLAY" -a (tty) = /dev/tty1; and x
