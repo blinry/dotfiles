@@ -90,4 +90,7 @@ set from     = ${EMAIL}
 set sendmail = "/usr/bin/msmtp"
 set sendmail_wait = 0
 
+set alias_file = "~/.mutt/aliases"
+
 source ~/.mutt/gpg
+source ~/.mutt/aliases
