@@ -122,7 +122,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 map <F5> :wall!<CR>:make<CR>
 
 " gf to open the file in a new tab
-nnoremap gf <C-W>g
+nnoremap gf <C-W>gf
 
 " <Leader>-/= to underline the current line with -'s or ='s
 nmap <Leader>- yyp:s/./-/g<CR>
