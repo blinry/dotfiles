@@ -5,4 +5,4 @@ mute=`test -n "$(amixer get 'Master'|grep '\[on\]')" && echo ♫ || echo ✗`
 batt=`battery-status`
 date=`date +"%Y-%m-%d %H:%M"`
 
-echo " │ $volume$mute │ $batt │ $date"
+echo "$volume$mute │ $batt │ $date"

@@ -19,4 +19,4 @@ init-keyboard
 journalctl -f -n0 -p3 | sed 1d -u | xargs -d'\n' -I{} notify-send -u critical -- {} &
 journalctl -f -n0 -p5..5 | sed 1d -u | xargs -d'\n' -I{} notify-send -- {} &
 
-exec awesome -c ~/.awesome/main.lua
+exec i3
