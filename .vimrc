@@ -155,6 +155,8 @@ autocmd bufreadpost *
 \   let b:doopenfold = 1 |
 \ endif
 
+nnoremap p p=`]
+
 " Resize splits when the window is resized
 au Vimresized * :wincmd =
 
