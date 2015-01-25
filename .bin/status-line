@@ -1,8 +1,10 @@
 #!/bin/sh
 
+np=`test -n "$(mpc|grep '\[playing\]')" && echo "$(mpc|head -1) │ "`
 volume=`amixer get 'Master' | grep -o '[0-9]\+%' | head -1 | grep -o '[0-9]\+'`
 mute=`test -n "$(amixer get 'Master'|grep '\[on\]')" && echo ♫ || echo ✗`
 batt=`battery-status`
 date=`date +"%Y-%m-%d %H:%M"`
 
-echo "$volume$mute │ $batt │ $date"
+echo "$np$volume$mute │ $batt │ $date"
+sleep 10
