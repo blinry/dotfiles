@@ -16,7 +16,4 @@ unclutter -idle 5 -jitter 2 -root &
 xset m 3 0 # move mouse 3 times as fast as normal, use "natural formula" for acceleration
 init-keyboard
 
-journalctl -f -n0 -p3 | sed 1d -u | xargs -d'\n' -I{} notify-send -u critical -- {} &
-journalctl -f -n0 -p5..5 | sed 1d -u | xargs -d'\n' -I{} notify-send -- {} &
-
 exec i3
