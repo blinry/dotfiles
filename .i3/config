@@ -98,9 +98,9 @@ bindsym $mod+F2 exec urxvt -e mutt
 bindsym $mod+F3 exec urxvt -e wiki
 bindsym $mod+F4 exec urxvt -e ncmpcpp
 bindsym $mod+F5 exec liferea
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 -- +10% && killall status-line
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -10% && killall status-line
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && killall status-line
+bindsym XF86AudioRaiseVolume exec pactl -- set-sink-volume 1 +10% && killall status-line
+bindsym XF86AudioLowerVolume exec pactl -- set-sink-volume 1 -10% && killall status-line
+bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle && killall status-line
 bindsym XF86AudioPlay exec mpc toggle && killall status-line
 bindsym XF86AudioStop exec mpc stop && killall status-line
 bindsym XF86AudioPrev exec mpc prev && killall status-line
