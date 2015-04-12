@@ -21,8 +21,6 @@ set record = "+Sent"
 set postponed = "+Drafts"
 set mbox = "+INBOX"
 
-set sidebar_width=18
-set sidebar_visible=yes
 set status_chars  = " *%A"
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 
@@ -30,10 +28,6 @@ set date_format = "%Y-%m-%d"
 set index_format = "%Z %D %-20.20F %s"
 set sort = last-date-received  # like gmail
 set uncollapse_jump                        # don't collapse on an unread message
-
-bind index,pager \CP sidebar-prev
-bind index,pager \CN sidebar-next
-bind index,pager \CO sidebar-open
 
 source ~/.mutt/mutt.color
 
