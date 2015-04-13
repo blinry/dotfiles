@@ -2,11 +2,11 @@ sudo pacman -Sy \
 abs \
 acpi \
 alsa-utils \
+aurvote \
 autoconf \
 automake \
 awesome \
 bash-completion \
-binutils-multilib \
 bison \
 blender \
 clang \
@@ -22,21 +22,24 @@ feh \
 firefox \
 flashplugin \
 flex \
-gcc-multilib \
 gimp \
 git \
 gnuplot \
 gparted \
 gvim \
 htop \
+i3-wm \
 inkscape \
+libgit2 \
 libtool \
 lsof \
 m4 \
 make \
 mlocate \
+mpc \
 mplayer \
 mtools \
+mutt \
 namcap \
 net-tools \
 nmap \
@@ -44,6 +47,7 @@ notmuch \
 ntfs-3g \
 offlineimap \
 openssh \
+otf-ipafont \
 patch \
 pidgin \
 pidgin-otr \
@@ -57,7 +61,6 @@ texlive-core \
 texlive-science \
 transmission-gtk \
 ttf-dejavu \
-ttf-inconsolata \
 ttf-linux-libertine \
 uim \
 unclutter \
@@ -80,11 +83,8 @@ yaourt \
 zsh
 
 sudo yaourt --noconfirm -Sa \
-aurvote \
-libgit2 \
-mutt-sidebar \
-otf-ipafont \
 rxvt-unicode-patched \
 ttf-google-fonts-git \
 ttf-mac-fonts \
-ttf-ms-fonts
+ttf-ms-fonts \
+xcwd-git
