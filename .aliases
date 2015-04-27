@@ -1,11 +1,11 @@
-# Aptitude
+# Systemd
 
-alias ain='sudo apt-get install'
-alias aup='sudo apt-get update; sudo apt-get upgrade'
-alias a='apt-cache search'
-alias aout='sudo apt-get remove'
-alias as='aptitude show'
-alias eas='sudo vi /etc/apt/sources.list'
+alias start='sudo systemctl start'
+alias stop='sudo systemctl stop'
+alias restart='sudo systemctl restart'
+alias enable='sudo systemctl enable'
+alias disable='sudo systemctl disable'
+alias state='sudo systemctl status'
 
 # Arch
 
