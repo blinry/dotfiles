@@ -1,0 +1,6 @@
+#!/bin/sh
+
+status-line
+while true; do
+    status-line
+done
