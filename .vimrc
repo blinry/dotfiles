@@ -105,7 +105,7 @@ set dictionary+=/usr/share/dict/american-english,/usr/share/dict/german
 
 " Folding
 set foldtext=getline(v:foldstart)
-set fillchars=fold:\ 
+set fillchars=fold:\
 highlight Folded ctermbg=DarkBlue ctermfg=None
 
 " Mappings
