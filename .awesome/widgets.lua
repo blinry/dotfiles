@@ -13,9 +13,9 @@ vicious.register(status, status_line, "$1", 60)
 
 mpd = wibox.widget.textbox()
 vicious.register(mpd, vicious.widgets.mpd, function (widget, args)
-    if args["{state}"] ~= "Play" then 
+    if args["{state}"] ~= "Play" then
         return ""
-    else 
+    else
         local l = args["{Artist}"]..' - '..args["{Album}"]..' - '..args["{Title}"]..' │ '
         local max_length = 64
         if string.len(l) > max_length then
