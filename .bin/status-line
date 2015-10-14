@@ -1,10 +1,15 @@
 #!/bin/sh
 
+if hash todo-status 2>/dev/null; then
+    todo="`todo-status` │ "
+else
+    todo=""
+fi
 np=`test -n "$(mpc|grep '\[playing\]')" && echo "$(mpc|head -1) │ "`
 volume=`amixer get 'Master' | grep -o '[0-9]\+%' | head -1 | grep -o '[0-9]\+'`
 mute=`test -n "$(amixer get 'Master'|grep '\[on\]')" && echo ♫ || echo ✗`
 batt=`battery-status`
 date=`date +"%Y-%m-%d %H:%M"`
 
-echo "$np$volume$mute │ $batt │ $date"
+echo "$todo$np$volume$mute │ $batt │ $date"
 sleep 10
