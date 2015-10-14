@@ -2,12 +2,16 @@ snippet name
 `echo "$FULLNAME"`
 endsnippet
 
-snippet date "YYYY-MM-DD"
+snippet d "YYYY-MM-DD"
 `date +"%Y-%m-%d"`
 endsnippet
 
-snippet t "YYYY-MM-DDThh:mm+xx00"
+snippet dt "YYYY-MM-DDThh:mm+xx00"
 `date -Iminutes`
+endsnippet
+
+snippet t "hh:mm"
+`date +"%H:%M"`
 endsnippet
 
 snippet lorem
