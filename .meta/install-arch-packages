@@ -10,6 +10,7 @@ bash-completion \
 bison \
 blender \
 clang \
+cmake \
 cowsay \
 cups \
 devmon \
@@ -26,7 +27,6 @@ gimp \
 git \
 gnuplot \
 gparted \
-gvim \
 htop \
 i3-wm \
 inkscape \
@@ -59,6 +59,7 @@ rsync \
 sudo \
 texlive-core \
 texlive-science \
+time \
 transmission-gtk \
 ttf-dejavu \
 ttf-linux-libertine \
@@ -66,6 +67,7 @@ uim \
 unclutter \
 unrar \
 vicious \
+vim \
 vlc \
 wmname \
 wpa_supplicant \
@@ -79,10 +81,9 @@ xorg-xinput \
 xorg-xkill \
 xorg-xrdb \
 xorg-xsetroot \
-yaourt \
 zsh
 
-sudo yaourt --noconfirm -Sa \
+yaourt --noconfirm -Sa \
 rxvt-unicode-patched \
 ttf-google-fonts-git \
 ttf-mac-fonts \
