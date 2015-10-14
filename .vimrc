@@ -13,6 +13,8 @@ Bundle 'blinry/vim-nutsh'
 " dead simple personal wiki plugin
 Bundle 'blinry/vimboy'
     let g:vimboy_autolink = 1
+" convenient handling of trees
+Bundle 'blinry/vimgirl'
 " 'e' text object is the entire file
 Bundle 'kana/vim-textobj-entire'
 " needed for 'vim-textobj-entire'
@@ -43,13 +45,15 @@ Bundle 'Valloric/YouCompleteMe'
     let g:ycm_key_list_select_completion = ['<C-n>']
     let g:ycm_key_list_previous_completion = ['<C-p>']
     let g:ycm_filetype_blacklist = {'qf':1, 'markdown':1, 'vimboy':1,
-                                  \ 'mail':1, 'text':1, 'tex':1, 'plaintex':1}
+                                  \ 'mail':1, 'text':1, 'tex':1, 'plaintex':1,
+                                  \ 'vimgirl':1 }
 " For compability between YCM and UltiSnips
 Bundle 'ervandew/supertab'
     let g:SuperTabDefaultCompletionType = '<C-n>'
 
 filetype plugin indent on " activate filetype detection
 syntax on " enable syntax highlighting
+set encoding=utf-8
 
 " Colors, Hidden Characters
 colorscheme velvetopia
@@ -127,6 +131,8 @@ nnoremap gf <C-W>gf
 " <Leader>-/= to underline the current line with -'s or ='s
 nmap <Leader>- yyp:s/./-/g<CR>
 nmap <Leader>= yyp:s/./=/g<CR>
+
+nmap <Backspace> hx
 
 map <Leader>, :call Zoomout()<CR><CR>
 map <Leader>. :!fontsize<CR><CR>
