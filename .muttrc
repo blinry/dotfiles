@@ -39,6 +39,9 @@ bind index R        group-reply
 bind index <tab>    sync-mailbox
 bind index <space>  collapse-thread
 
+# Move message to Archive
+macro index A ":set confirmappend=no\n<save-message>=Archive\n:set confirmappend=yes\n"
+
 # Ctrl-R to mark all as read
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 
