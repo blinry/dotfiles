@@ -1,46 +1,41 @@
-" initialize Vundle:
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-Bundle 'derekwyatt/vim-scala'
-Bundle 'dhruvasagar/vim-table-mode'
-Bundle 'tommcdo/vim-exchange'
+call plug#begin()
+Plug 'derekwyatt/vim-scala'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'tommcdo/vim-exchange'
 " obligatory
-Bundle 'gmarik/vundle'
+Plug 'gmarik/vundle'
 " support for the 'nutsh' language
-Bundle 'blinry/vim-nutsh'
+Plug 'blinry/vim-nutsh'
 " dead simple personal wiki plugin
-Bundle 'blinry/vimboy'
-    let g:vimboy_autolink = 1
+Plug 'blinry/vimboy'
 " convenient handling of trees
-Bundle 'blinry/vimgirl'
+Plug 'blinry/vimgirl'
 " 'e' text object is the entire file
-Bundle 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-entire'
 " needed for 'vim-textobj-entire'
-Bundle 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-user'
 " open files *fast*!
-Bundle 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 " show errors in code upon write
-Bundle 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
     let g:syntastic_mode_map = { 'mode': 'active',
                                \ 'active_filetypes': [],
                                \ 'passive_filetypes': ['java', 'tex'] }
 " snippets, duh!
-Bundle 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
     let g:UltiSnipsEditSplit="vertical"
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
     let g:UltiSnipsJumpForwardTrigger="<tab>"
     let g:UltiSnipsSnippetDirectories=["ultisnips"]
 " in Ruby, insert 'end' statements automatically
-Bundle 'tpope/vim-endwise'
+Plug 'tpope/vim-endwise'
 " improved markdown support
-Bundle 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown'
 " Enhance % for various languages
-Bundle 'vim-scripts/matchit.zip'
+Plug 'vim-scripts/matchit.zip'
 " Very smart autocompletion
-Bundle 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
     let g:ycm_extra_conf_globlist = ['~/.ycm_extra_conf.py']
     let g:ycm_key_list_select_completion = ['<C-n>']
     let g:ycm_key_list_previous_completion = ['<C-p>']
@@ -48,8 +43,9 @@ Bundle 'Valloric/YouCompleteMe'
                                   \ 'mail':1, 'text':1, 'tex':1, 'plaintex':1,
                                   \ 'vimgirl':1 }
 " For compability between YCM and UltiSnips
-Bundle 'ervandew/supertab'
+Plug 'ervandew/supertab'
     let g:SuperTabDefaultCompletionType = '<C-n>'
+call plug#end()
 
 filetype plugin indent on " activate filetype detection
 syntax on " enable syntax highlighting
