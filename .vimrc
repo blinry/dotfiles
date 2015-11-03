@@ -71,6 +71,7 @@ set autoread " automatically read externally modified files
 set ignorecase " ignore case in search patterns
 set smartcase " ... unless pattern contains upper case charecters
 set incsearch " show matches while typing
+set nohlsearch " don't highlight search matches
 
 " Editing
 set nojoinspaces " when joining lines, don't insert two spaces after punctuation
