@@ -1,0 +1,37 @@
+snippet p
+prompt {
+    if $1 {
+        expect($2)
+        break
+    }
+}
+endsnippet
+
+snippet i
+if $1 {
+    $0
+}
+endsnippet
+
+snippet h
+if help {
+    expect("echo help")
+    $0
+}
+endsnippet
+
+snippet l
+lesson_name("$1")
+make_home
+
+$0
+
+"Mit \`echo fertig\` schließen Sie die Lektion ab."
+
+prompt {
+    if ready {
+        expect("echo fertig")
+        break
+    }
+}
+endsnippet

@@ -1,0 +1,135 @@
+snippet article
+\documentclass{scrartcl}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{xcolor}
+    \definecolor{medium-blue}{rgb}{0,0,0.5}
+\usepackage{hyperref}
+    \hypersetup{
+        colorlinks, linkcolor={medium-blue},
+        citecolor={medium-blue}, urlcolor={medium-blue}
+    }
+\usepackage[nameinlink]{cleveref}
+
+\title{$1}
+\author{`echo "$FULLNAME"`}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+$0
+
+\end{document}
+endsnippet
+
+snippet fr
+\begin{frame}
+    \frametitle{$1}
+
+    $0
+\end{frame}
+endsnippet
+
+snippet rf
+\end{frame}
+
+\begin{frame}
+    \frametitle{$1}
+endsnippet
+
+snippet it
+\begin{itemize}
+    \item $0
+\end{itemize}
+endsnippet
+
+snippet en
+\begin{enumerate}
+    \item $0
+\end{enumerate}
+endsnippet
+
+snippet b
+\begin{$1}
+    $0
+\end{$1}
+endsnippet
+
+snippet beamer
+\documentclass{beamer}
+%\documentclass[handout]{beamer}
+
+% \AtBeginSection[] {
+%   \begin{frame}<beamer>{Outline}
+%     \tableofcontents[currentsection]
+%   \end{frame}
+% }
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+    \graphicspath{{images/}}
+\usepackage{microtype}
+    \DisableLigatures[<,>]{family=tt*}
+\usepackage{lmodern}
+
+\usetheme{Boadilla}
+\usecolortheme{orchid}
+
+\title{$1}
+\subtitle{$2}
+\author{$3}
+\institute{$4}
+
+\date{\today}
+
+%\beamerdefaultoverlayspecification{<+->}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{alerted text}{fg=blue}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+$0
+
+\end{document}
+endsnippet
+
+snippet s
+\section{$1}
+
+$0
+endsnippet
+
+snippet ss
+\subsection{$1}
+
+$0
+endsnippet
+
+snippet f
+\begin{figure}
+    $0
+    \centering
+    \caption{$1}
+\end{figure}
+endsnippet
+
+snippet columns
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+
+	\end{column}
+	\begin{column}{0.5\textwidth}
+
+	\end{column}
+\end{columns}
+endsnippet

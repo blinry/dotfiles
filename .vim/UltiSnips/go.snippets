@@ -1,0 +1,39 @@
+snippet main
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	$0
+}
+endsnippet
+
+snippet if
+if $1 {
+	$0
+}
+endsnippet
+
+snippet for
+for _, $1 := range($2) {
+	$0
+}
+endsnippet
+
+snippet f
+func $1 {
+	$0
+}
+endsnippet
+
+snippet p
+package $1
+
+import (
+	$2
+)
+
+$0
+endsnippet
