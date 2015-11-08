@@ -1,9 +1,10 @@
 call plug#begin()
-Plug 'derekwyatt/vim-scala'
+" Browse folders with -
+Plug 'tpope/vim-vinegar'
+" Format tables and calculate stuff in them
 Plug 'dhruvasagar/vim-table-mode'
+" cx for exchange operation
 Plug 'tommcdo/vim-exchange'
-" obligatory
-Plug 'gmarik/vundle'
 " support for the 'nutsh' language
 Plug 'blinry/vim-nutsh'
 " dead simple personal wiki plugin
@@ -16,11 +17,6 @@ Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
 " open files *fast*!
 Plug 'kien/ctrlp.vim'
-" show errors in code upon write
-Plug 'scrooloose/syntastic'
-    let g:syntastic_mode_map = { 'mode': 'active',
-                               \ 'active_filetypes': [],
-                               \ 'passive_filetypes': ['java', 'tex'] }
 " snippets, duh!
 Plug 'SirVer/ultisnips'
     let g:UltiSnipsEditSplit="vertical"
@@ -30,18 +26,8 @@ Plug 'SirVer/ultisnips'
     let g:UltiSnipsSnippetDirectories=["ultisnips"]
 " in Ruby, insert 'end' statements automatically
 Plug 'tpope/vim-endwise'
-" improved markdown support
-Plug 'tpope/vim-markdown'
 " Enhance % for various languages
 Plug 'vim-scripts/matchit.zip'
-" Very smart autocompletion
-Plug 'Valloric/YouCompleteMe'
-    let g:ycm_extra_conf_globlist = ['~/.ycm_extra_conf.py']
-    let g:ycm_key_list_select_completion = ['<C-n>']
-    let g:ycm_key_list_previous_completion = ['<C-p>']
-    let g:ycm_filetype_blacklist = {'qf':1, 'markdown':1, 'vimboy':1,
-                                  \ 'mail':1, 'text':1, 'tex':1, 'plaintex':1,
-                                  \ 'vimgirl':1 }
 " For compability between YCM and UltiSnips
 Plug 'ervandew/supertab'
     let g:SuperTabDefaultCompletionType = '<C-n>'
@@ -64,7 +50,6 @@ set noswapfile
 set nobackup " don't keep backups
 set undofile
 set undodir=~/.cache/
-set viminfo+=n~/.cache/viminfo
 set autoread " automatically read externally modified files
 
 " Search
