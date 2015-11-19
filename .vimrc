@@ -28,9 +28,6 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-endwise'
 " Enhance % for various languages
 Plug 'vim-scripts/matchit.zip'
-" For compability between YCM and UltiSnips
-Plug 'ervandew/supertab'
-    let g:SuperTabDefaultCompletionType = '<C-n>'
 call plug#end()
 
 filetype plugin indent on " activate filetype detection
@@ -85,6 +82,7 @@ set visualbell " flash instead of beeping
 let mapleader="," " Use , instead of \ as <Leader>
 set notimeout " don't timeout on mappings
 set shell=/bin/sh
+set clipboard=unnamed,unnamedplus " use * and + in yank/paste operations
 
 " Spell Checking
 set dictionary+=/usr/share/dict/american-english,/usr/share/dict/german
