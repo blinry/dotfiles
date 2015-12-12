@@ -84,6 +84,7 @@ xorg-xsetroot \
 zsh
 
 yaourt --noconfirm -Sa \
+dmenu2 \
 rxvt-unicode-patched \
 ttf-google-fonts-git \
 ttf-mac-fonts \
