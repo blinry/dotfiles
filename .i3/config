@@ -1,8 +1,8 @@
-# Alt key FTW!
-set $mod Mod1
+# Use Win key as the modifier (but I usually swap Alt and Win via setxkbmap)
+set $mod Mod4
 
 # Use system monospace font
-font pango:monospace 18
+font pango:monospace 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -14,7 +14,7 @@ bindsym $mod+Return exec urxvt -cd "`xcwd`"
 bindsym $mod+d kill
 
 # start dmenu
-bindsym $mod+p exec dmenu_run -fn "monospace-18"
+bindsym $mod+p exec dmenu_run -fn "monospace-12"
 
 # change focus
 bindsym $mod+h focus left
@@ -93,14 +93,28 @@ bar {
 # Set border width
 new_window 1pixel
 
-bindsym $mod+F1 exec firefox
+# Colors
+set $bg #000000
+set $tx #ffffff
+set $ac #005500
+set $gr #555555
+set $rd #aa0000
+client.focused          $ac $ac $tx
+client.unfocused        $bg $bg $gr
+client.focused_inactive $bg $bg $tx
+client.urgent           $rd $rd $tx
+
+# Various hotkeys
+bindsym $mod+F1 exec chromium
 bindsym $mod+F2 exec urxvt -cd ~/tmp/ -e mutt
 bindsym $mod+F3 exec urxvt -e wiki
 bindsym $mod+F4 exec urxvt -e ncmpcpp
 bindsym $mod+F5 exec liferea
-bindsym XF86AudioRaiseVolume exec pactl -- set-sink-volume 0 +10% && killall status-line
-bindsym XF86AudioLowerVolume exec pactl -- set-sink-volume 0 -10% && killall status-line
+bindsym XF86AudioRaiseVolume exec "pactl -- set-sink-volume 0 +10%; pactl -- set-sink-volume 2 +10%; killall status-line"
+bindsym XF86AudioLowerVolume exec "pactl -- set-sink-volume 0 -10%; pactl -- set-sink-volume 2 -10%; killall status-line"
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && killall status-line
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym XF86AudioPlay exec mpc toggle && killall status-line
 bindsym XF86AudioStop exec mpc stop && killall status-line
 bindsym XF86AudioPrev exec mpc prev && killall status-line
