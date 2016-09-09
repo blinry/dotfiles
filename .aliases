@@ -17,14 +17,15 @@ alias pout='sudo pacman -Rcs'
 alias y='yaourt --noconfirm'
 alias po='pacman -Qo'
 
-alias net-auto='sudo netctl stop-all; sudo systemctl restart netctl-auto@wlan0'
-alias net-profile='sudo systemctl stop netctl-auto@wlan0; sudo netctl restart'
+alias net-auto='sudo netctl stop-all; sudo systemctl restart netctl-auto@wlp4s0'
+alias net-profile='sudo systemctl stop netctl-auto@wlp4s0; sudo netctl restart'
 
 alias mnt-auto='sudo systemctl restart mnt-usb.automount'
 alias mnt-stop='sudo systemctl stop mnt-usb.mount'
 
 # Git
 
+alias git='hub'
 alias ga='git add'
 alias gc='git commit'
 alias gd='git diff'
@@ -35,7 +36,7 @@ alias gp='git push'
 
 # Set default options for some tools
 
-alias ls='ls --color=auto -tr'
+alias ls='ls --color=auto -tr -N'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias df='df -h'
@@ -43,6 +44,10 @@ alias free='free -h'
 alias mpv='mpv --save-position-on-quit'
 alias objdump='objdump -Mintel'
 alias maim='maim -s --hidecursor'
+alias sm='sm -f white -b black ""'
+alias mscan='mscan -I'
+alias mextract='mscan -x .'
+alias mmail='oi; mlist ~/permanent/mail/INBOX|msort -d|mseq -S; mscan'
 
 # Lazyness
 
@@ -64,6 +69,7 @@ alias vi='vim'
 alias si='sudo vim'
 alias vimrc='vim ~/.vimrc'
 alias hc='herbstclient'
+alias oi='offlineimap -f INBOX,Archive,Sent'
 
 # Handy tools
 
@@ -72,8 +78,4 @@ alias ducksa='du -cksh * .??* | sort -h'
 alias murder='killall -9'
 alias psgrep='ps ax | grep '
 alias ptest='ping -c1 google.de'
-alias beamer-dup='xrandr --output LVDS1 --mode 1024x768 --output VGA1 --mode 1024x768'
-alias beamer='xrandr --output LVDS1 --mode 1440x900 --output VGA1 --mode 1024x768 --right-of LVDS1'
-alias beamer-tv='xrandr --output VGA1 --mode 1920x1080 --output LVDS1 --mode 1440x900 --below VGA1'
-alias beamer-off='xrandr --auto'
 alias meep='notify-send -u critical meep'
