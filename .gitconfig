@@ -15,3 +15,5 @@
 	decorate = true
 [push]
 	default = current
+[diff]
+    compactionHeuristic = true
