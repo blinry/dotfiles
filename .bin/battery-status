@@ -1,32 +1,32 @@
 #!/bin/sh
 
-PREFIX=/sys/devices/platform/smapi
-CHARGING_MINUTES=0
-RUNNING_MINUTES=0
+PREFIX=/sys/class/power_supply
+MINUTES=0
+MINUTES=0
 RATE=0
 SYMBOL="?"
 
 for BAT in $PREFIX/BAT*; do
-    if [ $(cat $BAT/installed) = "1" ]; then
-        CHARGING_MINUTES=$(($CHARGING_MINUTES + $(cat $BAT/remaining_charging_time)))
-        RUNNING_MINUTES=$(($RUNNING_MINUTES + $(cat $BAT/remaining_running_time)))
-        RATE=$(($RATE + $(cat $BAT/power_avg)))
-
-        if [ $(cat $BAT/state) = "charging" ]; then
-            SYMBOL="+"
-        elif [ $(cat $BAT/state) = "discharging" ]; then
-            SYMBOL="-"
-        fi
+    P=$(cat $BAT/power_now)
+    if [ $P != "0" ]; then
+        POWER=$P
     fi
 done
 
-if [ $SYMBOL = "-" ]; then
-    MINUTES=RUNNING_MINUTES
-elif [ $SYMBOL = "+" ]; then
-    MINUTES=CHARGING_MINUTES
-else
+for BAT in $PREFIX/BAT*; do
+    if [ $(cat $BAT/status) = "Charging" ]; then
+        SYMBOL="+"
+    elif [ $(cat $BAT/status) = "Discharging" ]; then
+        SYMBOL="-"
+    fi
+    MINUTES=$(($MINUTES + 60*$(cat $BAT/energy_now)))
+done
+
+if [ $SYMBOL = "?" ]; then
     echo full
     exit
 fi
 
-echo $(printf %1d $(($MINUTES/60))):$(printf %02d $(($MINUTES % 60))) $SYMBOL$((${RATE/#-/}/1000))
+MINUTES=$(($MINUTES / $POWER))
+
+echo $(printf %1d $(($MINUTES/60))):$(printf %02d $(($MINUTES % 60)))$SYMBOL
