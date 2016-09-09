@@ -9,6 +9,8 @@ Plug 'tommcdo/vim-exchange'
 Plug 'blinry/vim-nutsh'
 " dead simple personal wiki plugin
 Plug 'blinry/vimboy'
+" simple bibTeX plugin
+Plug 'blinry/bibboy'
 " convenient handling of trees
 Plug 'blinry/vimgirl'
 " 'e' text object is the entire file
@@ -23,16 +25,34 @@ Plug 'SirVer/ultisnips'
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
     let g:UltiSnipsJumpForwardTrigger="<tab>"
-    let g:UltiSnipsSnippetDirectories=["ultisnips"]
+    let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 " in Ruby, insert 'end' statements automatically
+
 Plug 'tpope/vim-endwise'
 " Enhance % for various languages
 Plug 'vim-scripts/matchit.zip'
+Plug 'kchmck/vim-coffee-script'
 call plug#end()
 
 filetype plugin indent on " activate filetype detection
 syntax on " enable syntax highlighting
-set encoding=utf-8
+
+" Set a few options which are the default in neovim
+if !has("nvim")
+    set encoding=utf-8
+    set nobackup " don't keep backups
+    set undodir=~/.cache/
+    set autoread " automatically read externally modified files
+
+    set incsearch " show matches while typing
+
+    set autoindent " keep indent when starting a new line
+    set wrap " wrap long lines
+
+    set history=1024
+
+    set mouse=a " enable mouse use in all modes
+endif
 
 " Colors, Hidden Characters
 colorscheme velvetopia
@@ -44,38 +64,30 @@ set showbreak=↳ " display dots in front of wrapped lines
 
 " Backup, Undo, Swap
 set noswapfile
-set nobackup " don't keep backups
 set undofile
-set undodir=~/.cache/
-set autoread " automatically read externally modified files
 
 " Search
 set ignorecase " ignore case in search patterns
 set smartcase " ... unless pattern contains upper case charecters
-set incsearch " show matches while typing
 set nohlsearch " don't highlight search matches
 
 " Editing
 set nojoinspaces " when joining lines, don't insert two spaces after punctuation
 
 " Indentation, Linebreak
-set autoindent " keep indent when starting a new line
 set tabstop=4 " a <Tab> is 4 characters long
 set softtabstop=4 " when editing indentations, edit 4 characters at once
 set shiftwidth=4 " use 4 spaces when (auto)indenting
 set expandtab " on a <Tab>, insert spaces
 set colorcolumn=+1 " draw a line after 'textwidth'
-set wrap " wrap long lines
 
 " Status Line
 set showcmd " show command as typing and area in visual mode
 
 " History, Command mode
-set history=1024
 set wildmode=longest:list,full " tab-complete to longest common match, then show all matches
 
 " User Interface
-set mouse=a " enable mouse use in all modes
 set completeopt=menu,menuone,longest
 set tabpagemax=99999 " don't limit the number of tabs created by the -p switch
 set visualbell " flash instead of beeping
@@ -103,7 +115,7 @@ cnoremap <C-n> <Down>
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " <F5> to save all files and run make
-map <F5> :wall!<CR>:make<CR>
+map <F5> :wall!<CR>:make!<CR>
 
 " gf to open the file in a new tab
 nnoremap gf <C-W>gf
@@ -141,7 +153,7 @@ autocmd bufreadpost *
 \   let b:doopenfold = 1 |
 \ endif
 
-nnoremap p p=`]
+" nnoremap p p=`]
 
 " Resize splits when the window is resized
 au Vimresized * :wincmd =
