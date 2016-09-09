@@ -1,4 +1,5 @@
-let &makeprg = "latexmk -pdf -pv %"
+"let &makeprg = "latexmk -pdf -pv %"
+"let &makeprg = "latexmk -pdf -pv -auxdir=~/.cache/latexmk/ %"
 
 nnoremap gf :call <SID>OpenPaperUnderCursor()<CR>
 
