@@ -19,6 +19,7 @@ set -x GIT_COMMITTER_EMAIL "$EMAIL"
 
 set -x PATH $HOME/.bin.local $HOME/.bin /usr/sbin /usr/local/bin $PATH
 set -x EDITOR vim
+set -x BROWSER chromium
 
 set -x LANG en_US.UTF-8
 set -x LC_TIME de_DE.UTF-8
