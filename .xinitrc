@@ -1,12 +1,12 @@
 xrdb ~/.xresources
 
-export GTK_IM_MODULE='uim'
-export QT_IM_MODULE='uim'
-uim-xim &
-export XMODIFIERS='@im=uim'
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
 urxvt &
 mpd &
+fcitx &
 xsetroot -solid black
 
 # Use the whole area of the touchpad for scrolling.
@@ -27,6 +27,8 @@ export GDK_DPI_SCALE=0.666
 # Hide the mouse pointer after 5 seconds of inactivity.
 unclutter -idle 5 -jitter 2 -root &
 
+xinput set-prop 'TPPS/2 IBM TrackPoint' 'libinput Button Scrolling Button' 0
 init-keyboard
+xset m 4 1
 
 exec i3
