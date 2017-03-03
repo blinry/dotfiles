@@ -32,6 +32,7 @@ Plug 'tpope/vim-endwise'
 " Enhance % for various languages
 Plug 'vim-scripts/matchit.zip'
 Plug 'kchmck/vim-coffee-script'
+Plug 'slim-template/vim-slim'
 call plug#end()
 
 filetype plugin indent on " activate filetype detection
