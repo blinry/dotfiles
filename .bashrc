@@ -24,6 +24,3 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 source ~/.shellrc
-
-# Für den Vorkurs:
-export PATH="$HOME/.vorkurs:$PATH"
