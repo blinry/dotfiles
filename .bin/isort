@@ -1,0 +1,54 @@
+#!/usr/bin/ruby
+
+def ask a,b
+    STDERR.puts "1: #{a}"
+    STDERR.puts "2: #{b}"
+    i = 0
+    until i >= 1 and i <= 2
+        STDERR.print "Which one has a higher priority? (#{$num} to go)  "
+        i = gets.to_i
+    end
+    $num -= 1
+
+    if i == 1
+        -1
+    else
+        1
+    end
+end
+
+$num = 0
+
+def coun a,b
+    $num += 1
+    return 1
+end
+
+lines = STDIN.readlines
+lines = lines.sort_by{rand}
+
+STDIN.reopen("/dev/tty")
+STDERR.puts "Phase 1: For each entry, give a priority. High numbers are more important, choose your own scale."
+
+$ratings = []
+$buckets = {}
+
+lines.each do |l|
+    STDERR.puts l
+    STDERR.print "Priority? "
+    pri = gets.to_f
+    $buckets[pri] = [] unless $buckets[pri]
+    $buckets[pri] << l
+    $ratings << pri
+end
+
+$ratings = $ratings.sort.uniq.reverse
+
+result = []
+
+$ratings.each do |pri|
+    l = $buckets[pri].sort{|a,b| ask(a,b)}
+    result.concat(l)
+end
+
+puts result

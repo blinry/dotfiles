@@ -1,0 +1,44 @@
+#!/bin/sh
+
+for effect in 0 1 3 4; do
+    if [ "$effect" != 0 ]; then
+        echo "Effect $effect:"
+        echo
+        effect=";$effect"
+    else
+        effect=""
+    fi
+    bgcolors="       109 40  100 41  101 42  102 43  103 44  104 45  105 46  106 47  107"
+    echo "$bgcolors"
+    #for fg in `echo 39; seq 30 37; seq 90 99`; do
+    for fg in 39 99 30 90 31 91 32 92 33 93 34 94 35 95 36 96 37 97; do
+        if [ "$fg" != 39 ]; then
+            echo -n "$fg "
+        else
+            echo -n "   "
+        fi
+        for bg in 49 $bgcolors; do
+            echo -ne "\e[${fg};${bg}${effect}mxxx\e[0m "
+        done
+        echo
+    done
+    echo
+done
+
+#for i in `echo; seq 30 37`; do
+#    for a in `echo o; seq 40 47`; do
+#        echo -ne "\e[$x;$i;$a""m\\\e[$x;$i;$a""m\e[0m "
+#    done
+#    echo
+#done
+#echo ""
+
+#for x in 0 1 4 5 7 8; do
+#    for i in `seq 30 37`; do
+#        for a in `seq 40 47`; do
+#            echo -ne "\e[$x;$i;$a""m\\\e[$x;$i;$a""m\e[0;37;40m "
+#        done
+#        echo
+#    done
+#done
+#echo ""

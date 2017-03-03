@@ -1,0 +1,3 @@
+#!/bin/sh
+
+paps $1 | lpr
