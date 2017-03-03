@@ -36,7 +36,7 @@ if test -f ~/.aliases.local
     . ~/.aliases.local
 end
 
-if test -f ~/.shellrc.local
+if test -f ~/.shellrc.fish.local
     . ~/.shellrc.fish.local
 end
 
