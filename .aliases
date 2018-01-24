@@ -48,6 +48,7 @@ alias sm='sm -f white -b black ""'
 alias mscan='mscan -I'
 alias mextract='mscan -x .'
 alias mmail='oi; mlist ~/permanent/mail/INBOX|msort -d|mseq -S; mscan'
+alias youtube-dl='youtube-dl --no-mtime'
 
 # Lazyness
 
