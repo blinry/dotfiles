@@ -88,6 +88,8 @@ bindsym $mod+minus scratchpad show
 bar {
     status_command status-line-loop
 }
+bindsym $mod+b bar hidden_state toggle
+bindsym $mod+m bar hidden_state toggle
 
 # Set border width
 new_window 1pixel
@@ -104,13 +106,13 @@ client.focused_inactive $bg $bg $tx
 client.urgent           $rd $rd $tx
 
 # Various hotkeys
-bindsym $mod+F1 exec chromium
+bindsym $mod+F1 exec chromium --force-device-scale-factor=1.6
 bindsym $mod+F2 exec urxvt -cd ~/tmp/ -e mutt
 bindsym $mod+F3 exec urxvt -e wiki
 bindsym $mod+F4 exec urxvt -e ncmpcpp
 bindsym $mod+F5 exec liferea
-bindsym XF86AudioRaiseVolume exec "pactl -- set-sink-volume 0 +10%; pactl -- set-sink-volume 2 +5%; killall status-line"
-bindsym XF86AudioLowerVolume exec "pactl -- set-sink-volume 0 -10%; pactl -- set-sink-volume 2 -5%; killall status-line"
+bindsym XF86AudioRaiseVolume exec "pactl -- set-sink-volume 0 +5%; pactl -- set-sink-volume 2 +5%; pactl -- set-sink-volume 4 +5%; killall status-line"
+bindsym XF86AudioLowerVolume exec "pactl -- set-sink-volume 0 -5%; pactl -- set-sink-volume 2 -5%; pactl -- set-sink-volume 4 -5%; killall status-line"
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && killall status-line
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
