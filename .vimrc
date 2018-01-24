@@ -27,12 +27,15 @@ Plug 'SirVer/ultisnips'
     let g:UltiSnipsJumpForwardTrigger="<tab>"
     let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 " in Ruby, insert 'end' statements automatically
-
 Plug 'tpope/vim-endwise'
 " Enhance % for various languages
 Plug 'vim-scripts/matchit.zip'
 Plug 'kchmck/vim-coffee-script'
 Plug 'slim-template/vim-slim'
+" graphical browser of undo tree
+Plug 'sjl/gundo.vim'
+Plug 'tikhomirov/vim-glsl'
+Plug 'udalov/kotlin-vim'
 call plug#end()
 
 filetype plugin indent on " activate filetype detection
@@ -46,17 +49,16 @@ if !has("nvim")
     set autoread " automatically read externally modified files
 
     set incsearch " show matches while typing
+    "set hlsearch " don't highlight search matches
 
     set autoindent " keep indent when starting a new line
     set wrap " wrap long lines
 
     set history=1024
-
-    set mouse=a " enable mouse use in all modes
 endif
 
 " Colors, Hidden Characters
-colorscheme velvetopia
+colorscheme velvetopia " <3
 set list
 set listchars=tab:›\ ,trail:·,extends:❭,precedes:❬
 au InsertEnter * :set listchars-=trail:·
@@ -70,7 +72,7 @@ set undofile
 " Search
 set ignorecase " ignore case in search patterns
 set smartcase " ... unless pattern contains upper case charecters
-set nohlsearch " don't highlight search matches
+set nohlsearch
 
 " Editing
 set nojoinspaces " when joining lines, don't insert two spaces after punctuation
@@ -89,6 +91,7 @@ set showcmd " show command as typing and area in visual mode
 set wildmode=longest:list,full " tab-complete to longest common match, then show all matches
 
 " User Interface
+set mouse=a " enable mouse use in all modes
 set completeopt=menu,menuone,longest
 set tabpagemax=99999 " don't limit the number of tabs created by the -p switch
 set visualbell " flash instead of beeping
@@ -96,6 +99,7 @@ let mapleader="," " Use , instead of \ as <Leader>
 set notimeout " don't timeout on mappings
 set shell=/bin/sh
 set clipboard=unnamed,unnamedplus " use * and + in yank/paste operations
+set lazyredraw " redraw only when we need to
 
 " Spell Checking
 set dictionary+=/usr/share/dict/american-english,/usr/share/dict/german
@@ -106,6 +110,12 @@ set fillchars=fold:\
 highlight Folded ctermbg=DarkBlue ctermfg=None
 
 " Mappings
+
+" turn off search highlight
+nnoremap <leader><Space> :nohlsearch<CR>
+
+" toggle gundo
+nnoremap <leader>u :GundoToggle<CR>
 
 nnoremap <Space> za
 
