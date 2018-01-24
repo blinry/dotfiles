@@ -6,7 +6,6 @@ export XMODIFIERS=@im=fcitx
 
 urxvt &
 mpd &
-fcitx &
 xsetroot -solid black
 
 # Use the whole area of the touchpad for scrolling.
@@ -29,5 +28,7 @@ unclutter -idle 5 -jitter 2 -root &
 
 init-keyboard
 init-mouse
+
+xcalib -d :0 ~/.color/icc/T460s.icm
 
 exec i3
