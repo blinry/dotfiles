@@ -16,4 +16,6 @@
 [push]
 	default = current
 [diff]
-    compactionHeuristic = true
+	compactionHeuristic = true
+[svn]
+	rmdir = true
