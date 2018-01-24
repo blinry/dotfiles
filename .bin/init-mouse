@@ -2,3 +2,4 @@
 
 xinput set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' 0
 xinput set-prop 'TPPS/2 IBM TrackPoint' 'libinput Button Scrolling Button' 0
+sudo sh -c "echo 255 > /sys/bus/serio/devices/serio2/sensitivity"
