@@ -20,9 +20,6 @@ synclient HorizHysteresis=0
 synclient FingerLow=1
 synclient FingerHigh=5
 
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.666
-
 # Hide the mouse pointer after 5 seconds of inactivity.
 unclutter -idle 5 -jitter 2 -root &
 
