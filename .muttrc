@@ -4,10 +4,8 @@ mailboxes +INBOX +Sent +Archive +Drafts
 set alias_file = ~/.mutt/alias
 set header_cache = ~/.mutt/cache/headers
 set message_cachedir = ~/.mutt/cache/bodies
-set certificate_file = ~/.mutt/certificates
 set mailcap_path = ~/.mutt/mailcap
 set tmpdir = ~/.mutt/tmp
-set signature = ~/.mutt/sig
 
 set wait_key = no
 set mbox_type = Maildir

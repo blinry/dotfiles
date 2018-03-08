@@ -1,3 +1,0 @@
-#!/bin/zsh
-
-while {true} {git fetch && git log --no-merges --pretty="Neuer Commit von %an: \"%s\"" ..origin/master | espeak -v german -s 100 && git merge origin/master -q }

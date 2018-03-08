@@ -1,3 +1,0 @@
-#!/bin/bash
-
-mkdir -p "$2" && tar -cf - "$1" | pv  -s $(du -sb "$1" | cut -f1) | tar -xf - -C "$2" --strip-components 1
