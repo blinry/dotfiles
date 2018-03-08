@@ -25,7 +25,7 @@ urxvt*scrollBar: false
 *color0:  #2e3436
 *color8:  #555753
 ! red dark/light
-*color1:  #a40000
+*color1:  #b40000
 *color9:  #cc0000
 ! green dark/light
 *color2:  #307000
