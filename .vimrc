@@ -169,6 +169,8 @@ autocmd bufreadpost *
 " Resize splits when the window is resized
 au Vimresized * :wincmd =
 
-if filereadable($HOME."/.vimrc.local")
-    source $HOME/.vimrc.local
-endif
+" Location of my private wiki
+au BufRead,BufNewFile ~/permanent/wiki/* set ft=vimboy
+
+" Highlight second-level markdown headings properly
+syn match Special '---[-]*'

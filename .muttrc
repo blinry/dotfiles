@@ -1,4 +1,5 @@
-source ~/.muttrc.local
+set folder = ~/permanent/mail
+mailboxes +INBOX +Sent +Archive +Drafts
 
 set alias_file = ~/.mutt/alias
 set header_cache = ~/.mutt/cache/headers

@@ -184,3 +184,37 @@ clientbuttons = awful.util.table.join(
     awful.button({ modkey }, 1, awful.mouse.client.move),
     awful.button({ modkey }, 3, awful.mouse.client.resize)
 )
+
+function wiki_open(article)
+    awful.util.spawn("urxvt -e wiki \""..article.."\"")
+end
+
+globalkeys = awful.util.table.join(globalkeys,
+     awful.key({ modkey }, "F1", function (c) awful.util.spawn("firefox") end),
+     awful.key({ modkey }, "F2", function (c) awful.util.spawn("urxvt -e mutt") end),
+     awful.key({ modkey }, "F3", function (c) awful.util.spawn("urxvt -e wiki") end),
+     awful.key({ modkey }, "F4", function (c) awful.util.spawn("urxvt -e ncmpcpp") end),
+     awful.key({ modkey }, "F5", function (c) awful.util.spawn("liferea") end),
+--     -- task done
+--     awful.key({ modkey }, "d",
+--     function (c)
+--         local f = io.popen("~/permanent/dodo/dodo done")
+--         f:close()
+--         vicious.force({dodo})
+--     end),
+-- 
+--     -- new task
+--     awful.key({ modkey },  "a", function ()
+--         awful.prompt.run({ prompt = "Add task: " },
+--         mypromptbox[mouse.screen].widget,
+--         dodo_add, nil,
+--         awful.util.getdir("cache") .. "/history_dodo")
+--         vicious.force({dodo})
+--     end)
+    awful.key({ modkey }, "w", function ()
+        awful.prompt.run({ prompt = "wiki " },
+        mypromptbox[mouse.screen].widget,
+        wiki_open, nil,
+        awful.util.getdir("cache") .. "/history_wiki")
+    end)
+)

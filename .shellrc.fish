@@ -1,4 +1,4 @@
-set USER_LINES (cat ~/.user.local | grep -v '^$' | sed 's/^/set /;s/=/ /')
+set USER_LINES (cat ~/.user | grep -v '^$' | sed 's/^/set /;s/=/ /')
 for LINE in $USER_LINES
     eval "$LINE"
 end
@@ -17,7 +17,7 @@ set -x GIT_AUTHOR_EMAIL "$EMAIL"
 set -x GIT_COMMITTER_NAME "$FULLNAME"
 set -x GIT_COMMITTER_EMAIL "$EMAIL"
 
-set -x PATH $HOME/.bin.local $HOME/.bin /usr/sbin /usr/local/bin $PATH
+set -x PATH $HOME/.bin (ruby -e 'print Gem.user_dir')/bin /usr/bin/vendor_perl/ $PATH
 set -x EDITOR vim
 set -x BROWSER chromium
 
@@ -31,14 +31,7 @@ set -e GREP_OPTIONS
 # Default permissions: rw(x)------
 umask 0077
 
-. ~/.aliases
-if test -f ~/.aliases.local
-    . ~/.aliases.local
-end
-
-if test -f ~/.shellrc.fish.local
-    . ~/.shellrc.fish.local
-end
+complete -c wiki -a '(pushd .; cd ~/permanent/wiki; ls; popd)'
 
 function take
     mkdir -p $argv
@@ -52,3 +45,5 @@ function unwrap
         cd "$DIR"
     end
 end
+
+. ~/.aliases

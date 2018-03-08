@@ -13,7 +13,3 @@
 #     /.bitcoin/
 #     /.Xauthority
 #     ...
-
-# These are the two exceptions that are always private:
-/.secrets
-*.local

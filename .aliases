@@ -1,4 +1,4 @@
-# Systemd
+# systemd
 
 alias start='sudo systemctl start'
 alias stop='sudo systemctl stop'
@@ -7,21 +7,19 @@ alias enable='sudo systemctl enable'
 alias disable='sudo systemctl disable'
 alias state='sudo systemctl status'
 
-# Arch
+# Arch Linux
 
+alias p='pacman -Ss'
 alias pin='sudo pacman -S'
 alias pup='sudo pacman -Su'
-alias yup='yaourt -Syu --aur --noconfirm'
-alias p='pacman -Ss'
 alias pout='sudo pacman -Rcs'
-alias y='yaourt --noconfirm'
 alias po='pacman -Qo'
+
+alias y='yaourt --noconfirm'
+alias yup='yaourt -Syu --aur --noconfirm'
 
 alias net-auto='sudo netctl stop-all; sudo systemctl restart netctl-auto@wlp4s0'
 alias net-profile='sudo systemctl stop netctl-auto@wlp4s0; sudo netctl restart'
-
-alias mnt-auto='sudo systemctl restart mnt-usb.automount'
-alias mnt-stop='sudo systemctl stop mnt-usb.mount'
 
 # Git
 
@@ -41,13 +39,11 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias df='df -h'
 alias free='free -h'
-alias mpv='mpv --save-position-on-quit'
 alias objdump='objdump -Mintel'
 alias maim='maim -s --hidecursor'
 alias sm='sm -f white -b black ""'
 alias mscan='mscan -I'
 alias mextract='mscan -x .'
-alias mmail='oi; mlist ~/permanent/mail/INBOX|msort -d|mseq -S; mscan'
 alias youtube-dl='youtube-dl --no-mtime'
 
 # Lazyness
@@ -62,21 +58,26 @@ alias x='exec startx'
 alias die='sudo shutdown -h now'
 alias reboot='sudo reboot'
 alias pt='sudo powertop'
-alias pte='watch -n 0.1 ping google.de'
-alias j='jfe -c'
-alias k='rlwrap k'
-alias gemin='sudo gem install --no-user-install'
-alias vi='vim'
 alias si='sudo vim'
 alias vimrc='vim ~/.vimrc'
-alias hc='herbstclient'
-alias oi='offlineimap -f INBOX,Archive,Sent'
+alias t='task'
+alias mm='mosh morr.cc'
+
+alias x-single='xrandr --output eDP1 --mode 2560x1440 --output HDMI1 --off --output HDMI2 --off --output DP2-1 --off --output DP2-3 --off'
+alias x-mirror-1080p='xrandr --output eDP1 --mode 1920x1080 --output HDMI2 --mode 1920x1080'
+alias x-dual-1080p='xrandr --output eDP1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --above eDP1'
+alias x-triple='xrandr --output eDP1 --mode 1920x1080 --output DP2-1 --mode 1600x1200 --right-of eDP1; xrandr --output DP2-1 --mode 1600x1200 --right-of eDP1 --output DP2-3 --mode 1280x1024 --right-of DP2-1 --rotate left'
+
+alias usb-mount='sudo mount -o uid=seb,gid=users /dev/sdb1 /mnt'
+alias usb-umount='sudo umount /mnt'
+
+# Programs in unusual locations
+
+alias nom='ruby -I~/permanent/nom/lib ~/permanent/nom/bin/nom'
 
 # Handy tools
 
 alias ducks='du -cksh * | sort -h'
 alias ducksa='du -cksh * .??* | sort -h'
-alias murder='killall -9'
 alias psgrep='ps ax | grep '
-alias ptest='ping -c1 google.de'
-alias meep='notify-send -u critical meep'
+alias ptest='ping google.de'

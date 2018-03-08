@@ -20,18 +20,12 @@ dofile(conf_dir .. "layout.lua")
 beautiful.init(conf_dir .. "theme.lua")
 
 dofile(conf_dir .. "bindings.lua")
-if file_exists(conf_dir .. "bindings.lua.local") then
-    dofile(conf_dir .. "bindings.lua.local")
-end
 root.keys(globalkeys)
 
 dofile(conf_dir .. "rules.lua")
 dofile(conf_dir .. "signals.lua")
 
 dofile(conf_dir .. "widgets.lua")
-if file_exists(conf_dir .. "widgets.lua.local") then
-    dofile(conf_dir .. "widgets.lua.local")
-end
 
 -- Handle runtime errors after startup
 do
