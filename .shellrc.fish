@@ -19,7 +19,6 @@ set -x GIT_COMMITTER_EMAIL "$EMAIL"
 
 set -x PATH $HOME/.bin (ruby -e 'print Gem.user_dir')/bin /usr/bin/vendor_perl/ $PATH
 set -x EDITOR vim
-set -x BROWSER chromium
 
 set -x LANG en_US.UTF-8
 set -x LC_TIME de_DE.UTF-8
