@@ -1,0 +1,4 @@
+#!/bin/sh
+
+#find ~/archive -maxdepth 5 -type d -iregex ".*$1.*"
+find ~/archive -maxdepth 4 -type d -iname "*$1*"

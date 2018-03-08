@@ -1,0 +1,3 @@
+#!/bin/sh
+
+task rc.gc=off next | sed -n '4s/[[:blank:]]\+/ /pg'

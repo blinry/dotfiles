@@ -1,0 +1,5 @@
+#!/bin/bash
+vim ~/permanent/wiki/Tagebuch +"normal G" +"normal o
+$(date)
+
+" +star

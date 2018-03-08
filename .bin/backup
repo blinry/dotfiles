@@ -1,0 +1,5 @@
+#!/bin/bash
+
+DEST="/mnt"
+
+sudo cat "$DEST"/daily-backup && time sudo rsync -aAXvh --progress --delete / "$DEST"/ --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/swapfile,/home/seb/tmp/*} && sudo touch "$DEST"/daily-backup && sudo umount "$DEST" && echo 'Backup done'
