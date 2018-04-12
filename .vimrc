@@ -83,6 +83,7 @@ set softtabstop=4 " when editing indentations, edit 4 characters at once
 set shiftwidth=4 " use 4 spaces when (auto)indenting
 set expandtab " on a <Tab>, insert spaces
 set colorcolumn=+1 " draw a line after 'textwidth'
+set breakindent " keep indentation when wrapping lines
 
 " Status Line
 set showcmd " show command as typing and area in visual mode
