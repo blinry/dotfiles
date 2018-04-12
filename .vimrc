@@ -1,24 +1,18 @@
+" Initialize the Minimalist Vim Plugin Manager
 call plug#begin()
+
 " Browse folders with -
 Plug 'tpope/vim-vinegar'
+" open files *fast*!
+Plug 'ctrlpvim/ctrlp.vim'
 " Format tables and calculate stuff in them
 Plug 'dhruvasagar/vim-table-mode'
 " cx for exchange operation
 Plug 'tommcdo/vim-exchange'
-" support for the 'nutsh' language
-Plug 'blinry/vim-nutsh'
-" dead simple personal wiki plugin
-Plug 'blinry/vimboy'
-" simple bibTeX plugin
-Plug 'blinry/bibboy'
-" convenient handling of trees
-Plug 'blinry/vimgirl'
 " 'e' text object is the entire file
 Plug 'kana/vim-textobj-entire'
-" needed for 'vim-textobj-entire'
+" needed for vim-textobj-entire
 Plug 'kana/vim-textobj-user'
-" open files *fast*!
-Plug 'kien/ctrlp.vim'
 " snippets, duh!
 Plug 'SirVer/ultisnips'
     let g:UltiSnipsEditSplit="vertical"
@@ -30,12 +24,20 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-endwise'
 " Enhance % for various languages
 Plug 'vim-scripts/matchit.zip'
-Plug 'kchmck/vim-coffee-script'
+" Syntax checking
+Plug 'vim-syntastic/syntastic'
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
+" dead simple personal wiki plugin
+Plug 'blinry/vimboy'
+" Support for slim
 Plug 'slim-template/vim-slim'
-" graphical browser of undo tree
-Plug 'sjl/gundo.vim'
+" Support for GLSL
 Plug 'tikhomirov/vim-glsl'
-Plug 'udalov/kotlin-vim'
+" Support for Rust
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 filetype plugin indent on " activate filetype detection
