@@ -43,38 +43,37 @@ call plug#end()
 filetype plugin indent on " activate filetype detection
 syntax on " enable syntax highlighting
 
-" Set a few options which are the default in neovim
+" Set a few options which have reasonable defaults in Neovim
 if !has("nvim")
-    set encoding=utf-8
+    set encoding=utf-8 " well, come on
     set nobackup " don't keep backups
-    set undodir=~/.cache/
+    set undodir=~/.cache/ " put undo files here
     set autoread " automatically read externally modified files
 
     set incsearch " show matches while typing
-    "set hlsearch " don't highlight search matches
 
     set autoindent " keep indent when starting a new line
     set wrap " wrap long lines
 
-    set history=1024
+    set history=10000 " remember this many commands
 endif
 
 " Colors, Hidden Characters
-colorscheme velvetopia " <3
-set list
-set listchars=tab:›\ ,trail:·,extends:❭,precedes:❬
-au InsertEnter * :set listchars-=trail:·
-au InsertLeave * :set listchars+=trail:·
-set showbreak=↳ " display dots in front of wrapped lines
+colorscheme velvetopia " my own li'l colorscheme <3
+set list " show whitespace characters
+set listchars=tab:›\ ,trail:·,extends:❭,precedes:❬ " ... like this!
+au InsertLeave * :set listchars+=trail:· " show trailing whitespace in all modes
+au InsertEnter * :set listchars-=trail:· " ... except insert mode
+set showbreak=↳ " display this character in front of wrapped lines
 
 " Backup, Undo, Swap
-set noswapfile
-set undofile
+set noswapfile " don't keep swap files
+set undofile " keep undo files
 
 " Search
 set ignorecase " ignore case in search patterns
 set smartcase " ... unless pattern contains upper case charecters
-set nohlsearch
+set nohlsearch " don't highlight other searh matches
 
 " Editing
 set nojoinspaces " when joining lines, don't insert two spaces after punctuation
@@ -96,7 +95,7 @@ set wildmode=longest:list,full " tab-complete to longest common match, then show
 " User Interface
 set mouse=a " enable mouse use in all modes
 set completeopt=menu,menuone,longest
-set tabpagemax=99999 " don't limit the number of tabs created by the -p switch
+set tabpagemax=10000 " don't limit the number of tabs created by the -p switch
 set visualbell " flash instead of beeping
 let mapleader="," " Use , instead of \ as <Leader>
 set notimeout " don't timeout on mappings
@@ -107,73 +106,51 @@ set lazyredraw " redraw only when we need to
 " Spell Checking
 set dictionary+=/usr/share/dict/american-english,/usr/share/dict/german
 
-" Folding
-set foldtext=getline(v:foldstart)
-set fillchars=fold:\ 
-highlight Folded ctermbg=DarkBlue ctermfg=None
+" MAPPINGS
 
-" Mappings
+" toggle search highlight
+nnoremap <leader><Space> :set hlsearch!<CR>
 
-" turn off search highlight
-nnoremap <leader><Space> :nohlsearch<CR>
-
-" toggle gundo
-nnoremap <leader>u :GundoToggle<CR>
-
-nnoremap <Space> za
-
+" scroll through command history
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
 " :%% expands to path of current file
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" <F5> to save all files and run make
-map <F5> :wall!<CR>:make!<CR>
-
 " gf to open the file in a new tab
 nnoremap gf <C-W>gf
+
+" add more undo-steps when writing prose
+inoremap . .<C-g>u
+inoremap ? ?<C-g>u
+inoremap ! !<C-g>u
+inoremap , ,<C-g>u
 
 " <Leader>-/= to underline the current line with -'s or ='s
 nmap <Leader>- yyp:s/./-/g<CR>
 nmap <Leader>= yyp:s/./=/g<CR>
 
-nmap <Backspace> hx
+" AUTOCOMMANDS
 
-map <Leader>, :call Zoomout()<CR><CR>
-map <Leader>. :!fontsize<CR><CR>
-
-function! Zoomout()
-    let deffontsize=18
-    let rows=winheight(0)
-    let lines=line('$')
-    let newfontsize=deffontsize*rows/lines
-    if newfontsize > deffontsize
-        let newfontsize=deffontsize
-    endif
-    if newfontsize < 1
-        let newfontsize=1
-    endif
-    execute '!fontsize ' . newfontsize
-    normal zb
-endfunction
-
-" Autocommands
-
-" When opening a file, always jump to the last known cursor position
+" when opening a file, always jump to the last known cursor position
 autocmd bufreadpost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
 \   execute 'normal! g`"zv' |
 \   let b:doopenfold = 1 |
 \ endif
 
-" nnoremap p p=`]
+" auto-indent pasted text
+nnoremap p p=`]
 
-" Resize splits when the window is resized
+" resize splits when the window is resized
 au Vimresized * :wincmd =
 
-" Location of my private wiki
+" location of my private wiki
 au BufRead,BufNewFile ~/permanent/wiki/* set ft=vimboy
 
-" Highlight second-level markdown headings properly
+" location of the PF wiki
+au BufRead,BufNewFile ~/permanent/pf-wiki/* set ft=vimboy
+
+" highlight second-level markdown headings properly
 syn match Special '---[-]*'
