@@ -9,14 +9,12 @@ alias state='sudo systemctl status'
 
 # Arch Linux
 
-alias p='pacman -Ss'
+alias p='sudo pacman -Ss'
 alias pin='sudo pacman -S'
 alias pup='sudo pacman -Su'
 alias pout='sudo pacman -Rcs'
-alias po='pacman -Qo'
 
-alias y='yaourt --noconfirm'
-alias yup='yaourt -Syu --aur --noconfirm'
+alias y='yay'
 
 alias net-auto='sudo netctl stop-all; sudo systemctl restart netctl-auto@wlp4s0'
 alias net-profile='sudo systemctl stop netctl-auto@wlp4s0; sudo netctl restart'
@@ -61,12 +59,14 @@ alias pt='sudo powertop'
 alias si='sudo vim'
 alias vimrc='vim ~/.vimrc'
 alias t='task'
+alias h='habitctl'
 alias mm='mosh morr.cc'
 
-alias x-single='xrandr --output eDP1 --mode 2560x1440 --output HDMI1 --off --output HDMI2 --off --output DP2-1 --off --output DP2-3 --off'
-alias x-mirror-1080p='xrandr --output eDP1 --mode 1920x1080 --output HDMI2 --mode 1920x1080'
+alias x-single='xrandr --output eDP1 --mode 2560x1440 --output HDMI1 --off --output HDMI2 --off --output DP2-1 --off --output DP2-3 --off --output DP2-2 --off'
+alias x-dual='xrandr --output eDP1 --mode 2560x1440  --pos 632x2160 --output DP2-1 --mode 3840x2160'
+alias x-mirror-1080p='xrandr --output eDP1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --same-as eDP1'
 alias x-dual-1080p='xrandr --output eDP1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --above eDP1'
-alias x-triple='xrandr --output eDP1 --mode 1920x1080 --output DP2-1 --mode 1600x1200 --right-of eDP1; xrandr --output DP2-1 --mode 1600x1200 --right-of eDP1 --output DP2-3 --mode 1280x1024 --right-of DP2-1 --rotate left'
+alias x-triple='xrandr --output VIRTUAL1 --off --output eDP1 --mode 2560x1440 --pos 0x720 --rotate normal --output DP1 --off --output DP2-1 --mode 1600x1200 --pos 6400x560 --rotate left; xrandr --output DP2-2 --primary --mode 3840x2160 --pos 2560x0 --rotate normal --output DP2-3 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off'
 
 alias usb-mount='sudo mount -o uid=seb,gid=users /dev/sdb1 /mnt'
 alias usb-umount='sudo umount /mnt'
