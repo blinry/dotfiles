@@ -1,0 +1,7 @@
+#!/bin/sh
+
+DIR="$HOME/permanent/homepage/content/$1"
+FILE="$DIR/index.md"
+TITLE=$(echo $1 | tr '-' ' ')
+
+mkdir -p "$DIR" && cd "$DIR" && echo -e "---\ntitle: $TITLE\ntags: \n---\n\n" > "$FILE" && vim "$FILE" +:2 +"normal A" +star!

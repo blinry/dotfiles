@@ -1,0 +1,3 @@
+#!/bin/sh
+
+locate -i "$1" | grep "$HOME" | fgrep "$1" -i --color=always

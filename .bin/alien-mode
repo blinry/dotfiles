@@ -1,0 +1,4 @@
+#!/bin/bash
+
+xset r rate
+synclient VertEdgeScroll=0

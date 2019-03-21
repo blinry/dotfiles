@@ -1,3 +1,0 @@
-#!/bin/sh
-
-(sleep $(( $1 * 60 )) && notify-send -u critical "$2") &

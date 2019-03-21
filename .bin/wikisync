@@ -1,0 +1,8 @@
+#!/bin/sh
+
+cd ~/permanent/wiki
+git add -A
+git commit -m "Sync"
+
+git fetch
+git merge origin/phone && git push

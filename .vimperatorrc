@@ -8,4 +8,5 @@ set shell="bash"
 
 map w t !w<Left><Left><Left>
 
-silent source ~/.vimperatorrc.local
+command! -nargs=0 sehen :silent execute "!echo '- " + content.document.title.replace("'", "'\"'\"'", "g") + ": " + content.location.href.replace("'", "'\"'\"'", "g") + " ('$(date +\"%Y-%m-%d\")')' >> ~/permanent/wiki/Sehen"
+command! -nargs=0 lesen :silent execute "!echo '- " + content.document.title.replace("'", "'\"'\"'", "g") + ": " + content.location.href.replace("'", "'\"'\"'", "g") + " ('$(date +\"%Y-%m-%d\")')' >> ~/permanent/wiki/Lesen"
