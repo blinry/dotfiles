@@ -7,8 +7,10 @@ font pango:monospace 11
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+bindsym XF86Tools exec i3lock -fo
+
 # start a terminal
-bindsym $mod+Return exec urxvt -cd "`xcwd`"
+bindsym $mod+Return exec termite --directory="`xcwd`"
 
 # kill focused window
 bindsym $mod+d kill
@@ -84,16 +86,6 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
-# i3bar configuration
-bar {
-    status_command status-line-loop
-}
-bindsym $mod+b bar hidden_state toggle
-bindsym $mod+m bar hidden_state toggle
-
-# Set border width
-new_window 1pixel
-
 # Colors
 set $bg #000000
 set $tx #ffffff
@@ -104,15 +96,34 @@ client.focused          $ac $ac $tx
 client.unfocused        $bg $bg $gr
 client.focused_inactive $bg $bg $tx
 client.urgent           $rd $rd $tx
+client.background $ac
+
+# Set border width
+new_window pixel 3
+
+# i3bar configuration
+bar {
+    status_command status-line-loop
+    colors {
+        focused_workspace $ac $ac $tx
+        active_workspace $bg $bg $tx
+        inactive_workspace $bg $bg $gr
+        urgent_workspace $rd $rd $tx
+    }
+}
+bindsym $mod+b bar hidden_state toggle
+bindsym $mod+m bar hidden_state toggle
 
 # Various hotkeys
-bindsym $mod+F1 exec chromium --force-device-scale-factor=1.6
-bindsym $mod+F2 exec urxvt -cd ~/tmp/ -e mutt
-bindsym $mod+F3 exec urxvt -e wiki
-bindsym $mod+F4 exec urxvt -e ncmpcpp
+bindsym $mod+F1 exec firefox
+bindsym $mod+F2 exec termite -e mutt --directory=$HOME/tmp
+bindsym $mod+F3 exec termite -e wiki
+bindsym $mod+F4 exec termite -e ncmpcpp
 bindsym $mod+F5 exec liferea
 bindsym XF86AudioRaiseVolume exec "pactl -- set-sink-volume 0 +5%; pactl -- set-sink-volume 2 +5%; pactl -- set-sink-volume 4 +5%; killall status-line"
 bindsym XF86AudioLowerVolume exec "pactl -- set-sink-volume 0 -5%; pactl -- set-sink-volume 2 -5%; pactl -- set-sink-volume 4 -5%; killall status-line"
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && killall status-line
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec xbacklight -inc 31
+bindsym XF86MonBrightnessDown exec xbacklight -dec 31
+
+exec xsetroot -solid black
