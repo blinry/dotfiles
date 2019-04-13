@@ -35,3 +35,9 @@ hi TabLineFill  ctermbg=black cterm=none
 hi TabLineSel   ctermbg=none cterm=none
 hi VertSplit    ctermfg=darkgray cterm=inverse
 hi Visual       ctermbg=black
+
+" Git stuff
+
+hi DiffAdd ctermbg=black
+hi DiffChange ctermbg=black
+hi DiffDelete ctermbg=black
