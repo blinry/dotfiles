@@ -1,5 +1,17 @@
+let mapleader="," " Use space as a <Leader>.
+
+" Automatically install plug.
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " Initialize plug.
 call plug#begin()
+
+" Git stuff!
+Plug 'tpope/vim-fugitive'
 
 " Edit parens, brackets, and more.
 Plug 'tpope/vim-surround'
@@ -7,11 +19,27 @@ Plug 'tpope/vim-surround'
 " Repeat support for surround and other plugins.
 Plug 'tpope/vim-repeat'
 
+" Comment stuff out using 'gc'.
+Plug 'tpope/vim-commentary'
+
+" Pairs of handy bracket mappings.
+Plug 'tpope/vim-unimpaired'
+
 " Fuzzy-find everything!
 Plug 'junegunn/fzf.vim'
-    nnoremap <C-p> :Files<CR>
-    nnoremap <C-g> :Rg<CR>
     nnoremap ; :Buffers<CR>
+    nnoremap <C-p> :Files<CR>
+
+    nnoremap <Leader>f :GFiles<CR>
+    nnoremap <Leader>h :History<CR>
+    nnoremap <Leader>l :BLines<CR>
+    nnoremap <Leader>L :Lines<CR>
+    nnoremap <Leader>g :Rg<CR>
+    nnoremap <Leader>H :Helptags!<CR>
+    nnoremap <Leader>: :History:<CR>
+    nnoremap <Leader>/ :History/<CR>
+    "nnoremap <C-r> :Rg<CR>
+    cabbrev tabe Files<CR>
 
 " Format tables and calculate stuff in them.
 Plug 'dhruvasagar/vim-table-mode'
@@ -29,6 +57,7 @@ Plug 'SirVer/ultisnips'
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<tab>"
     let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+    let g:UltiSnipsSnippetDirectories=[$HOME."/.config/nvim/UltiSnips"]
 
 " In Ruby, insert 'end' statements automatically.
 Plug 'tpope/vim-endwise'
@@ -36,12 +65,41 @@ Plug 'tpope/vim-endwise'
 " Dead simple personal wiki plugin.
 Plug 'blinry/vimboy'
 
+" Asynchronous code linting and fixing
+Plug 'w0rp/ale'
+    let g:ale_fixers = {
+    \   'c': ['clang-format'],
+    \   'python': ['black'],
+    \   'html': ['prettier'],
+    \   'javascript': ['prettier'],
+    \}
+    let g:ale_linters_explicit = 1
+    let g:ale_fix_on_save = 1
+   " \   'css': ['prettier'],
+
 " Better support for various filetypes.
 Plug 'slim-template/vim-slim'
 Plug 'tikhomirov/vim-glsl'
 Plug 'rust-lang/rust.vim'
 Plug 'matze/vim-lilypond'
 Plug 'philj56/vim-asm-indent'
+"Plug 'rhysd/vim-wasm'
+"Plug 'sheerun/vim-polyglot'
+Plug 'https://gitlab.com/n9n/vim-apl'
+Plug 'mxw/vim-jsx'
+
+"Plug 'airblade/vim-gitgutter'
+"    let g:gitgutter_sign_added = '+'
+"    let g:gitgutter_sign_modified = '>'
+"    let g:gitgutter_sign_removed = '-'
+"    let g:gitgutter_sign_removed_first_line = '^'
+"    let g:gitgutter_sign_modified_removed = '<'
+"    let g:gitgutter_override_sign_column_highlight = 1
+"    "highlight SignColumn guibg=bg
+"    "highlight SignColumn ctermbg=bg
+"    set updatetime=250
+
+Plug 'tidalcycles/vim-tidal'
 
 call plug#end()
 
@@ -80,9 +138,8 @@ set wildmode=longest:list,full " Tab-complete to longest common match, then show
 
 " User interface.
 set mouse=a " Enable mouse use in all modes.
-let mapleader="\<Space>" " Use space as a <Leader>.
 set notimeout " Don't timeout on mappings.
-set shell=/bin/sh
+set shell=/bin/bash
 set clipboard=unnamed,unnamedplus " Use * and + in yank/paste operations.
 set lazyredraw " Redraw only when we need to.
 
@@ -94,11 +151,11 @@ set dictionary+=/usr/share/dict/american-english,/usr/share/dict/german
 
 " MAPPINGS
 
-" Navigate windows.
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" Bubble lines
+nmap <C-k> [e
+nmap <C-j> ]e
+vmap <C-k> [egv
+vmap <C-j> ]egv
 
 " Toggle search highlight.
 nnoremap <Leader><Space> :set hlsearch!<CR>
@@ -110,8 +167,11 @@ inoremap ! !<C-g>u
 inoremap , ,<C-g>u
 
 " Underline the current line with - or =.
-nmap <Leader>- yyp:s/./-/g<CR>
-nmap <Leader>= yyp:s/./=/g<CR>
+nmap <Leader>- "ayy"ap:s/./-/g<CR>
+nmap <Leader>= "ayy"ap:s/./=/g<CR>
+
+" Edit snippets.
+nmap <Leader>s :UltiSnipsEdit<CR>
 
 " AUTOCOMMANDS
 
