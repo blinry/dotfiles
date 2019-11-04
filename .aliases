@@ -32,6 +32,8 @@ alias gp='git push'
 
 # Set default options for some tools
 
+alias vi='nvim'
+alias vim='nvim'
 alias ls='ls --color=auto -tr -N'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
@@ -43,6 +45,7 @@ alias sm='sm -f white -b black ""'
 alias mscan='mscan -I'
 alias mextract='mscan -x .'
 alias youtube-dl='youtube-dl --no-mtime'
+alias gdb='gdb -q'
 
 # Lazyness
 
@@ -57,16 +60,23 @@ alias die='sudo shutdown -h now'
 alias reboot='sudo reboot'
 alias pt='sudo powertop'
 alias si='sudo vim'
-alias vimrc='vim ~/.vimrc'
-alias t='task'
+alias vimrc='vim -c \'e $MYVIMRC\''
+
+alias t='wiki Todo'
 alias h='habitctl'
 alias mm='mosh morr.cc'
+alias qemu='qemu-system-x86_64'
 
 alias x-single='xrandr --output eDP1 --mode 2560x1440 --output HDMI1 --off --output HDMI2 --off --output DP2-1 --off --output DP2-3 --off --output DP2-2 --off'
-alias x-dual='xrandr --output eDP1 --mode 2560x1440  --pos 632x2160 --output DP2-1 --mode 3840x2160'
+alias x-dual='xrandr --output eDP1 --mode 2560x1440 --pos 632x2160 --output DP2-1 --mode 3840x2160'
+alias x-pair='xrandr --output eDP1 --mode 2560x1440 --pos 0x1080 --output HDMI2 --mode 1920x1080 --pos 320x0'
 alias x-mirror-1080p='xrandr --output eDP1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --same-as eDP1'
 alias x-dual-1080p='xrandr --output eDP1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --above eDP1'
 alias x-triple='xrandr --output VIRTUAL1 --off --output eDP1 --mode 2560x1440 --pos 0x720 --rotate normal --output DP1 --off --output DP2-1 --mode 1600x1200 --pos 6400x560 --rotate left; xrandr --output DP2-2 --primary --mode 3840x2160 --pos 2560x0 --rotate normal --output DP2-3 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off'
+alias x-dock='xrandr --output eDP1 --primary --mode 2560x1440 --pos 640x2160 --output DP2-1 --mode 3840x2160 --pos 0x0'
+
+alias pa-hdmi='pacmd set-card-profile 0 output:hdmi-stereo-extra1'
+alias pa-analog='pacmd set-card-profile 0 output:analog-stereo'
 
 alias usb-mount='sudo mount -o uid=seb,gid=users /dev/sdb1 /mnt'
 alias usb-umount='sudo umount /mnt'
