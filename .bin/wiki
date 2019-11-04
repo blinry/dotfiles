@@ -2,14 +2,14 @@
 
 cd $HOME/permanent/wiki
 
-lastcommittime=$(git show --format="%ct" -s)
-nowtime=$(date +%s)
-
-if [ $(($nowtime - $lastcommittime)) -gt $((60*60*24)) ]; then
-    echo "Autocommit"
-    git add -A
-    git commit -m "Autocommit"
-fi
+#lastcommittime=$(git show --format="%ct" -s)
+#nowtime=$(date +%s)
+#
+#if [ $(($nowtime - $lastcommittime)) -gt $((60*60*24)) ]; then
+#    echo "Autocommit"
+#    git add -A
+#    git commit -m "Autocommit"
+#fi
 
 cmd=$1
 shift
