@@ -5,4 +5,4 @@ git add -A
 git commit -m "Sync"
 
 git fetch
-git merge origin/phone && git push
+git merge origin/master && git push
