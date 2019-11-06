@@ -115,15 +115,14 @@ bindsym $mod+b bar hidden_state toggle
 bindsym $mod+m bar hidden_state toggle
 
 # Various hotkeys
-bindsym $mod+F1 exec firefox
+bindsym $mod+F1 exec chromium --force-device-scale-factor=1.6
 bindsym $mod+F2 exec termite -e mutt --directory=$HOME/tmp
 bindsym $mod+F3 exec termite -e wiki
 bindsym $mod+F4 exec termite -e ncmpcpp
 bindsym $mod+F5 exec liferea
-bindsym XF86AudioRaiseVolume exec "pactl -- set-sink-volume 0 +5%; pactl -- set-sink-volume 2 +5%; pactl -- set-sink-volume 4 +5%; killall status-line"
-bindsym XF86AudioLowerVolume exec "pactl -- set-sink-volume 0 -5%; pactl -- set-sink-volume 2 -5%; pactl -- set-sink-volume 4 -5%; killall status-line"
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && killall status-line
-bindsym XF86MonBrightnessUp exec xbacklight -inc 31
-bindsym XF86MonBrightnessDown exec xbacklight -dec 31
-
-exec xsetroot -solid black
+bindsym XF86AudioRaiseVolume exec "pamixer --allow-boost -i 5; killall status-line"
+bindsym XF86AudioLowerVolume exec "pamixer --allow-boost -d 5; killall status-line"
+bindsym XF86AudioMute exec "pamixer -t; killall status-line"
+bindsym XF86MonBrightnessUp exec xbacklight -inc 32
+bindsym XF86MonBrightnessDown exec xbacklight -dec 32
+bindsym Print exec maimshot
