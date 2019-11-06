@@ -1,0 +1,7 @@
+#!/bin/sh
+
+notify-send -t 3000 "Starting server backup..."
+
+export SSHPASS="$(gopass show morr.cc/root)"
+
+sudo -E rsync -avzXAh --partial --delete --info=progress2 -e "sshpass -e ssh" root@morr.cc:/ /home/seb/permanent/backups/morr.cc/ --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/lost+found,/home/sebastian/tmp/*,/home/sebastian/Maildir/*,/home/sebastian/permanent/backups/thinkerbell/*} && notify-send -t 3000 "Finished server backup." || notify-send -u critical "Server backup failed or interrupted."
