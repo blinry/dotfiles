@@ -39,7 +39,7 @@ Plug 'junegunn/fzf.vim'
     nnoremap <Leader>: :History:<CR>
     nnoremap <Leader>/ :History/<CR>
     "nnoremap <C-r> :Rg<CR>
-    cabbrev tabe Files<CR>
+    "cabbrev tabe Files<CR>
 
 " Format tables and calculate stuff in them.
 Plug 'dhruvasagar/vim-table-mode'
