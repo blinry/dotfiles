@@ -4,9 +4,14 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
-urxvt &
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.666
+
+termite &
 mpd &
 xsetroot -solid black
+dunst &
+redshift &
 
 # Use the whole area of the touchpad for scrolling.
 synclient VertEdgeScroll=1
@@ -20,12 +25,7 @@ synclient HorizHysteresis=0
 synclient FingerLow=1
 synclient FingerHigh=5
 
-# Hide the mouse pointer after 5 seconds of inactivity.
-unclutter -idle 5 -jitter 2 -root &
-
 init-keyboard
 init-mouse
-
-xcalib -d :0 ~/.color/icc/T460s.icm
 
 exec i3

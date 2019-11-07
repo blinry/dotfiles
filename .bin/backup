@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/bin/sh
 
-DEST="/mnt"
+notify-send -t 3000 "Starting notebook backup..."
 
-sudo cat "$DEST"/daily-backup && time sudo rsync -aAXvh --progress --delete / "$DEST"/ --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/media/*,/lost+found,/swapfile,/home/seb/tmp/*} && sudo touch "$DEST"/daily-backup && sudo umount "$DEST" && echo 'Backup done'
+borgmatic -p -C && notify-send -t 3000 "Finished notebook backup." || notify-send -u critical "Notebook backup failed or interrupted."

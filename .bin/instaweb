@@ -1,7 +1,13 @@
-#!/bin/sh
-cd $1
-killall -9 python2.7 2>&1 > /dev/null
-nohup python2.7 -m SimpleHTTPServer 4000 > /dev/null 2>&1 &
-sleep 0.2
-echo "Serving on http://localhost:4000"
-firefox http://localhost:4000
+#!/usr/bin/env python2
+import BaseHTTPServer, SimpleHTTPServer
+
+port = 8000
+print "Running on port %d" % port
+
+SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map['.wasm'] = 'application/wasm'
+
+httpd = BaseHTTPServer.HTTPServer(('localhost', port), SimpleHTTPServer.SimpleHTTPRequestHandler)
+
+print "Mapping \".wasm\" to \"%s\"" % SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map['.wasm']
+
+httpd.serve_forever()
