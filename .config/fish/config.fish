@@ -23,7 +23,6 @@ set -x TERMINAL termite
 set -x BROWSER chromium
 
 set -x FZF_DEFAULT_COMMAND "rg --files"
-fzf_key_bindings
 
 set -x LANG en_US.UTF-8
 set -x LC_TIME de_DE.UTF-8
