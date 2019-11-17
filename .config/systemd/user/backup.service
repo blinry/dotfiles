@@ -1,0 +1,6 @@
+[Unit]
+Description=Notebook backup
+
+[Service]
+Type=oneshot
+ExecStart=/home/seb/.bin/backup
