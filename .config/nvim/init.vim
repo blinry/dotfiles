@@ -1,4 +1,5 @@
-let mapleader="," " Use space as a <Leader>.
+let mapleader="," " Use comma as a <Leader>.
+let maplocalleader="," " Also use comma as a <Localleader> (for vim-tidal).
 
 " Automatically install plug.
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
