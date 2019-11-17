@@ -61,6 +61,7 @@ alias reboot='sudo reboot'
 alias pt='sudo powertop'
 alias si='sudo vim'
 alias vimrc='vim -c \'e $MYVIMRC\''
+alias yt='youtube-dl'
 
 alias t='wiki Todo'
 alias h='habitctl'
