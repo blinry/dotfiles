@@ -99,7 +99,7 @@ client.urgent           $rd $rd $tx
 client.background $ac
 
 # Set border width
-new_window pixel 3
+new_window pixel 2
 
 # i3bar configuration
 bar {
