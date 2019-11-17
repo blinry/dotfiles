@@ -101,6 +101,7 @@ Plug 'mxw/vim-jsx'
 "    set updatetime=250
 
 Plug 'tidalcycles/vim-tidal'
+    let g:tidal_target="terminal"
 
 call plug#end()
 
