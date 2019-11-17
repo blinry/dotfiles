@@ -73,10 +73,10 @@ Plug 'w0rp/ale'
     \   'python': ['black'],
     \   'html': ['prettier'],
     \   'javascript': ['prettier'],
+    \   'css': ['prettier'],
     \}
     let g:ale_linters_explicit = 1
     let g:ale_fix_on_save = 1
-   " \   'css': ['prettier'],
 
 " Better support for various filetypes.
 Plug 'slim-template/vim-slim'
