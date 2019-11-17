@@ -29,4 +29,10 @@ fi
 
 MINUTES=$(($MINUTES / $POWER))
 
+if [ "$MINUTES" -lt "10" ]; then
+    if [ "$SYMBOL" = "-" ]; then
+        notify-send -u critical "Battery remaining: $MINUTES min"
+    fi
+fi
+
 echo $(printf %1d $(($MINUTES/60))):$(printf %02d $(($MINUTES % 60)))$SYMBOL
