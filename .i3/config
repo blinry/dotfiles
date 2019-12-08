@@ -125,4 +125,4 @@ bindsym XF86AudioLowerVolume exec "pamixer --allow-boost -d 5; killall status-li
 bindsym XF86AudioMute exec "pamixer -t; killall status-line"
 bindsym XF86MonBrightnessUp exec xbacklight -inc 32
 bindsym XF86MonBrightnessDown exec xbacklight -dec 32
-bindsym Print exec maimshot
+bindsym Print exec maimclip
