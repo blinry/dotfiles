@@ -92,14 +92,16 @@ set $tx #ffffff
 set $ac #005500
 set $gr #555555
 set $rd #aa0000
-client.focused          $ac $ac $tx
-client.unfocused        $bg $bg $gr
-client.focused_inactive $bg $bg $tx
-client.urgent           $rd $rd $tx
-client.background $ac
 
-# Set border width
-new_window pixel 2
+# Window appearance
+gaps inner 10
+gaps outer 0
+new_window pixel 0
+new_float pixel 0
+border_radius 8
+
+# Enable popup during fullscreen
+popup_during_fullscreen smart
 
 # i3bar configuration
 bar {
@@ -111,8 +113,6 @@ bar {
         urgent_workspace $rd $rd $tx
     }
 }
-bindsym $mod+b bar hidden_state toggle
-bindsym $mod+m bar hidden_state toggle
 
 # Various hotkeys
 bindsym $mod+F1 exec chromium --force-device-scale-factor=1.6
@@ -126,3 +126,6 @@ bindsym XF86AudioMute exec "pamixer -t; killall status-line"
 bindsym XF86MonBrightnessUp exec xbacklight -inc 32
 bindsym XF86MonBrightnessDown exec xbacklight -dec 32
 bindsym Print exec maimclip
+
+exec --no-startup-id ~/.fehbg
+exec --no-startup-id picom
