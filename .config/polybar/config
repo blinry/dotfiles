@@ -35,7 +35,7 @@ width = 100%
 height = 42
 ;offset-x = 10%
 ;offset-y = 1%
-radius-top = 8
+;radius-top = 8
 fixed-center = false
 
 background = ${colors.background}
@@ -44,17 +44,17 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-right-size = 10
-border-left-size = 10
+;border-right-size = 13
+;border-left-size = 
 border-color = #00000000
 
 ;padding-left = 0
-padding-right = 3
+padding-right = 2
 
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Roboto Medium:size=12;4
+font-0 = monospace:size=12;4
 font-1 = Noto Color Emoji:scale=8;6
 
 modules-left = i3
