@@ -7,12 +7,6 @@ export XMODIFIERS=@im=fcitx
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.666
 
-termite &
-mpd &
-xsetroot -solid black
-dunst &
-redshift &
-
 # Use the whole area of the touchpad for scrolling.
 synclient VertEdgeScroll=1
 synclient LeftEdge=0
