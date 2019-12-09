@@ -46,8 +46,8 @@ cursor_blink = off
 
 foreground = #ffffff
 #foreground_bold = #ffffff
-#background = rgba(0, 0, 0, 0.9)
-background = #000000
+background = rgba(0, 0, 0, 0.8)
+#background = #000000
 
 # 20% background transparency (requires a compositor)
 #background = rgba(63, 63, 63, 0.8)
