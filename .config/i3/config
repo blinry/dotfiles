@@ -1,0 +1,158 @@
+# Use Win key as the modifier (but I usually swap Alt and Win via setxkbmap)
+set $mod Mod4
+
+# Names for workspaces
+set $ws1    "1"
+set $ws2    "2"
+set $ws3    "3"
+set $ws4    "4"
+set $ws5    "5"
+
+# Use system monospace font
+font pango:monospace 11
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+bindsym XF86Tools exec i3lock -fo
+
+# start a terminal
+bindsym $mod+Return exec termite --directory="`xcwd`"
+
+# kill focused window
+bindsym $mod+d kill
+
+# start dmenu
+bindsym $mod+p exec --no-startup-id dmenu_run -b -h 42 -fn "monospace-12" -nb "#000000" -sf "#ffffff" -sb "#000000" -nf "#555555"
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# split in horizontal orientation
+bindsym $mod+Shift+v split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exit
+
+# resize the currently focused window
+bindsym $mod+Control+h resize shrink width 10 px or 10 ppt
+bindsym $mod+Control+j resize grow height 10 px or 10 ppt
+bindsym $mod+Control+k resize shrink height 10 px or 10 ppt
+bindsym $mod+Control+l resize grow width 10 px or 10 ppt
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+# Colors
+set $bg #000000cc
+set $tx #ffffff
+set $ac #005500
+set $gr #555555
+set $rd #aa0000
+
+# Window appearance
+gaps inner 10
+gaps outer 0
+new_window pixel 0
+new_float pixel 0
+border_radius 8
+
+# Enable popup during fullscreen
+popup_during_fullscreen smart
+
+# i3bar configuration
+# bar {
+#     i3bar_command i3bar --transparency
+#     status_command SCRIPT_DIR=/usr/lib/i3blocks/ i3blocks
+#     separator_symbol "|"
+#     strip_workspace_numbers yes
+# 
+#     bindsym button1 nop
+#     bindsym button2 nop
+#     bindsym button3 nop
+#     bindsym button4 nop
+#     bindsym button5 nop
+# 
+#     position top
+# 
+#     colors {
+#         background $bg
+#         statusline $tx
+#         focused_workspace $bg $bg $tx
+#         active_workspace $bg $bg $tx
+#         inactive_workspace $bg $bg $gr
+#         urgent_workspace $rd $rd $tx
+#         separator $gr
+#     }
+# }
+
+# Various hotkeys
+bindsym $mod+F1 exec chromium --force-device-scale-factor=1.6
+bindsym $mod+F2 exec termite -e mutt --directory=$HOME/tmp
+bindsym $mod+F3 exec termite -e wiki
+bindsym $mod+F4 exec termite -e ncmpcpp
+bindsym $mod+F5 exec liferea
+bindsym XF86AudioRaiseVolume exec pamixer --allow-boost -i 5 && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec pamixer --allow-boost -d 5 && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec pamixer -t && pkill -RTMIN+1 i3blocks
+bindsym XF86MonBrightnessUp exec xbacklight -inc 32
+bindsym XF86MonBrightnessDown exec xbacklight -dec 32
+bindsym Print exec maimclip
+
+exec --no-startup-id ~/.fehbg
+exec --no-startup-id picom
+exec --no-startup-id polybar example
+exec --no-startup-id termite
+exec --no-startup-id dunst
+exec --no-startup-id redshift
+exec --no-startup-id mpd

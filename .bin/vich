@@ -2,5 +2,7 @@
 
 FILENAME=$(which "$1")
 if [ -n "$FILENAME" ]; then
-    vim "$FILENAME"
+    $EDITOR "$FILENAME"
+else
+    vix "$HOME/.bin/$1"
 fi

@@ -1,3 +1,4 @@
 #!/bin/sh
 
-task rc.gc=off next | sed -n '4s/[[:blank:]]\+/ /pg'
+#task rc.gc=off next | sed -n '4s/[[:blank:]]\+/ /pg'
+cat ~/permanent/wiki/Todo | head -4 | tail -1

@@ -1,0 +1,9 @@
+[Unit]
+Description=Run backup-server each day
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -17,8 +17,12 @@ set -x GIT_AUTHOR_EMAIL "$EMAIL"
 set -x GIT_COMMITTER_NAME "$FULLNAME"
 set -x GIT_COMMITTER_EMAIL "$EMAIL"
 
-set -x PATH $HOME/.bin (ruby -e 'print Gem.user_dir')/bin /usr/bin/vendor_perl/ $PATH
-set -x EDITOR vim
+set -x PATH $HOME/wip/wit $HOME/wip/minitools/target/debug $HOME/wip/timelens/timelens/target/debug $HOME/permanent/habitctl/target/debug $HOME/.bin $HOME/.cargo/bin/ (ruby -e 'print Gem.user_dir')/bin /usr/bin/vendor_perl/ $PATH
+set -x EDITOR nvim
+set -x TERMINAL termite
+set -x BROWSER chromium
+
+set -x FZF_DEFAULT_COMMAND "rg --files"
 
 set -x LANG en_US.UTF-8
 set -x LC_TIME de_DE.UTF-8
@@ -33,6 +37,7 @@ umask 0077
 set fish_greeting
 
 complete -c wiki -a '(pushd .; cd ~/permanent/wiki; ls; popd)'
+complete -c pf -a '(pushd .; cd ~/permanent/pf-wiki; ls; popd)'
 
 function take
     mkdir -p $argv

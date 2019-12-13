@@ -1,0 +1,6 @@
+[Unit]
+Description=Server backup
+
+[Service]
+Type=oneshot
+ExecStart=/home/seb/.bin/backup-server

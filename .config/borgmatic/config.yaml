@@ -1,0 +1,211 @@
+# Where to look for files to backup, and where to store those backups. See
+# https://borgbackup.readthedocs.io/en/stable/quickstart.html and
+# https://borgbackup.readthedocs.io/en/stable/usage.html#borg-create for details.
+location:
+    # List of source directories to backup (required). Globs and tildes are expanded.
+    source_directories:
+        - /home/seb
+
+    # Paths to local or remote repositories (required). Tildes are expanded. Multiple
+    # repositories are backed up to in sequence. See ssh_command for SSH options like
+    # identity file or port.
+    repositories:
+        - sebastian@morr.cc:~/permanent/backups/thinkerbell
+
+    # Stay in same file system (do not cross mount points). Defaults to false.
+    #one_file_system: true
+
+    # Use Borg's --read-special flag to allow backup of block and other special
+    # devices. Use with caution, as it will lead to problems if used when
+    # backing up special devices such as /dev/zero. Defaults to false.
+    #read_special: false
+
+    # Record bsdflags (e.g. NODUMP, IMMUTABLE) in archive. Defaults to true.
+    #bsd_flags: true
+
+    # Mode in which to operate the files cache. See
+    # https://borgbackup.readthedocs.io/en/stable/usage/create.html#description for
+    # details. Defaults to "ctime,size,inode".
+    #files_cache: ctime,size,inode
+
+    # Alternate Borg local executable. Defaults to "borg".
+    #local_path: borg1
+
+    # Alternate Borg remote executable. Defaults to "borg".
+    #remote_path: borg1
+
+    # Any paths matching these patterns are included/excluded from backups. Globs are
+    # expanded. (Tildes are not.) Note that Borg considers this option experimental.
+    # See the output of "borg help patterns" for more details. Quote any value if it
+    # contains leading punctuation, so it parses correctly.
+    #patterns:
+    #    - R /
+    #    - '- /home/*/.cache'
+    #    - + /home/susan
+    #    - '- /home/*'
+
+    # Read include/exclude patterns from one or more separate named files, one pattern
+    # per line. Note that Borg considers this option experimental. See the output of
+    # "borg help patterns" for more details.
+    #patterns_from:
+    #    - /etc/borgmatic/patterns
+
+    # Any paths matching these patterns are excluded from backups. Globs and tildes
+    # are expanded. See the output of "borg help patterns" for more details.
+    exclude_patterns:
+         - /home/seb/.cache
+         - /home/seb/tmp
+         - /home/seb/library/movies
+         - /home/seb/library/music
+         - /home/seb/library/audiobooks
+         - /home/seb/library/books
+         - /home/seb/library/games
+         - /home/seb/permanent/backups/morr.cc
+    #    - '*.pyc'
+    #    - ~/*/.cache
+    #    - /etc/ssl
+
+    # Read exclude patterns from one or more separate named files, one pattern per
+    # line. See the output of "borg help patterns" for more details.
+    #exclude_from:
+    #    - /etc/borgmatic/excludes
+
+    # Exclude directories that contain a CACHEDIR.TAG file. See
+    # http://www.brynosaurus.com/cachedir/spec.html for details. Defaults to false.
+    #exclude_caches: true
+
+    # Exclude directories that contain a file with the given filename. Defaults to not
+    # set.
+    #exclude_if_present: .nobackup
+
+# Repository storage options. See
+# https://borgbackup.readthedocs.io/en/stable/usage.html#borg-create and
+# https://borgbackup.readthedocs.io/en/stable/usage/general.html#environment-variables for
+# details.
+storage:
+    # The standard output of this command is used to unlock the encryption key. Only
+    # use on repositories that were initialized with passcommand/repokey encryption.
+    # Note that if both encryption_passcommand and encryption_passphrase are set,
+    # then encryption_passphrase takes precedence. Defaults to not set.
+    #encryption_passcommand: su seb -c "gopass show morr.cc/thinkerbell_backup"
+    encryption_passcommand: gopass show morr.cc/thinkerbell_backup
+
+    # Passphrase to unlock the encryption key with. Only use on repositories that were
+    # initialized with passphrase/repokey encryption. Quote the value if it contains
+    # punctuation, so it parses correctly. And backslash any quote or backslash
+    # literals as well. Defaults to not set.
+    #encryption_passphrase: "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+
+    # Number of seconds between each checkpoint during a long-running backup. See
+    # https://borgbackup.readthedocs.io/en/stable/faq.html#if-a-backup-stops-mid-way-does-the-already-backed-up-data-stay-there
+    # for details. Defaults to checkpoints every 1800 seconds (30 minutes).
+    #checkpoint_interval: 1800
+
+    # Specify the parameters passed to then chunker (CHUNK_MIN_EXP, CHUNK_MAX_EXP,
+    # HASH_MASK_BITS, HASH_WINDOW_SIZE). See https://borgbackup.readthedocs.io/en/stable/internals.html
+    # for details. Defaults to "19,23,21,4095".
+    #chunker_params: 19,23,21,4095
+
+    # Type of compression to use when creating archives. See
+    # https://borgbackup.readthedocs.org/en/stable/usage.html#borg-create for details.
+    # Defaults to no compression.
+    #compression: lz4
+
+    # Remote network upload rate limit in kiBytes/second. Defaults to unlimited.
+    #remote_rate_limit: 100
+
+    # Command to use instead of "ssh". This can be used to specify ssh options.
+    # Defaults to not set.
+    #ssh_command: ssh -i /path/to/private/key
+
+    # Umask to be used for borg create. Defaults to 0077.
+    #umask: 0077
+
+    # Maximum seconds to wait for acquiring a repository/cache lock. Defaults to 1.
+    #lock_wait: 5
+
+    # Name of the archive. Borg placeholders can be used. See the output of
+    # "borg help placeholders" for details. Defaults to
+    # "{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f}". If you specify this option, you must
+    # also specify a prefix in the retention section to avoid accidental pruning of
+    # archives with a different archive name format. And you should also specify a
+    # prefix in the consistency section as well.
+    #archive_name_format: '{hostname}-documents-{now}'
+
+# Retention policy for how many backups to keep in each category. See
+# https://borgbackup.readthedocs.org/en/stable/usage.html#borg-prune for details.
+# At least one of the "keep" options is required for pruning to work.
+retention:
+    # Keep all archives within this time interval.
+    #keep_within: 3H
+
+    # Number of secondly archives to keep.
+    #keep_secondly: 60
+
+    # Number of minutely archives to keep.
+    #keep_minutely: 60
+
+    # Number of hourly archives to keep.
+    #keep_hourly: 24
+
+    # Number of daily archives to keep.
+    keep_daily: 7
+
+    # Number of weekly archives to keep.
+    keep_weekly: 4
+
+    # Number of monthly archives to keep.
+    keep_monthly: 6
+
+    # Number of yearly archives to keep.
+    keep_yearly: 1
+
+    # When pruning, only consider archive names starting with this prefix.
+    # Borg placeholders can be used. See the output of "borg help placeholders" for
+    # details. Defaults to "{hostname}-".
+    #prefix: sourcehostname
+
+# Consistency checks to run after backups. See
+# https://borgbackup.readthedocs.org/en/stable/usage.html#borg-check and
+# https://borgbackup.readthedocs.org/en/stable/usage.html#borg-extract for details.
+#consistency:
+    # List of one or more consistency checks to run: "repository", "archives", and/or
+    # "extract". Defaults to "repository" and "archives". Set to "disabled" to disable
+    # all consistency checks. "repository" checks the consistency of the repository,
+    # "archive" checks all of the archives, and "extract" does an extraction dry-run
+    # of the most recent archive.
+    #checks:
+    #    - repository
+    #    - archives
+
+    # Paths to a subset of the repositories in the location section on which to run
+    # consistency checks. Handy in case some of your repositories are very large, and
+    # so running consistency checks on them would take too long. Defaults to running
+    # consistency checks on all repositories configured in the location section.
+    #check_repositories:
+    #    - user@backupserver:sourcehostname.borg
+
+    # Restrict the number of checked archives to the last n. Applies only to the "archives" check. Defaults to checking all archives.
+    #check_last: 3
+
+    # When performing the "archives" check, only consider archive names starting with
+    # this prefix. Borg placeholders can be used. See the output of
+    # "borg help placeholders" for details. Defaults to "{hostname}-".
+    #prefix: sourcehostname
+
+# Shell commands or scripts to execute before and after a backup or if an error has occurred.
+# IMPORTANT: All provided commands and scripts are executed with user permissions of borgmatic.
+# Do not forget to set secure permissions on this file as well as on any script listed (chmod 0700) to
+# prevent potential shell injection or privilege escalation.
+#hooks:
+    # List of one or more shell commands or scripts to execute before creating a backup.
+    #before_backup:
+    #    - echo "Starting a backup job."
+
+    # List of one or more shell commands or scripts to execute after creating a backup.
+    #after_backup:
+    #    - echo "Backup created."
+
+    # List of one or more shell commands or scripts to execute in case an exception has occurred.
+    #on_error:
+    #    - echo "Error while creating a backup."

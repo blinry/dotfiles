@@ -1,0 +1,10 @@
+FIRST_NAME="Sebastian"
+LAST_NAME="Morr"
+EMAIL="sebastian@morr.cc"
+GPGKEYID="A624F8B6"
+
+DEFAULT_USER="seb"
+DEFAULT_HOSTNAME="thinkerbell"
+
+LAT="52.269"
+LON="10.521"

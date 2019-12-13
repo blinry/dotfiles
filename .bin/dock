@@ -1,12 +1,7 @@
 #!/bin/bash
 
-#xrandr --output DP2-2 --off --output DP2-1 --off
-#sleep 1
-xrandr --output eDP1 --pos 0x640
-#sleep 1
-xrandr --output eDP1 --pos 0x640 --output DP2-2 --mode 3840x2160 --pos 2560x0 --primary
-#sleep 1
-xrandr --output eDP1 --pos 0x640 --output DP2-2 --mode 3840x2160 --pos 2560x0 --primary --output DP2-1 --mode 1600x1200 --pos 6400x288 --rotate left
+xrandr --output eDP1 --pos 640x2160
+xrandr --output eDP1 --pos 640x2160 --output DP2-1 --mode 3840x2160 --pos 0x0 --primary
 
 init-keyboard
 init-mouse
@@ -15,7 +10,4 @@ i3-msg workspace 1
 i3-msg move workspace to output eDP1
 i3-msg workspace 2
 i3-msg move workspace to output DP2-2
-i3-msg workspace 3
-i3-msg move workspace to output DP2-1
-#i3-msg for_window [class="chromium"] move window to workspace 2
-#i3-msg for_window [class="urxvt"] move window to workspace 3
+i3-msg for_window [class="chromium"] move window to workspace 2

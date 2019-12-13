@@ -5,11 +5,25 @@ if hash todo-status 2>/dev/null; then
 else
     todo=""
 fi
+
+habits=`habitctl todo | cut -c-3 | tr '\n' ' '`
+
+if [ "$habits" = "" ]; then
+    habits=":-) "
+fi
+
 np=`test -n "$(mpc|grep '\[playing\]')" && echo "$(mpc|head -1) │ "`
 volume=`amixer get 'Master' | grep -o '[0-9]\+%' | head -1 | grep -o '[0-9]\+'`
 mute=`test -n "$(amixer get 'Master'|grep '\[on\]')" && echo ♫ || echo ✗`
+nom=`ruby -I~/permanent/nom/lib ~/permanent/nom/bin/nom | tail -1 | grep -o "\\-\\?[0-9]\+" | head -1`
 batt=`battery-status`
-date=`date +"%Y-%m-%d %H:%M"`
+date=`date +"%Y-%m-%d"`
+time_local=`date +"%H:%M"`
 
-echo "$todo$np$volume$mute │ $batt │ $date"
+# See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+time_ny=`LC_TIME="C" TZ="America/New_York" date +"%-I:%M %P"`
+time_la=`LC_TIME="C" TZ="America/Los_Angeles" date +"%-I:%M %P"`
+time_tokyo=`LC_TIME="C" TZ="Asia/Tokyo" date +"%-H:%M"`
+
+echo "$todo$np$habits| ($nom) | $volume$mute | $batt | $time_la (Los Angeles), $time_ny (New York), $time_tokyo (Tokyo) │ $date $time_local"
 sleep 10
