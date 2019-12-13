@@ -60,7 +60,7 @@ alias die='sudo shutdown -h now'
 alias zzz='systemctl suspend'
 alias reboot='sudo reboot'
 alias pt='sudo powertop'
-alias si='sudo vim'
+alias si='sudoedit'
 alias vimrc='vim -c \'e $MYVIMRC\''
 alias yt='youtube-dl'
 
