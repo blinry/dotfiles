@@ -1,0 +1,7 @@
+snippet co
+Co-authored-by: ${0:`git log -1 --format=%b | grep -oP 'Co-authored-by: \K.*'`}
+endsnippet
+
+snippet coorig
+Co-authored-by: $1 <$0>
+endsnippet
