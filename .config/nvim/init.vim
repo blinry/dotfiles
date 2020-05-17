@@ -1,33 +1,31 @@
 let mapleader="," " Use comma as a <Leader>.
 let maplocalleader="," " Also use comma as a <Localleader> (for vim-tidal).
 
-" Automatically install plug.
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+packadd minpac
+call minpac#init()
 
-" Initialize plug.
-call plug#begin()
+" Have minpac manage itself
+call minpac#add('k-takata/minpac', {'type': 'opt'})
+    command! PackUpdate call minpac#update()
+    command! PackClean call minpac#clean()
 
 " Git stuff!
-Plug 'tpope/vim-fugitive'
+call minpac#add('tpope/vim-fugitive')
 
 " Edit parens, brackets, and more.
-Plug 'tpope/vim-surround'
+call minpac#add('tpope/vim-surround')
 
 " Repeat support for surround and other plugins.
-Plug 'tpope/vim-repeat'
+call minpac#add('tpope/vim-repeat')
 
 " Comment stuff out using 'gc'.
-Plug 'tpope/vim-commentary'
+call minpac#add('tpope/vim-commentary')
 
 " Pairs of handy bracket mappings.
-Plug 'tpope/vim-unimpaired'
+call minpac#add('tpope/vim-unimpaired')
 
 " Fuzzy-find everything!
-Plug 'junegunn/fzf.vim'
+call minpac#add('junegunn/fzf.vim')
     nnoremap ; :Buffers<CR>
     nnoremap <C-p> :Files<CR>
 
@@ -43,31 +41,31 @@ Plug 'junegunn/fzf.vim'
     "cabbrev tabe Files<CR>
 
 " Format tables and calculate stuff in them.
-Plug 'dhruvasagar/vim-table-mode'
+call minpac#add('dhruvasagar/vim-table-mode')
 
 " cx for exchange operations.
-Plug 'tommcdo/vim-exchange'
+call minpac#add('tommcdo/vim-exchange')
 
 " 'e' text object is the entire file.
-Plug 'kana/vim-textobj-entire'
+call minpac#add('kana/vim-textobj-entire')
 " Needed for vim-textobj-entire.
-Plug 'kana/vim-textobj-user'
+call minpac#add('kana/vim-textobj-user')
 
 " Snippets, duh!
-Plug 'SirVer/ultisnips'
+call minpac#add('SirVer/ultisnips')
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<tab>"
     let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
     let g:UltiSnipsSnippetDirectories=[$HOME."/.config/nvim/UltiSnips"]
 
 " In Ruby, insert 'end' statements automatically.
-Plug 'tpope/vim-endwise'
+call minpac#add('tpope/vim-endwise')
 
 " Dead simple personal wiki plugin.
-Plug 'blinry/vimboy'
+call minpac#add('blinry/vimboy')
 
 " Asynchronous code linting and fixing
-Plug 'w0rp/ale'
+call minpac#add('w0rp/ale')
     let g:ale_fixers = {
     \   'c': ['clang-format'],
     \   'glsl': ['clang-format'],
@@ -81,21 +79,19 @@ Plug 'w0rp/ale'
     let g:ale_fix_on_save = 1
 
 " Better support for various filetypes.
-Plug 'slim-template/vim-slim'
-Plug 'tikhomirov/vim-glsl'
-Plug 'rust-lang/rust.vim'
-Plug 'matze/vim-lilypond'
-Plug 'philj56/vim-asm-indent'
-Plug 'https://gitlab.com/n9n/vim-apl'
-Plug 'mxw/vim-jsx'
-Plug 'tidalcycles/vim-tidal'
+call minpac#add('slim-template/vim-slim')
+call minpac#add('tikhomirov/vim-glsl')
+call minpac#add('rust-lang/rust.vim')
+call minpac#add('matze/vim-lilypond')
+call minpac#add('philj56/vim-asm-indent')
+call minpac#add('https://gitlab.com/n9n/vim-apl')
+call minpac#add('mxw/vim-jsx')
+call minpac#add('tidalcycles/vim-tidal')
     let g:tidal_target="terminal"
-Plug 'itchyny/vim-haskell-indent'
-Plug 'neovimhaskell/haskell-vim'
+call minpac#add('itchyny/vim-haskell-indent')
+call minpac#add('neovimhaskell/haskell-vim')
     "let g:haskell_classic_highlighting=1
-Plug 'calviken/vim-gdscript3'
-
-call plug#end()
+call minpac#add('calviken/vim-gdscript3')
 
 " Colors, hidden Characters.
 colorscheme velvetopia " My own li'l colorscheme. <3
