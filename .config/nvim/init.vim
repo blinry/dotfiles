@@ -70,11 +70,13 @@ Plug 'blinry/vimboy'
 Plug 'w0rp/ale'
     let g:ale_fixers = {
     \   'c': ['clang-format'],
+    \   'glsl': ['clang-format'],
     \   'python': ['black'],
-    \   'html': ['prettier'],
     \   'javascript': ['prettier'],
     \   'css': ['prettier'],
+    \   'haskell': ['hindent'],
     \}
+    "\   'html': ['prettier'],
     let g:ale_linters_explicit = 1
     let g:ale_fix_on_save = 1
 
@@ -84,24 +86,14 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'rust-lang/rust.vim'
 Plug 'matze/vim-lilypond'
 Plug 'philj56/vim-asm-indent'
-"Plug 'rhysd/vim-wasm'
-"Plug 'sheerun/vim-polyglot'
 Plug 'https://gitlab.com/n9n/vim-apl'
 Plug 'mxw/vim-jsx'
-
-"Plug 'airblade/vim-gitgutter'
-"    let g:gitgutter_sign_added = '+'
-"    let g:gitgutter_sign_modified = '>'
-"    let g:gitgutter_sign_removed = '-'
-"    let g:gitgutter_sign_removed_first_line = '^'
-"    let g:gitgutter_sign_modified_removed = '<'
-"    let g:gitgutter_override_sign_column_highlight = 1
-"    "highlight SignColumn guibg=bg
-"    "highlight SignColumn ctermbg=bg
-"    set updatetime=250
-
 Plug 'tidalcycles/vim-tidal'
     let g:tidal_target="terminal"
+Plug 'itchyny/vim-haskell-indent'
+Plug 'neovimhaskell/haskell-vim'
+    "let g:haskell_classic_highlighting=1
+Plug 'calviken/vim-gdscript3'
 
 call plug#end()
 
@@ -174,6 +166,10 @@ nmap <Leader>= "ayy"ap:s/./=/g<CR>
 
 " Edit snippets.
 nmap <Leader>s :UltiSnipsEdit<CR>
+
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " AUTOCOMMANDS
 

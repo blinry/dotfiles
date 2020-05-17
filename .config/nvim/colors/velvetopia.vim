@@ -14,14 +14,15 @@ hi Constant   ctermfg=none
 hi String     ctermfg=blue
 hi Identifier ctermfg=gray cterm=none
 hi Statement  ctermfg=yellow cterm=bold
-hi Operator   ctermfg=none
+hi Operator   ctermfg=darkblue cterm=bold
 hi PreProc    ctermfg=darkgray
-hi Type       ctermfg=none
+hi Type       ctermfg=yellow cterm=bold
 hi Special    ctermfg=blue cterm=bold "red
 hi Delimiter  ctermfg=darkblue
 hi Underlined ctermfg=blue cterm=underline
 hi Error      ctermfg=white ctermbg=red
 hi Todo       ctermfg=green ctermbg=none cterm=inverse
+hi Define     ctermfg=yellow cterm=bold
 
 hi link Define Statement
 
