@@ -1,11 +1,12 @@
 xrdb ~/.xresources
 
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
+#export GTK_IM_MODULE=fcitx
+#export QT_IM_MODULE=fcitx
+#export XMODIFIERS=@im=fcitx
 
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.666
+#export GDK_SCALE=2
+#export GDK_DPI_SCALE=0.5
+export QT_SCALE_FACTOR=1.5
 
 # Use the whole area of the touchpad for scrolling.
 synclient VertEdgeScroll=1

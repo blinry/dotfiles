@@ -5,6 +5,8 @@ MINUTES=0
 MINUTES=0
 RATE=0
 SYMBOL="?"
+POWER="?"
+
 
 for BAT in $PREFIX/BAT*; do
     P=$(cat $BAT/power_now)
@@ -22,8 +24,13 @@ for BAT in $PREFIX/BAT*; do
     MINUTES=$(($MINUTES + 60*$(cat $BAT/energy_now)))
 done
 
-if [ $SYMBOL = "?" ]; then
+if [ "$SYMBOL" = "?" ]; then
     echo full
+    exit
+fi
+
+if [ "$POWER" = "?" ]; then
+    echo '???'
     exit
 fi
 

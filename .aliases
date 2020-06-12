@@ -27,7 +27,7 @@ alias ga='git add'
 alias gc='git commit'
 alias gd='git diff'
 alias gg='git graph'
-alias gl='git log'
+#alias gl='git log'
 alias gs='git status'
 alias gp='git push'
 

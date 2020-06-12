@@ -42,3 +42,8 @@ hi Visual       ctermbg=black
 hi DiffAdd ctermbg=black
 hi DiffChange ctermbg=black
 hi DiffDelete ctermbg=black
+
+" Terminal cursor
+
+"hi link TermCursor Cursor
+"hi TermCursorNC ctermbg=white

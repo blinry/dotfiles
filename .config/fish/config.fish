@@ -17,7 +17,7 @@ set -x GIT_AUTHOR_EMAIL "$EMAIL"
 set -x GIT_COMMITTER_NAME "$FULLNAME"
 set -x GIT_COMMITTER_EMAIL "$EMAIL"
 
-set -x PATH $HOME/wip/wit $HOME/wip/minitools/target/debug $HOME/wip/timelens/timelens/target/debug $HOME/permanent/habitctl/target/debug $HOME/.bin $HOME/.cargo/bin/ (ruby -e 'print Gem.user_dir')/bin /usr/bin/vendor_perl/ $PATH
+set -x PATH $HOME/wip/wit $HOME/wip/minitools/target/debug $HOME/wip/timelens/timelens/target/debug $HOME/permanent/habitctl/target/debug $HOME/.bin $HOME/.cargo/bin/ (ruby -e 'print Gem.user_dir')/bin /usr/bin/vendor_perl/ $HOME/.cabal/bin/ $PATH
 set -x EDITOR nvim
 set -x TERMINAL termite
 set -x BROWSER chromium
@@ -33,6 +33,9 @@ set -e GREP_OPTIONS
 
 # Default permissions: rw(x)------
 umask 0077
+
+# Use dircolors template
+eval (dircolors -c ~/.dircolors)
 
 set fish_greeting
 

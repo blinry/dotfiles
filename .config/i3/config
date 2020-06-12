@@ -88,10 +88,10 @@ bindsym $mod+Control+k resize shrink height 10 px or 10 ppt
 bindsym $mod+Control+l resize grow width 10 px or 10 ppt
 
 # Make the currently focused window a scratchpad
-bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+semicolon move scratchpad
 
 # Show the first scratchpad window
-bindsym $mod+minus scratchpad show
+bindsym $mod+semicolon scratchpad show
 
 # Colors
 set $bg #000000cc
@@ -101,43 +101,44 @@ set $gr #555555
 set $rd #aa0000
 
 # Window appearance
-gaps inner 10
-gaps outer 0
+# gaps inner 10
+# gaps outer 0
+# border_radius 8
+
 new_window pixel 0
 new_float pixel 0
-border_radius 8
 
 # Enable popup during fullscreen
 popup_during_fullscreen smart
 
 # i3bar configuration
-# bar {
-#     i3bar_command i3bar --transparency
-#     status_command SCRIPT_DIR=/usr/lib/i3blocks/ i3blocks
-#     separator_symbol "|"
-#     strip_workspace_numbers yes
-# 
-#     bindsym button1 nop
-#     bindsym button2 nop
-#     bindsym button3 nop
-#     bindsym button4 nop
-#     bindsym button5 nop
-# 
-#     position top
-# 
-#     colors {
-#         background $bg
-#         statusline $tx
-#         focused_workspace $bg $bg $tx
-#         active_workspace $bg $bg $tx
-#         inactive_workspace $bg $bg $gr
-#         urgent_workspace $rd $rd $tx
-#         separator $gr
-#     }
-# }
+bar {
+    i3bar_command i3bar --transparency
+    status_command SCRIPT_DIR=/usr/lib/i3blocks/ i3blocks
+    separator_symbol "|"
+    strip_workspace_numbers yes
+
+    bindsym button1 nop
+    bindsym button2 nop
+    bindsym button3 nop
+    bindsym button4 nop
+    bindsym button5 nop
+
+    position bottom
+
+    colors {
+        background $bg
+        statusline $tx
+        focused_workspace $bg $bg $tx
+        active_workspace $bg $bg $tx
+        inactive_workspace $bg $bg $gr
+        urgent_workspace $rd $rd $tx
+        separator $gr
+    }
+}
 
 # Various hotkeys
-bindsym $mod+F1 exec chromium --force-device-scale-factor=1.6
+bindsym $mod+F1 exec chromium
 bindsym $mod+F2 exec termite -e mutt --directory=$HOME/tmp
 bindsym $mod+F3 exec termite -e wiki
 bindsym $mod+F4 exec termite -e ncmpcpp
@@ -149,9 +150,13 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 32
 bindsym XF86MonBrightnessDown exec xbacklight -dec 32
 bindsym Print exec maimclip
 
-exec --no-startup-id ~/.fehbg
-exec --no-startup-id picom
-exec --no-startup-id polybar example
+# Defaults
+# for_window [instance="Godot_Engine"] floating enable
+
+# exec --no-startup-id ~/.fehbg
+# exec_always --no-startup-id picom
+# exec --no-startup-id polybar example
+
 exec --no-startup-id termite
 exec --no-startup-id dunst
 exec --no-startup-id redshift

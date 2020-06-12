@@ -66,6 +66,10 @@ call minpac#add('blinry/vimboy')
 
 " Asynchronous code linting and fixing
 call minpac#add('w0rp/ale')
+    let g:ale_linters = {
+    \    'rust': ['cargo'],
+    \    'glsl': ['glslang']
+    \}
     let g:ale_fixers = {
     \   'c': ['clang-format'],
     \   'glsl': ['clang-format'],
@@ -77,6 +81,17 @@ call minpac#add('w0rp/ale')
     "\   'html': ['prettier'],
     let g:ale_linters_explicit = 1
     let g:ale_fix_on_save = 1
+    " Mappings in the style of unimpaired-next
+    nmap <silent> [W <Plug>(ale_first)
+    nmap <silent> [w <Plug>(ale_previous)
+    nmap <silent> ]w <Plug>(ale_next)
+    nmap <silent> ]W <Plug>(ale_last)
+
+" Asynchronous builds
+call minpac#add('tpope/vim-dispatch')
+call minpac#add('radenling/vim-dispatch-neovim')
+
+call minpac#add('editorconfig/editorconfig-vim')
 
 " Better support for various filetypes.
 call minpac#add('slim-template/vim-slim')
@@ -129,6 +144,7 @@ set wildmode=longest:list,full " Tab-complete to longest common match, then show
 " User interface.
 set mouse=a " Enable mouse use in all modes.
 set notimeout " Don't timeout on mappings.
+set nostartofline " Keep cursor in the same column for many commands.
 set shell=/bin/bash
 set clipboard=unnamed,unnamedplus " Use * and + in yank/paste operations.
 set lazyredraw " Redraw only when we need to.
@@ -140,6 +156,15 @@ set hidden
 set dictionary+=/usr/share/dict/american-english,/usr/share/dict/german
 
 " MAPPINGS
+
+map <F5> :wall!<CR>:Make<CR>
+
+" More idiomatic Terminal mode switching.
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-v><Esc> <Esc>
+
+" Expand %% to the directory of the curent file.
+cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " Bubble lines
 nmap <C-k> [e
@@ -159,6 +184,9 @@ inoremap , ,<C-g>u
 " Underline the current line with - or =.
 nmap <Leader>- "ayy"ap:s/./-/g<CR>
 nmap <Leader>= "ayy"ap:s/./=/g<CR>
+
+" Mark bulleted item as done
+nmap + :s/^\s*\zs[-x~?]/+<CR>:w<CR>
 
 " Edit snippets.
 nmap <Leader>s :UltiSnipsEdit<CR>
@@ -181,6 +209,9 @@ au Vimresized * :wincmd =
 
 " Location of my private wiki.
 au BufRead,BufNewFile ~/permanent/wiki/* set ft=vimboy
+
+" Location of the git-hydra wiki.
+au BufRead,BufNewFile ~/permanent/gh-wiki/* set ft=vimboy
 
 " Highlight second-level markdown headings properly.
 syn match Special '---[-]*'
