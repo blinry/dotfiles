@@ -1,0 +1,11 @@
+#!/bin/bash
+
+FFMPEG=$(pidof ffmpeg)
+
+if [ -z "$FFMPEG" ]; then
+    read -r X Y W H G ID < <(slop -f "%x %y %w %h %g %i")
+    ffmpeg -threads 0 -f pulse -i default -s "$W"x"$H" -framerate 30 -f x11grab -show_region 1 -i :0.0+$X,$Y -c:v libx264 -preset ultrafast -c:a aac "$HOME"/tmp/screencast-$(date +%F_%T).mp4
+else
+    # ffmpeg is already running, stop the recording!
+    kill -INT "$FFMPEG"
+fi
