@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#ffcast -s rec -m 4 $HOME/tmp/screencast-$(date +%F_%T).mkv
+
+read -r X Y W H G ID < <(slop -f "%x %y %w %h %g %i")
+#TMPFILE=$(mktemp -u /tmp/outXXXXXXXXXX.mkv)
+
+#ffmpeg -f x11grab -r 25 -s "$W"x"$H" -i :0.0+$X,$Y -vcodec libx264 -preset ultrafast -crf 0 -threads 0 $TMPFILE
+#ffmpeg -f x11grab -r 25 -s "$W"x"$H" -i :0.0+$X,$Y $HOME/tmp/screencast-$(date +%F_%T).mkv
+ffmpeg -f x11grab -r 30 -s "$W"x"$H" -show_region 1 -i :0.0+$X,$Y -pix_fmt yuv420p -preset ultrafast -threads 0 $HOME/tmp/screencast-$(date +%F_%T).mp4
