@@ -72,11 +72,13 @@ call minpac#add('w0rp/ale')
     \}
     let g:ale_fixers = {
     \   'c': ['clang-format'],
+    \   'arduino': ['clang-format'],
     \   'glsl': ['clang-format'],
     \   'python': ['black'],
     \   'javascript': ['prettier'],
     \   'css': ['prettier'],
     \   'haskell': ['hindent'],
+    \   'ruby': ['rufo'],
     \}
     "\   'html': ['prettier'],
     let g:ale_linters_explicit = 1
@@ -107,6 +109,7 @@ call minpac#add('itchyny/vim-haskell-indent')
 call minpac#add('neovimhaskell/haskell-vim')
     "let g:haskell_classic_highlighting=1
 call minpac#add('calviken/vim-gdscript3')
+call minpac#add('907th/vim-auto-save')
 
 " Colors, hidden Characters.
 colorscheme velvetopia " My own li'l colorscheme. <3
@@ -158,10 +161,6 @@ set dictionary+=/usr/share/dict/american-english,/usr/share/dict/german
 " MAPPINGS
 
 map <F5> :wall!<CR>:Make<CR>
-
-" More idiomatic Terminal mode switching.
-tnoremap <Esc> <C-\><C-n>
-tnoremap <C-v><Esc> <Esc>
 
 " Expand %% to the directory of the curent file.
 cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
