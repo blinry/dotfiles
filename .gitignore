@@ -14,6 +14,7 @@
 /.purple/
 /.ssh/
 /.twurlrc
+/.bin/stats
 
 # Data and histories:
 /.arduino15/

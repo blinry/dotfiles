@@ -1,0 +1,3 @@
+#!/bin/bash
+cp ~/permanent/wiki/Packliste ~/tmp/pl
+vim ~/tmp/pl

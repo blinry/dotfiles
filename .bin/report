@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "There are $(mlist ~/permanent/mail/INBOX | wc -l) mails in your INBOX."
+echo "$(df -h ~ --output=avail | tail -1 | sed -e 's/ *//') free space on your hard drive."
+echo "$(($(cat ~/permanent/wiki/Todo | sed '/^$/d' | wc -l) - 10)) items on your todo list."
+echo "$(habitctl todo | wc -l) habits still to track today."
+echo "Calorie tracking: $(ruby -I~/permanent/nom/lib ~/permanent/nom/bin/nom | tail -1 | sed -e 's/ *//')"
+echo "Last Schnipsel: $(cat ~/permanent/wiki/Schnipsel | tail -1)"
