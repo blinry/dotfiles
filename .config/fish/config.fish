@@ -40,7 +40,7 @@ eval (dircolors -c ~/.dircolors)
 set fish_greeting
 
 complete -c wiki -a '(pushd .; cd ~/permanent/wiki; ls; popd)'
-complete -c pf -a '(pushd .; cd ~/permanent/pf-wiki; ls; popd)'
+complete -c pf -a '(pushd .; cd ~/permanent/pf2-wiki; ls; popd)'
 
 function take
     mkdir -p $argv

@@ -210,8 +210,8 @@ au Vimresized * :wincmd =
 " Location of my private wiki.
 au BufRead,BufNewFile ~/permanent/wiki/* set ft=vimboy
 
-" Location of the git-hydra wiki.
-au BufRead,BufNewFile ~/permanent/gh-wiki/* set ft=vimboy
+" Location of the Prototype Fund wiki.
+au BufRead,BufNewFile ~/permanent/pf2-wiki/* set ft=vimboy
 
 " Highlight second-level markdown headings properly.
 syn match Special '---[-]*'
