@@ -1,0 +1,15 @@
+data.location=~/.task
+
+uda.reviewed.type=date
+uda.reviewed.label=Reviewed
+report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
+report._reviewed.columns=uuid
+report._reviewed.sort=reviewed+,modified+
+report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
+
+context.idea=+idea
+context.home=-idea
+
+urgency.uda.priority.L.coefficient = -2.0
+urgency.blocking.coefficient = 1.0
+report.next.sort=urgency-,due+
