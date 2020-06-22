@@ -1,0 +1,23 @@
+[general]
+accounts = morr-cc
+maxsyncaccounts = 3
+fsync = False
+pythonfile = ~/.offlineimap.py
+
+[Account morr-cc]
+localrepository = local
+remoterepository = remote
+
+[Repository local]
+type = Maildir
+localfolders = ~/permanent/mail
+
+[Repository remote]
+type = IMAP
+remotehost = morr.cc
+remoteport = 993
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+remoteuser = sebastian
+remotepasseval = get_pass("morr.cc/sebastian")
+maxconnections = 5
