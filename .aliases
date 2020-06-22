@@ -47,6 +47,8 @@ alias mscan='mscan -I'
 alias mextract='mscan -x .'
 alias youtube-dl='youtube-dl --no-mtime'
 alias gdb='gdb -q'
+alias ffprobe='ffprobe -hide_banner'
+alias ffmpeg='ffmpeg -hide_banner'
 
 # Lazyness
 
