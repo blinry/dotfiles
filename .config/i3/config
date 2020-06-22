@@ -148,7 +148,8 @@ bindsym XF86AudioLowerVolume exec pamixer --allow-boost -d 5 && pkill -RTMIN+1 i
 bindsym XF86AudioMute exec pamixer -t && pkill -RTMIN+1 i3blocks
 bindsym XF86MonBrightnessUp exec xbacklight -inc 32
 bindsym XF86MonBrightnessDown exec xbacklight -dec 32
-bindsym Print exec maimclip
+bindsym Print exec screenshot
+bindsym Control+Print exec screencast
 
 # Defaults
 # for_window [instance="Godot_Engine"] floating enable
