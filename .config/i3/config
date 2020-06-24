@@ -140,7 +140,7 @@ bar {
 # Various hotkeys
 bindsym $mod+F1 exec chromium
 bindsym $mod+F2 exec termite -e mutt --directory=$HOME/tmp
-bindsym $mod+F3 exec termite -e wiki
+bindsym $mod+F3 exec termite -e w
 bindsym $mod+F4 exec termite -e ncmpcpp
 bindsym $mod+F5 exec liferea
 bindsym XF86AudioRaiseVolume exec pamixer --allow-boost -i 5 && pkill -RTMIN+1 i3blocks
