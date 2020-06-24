@@ -1,0 +1,6 @@
+[Unit]
+Description=Offlineimap sync
+
+[Service]
+Type=oneshot
+ExecStart=offlineimap

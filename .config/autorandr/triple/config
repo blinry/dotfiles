@@ -1,0 +1,31 @@
+output DP1
+off
+output DP2
+off
+output DP2-3
+off
+output HDMI1
+off
+output HDMI2
+off
+output VIRTUAL1
+off
+output DP2-2
+crtc 0
+gamma 1.0:0.833:0.714
+mode 3840x2160
+pos 2560x0
+primary
+rate 60.00
+output eDP1
+crtc 1
+gamma 1.0:0.833:0.714
+mode 2560x1440
+pos 0x720
+rate 60.00
+output DP2-1
+crtc 2
+gamma 1.0:0.833:0.714
+mode 1280x1024
+pos 6400x1136
+rate 60.02
