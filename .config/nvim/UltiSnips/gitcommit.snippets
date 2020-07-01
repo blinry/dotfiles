@@ -1,7 +1,74 @@
-snippet co
-Co-authored-by: ${0:`git log -1 --format=%b | grep -oP 'Co-authored-by: \K.*'`}
-endsnippet
+snippet "\w+" "Convert GitHub username to a Co-authored-by statement" rb
+`!p
+import urllib.request
 
-snippet coorig
-Co-authored-by: $1 <$0>
+# We have the GitHub username:
+username = match.group(0)
+
+# And we want their full name and email address:
+name = None
+email = None
+
+# First, we try to get the user's full name from GitHub's users API.
+# When unauthenticated, the API is limited to 60 requests per hour.
+users_url = "https://api.github.com/users/%s"
+user_json = urllib.request.urlopen(users_url % username).read().decode("utf-8")
+m = re.search('"name":"([^"]+)"', user_json)
+if m:
+    name = m.group(1)
+
+# Query GitHub's events API for the user's public events.
+events_url = "https://api.github.com/users/%s/events/public?per_page=100"
+events_json = urllib.request.urlopen(events_url % username).read().decode("utf-8")
+
+# "Push events" contain a number of commits, with their associated names and
+# email addresses. However, these might also be commits not authored by the
+# person we're interested in! Let's look at all email-name combinations:
+people = re.findall('"email":"([^"]+)","name":"([^"]+)"', events_json)
+
+if len(people) == 0:
+    # Okay, we didn't find any commits in the recent events. Look up the repo
+    # owned by the user with the most recent activity...
+    repos_url = "https://api.github.com/users/%s/repos?type=owner&sort=updated"
+    repos_json = urllib.request.urlopen(repos_url % username).read().decode("utf-8")
+    m = re.search('"full_name":"([^"]+)"', repos_json)
+    repo = m.group(1)
+    # ... and try to find commits in there.
+    commits_url = "https://api.github.com/repos/%s/commits"
+    commits_json = urllib.request.urlopen(commits_url % repo).read().decode("utf-8")
+    people = re.findall('"author":{"name":"([^"]+)","email":"([^"]+)"', commits_json)
+    # Swap the pairs around, so that the email comes first.
+    people = [(p[1], p[0]) for p in people]
+
+# Let's try to find a commit that has the name from the user's GitHub profile,
+# if they've set one:
+if name:
+    person = [p for p in people if p[1] == name]
+    if len(person) > 0:
+        email = person[0][0]
+
+if not email:
+    # Well, this didn't work. Maybe the person uses a different name in their
+    # commits. Let's try a heuristic.
+
+    # We're definitely not interested in commits by bots, who often have
+    # "[bot]" in their name.
+    people = [p for p in people if not "[bot]" in p[1]]
+
+    if len(people) > 0:
+        # From the remaining commits, we assume that *most* of the commits pushed by
+        # the user are by themselves, so we pick the email-name combination that
+        # appears most frequent.
+        person = max(set(people), key=people.count)
+        email = person[0]
+        name = person[1]
+
+if name and email:
+    snip.rv = "Co-authored-by: %s <%s>" % (name, email)
+elif name:
+    snip.rv = "Co-authored-by: %s " % name
+else:
+    # :(
+    snip.rv = "Co-authored-by: "
+`
 endsnippet
