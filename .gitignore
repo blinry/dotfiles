@@ -9,6 +9,7 @@
 /.bash_history
 /.bin/stats
 /.bitcoin/
+/.bundle/cache/
 /.calibre/
 /.cargo/
 /.config/anki/
@@ -32,6 +33,7 @@
 /.config/inkscape/
 /.config/kritadisplayrc
 /.config/kritarc
+/.config/Sabaki/
 /.config/libreoffice/
 /.config/liferea/
 /.config/mpd/
@@ -92,3 +94,9 @@
 /.wine/
 /.Xauthority
 /.zoom/
+/.config/gopass/gopass-logo-small.png
+/.config/wireshark/
+/.meteor/
+/.npm-packages/
+/.subversion/
+/.tor-browser-en/
