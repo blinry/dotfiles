@@ -17,7 +17,7 @@ set -x GIT_AUTHOR_EMAIL "$EMAIL"
 set -x GIT_COMMITTER_NAME "$FULLNAME"
 set -x GIT_COMMITTER_EMAIL "$EMAIL"
 
-set -x PATH $HOME/wip/wit $HOME/wip/minitools/target/debug $HOME/wip/timelens/timelens/target/debug $HOME/permanent/habitctl/target/debug $HOME/.bin $HOME/.cargo/bin/ (ruby -e 'print Gem.user_dir')/bin /usr/bin/vendor_perl/ $HOME/.cabal/bin/ $PATH
+set -x PATH $HOME/wip/wit $HOME/wip/minitools/target/debug $HOME/wip/timelens/timelens/target/debug $HOME/permanent/habitctl/target/debug $HOME/.bin $HOME/.cargo/bin/ (ruby -e 'print Gem.user_dir')/bin /usr/bin/vendor_perl/ $HOME/.cabal/bin/ $HOME/.npm-packages/bin $PATH
 set -x EDITOR nvim
 set -x TERMINAL termite
 set -x BROWSER chromium
@@ -54,5 +54,19 @@ function unwrap
         cd "$DIR"
     end
 end
+
+function fzfcd
+    cd ~
+    fd -I -td -d4 -H -E /tmp/ -E .git/ -E /.cache/ -E /.npm/ -E node_modules/ . | sort -V | fzf --tac | read DIR
+    if test -n "$DIR"
+        cd "$DIR"
+        commandline -f force-repaint
+        ranger
+    else
+        cd -
+    end
+end
+
+bind \cp fzfcd
 
 . ~/.aliases
