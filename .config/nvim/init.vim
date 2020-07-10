@@ -6,8 +6,8 @@ call minpac#init()
 
 " Have minpac manage itself
 call minpac#add('k-takata/minpac', {'type': 'opt'})
-    command! PackUpdate call minpac#update()
-    command! PackClean call minpac#clean()
+    command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update('', {'do': 'call minpac#status()'})
+    command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
 
 " Git stuff!
 call minpac#add('tpope/vim-fugitive')
@@ -75,12 +75,18 @@ call minpac#add('w0rp/ale')
     \   'arduino': ['clang-format'],
     \   'glsl': ['clang-format'],
     \   'python': ['black'],
-    \   'javascript': ['prettier'],
     \   'css': ['prettier'],
     \   'haskell': ['hindent'],
     \   'ruby': ['rufo'],
+    \   'html': ['prettier'],
+    \   'javascript': ['prettier'],
+    \   'vue': ['prettier'],
+    \   'json': ['prettier']
     \}
-    "\   'html': ['prettier'],
+    "\   'svelte': ['prettier'],
+    let g:ale_linters_aliases = {
+    \}
+    "\    'svelte': ['css', 'javascript']
     let g:ale_linters_explicit = 1
     let g:ale_fix_on_save = 1
     " Mappings in the style of unimpaired-next
@@ -110,6 +116,7 @@ call minpac#add('neovimhaskell/haskell-vim')
     "let g:haskell_classic_highlighting=1
 call minpac#add('calviken/vim-gdscript3')
 call minpac#add('907th/vim-auto-save')
+"au! bufnewfile,bufread *.svelte set ft=html
 
 " Colors, hidden Characters.
 colorscheme velvetopia " My own li'l colorscheme. <3
@@ -122,6 +129,8 @@ set showbreak=↳ " Display this character in front of wrapped lines.
 " Backup, undo, swap.
 set noswapfile " Don't keep swap files.
 set undofile " Keep undo files.
+set backupcopy=yes " When saving, make a copy, then overwrite the original file.
+                   " This is required for parcel's Hot Module Reload.
 let g:netrw_dirhistmax = 0 " Don't write a .netrwhist file.
 
 " Search.
@@ -151,6 +160,8 @@ set nostartofline " Keep cursor in the same column for many commands.
 set shell=/bin/bash
 set clipboard=unnamed,unnamedplus " Use * and + in yank/paste operations.
 set lazyredraw " Redraw only when we need to.
+set splitright " Open vertical splits on the right side.
+set splitbelow " Open horizontal splits on the bottom
 
 " Working with buffers.
 set hidden
