@@ -140,7 +140,7 @@ bar {
 # Various hotkeys
 bindsym $mod+F1 exec chromium
 bindsym $mod+F2 exec termite -e mutt --directory=$HOME/tmp
-bindsym $mod+F3 exec termite -e w
+bindsym $mod+F3 exec termite -e "wiki Wochenplan"
 bindsym $mod+F4 exec termite -e ncmpcpp
 bindsym $mod+F5 exec liferea
 bindsym XF86AudioRaiseVolume exec pamixer --allow-boost -i 5 && pkill -RTMIN+1 i3blocks
@@ -150,6 +150,11 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 32
 bindsym XF86MonBrightnessDown exec xbacklight -dec 32
 bindsym Print exec screenshot
 bindsym Control+Print exec screencast
+bindsym $mod+Down exec mpc toggle && pkill -RTMIN+2 i3blocks
+bindsym $mod+Right exec mpc next && pkill -RTMIN+2 i3blocks
+bindsym $mod+Left exec mpc prev && pkill -RTMIN+2 i3blocks
+bindsym $mod+Next exec mpc seek +30 && pkill -RTMIN+2 i3blocks
+bindsym $mod+Prior exec mpc seek -30 && pkill -RTMIN+2 i3blocks
 
 # Defaults
 # for_window [instance="Godot_Engine"] floating enable
