@@ -20,7 +20,7 @@ x-scheme-handler/sgnl=signal-desktop.desktop
 
 [Added Associations]
 image/png=org.gnome.eog.desktop;eog.desktop;
-image/jpeg=gimp.desktop;eog.desktop;
+image/jpeg=org.gnome.eog.desktop;gimp.desktop;eog.desktop;
 application/gpx+xml=google-chrome.desktop;
 application/octet-stream=eog.desktop;
 audio/ogg=mpv.desktop;
@@ -40,3 +40,4 @@ text/html=chromium.desktop;
 video/x-ms-wmv=mpv.desktop;
 video/mp4=mpv.desktop;
 video/mpeg=mpv.desktop;
+image/gif=org.gnome.eog.desktop;
