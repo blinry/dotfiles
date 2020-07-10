@@ -1,7 +1,4 @@
 [alias]
-	ci = commit
-	co = checkout
-	df = diff
 	dfw = diff --color-words
 	graph = log --graph --pretty=oneline --abbrev-commit --all --decorate
 	st = status
