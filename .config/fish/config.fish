@@ -57,14 +57,22 @@ end
 
 function fzfcd
     cd ~
-    fd -I -td -d4 -H -E /tmp/ -E .git/ -E /.cache/ -E /.npm/ -E node_modules/ . | sort -V | fzf --tac | read DIR
-    if test -n "$DIR"
-        cd "$DIR"
-        commandline -f force-repaint
-        ranger
+
+    # Select from everything not ignored, and not unignored by ~/.fdignore
+    fd -H -d5 -E /permanent/mail/ | sort -V | fzf | read SELECTION
+
+    # And perform an appropriate action
+    if test -d "$SELECTION"
+        cd "$SELECTION"
+    else if test -e "$SELECTION"
+        cd (dirname "$SELECTION")
+        cd (git rev-parse --show-toplevel)
+        vim ~/"$SELECTION"
     else
         cd -
     end
+
+    commandline -f force-repaint
 end
 
 bind \cp fzfcd
