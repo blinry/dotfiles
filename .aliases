@@ -24,6 +24,7 @@ alias net-profile='sudo systemctl stop netctl-auto@wlp4s0; sudo netctl restart'
 
 alias ga='git add'
 alias gc='git commit'
+alias gca='git commit -a'
 alias gco='git checkout'
 alias gd='git diff'
 alias gg='git graph'
