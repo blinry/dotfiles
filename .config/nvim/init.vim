@@ -115,6 +115,7 @@ call minpac#add('itchyny/vim-haskell-indent')
 call minpac#add('neovimhaskell/haskell-vim')
     "let g:haskell_classic_highlighting=1
 call minpac#add('calviken/vim-gdscript3')
+call minpac#add('dag/vim-fish')
 call minpac#add('907th/vim-auto-save')
 "au! bufnewfile,bufread *.svelte set ft=html
 
