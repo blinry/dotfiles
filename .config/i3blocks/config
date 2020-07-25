@@ -1,18 +1,16 @@
 [mpd]
-command=mpc current
-interval=10
+command=mpd-status
+interval=1
 signal=2
-
-[volume]
-command=$SCRIPT_DIR/volume-pulseaudio/volume-pulseaudio
-LONG_FORMAT="${VOL}%"
-SHORT_FORMAT="${VOL}%"
-interval=once
-signal=1
 
 [mail]
 command=echo $(mlist ~/permanent/mail/INBOX | wc -l) mails
 interval=60
+
+[volume]
+command=audio-status
+interval=once
+signal=1
 
 [battery]
 command=battery-status
@@ -20,8 +18,8 @@ interval=60
 
 [worldclock]
 command=worldclock
-interval=60
+interval=1
 
 [time]
 command=date +"%Y-%m-%d %H:%M "
-interval=60
+interval=1
