@@ -74,19 +74,19 @@ call minpac#add('w0rp/ale')
     \   'c': ['clang-format'],
     \   'arduino': ['clang-format'],
     \   'glsl': ['clang-format'],
-    \   'python': ['black'],
     \   'css': ['prettier'],
     \   'haskell': ['hindent'],
-    \   'ruby': ['rufo'],
     \   'html': ['prettier'],
-    \   'javascript': ['prettier'],
     \   'vue': ['prettier'],
-    \   'json': ['prettier']
+    \   'json': ['prettier'],
+    \   'javascript': ['prettier']
     \}
     "\   'svelte': ['prettier'],
-    let g:ale_linters_aliases = {
-    \}
-    "\    'svelte': ['css', 'javascript']
+    "\   'ruby': ['rufo'],
+    "\   'python': ['black'],
+
+    "let g:ale_linters_aliases = {
+    "\}
     let g:ale_linters_explicit = 1
     let g:ale_fix_on_save = 1
     " Mappings in the style of unimpaired-next
