@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd ~/wip/godot-tests/mess-around/
+godot project.godot
