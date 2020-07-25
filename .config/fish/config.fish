@@ -42,7 +42,7 @@ set fish_greeting
 function fish_mode_prompt
 end
 
-complete -c wiki -a '(pushd .; cd ~/permanent/wiki; ls; popd)'
+complete -c w -a '(pushd .; cd ~/permanent/wiki; ls; popd)'
 complete -c pf -a '(pushd .; cd ~/permanent/pf2-wiki; ls; popd)'
 
 function take

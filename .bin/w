@@ -1,5 +1,11 @@
 #!/bin/bash
 
 cd ~/permanent/wiki/
-page="$(ls|fzf)" || exit 1
-wiki "$page"
+
+if [ -z "$*" ]; then
+    PAGE="$(ls|fzf)" || exit 1
+else
+    PAGE="$*"
+fi
+
+"$EDITOR" "$PAGE"
