@@ -24,3 +24,5 @@
 [user]
 	email = sebastian@morr.cc
 	name = blinry
+[pull]
+	rebase = true
