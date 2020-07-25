@@ -4,12 +4,14 @@
 /tmp/
 /wip/
 
+/.android/
 /.arduino15/
 /.audacity-data/
 /.bash_history
 /.bin/stats
 /.bitcoin/
 /.bundle/cache/
+/.cabal/
 /.calibre/
 /.cargo/
 /.config/anki/
@@ -28,12 +30,12 @@
 /.config/fish/fish_history*
 /.config/GIMP/
 /.config/godot/
+/.config/gopass/gopass-logo-small.png
 /.config/gtk-2.0/
 /.config/hub
 /.config/inkscape/
 /.config/kritadisplayrc
 /.config/kritarc
-/.config/Sabaki/
 /.config/libreoffice/
 /.config/liferea/
 /.config/mpd/
@@ -46,12 +48,14 @@
 /.config/pulse/cookie
 /.config/ranger/bookmarks
 /.config/ranger/history
+/.config/Sabaki/
 /.config/Signal/
 /.config/skypeforlinux/
 /.config/torbrowser/
 /.config/transmission/
 /.config/unity3d/
 /.config/Unknown Organization/zoom.conf
+/.config/wireshark/
 /.config/zoomus.conf
 /.electrum/
 /.fonts/
@@ -65,6 +69,8 @@
 /.lexaloffle/
 /.lmmsrc.xml
 /.local/
+/.meteor/
+/.meteorsession
 /.minecraft/
 /.minetest/
 /.mozilla/
@@ -73,6 +79,7 @@
 /.nom/
 /.notmuch-config
 /.npm/
+/.npm-packages/
 /.offlineimap/
 /.oO/
 /.password-store/
@@ -86,17 +93,15 @@
 /.sane/
 /.sqlite_history
 /.ssh/
+/.stack/
 /.steam/
 /.steampath
 /.steampid
+/.subversion/
 /.task/
+/.tor-browser-en/
 /.twurlrc
+/.vagrant.d/
 /.wine/
 /.Xauthority
 /.zoom/
-/.config/gopass/gopass-logo-small.png
-/.config/wireshark/
-/.meteor/
-/.npm-packages/
-/.subversion/
-/.tor-browser-en/
