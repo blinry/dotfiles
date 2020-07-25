@@ -138,6 +138,7 @@ let g:netrw_dirhistmax = 0 " Don't write a .netrwhist file.
 set ignorecase " Ignore case in search patterns...
 set smartcase " ... unless pattern contains upper case charecters.
 set nohlsearch " Don't highlight other search matches.
+set inccommand=nosplit " Show preview of substitutions while typing.
 
 " Editing.
 set nojoinspaces " When joining lines, don't insert two spaces after punctuation.
