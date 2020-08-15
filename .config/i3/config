@@ -172,14 +172,8 @@ bindsym $mod+Left exec mpc prev && pkill -RTMIN+2 i3blocks
 bindsym $mod+Next exec mpc seek +30 && pkill -RTMIN+2 i3blocks
 bindsym $mod+Prior exec mpc seek -30 && pkill -RTMIN+2 i3blocks
 
-# Defaults
-# for_window [instance="Godot_Engine"] floating enable
-
-# exec --no-startup-id ~/.fehbg
-# exec_always --no-startup-id picom
-# exec --no-startup-id polybar example
-
 exec --no-startup-id termite
 exec --no-startup-id dunst
 exec --no-startup-id redshift
 exec --no-startup-id mpd
+exec --no-startup-id fcitx -d
