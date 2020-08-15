@@ -8,3 +8,6 @@ Xft.rgba: rgb
 
 Xcursor.theme: Vanilla-DMZ
 Xcursor.size: 64
+
+XTerm*background: black
+XTerm*foreground: white
