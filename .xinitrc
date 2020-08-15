@@ -1,8 +1,8 @@
 xrdb ~/.xresources
 
-#export GTK_IM_MODULE=fcitx
-#export QT_IM_MODULE=fcitx
-#export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
 #export GDK_SCALE=2
 #export GDK_DPI_SCALE=0.5
