@@ -21,13 +21,16 @@
 /.config/blender/
 /.config/borg/
 /.config/calibre/
+/.config/cef_user_data/
 /.config/chromium/
 /.config/configstore/
 /.config/darktable/
 /.config/dconf/
+/.config/enchant/
 /.config/eog/
 /.config/evince/
 /.config/fish/fish_history*
+/.config/gedit/
 /.config/GIMP/
 /.config/godot/
 /.config/gopass/gopass-logo-small.png
@@ -73,6 +76,7 @@
 /.meteorsession
 /.minecraft/
 /.minetest/
+/.mozc/
 /.mozilla/
 /.mutt/cache/
 /.node_repl_history
