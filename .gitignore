@@ -4,6 +4,7 @@
 /tmp/
 /wip/
 
+/.adobe/
 /.android/
 /.arduino15/
 /.audacity-data/
@@ -29,6 +30,7 @@
 /.config/enchant/
 /.config/eog/
 /.config/evince/
+/.config/fcitx/
 /.config/fish/fish_history*
 /.config/gedit/
 /.config/GIMP/
@@ -49,6 +51,7 @@
 /.config/OpenSCAD/
 /.config/pavucontrol.ini
 /.config/pulse/cookie
+/.config/QtProject.conf
 /.config/ranger/bookmarks
 /.config/ranger/history
 /.config/Sabaki/
