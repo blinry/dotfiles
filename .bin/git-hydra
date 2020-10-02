@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/usr/bin/godot --path ~/wip/git-learning-game/git-hydra/ main.tscn $*
