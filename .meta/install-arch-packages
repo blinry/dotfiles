@@ -1,13 +1,9 @@
 sudo pacman -Sy \
-abs \
 acpi \
 alsa-utils \
 atool \
-aurvote \
-autoconf \
-automake \
+autorandr \
 bash-completion \
-bison \
 blender \
 chromium \
 clang \
@@ -18,25 +14,25 @@ cups-pdf \
 devmon \
 dialog \
 dosfstools \
-ekiga \
 eog \
 evince \
 fakeroot \
 feh \
 fish \
 flex \
+fzf \
 gimp \
 git \
 gnuplot \
 gparted \
 htop \
 httpie \
+i3blocks \
 i3-wm \
 inkscape \
 libgit2 \
 libreoffice-fresh \
 libtool \
-liferea \
 lsof \
 m4 \
 maim \
@@ -62,41 +58,41 @@ openssh \
 otf-ipafont \
 p7zip \
 patch \
+pamixer \
 pavucontrol \
-pidgin \
-pidgin-otr \
-pkgbuild-introspection \
 pkg-config \
-pm-utils \
 powertop \
 pulseaudio \
+pulseaudio-alsa \
+pulseaudio-zeroconf \
+python \
+python-pynvim \
 redshift \
+ripgrep \
 rsync \
+ruby \
 slop \
 sudo \
+termite \
 texlive-core \
-texlive-science \
 texlive-latexextra \
-texlive-bibtexextra \
-the_silver_searcher \
 time \
 transmission-gtk \
 ttf-dejavu \
+ttf-iosevka \
 ttf-linux-libertine \
 uim \
 unclutter \
 unrar \
 unzip \
-vicious \
 vlc \
 wget \
 wmname \
-wpa_actiond \
-wpa_supplicant \
 xbindkeys \
 xclip \
 xf86-input-synaptics \
 xf86-video-intel \
+xorg-xbacklight \
 xorg-server \
 xorg-xev \
 xorg-xinit \
@@ -104,15 +100,13 @@ xorg-xinput \
 xorg-xkill \
 xorg-xrdb \
 xorg-xsetroot \
-zip \
-zsh
+zip
 
-yaourt --noconfirm -Sa \
+yay -S \
 dmenu2 \
-mimi-git \
-rxvt-unicode-patched \
-tidy-html5 \
 ttf-google-fonts-git \
 ttf-mac-fonts \
 ttf-ms-fonts \
+mblaze-git \
+vi-vim-symlink \
 xcwd-git
