@@ -2,4 +2,5 @@
 
 scp -p $1 morr.cc:/web/morr.cc/files/
 ssh morr.cc chmod a+r /web/morr.cc/files/$(basename $1)
-echo file is at "https://files.morr.cc/$1"
+echo file is at "https://files.morr.cc/$1 (copied to clipboard)"
+echo "https://files.morr.cc/$1" | xclip
