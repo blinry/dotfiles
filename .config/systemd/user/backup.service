@@ -3,4 +3,4 @@ Description=Notebook backup
 
 [Service]
 Type=oneshot
-ExecStart=/home/seb/.bin/backup
+ExecStart=/home/blinry/.bin/backup

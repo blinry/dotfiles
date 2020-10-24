@@ -3,4 +3,4 @@ Description=Server backup
 
 [Service]
 Type=oneshot
-ExecStart=/home/seb/.bin/backup-server
+ExecStart=/home/blinry/.bin/backup-server
