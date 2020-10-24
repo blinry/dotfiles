@@ -12,6 +12,7 @@
 	decorate = true
 [push]
 	default = current
+	followTags = true
 [diff]
 	compactionHeuristic = true
 [svn]
@@ -28,3 +29,6 @@
 	rebase = true
 [init]
 	defaultBranch = main
+	templateDir = ""
+[rebase]
+	autoStash = true
