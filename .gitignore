@@ -112,3 +112,6 @@
 /.wine/
 /.Xauthority
 /.zoom/
+/.config/Mumble/
+/.VirtualBox VMs/
+/.config/VirtualBox/
