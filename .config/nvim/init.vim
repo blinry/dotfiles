@@ -99,7 +99,11 @@ call minpac#add('w0rp/ale')
 call minpac#add('tpope/vim-dispatch')
 call minpac#add('radenling/vim-dispatch-neovim')
 
+" Observe EditorConfig coding style settings.
 call minpac#add('editorconfig/editorconfig-vim')
+
+" Additional text objects.
+call minpac#add('wellle/targets.vim')
 
 " Better support for various filetypes.
 call minpac#add('slim-template/vim-slim')
