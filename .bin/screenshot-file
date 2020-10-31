@@ -1,9 +1,0 @@
-#!/bin/sh
-
-if [ -z "$1" ]
-then
-    maim -s --hidecursor $HOME/tmp/screenshot-$(date +%F_%T).png
-else
-    cd $HOME/tmp/
-    maim -s --hidecursor $1
-fi
