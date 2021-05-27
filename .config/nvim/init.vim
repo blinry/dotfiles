@@ -1,5 +1,6 @@
-let mapleader="," " Use comma as a <Leader>.
-let maplocalleader="," " Also use comma as a <Localleader> (for vim-tidal).
+lua << EOF
+vim.g.mapleader = "," -- Use comma as a <Leader>.
+EOF
 
 packadd minpac
 call minpac#init()
@@ -8,6 +9,53 @@ call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
     command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update('', {'do': 'call minpac#status()'})
     command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
+
+" LSP quickstart.
+call minpac#add('neovim/nvim-lspconfig')
+lua << EOF
+  local custom_lsp_attach = function(client)
+    -- See `:help nvim_buf_set_keymap()` for more information
+    vim.api.nvim_buf_set_keymap(0, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = true})
+    vim.api.nvim_buf_set_keymap(0, 'n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true})
+
+    -- Use LSP as the handler for omnifunc.
+    --    See `:help omnifunc` and `:help ins-completion` for more information.
+    vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    -- For plugins with an `on_attach` callback, call them here. For example:
+    -- require('completion').on_attach()
+  end
+
+  require('lspconfig').solargraph.setup{
+    on_attach = custom_lsp_attach
+  }
+  require('lspconfig').sumneko_lua.setup{
+  cmd = {"lua-language-server"}
+  }
+  custom_lsp_attach()
+EOF
+
+" Fix colorschemes.
+call minpac#add('folke/lsp-colors.nvim')
+
+call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
+call minpac#add('nvim-treesitter/nvim-treesitter-textobjects')
+call minpac#add('nvim-treesitter/playground')
+lua << EOF
+  local ts = require 'nvim-treesitter.configs'
+  ts.setup {
+    ensure_installed = 'maintained',
+    highlight = {
+      enable = true
+    },
+    textobjects = {
+      enable = true,
+    },
+    incremental_selection = {
+      enable = true,
+    },
+  }
+EOF
 
 " Git stuff!
 call minpac#add('tpope/vim-fugitive')
@@ -77,9 +125,9 @@ call minpac#add('w0rp/ale')
     \   'css': ['prettier'],
     \   'haskell': ['hindent'],
     \   'html': ['prettier'],
-    \   'vue': ['prettier'],
     \   'json': ['prettier'],
-    \   'javascript': ['prettier']
+    \   'javascript': ['prettier'],
+    \   'vue': ['prettier']
     \}
     "\   'svelte': ['prettier'],
     "\   'ruby': ['rufo'],
@@ -111,10 +159,7 @@ call minpac#add('tikhomirov/vim-glsl')
 call minpac#add('rust-lang/rust.vim')
 call minpac#add('matze/vim-lilypond')
 call minpac#add('philj56/vim-asm-indent')
-call minpac#add('https://gitlab.com/n9n/vim-apl')
 call minpac#add('mxw/vim-jsx')
-call minpac#add('tidalcycles/vim-tidal')
-    let g:tidal_target="terminal"
 call minpac#add('itchyny/vim-haskell-indent')
 call minpac#add('neovimhaskell/haskell-vim')
     "let g:haskell_classic_highlighting=1
@@ -123,8 +168,13 @@ call minpac#add('dag/vim-fish')
 call minpac#add('907th/vim-auto-save')
 "au! bufnewfile,bufread *.svelte set ft=html
 
+"call minpac#add('floobits/floobits-neovim')
+call minpac#add('jbyuki/instant.nvim')
+let g:instant_username = "blinry"
+
 " Colors, hidden Characters.
-colorscheme velvetopia " My own li'l colorscheme. <3
+colorscheme default
+set termguicolors " Use 'gui' highlight attributes instead of cterm.
 set list " Show whitespace characters...
 set listchars=tab:›\ ,trail:·,extends:❭,precedes:❬ " ... like this!
 au InsertLeave * :set listchars+=trail:· " Show trailing whitespace in all modes...
@@ -204,9 +254,15 @@ nmap <Leader>= "ayy"ap:s/./=/g<CR>
 " Mark bulleted item as done
 nmap + :s/^\s*\zs[-x~?]/+<CR>:w<CR>
 
+" Save and restore sessions.
+let s:sessions_dir = '~/.local/share/nvim/sessions/'
+exec 'nnoremap <Leader>ss :mks! ' . s:sessions_dir
+exec 'nnoremap <Leader>sr :so ' . s:sessions_dir
+
 " Edit snippets.
 nmap <Leader>s :UltiSnipsEdit<CR>
 
+" Show the highlight group the cursor is on.
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
@@ -236,4 +292,4 @@ syn match Special '---[-]*'
 au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
 
 " Source Vim configuration upon save.
-au BufWritePost $MYVIMRC source %
+" au BufWritePost $MYVIMRC source %
