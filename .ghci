@@ -1,0 +1,12 @@
+import Data.List
+import Data.Map (Map)
+import Data.Maybe
+import Data.Set (Set)
+import qualified Data.Map as M
+import qualified Data.Set as S
+import Data.Sequence (Seq(..))
+import qualified Data.Sequence as Seq
+
+
+:set prompt "\ESC[1;34mλ\ESC[m "
+:set prompt-cont "\ESC[0;34m>\ESC[m "

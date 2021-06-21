@@ -22,3 +22,13 @@ snippet ul
 	<li>$0</li>
 </ul>
 endsnippet
+
+snippet 'div' "Generic HTML tag builder" r
+<`!p snip.rv = match.group()`$0>
+	$1
+</`!p snip.rv = match.group()`>
+endsnippet
+
+snippet 'img|a|p|span|li|h1|h2|h3|h4|h5|h6' "Generic HTML tag builder" r
+<`!p snip.rv = match.group()`$0>$1</`!p snip.rv = match.group()`>
+endsnippet

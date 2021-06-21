@@ -1,0 +1,16 @@
+#!/bin/bash
+
+FFMPEG=$(pidof ffmpeg)
+
+if [ -z "$FFMPEG" ]; then
+    read -r X Y W H G ID < <(slop -f "%x %y %w %h %g %i")
+
+    # Make sizes even (x264 requires that).
+    W=$(($W/2*2))
+    H=$(($H/2*2))
+
+    ffmpeg -threads 0 -f pulse -i alsa_output.pci-0000_00_1f.3.analog-stereo.monitor -s "$W"x"$H" -framerate 30 -f x11grab -show_region 1 -i :0.0+$X,$Y -c:v libx264 -pix_fmt yuv420p -preset ultrafast -c:a aac "$HOME"/tmp/screencast-$(date +%F_%T).mp4
+else
+    # ffmpeg is already running, stop the recording!
+    kill -INT "$FFMPEG"
+fi

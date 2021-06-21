@@ -4,7 +4,7 @@ Sehr geehrte${1: Damen und Herren},
 $0
 
 Freundliche Grüße,
-`echo "$FIRST_NAME"`${2:`echo " $LAST_NAME"`}
+`echo "$FULLNAME"`
 endsnippet
 
 snippet mail
@@ -13,20 +13,20 @@ ${1:Hey},
 $0
 
 Freundliche Grüße,
-`echo "$FIRST_NAME"`
+`echo "$FULLNAME"`
 endsnippet
 
 snippet fg
 Freundliche Grüße,
-`echo "$FIRST_NAME"`${0:`echo " $LAST_NAME"`}
+`echo "$FULLNAME"`
 endsnippet
 
 snippet lg
 Liebe Grüße,
-`echo "$FIRST_NAME"`
+`echo "$FULLNAME"`
 endsnippet
 
 snippet kr
 Kind regards,
-`echo "$FIRST_NAME"`${0:`echo " $LAST_NAME"`}
+`echo "$FULLNAME"`
 endsnippet

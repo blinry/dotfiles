@@ -1,0 +1,6 @@
+directory: ~/library/music/
+library: ~/library/music/beets.blb
+plugins: lyrics fetchart embedart lastgenre
+clutter: ["Thumbs.DB", ".DS_Store", "www.jamendo.txt", "License.txt", "playlist.m3u"]
+import:
+    move: yes

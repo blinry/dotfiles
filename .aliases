@@ -22,14 +22,14 @@ alias net-profile='sudo systemctl stop netctl-auto@wlp4s0; sudo netctl restart'
 
 # Git
 
-alias git='hub'
 alias ga='git add'
 alias gc='git commit'
+alias gca='git commit -a'
+alias gcaa='git commit -a --amend'
+alias gco='git checkout'
 alias gd='git diff'
 alias gg='git graph'
-alias gl='git log'
-alias gs='git status'
-alias gp='git push'
+alias gs='git status --short'
 
 # Set default options for some tools
 
@@ -47,6 +47,8 @@ alias mscan='mscan -I'
 alias mextract='mscan -x .'
 alias youtube-dl='youtube-dl --no-mtime'
 alias gdb='gdb -q'
+alias ffprobe='ffprobe -hide_banner'
+alias ffmpeg='ffmpeg -hide_banner'
 
 # Lazyness
 
@@ -78,8 +80,8 @@ alias x-dual-1080p='xrandr --output eDP1 --mode 1920x1080 --output HDMI2 --mode 
 alias x-triple='xrandr --output VIRTUAL1 --off --output eDP1 --mode 2560x1440 --pos 0x720 --rotate normal --output DP1 --off --output DP2-1 --mode 1600x1200 --pos 6400x560 --rotate left; xrandr --output DP2-2 --primary --mode 3840x2160 --pos 2560x0 --rotate normal --output DP2-3 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off'
 alias x-dock='xrandr --output eDP1 --primary --mode 2560x1440 --pos 640x2160 --output DP2-1 --mode 3840x2160 --pos 0x0'
 
-alias pa-hdmi='pacmd set-card-profile 0 output:hdmi-stereo-extra1'
-alias pa-analog='pacmd set-card-profile 0 output:analog-stereo'
+alias pa-hdmi='pacmd set-card-profile 0 output:hdmi-stereo-extra1 && pkill -RTMIN+1 i3blocks'
+alias pa-analog='pacmd set-card-profile 0 output:analog-stereo && pkill -RTMIN+1 i3blocks'
 
 alias usb-mount='sudo mount -o uid=seb,gid=users /dev/sdb1 /mnt'
 alias usb-umount='sudo umount /mnt'

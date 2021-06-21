@@ -1,0 +1,15 @@
+#!/bin/sh
+
+CURRENT=$(i3-msg -t get_workspaces | jq '.[] | select(.focused==true).num' | cut -d"\"" -f2)
+i3-msg workspace 1
+i3-msg move workspace to output eDP1
+i3-msg workspace 2
+i3-msg move workspace to output DP2-2
+i3-msg workspace 3
+i3-msg move workspace to output DP2-2
+i3-msg workspace 4
+i3-msg move workspace to output DP2-2
+i3-msg workspace 5
+i3-msg move workspace to output DP2-2
+i3-msg workspace 2
+i3-msg workspace "$CURRENT"

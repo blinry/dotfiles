@@ -4,7 +4,7 @@
 location:
     # List of source directories to backup (required). Globs and tildes are expanded.
     source_directories:
-        - /home/seb
+        - /home/blinry
 
     # Paths to local or remote repositories (required). Tildes are expanded. Multiple
     # repositories are backed up to in sequence. See ssh_command for SSH options like
@@ -53,14 +53,14 @@ location:
     # Any paths matching these patterns are excluded from backups. Globs and tildes
     # are expanded. See the output of "borg help patterns" for more details.
     exclude_patterns:
-         - /home/seb/.cache
-         - /home/seb/tmp
-         - /home/seb/library/movies
-         - /home/seb/library/music
-         - /home/seb/library/audiobooks
-         - /home/seb/library/books
-         - /home/seb/library/games
-         - /home/seb/permanent/backups/morr.cc
+         - /home/blinry/.cache
+         - /home/blinry/tmp
+         - /home/blinry/library/movies
+         - /home/blinry/library/music
+         - /home/blinry/library/audiobooks
+         - /home/blinry/library/books
+         - /home/blinry/library/games
+         - /home/blinry/permanent/backups/morr.cc
     #    - '*.pyc'
     #    - ~/*/.cache
     #    - /etc/ssl
@@ -87,7 +87,6 @@ storage:
     # use on repositories that were initialized with passcommand/repokey encryption.
     # Note that if both encryption_passcommand and encryption_passphrase are set,
     # then encryption_passphrase takes precedence. Defaults to not set.
-    #encryption_passcommand: su seb -c "gopass show morr.cc/thinkerbell_backup"
     encryption_passcommand: gopass show morr.cc/thinkerbell_backup
 
     # Passphrase to unlock the encryption key with. Only use on repositories that were

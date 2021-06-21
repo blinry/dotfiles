@@ -1,0 +1,14 @@
+#!/bin/sh
+
+volume=$(pamixer --get-volume)
+
+echo "$volume%"
+echo "$volume%"
+
+if [ -n "$(pacmd list-sinks | grep "analog-stereo")" ]; then
+    # Analog output is on.
+    test -n "$(amixer get 'Master'|grep '\[on\]')" && echo "#ffffff" || echo "#777777"
+else
+    # Probably the HDMI output is on.
+    test -n "$(amixer get 'Master'|grep '\[on\]')" && echo "#8888ff" || echo "#333388"
+fi

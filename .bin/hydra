@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd ~/wip/git-learning-game/git-hydra/
+godot project.godot
+termite

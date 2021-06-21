@@ -3,4 +3,4 @@
 setxkbmap us -option altwin:swap_lalt_lwin -option compose:ralt
 xmodmap ~/.us-intl-german.xmodmap
 xset b off # turn off system bell
-xset r rate 200 100 # autorepeat of \2 Hz starts after \1 ms
+# xset r rate 200 100 # autorepeat of \2 Hz starts after \1 ms

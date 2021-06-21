@@ -17,7 +17,7 @@ set -x GIT_AUTHOR_EMAIL "$EMAIL"
 set -x GIT_COMMITTER_NAME "$FULLNAME"
 set -x GIT_COMMITTER_EMAIL "$EMAIL"
 
-set -x PATH $HOME/wip/wit $HOME/wip/minitools/target/debug $HOME/wip/timelens/timelens/target/debug $HOME/permanent/habitctl/target/debug $HOME/.bin $HOME/.cargo/bin/ (ruby -e 'print Gem.user_dir')/bin /usr/bin/vendor_perl/ $PATH
+set -x PATH $HOME/wip/wit $HOME/wip/minitools/target/debug $HOME/wip/timelens/timelens/target/debug $HOME/permanent/habitctl/target/debug $HOME/.bin $HOME/.cargo/bin/ (ruby -e 'print Gem.user_dir')/bin /usr/bin/vendor_perl/ $HOME/.cabal/bin/ $HOME/.npm-packages/bin $PATH
 set -x EDITOR nvim
 set -x TERMINAL termite
 set -x BROWSER chromium
@@ -34,10 +34,16 @@ set -e GREP_OPTIONS
 # Default permissions: rw(x)------
 umask 0077
 
+# Use dircolors template
+eval (dircolors -c ~/.dircolors)
+
 set fish_greeting
 
-complete -c wiki -a '(pushd .; cd ~/permanent/wiki; ls; popd)'
-complete -c pf -a '(pushd .; cd ~/permanent/pf-wiki; ls; popd)'
+function fish_mode_prompt
+end
+
+complete -c w -a '(pushd .; cd ~/permanent/wiki; ls; popd)'
+complete -c pf -a '(pushd .; cd ~/permanent/pf2-wiki; ls; popd)'
 
 function take
     mkdir -p $argv
@@ -51,5 +57,27 @@ function unwrap
         cd "$DIR"
     end
 end
+
+function fzfcd
+    cd ~
+
+    # Select from everything not ignored, and not unignored by ~/.fdignore
+    fd -H -d5 -E /permanent/mail/ | sort -V | fzf | read SELECTION
+
+    # And perform an appropriate action
+    if test -d "$SELECTION"
+        cd "$SELECTION"
+    else if test -e "$SELECTION"
+        cd (dirname "$SELECTION")
+        cd (git rev-parse --show-toplevel)
+        vim ~/"$SELECTION"
+    else
+        cd -
+    end
+
+    commandline -f force-repaint
+end
+
+bind \cp fzfcd
 
 . ~/.aliases

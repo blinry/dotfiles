@@ -1,0 +1,3 @@
+#!/bin/sh
+
+nohup /usr/bin/godot project.godot >/dev/null 2>/dev/null&

@@ -1,9 +1,7 @@
-FIRST_NAME="Sebastian"
-LAST_NAME="Morr"
-EMAIL="sebastian@morr.cc"
-GPGKEYID="A624F8B6"
+FULLNAME="blinry"
+EMAIL="mail@blinry.org"
 
-DEFAULT_USER="seb"
+DEFAULT_USER="blinry"
 DEFAULT_HOSTNAME="thinkerbell"
 
 LAT="52.269"

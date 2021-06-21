@@ -1,15 +1,117 @@
-# By default, ignore everything:
-/*
+/archive/
+/library/
+/permanent/
+/tmp/
+/wip/
 
-# If you want to see which dotfiles are not tracked, comment out the previous
-# line and add the following lines to .git/info/exclude:
-#
-#      /*
-#      !/.*
-#
-# Followed by the and directories you are ignoring intentionally:
-#
-#     /.ssh/
-#     /.bitcoin/
-#     /.Xauthority
-#     ...
+/.adobe/
+/.android/
+/.arduino15/
+/.audacity-data/
+/.bash_history
+/.bin/stats
+/.bitcoin/
+/.bundle/cache/
+/.cabal/
+/.calibre/
+/.cargo/
+/.config/anki/
+/.config/ardour6/
+/.config/aseprite/
+/.config/beets/
+/.config/blender/
+/.config/borg/
+/.config/calibre/
+/.config/cef_user_data/
+/.config/chromium/
+/.config/configstore/
+/.config/darktable/
+/.config/dconf/
+/.config/enchant/
+/.config/eog/
+/.config/evince/
+/.config/fcitx/
+/.config/fish/fish_history*
+/.config/gedit/
+/.config/GIMP/
+/.config/godot/
+/.config/gopass/gopass-logo-small.png
+/.config/gtk-2.0/
+/.config/hub
+/.config/inkscape/
+/.config/kritadisplayrc
+/.config/kritarc
+/.config/libreoffice/
+/.config/liferea/
+/.config/mpd/
+/.config/mpv/scripts/
+/.config/mpv/watch_later/
+/.config/nvim/spell/
+/.config/obs-studio/
+/.config/OpenSCAD/
+/.config/pavucontrol.ini
+/.config/pulse/cookie
+/.config/QtProject.conf
+/.config/ranger/bookmarks
+/.config/ranger/history
+/.config/Sabaki/
+/.config/Signal/
+/.config/skypeforlinux/
+/.config/torbrowser/
+/.config/transmission/
+/.config/unity3d/
+/.config/Unknown Organization/zoom.conf
+/.config/wireshark/
+/.config/zoomus.conf
+/.electrum/
+/.fonts/
+/.gem/
+/.ghc/
+/.gnupg/
+/.gramps/
+/.habitctl/
+/.irb_history
+/.lesshst
+/.lexaloffle/
+/.lmmsrc.xml
+/.local/
+/.meteor/
+/.meteorsession
+/.minecraft/
+/.minetest/
+/.mozc/
+/.mozilla/
+/.mutt/cache/
+/.node_repl_history
+/.nom/
+/.notmuch-config
+/.npm/
+/.npm-packages/
+/.offlineimap/
+/.oO/
+/.password-store/
+/.pki/
+/.psql_history
+/.pulse/
+/.purple/
+/.python_history
+/.Rack/
+/.rustup/
+/.sane/
+/.sqlite_history
+/.ssh/
+/.stack/
+/.steam/
+/.steampath
+/.steampid
+/.subversion/
+/.task/
+/.tor-browser-en/
+/.twurlrc
+/.vagrant.d/
+/.wine/
+/.Xauthority
+/.zoom/
+/.config/Mumble/
+/.VirtualBox VMs/
+/.config/VirtualBox/

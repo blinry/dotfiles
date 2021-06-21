@@ -1,6 +1,13 @@
-xft.autohint: 0
-xft.lcdfilter: lcddefault
-xft.hintstyle: hintfull
-xft.hinting: 1
-xft.antialias: 1
-xft.rgba: rgb
+Xft.dpi: 130
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+Xcursor.theme: Vanilla-DMZ
+Xcursor.size: 64
+
+XTerm*background: black
+XTerm*foreground: white

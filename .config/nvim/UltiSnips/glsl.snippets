@@ -1,0 +1,95 @@
+snippet base
+uniform vec2 u_resolution;
+
+void main() {
+	vec2 uv = gl_FragCoord.xy/u_resolution;
+	uv -= 0.5;
+	uv /= vec2(u_resolution.y/u_resolution.x, 1);
+
+	uv *= 5.;
+	uv = mod(uv, vec2(1));
+
+	vec3 color = vec3(uv, 1);
+
+	gl_FragColor = vec4(color, 1.0);
+}
+endsnippet
+
+snippet rm
+#version 130
+
+uniform vec2 u_resolution;
+uniform float u_time;
+
+float scene(vec3 p) { return length(p) - 1; }
+
+void main() {
+	vec2 uv = gl_FragCoord.xy / u_resolution;
+	uv -= 0.5;
+	uv /= vec2(u_resolution.y / u_resolution.x, 1);
+
+	vec3 cam = vec3(0, 0, -5);
+	vec3 dir = normalize(vec3(uv, 1));
+
+	float t = 0;
+	for (int i = 0; i < 100; ++i) {
+		t += scene(cam + dir * t);
+	}
+
+	vec3 h = cam + dir * t;
+	vec2 o = vec2(.001, 0);
+	vec3 n = normalize(vec3(scene(h + o.xyy) - scene(h - o.xyy),
+							scene(h + o.yxy) - scene(h - o.yxy),
+							scene(h + o.yyx) - scene(h - o.yyx)));
+
+	gl_FragColor = vec4(n * .5 + .5, 1.0);
+}
+endsnippet
+
+snippet rml
+#version 130
+
+uniform vec2 u_resolution;
+uniform float u_time;
+
+float noise(vec3 p) {
+	fract(sin(dot(p, vec3(23.3243241,34.234,234.23)))*342.234);
+}
+
+float scene(vec3 p) {
+	return length(p) - 1;
+}
+
+void main() {
+	vec2 uv = gl_FragCoord.xy / u_resolution;
+	uv -= 0.5;
+	uv /= vec2(u_resolution.y / u_resolution.x, 1);
+
+	vec3 cam = vec3(0, 0, -5);
+	vec3 dir = normalize(vec3(uv, 1));
+
+	float t = 0;
+	for (int i = 0; i < 100; ++i) {
+		t += scene(cam + dir * t);
+	}
+
+	vec3 h = cam + dir * t;
+	vec2 o = vec2(.001, 0);
+	vec3 n = normalize(vec3(scene(h + o.xyy) - scene(h - o.xyy),
+							scene(h + o.yxy) - scene(h - o.yxy),
+							scene(h + o.yyx) - scene(h - o.yyx)));
+
+	vec3 light = vec3(1, 1, 0);
+	float diffuse = max(0, dot(n, light));
+	vec3 albedo = vec3(0.5);
+	float ambient = 0.4;
+	vec3 col = (ambient + diffuse) * albedo;
+
+	vec3 bg = vec3(0.01);
+	col = mix(col, bg, 1 - exp(-.00001 * t * t * t)); // apply fog
+
+	col = pow(col, vec3(.454)); // gamma correction
+
+	gl_FragColor = vec4(col, 1);
+}
+endsnippet

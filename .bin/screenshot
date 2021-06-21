@@ -1,0 +1,4 @@
+#!/bin/sh
+
+FILE="$HOME/tmp/screenshot-$(date +%F_%T).png"
+maim -s --hidecursor | tee "$FILE" | xclip -selection clipboard -t image/png
