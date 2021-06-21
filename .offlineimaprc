@@ -14,10 +14,10 @@ localfolders = ~/permanent/mail
 
 [Repository remote]
 type = IMAP
-remotehost = morr.cc
+remotehost = blinry.org
 remoteport = 993
 ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-remoteuser = sebastian
-remotepasseval = get_pass("morr.cc/sebastian")
+remoteuser = blinry
+remotepasseval = get_pass("blinry.org/blinry")
 maxconnections = 5

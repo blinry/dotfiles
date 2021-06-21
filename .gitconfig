@@ -22,13 +22,10 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[user]
-	email = sebastian@morr.cc
-	name = blinry
 [pull]
-	rebase = true
+	rebase = false
 [init]
-	defaultBranch = main
 	templateDir = ""
+	defaultBranch = main
 [rebase]
-	autoStash = true
+	autoStash = false

@@ -2,9 +2,7 @@
 
 source ~/.user
 
-export FULLNAME="$FIRST_NAME $LAST_NAME"
-export FIRST_NAME
-export LAST_NAME
+export FULLNAME
 export EMAIL
 export LAT
 export LON
