@@ -6,13 +6,74 @@ end
 
 vim.g.mapleader = "," -- Use comma as a <Leader>.
 
--- Initialize Paq, and let it manage itself.
-vim.cmd('packadd paq-nvim')
-local paq = require('paq-nvim').paq
-paq {'savq/paq-nvim', opt = true}
+require 'paq-nvim' {
+    'savq/paq-nvim'; -- Let paq manage itself.
+    'neovim/nvim-lspconfig'; -- Quickstart LSP configurations.
+    'folke/lsp-colors.nvim'; -- Fix colorschemes.
 
--- LSP quickstart.
-paq {'neovim/nvim-lspconfig'}
+    --- Advanced syntax highlighting.
+    {'nvim-treesitter/nvim-treesitter', run=function () vim.cmd 'TSUpdate' end};
+    'nvim-treesitter/nvim-treesitter-textobjects';
+    'nvim-treesitter/playground';
+
+    'tpope/vim-fugitive'; -- Git stuff!
+    'tpope/vim-surround'; -- Edit parens, brackets, and more.
+    'tpope/vim-repeat'; -- Repeat support for surround and other plugins.
+    'tpope/vim-commentary'; -- Comment stuff out using 'gc'.
+    'tpope/vim-unimpaired'; -- Pairs of handy bracket mappings.
+    'tpope/vim-endwise'; -- In Ruby, insert 'end' statements automatically.
+    'junegunn/fzf.vim'; -- Fuzzy-find everything!
+    'dhruvasagar/vim-table-mode'; -- Format tables and calculate stuff in them.
+    'tommcdo/vim-exchange'; -- cx for exchange operations.
+    'kana/vim-textobj-entire'; -- 'e' text object is the entire file.
+    'kana/vim-textobj-user'; -- Needed for vim-textobj-entire.
+    'SirVer/ultisnips'; -- Snippets, duh!
+    'blinry/vimboy'; -- Dead simple personal wiki plugin.
+    'editorconfig/editorconfig-vim'; -- Observe EditorConfig coding style settings.
+    'felipec/vim-sanegx'; -- Workaround for broken gx.
+    'wellle/targets.vim'; -- Additional text objects.
+
+    -- Better support for various filetypes.
+    'slim-template/vim-slim';
+    'tikhomirov/vim-glsl';
+    'rust-lang/rust.vim';
+    'matze/vim-lilypond';
+    'philj56/vim-asm-indent';
+    'mxw/vim-jsx';
+    'itchyny/vim-haskell-indent';
+    'neovimhaskell/haskell-vim';
+    'calviken/vim-gdscript3';
+    'dag/vim-fish';
+    '907th/vim-auto-save';
+}
+
+-- Treesitter configuration.
+local ts = require 'nvim-treesitter.configs'
+ts.setup {ensure_installed = 'maintained', highlight = {enable = true}, textobjects = {enable = true}, incremental_selection = {enable = true}}
+
+-- fzf configuration.
+vim.cmd([[
+    nnoremap ; :Buffers<CR>
+    nnoremap <C-p> :Files<CR>
+
+    nnoremap <Leader>f :GFiles<CR>
+    nnoremap <Leader>h :History<CR>
+    nnoremap <Leader>l :BLines<CR>
+    nnoremap <Leader>L :Lines<CR>
+    nnoremap <Leader>g :Rg<CR>
+    nnoremap <Leader>H :Helptags!<CR>
+    nnoremap <Leader>: :History:<CR>
+    nnoremap <Leader>/ :History/<CR>
+    "nnoremap <C-r> :Rg<CR>
+    "cabbrev tabe Files<CR>
+]])
+
+-- UltiSnips configuration.
+vim.g.UltiSnipsExpandTrigger = "<Tab>"
+vim.g.UltiSnipsJumpForwardTrigger = "<Tab>"
+vim.g.UltiSnipsJumpBackwardTrigger = "<S-Tab>"
+
+-- LSP configuration.
 local custom_lsp_attach = function()
     local opts = {}
     map('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -40,7 +101,6 @@ local custom_lsp_attach = function()
     -- For plugins with an `on_attach` callback, call them here. For example:
     -- require('completion').on_attach()
 end
-
 require('lspconfig').solargraph.setup {on_attach = custom_lsp_attach}
 require('lspconfig').sumneko_lua.setup {
     cmd = {"lua-language-server"},
@@ -84,95 +144,7 @@ require"lspconfig".efm.setup {
 require('lspconfig').vimls.setup {}
 require('lspconfig').tsserver.setup {on_attach = custom_lsp_attach}
 require('lspconfig').html.setup {cmd = {"vscode-html-languageserver", "--stdio"}}
-
 vim.api.nvim_command [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
-
--- Fix colorschemes.
-paq {'folke/lsp-colors.nvim'}
-
-paq {'nvim-treesitter/nvim-treesitter', ['do'] = ':TSUpdate'}
-paq {'nvim-treesitter/nvim-treesitter-textobjects'}
-paq {'nvim-treesitter/playground'}
-local ts = require 'nvim-treesitter.configs'
-ts.setup {ensure_installed = 'maintained', highlight = {enable = true}, textobjects = {enable = true}, incremental_selection = {enable = true}}
-
--- Git stuff!
-paq {'tpope/vim-fugitive'}
-
--- Edit parens, brackets, and more.
-paq {'tpope/vim-surround'}
-
--- Repeat support for surround and other plugins.
-paq {'tpope/vim-repeat'}
-
--- Comment stuff out using 'gc'.
-paq {'tpope/vim-commentary'}
-
--- Pairs of handy bracket mappings.
-paq {'tpope/vim-unimpaired'}
-
--- Fuzzy-find everything!
-paq {'junegunn/fzf.vim'}
-vim.cmd([[
-    nnoremap ; :Buffers<CR>
-    nnoremap <C-p> :Files<CR>
-
-    nnoremap <Leader>f :GFiles<CR>
-    nnoremap <Leader>h :History<CR>
-    nnoremap <Leader>l :BLines<CR>
-    nnoremap <Leader>L :Lines<CR>
-    nnoremap <Leader>g :Rg<CR>
-    nnoremap <Leader>H :Helptags!<CR>
-    nnoremap <Leader>: :History:<CR>
-    nnoremap <Leader>/ :History/<CR>
-    "nnoremap <C-r> :Rg<CR>
-    "cabbrev tabe Files<CR>
-]])
-
--- Format tables and calculate stuff in them.
-paq {'dhruvasagar/vim-table-mode'}
-
--- cx for exchange operations.
-paq {'tommcdo/vim-exchange'}
-
--- 'e' text object is the entire file.
-paq {'kana/vim-textobj-entire'}
--- Needed for vim-textobj-entire.
-paq {'kana/vim-textobj-user'}
-
--- Snippets, duh!
-paq {'SirVer/ultisnips'}
-vim.g.UltiSnipsExpandTrigger = "<Tab>"
-vim.g.UltiSnipsJumpForwardTrigger = "<Tab>"
-vim.g.UltiSnipsJumpBackwardTrigger = "<S-Tab>"
-
--- In Ruby, insert 'end' statements automatically.
-paq {'tpope/vim-endwise'}
-
--- Dead simple personal wiki plugin.
-paq {'blinry/vimboy'}
-
--- Observe EditorConfig coding style settings.
-paq {'editorconfig/editorconfig-vim'}
-
--- Workaround for broken gx.
-paq {'felipec/vim-sanegx'}
-
--- Additional text objects.
-paq {'wellle/targets.vim'}
-
--- Better support for various filetypes.
-paq {'slim-template/vim-slim'}
-paq {'tikhomirov/vim-glsl'}
-paq {'rust-lang/rust.vim'}
-paq {'matze/vim-lilypond'}
-paq {'philj56/vim-asm-indent'}
-paq {'mxw/vim-jsx'}
-paq {'itchyny/vim-haskell-indent'}
-paq {'neovimhaskell/haskell-vim'}
-paq {'calviken/vim-gdscript3'}
-paq {'dag/vim-fish'}
-paq {'907th/vim-auto-save'}
 
 -- Colors, hidden Characters.
 vim.cmd("colorscheme velvetopia")
