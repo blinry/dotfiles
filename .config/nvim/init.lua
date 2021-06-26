@@ -85,34 +85,10 @@ require('lspconfig').vimls.setup {}
 require('lspconfig').tsserver.setup {on_attach = custom_lsp_attach}
 require('lspconfig').html.setup {cmd = {"vscode-html-languageserver", "--stdio"}}
 
-vim.api.nvim_command [[autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync()]]
+vim.api.nvim_command [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
 
 -- Fix colorschemes.
 paq {'folke/lsp-colors.nvim'}
-
--- Completions
-paq {'hrsh7th/nvim-compe'}
-require'compe'.setup {
-    enabled = true,
-    autocomplete = true,
-    debug = false,
-    min_length = 1,
-    preselect = 'enable',
-    throttle_time = 80,
-    source_timeout = 200,
-    incomplete_delay = 400,
-    max_abbr_width = 100,
-    max_kind_width = 100,
-    max_menu_width = 100,
-    documentation = true,
-
-    source = {path = true, buffer = true, calc = true, nvim_lsp = true, nvim_lua = true, vsnip = true, ultisnips = true}
-}
-map('i', '<silent><expr> <Tab>', "compe#complete()")
-map('i', '<silent><expr> <CR>', "compe#confirm('<CR>')")
-map('i', '<silent><expr> <C-e>', "compe#close('<C-e>')")
-map('i', '<silent><expr> <C-f>', "compe#scroll({ 'delta': +4 })")
-map('i', '<silent><expr> <C-d>', "compe#scroll({ 'delta': -4 })")
 
 paq {'nvim-treesitter/nvim-treesitter', ['do'] = ':TSUpdate'}
 paq {'nvim-treesitter/nvim-treesitter-textobjects'}
@@ -178,6 +154,9 @@ paq {'blinry/vimboy'}
 
 -- Observe EditorConfig coding style settings.
 paq {'editorconfig/editorconfig-vim'}
+
+-- Workaround for broken gx.
+paq {'felipec/vim-sanegx'}
 
 -- Additional text objects.
 paq {'wellle/targets.vim'}
