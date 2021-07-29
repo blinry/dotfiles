@@ -3,9 +3,7 @@ for LINE in $USER_LINES
     eval "$LINE"
 end
 
-set -x FULLNAME "$FIRST_NAME $LAST_NAME"
-set -x FIRST_NAME "$FIRST_NAME"
-set -x LAST_NAME "$LAST_NAME"
+set -x FULLNAME "$FULLNAME"
 set -x EMAIL "$EMAIL"
 set -x LAT "$LAT"
 set -x LON "$LON"
@@ -19,10 +17,13 @@ set -x GIT_COMMITTER_EMAIL "$EMAIL"
 
 set -x PATH $HOME/wip/wit $HOME/wip/minitools/target/debug $HOME/wip/timelens/timelens/target/debug $HOME/permanent/habitctl/target/debug $HOME/.bin $HOME/.cargo/bin/ (ruby -e 'print Gem.user_dir')/bin /usr/bin/vendor_perl/ $HOME/.cabal/bin/ $HOME/.npm-packages/bin $PATH
 set -x EDITOR nvim
-set -x TERMINAL termite
+set -x TERMINAL alacritty
 set -x BROWSER chromium
 
 set -x FZF_DEFAULT_COMMAND "rg --files"
+
+# This fixes a Blender bug on Intel.
+set -x MESA_LOADER_DRIVER_OVERRIDE i965
 
 set -x LANG en_US.UTF-8
 set -x LC_TIME de_DE.UTF-8
@@ -78,6 +79,9 @@ function fzfcd
     commandline -f force-repaint
 end
 
-bind \cp fzfcd
+for mode in insert default visual
+    bind -M $mode \cp fzfcd
+    bind -M $mode \cf forward-char
+end
 
 . ~/.aliases
