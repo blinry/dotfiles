@@ -1,3 +1,5 @@
+local fn = vim.fn
+
 local function map(mode, lhs, rhs, opts)
     local options = {noremap = true}
     if opts then options = vim.tbl_extend('force', options, opts) end
@@ -6,45 +8,39 @@ end
 
 vim.g.mapleader = "," -- Use comma as a <Leader>.
 
-require 'paq-nvim' {
-    'savq/paq-nvim'; -- Let paq manage itself.
-    'neovim/nvim-lspconfig'; -- Quickstart LSP configurations.
-    'folke/lsp-colors.nvim'; -- Fix colorschemes.
+-- Bootstrap paq-nvim.
+local install_path = fn.stdpath('data') .. '/site/pack/paqs/start/paq-nvim'
+if fn.empty(fn.glob(install_path)) > 0 then fn.system({'git', 'clone', '--depth=1', 'https://github.com/savq/paq-nvim.git', install_path}) end
 
+require 'paq' {
+    'savq/paq-nvim', -- Let paq manage itself.
+    'neovim/nvim-lspconfig', -- Quickstart LSP configurations.
+    'folke/tokyonight.nvim', -- Pretty colorscheme.
     --- Advanced syntax highlighting.
-    {'nvim-treesitter/nvim-treesitter', run=function () vim.cmd 'TSUpdate' end};
-    'nvim-treesitter/nvim-treesitter-textobjects';
-    'nvim-treesitter/playground';
-
-    'tpope/vim-fugitive'; -- Git stuff!
-    'tpope/vim-surround'; -- Edit parens, brackets, and more.
-    'tpope/vim-repeat'; -- Repeat support for surround and other plugins.
-    'tpope/vim-commentary'; -- Comment stuff out using 'gc'.
-    'tpope/vim-unimpaired'; -- Pairs of handy bracket mappings.
-    'tpope/vim-endwise'; -- In Ruby, insert 'end' statements automatically.
-    'junegunn/fzf.vim'; -- Fuzzy-find everything!
-    'dhruvasagar/vim-table-mode'; -- Format tables and calculate stuff in them.
-    'tommcdo/vim-exchange'; -- cx for exchange operations.
-    'kana/vim-textobj-entire'; -- 'e' text object is the entire file.
-    'kana/vim-textobj-user'; -- Needed for vim-textobj-entire.
-    'SirVer/ultisnips'; -- Snippets, duh!
-    'blinry/vimboy'; -- Dead simple personal wiki plugin.
-    'editorconfig/editorconfig-vim'; -- Observe EditorConfig coding style settings.
-    'felipec/vim-sanegx'; -- Workaround for broken gx.
-    'wellle/targets.vim'; -- Additional text objects.
-
+    {
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
+            vim.cmd 'TSUpdate'
+        end
+    }, 'nvim-treesitter/nvim-treesitter-textobjects', 'nvim-treesitter/playground', 'tpope/vim-fugitive', -- Git stuff!
+    'tpope/vim-surround', -- Edit parens, brackets, and more.
+    'tpope/vim-repeat', -- Repeat support for surround and other plugins.
+    'tpope/vim-commentary', -- Comment stuff out using 'gc'.
+    'tpope/vim-unimpaired', -- Pairs of handy bracket mappings.
+    'tpope/vim-endwise', -- In Ruby, insert 'end' statements automatically.
+    'junegunn/fzf.vim', -- Fuzzy-find everything!
+    'dhruvasagar/vim-table-mode', -- Format tables and calculate stuff in them.
+    'tommcdo/vim-exchange', -- cx for exchange operations.
+    'kana/vim-textobj-entire', -- 'e' text object is the entire file.
+    'kana/vim-textobj-user', -- Needed for vim-textobj-entire.
+    'SirVer/ultisnips', -- Snippets, duh!
+    -- 'blinry/vimboy', -- Dead simple personal wiki plugin.
+    'editorconfig/editorconfig-vim', -- Observe EditorConfig coding style settings.
+    'felipec/vim-sanegx', -- Workaround for broken gx.
+    'wellle/targets.vim', -- Additional text objects.
     -- Better support for various filetypes.
-    'slim-template/vim-slim';
-    'tikhomirov/vim-glsl';
-    'rust-lang/rust.vim';
-    'matze/vim-lilypond';
-    'philj56/vim-asm-indent';
-    'mxw/vim-jsx';
-    'itchyny/vim-haskell-indent';
-    'neovimhaskell/haskell-vim';
-    'calviken/vim-gdscript3';
-    'dag/vim-fish';
-    '907th/vim-auto-save';
+    'slim-template/vim-slim', 'tikhomirov/vim-glsl', 'rust-lang/rust.vim', 'matze/vim-lilypond', 'philj56/vim-asm-indent',
+    'itchyny/vim-haskell-indent', 'neovimhaskell/haskell-vim', 'calviken/vim-gdscript3', 'dag/vim-fish', '907th/vim-auto-save'
 }
 
 -- Treesitter configuration.
@@ -52,21 +48,8 @@ local ts = require 'nvim-treesitter.configs'
 ts.setup {ensure_installed = 'maintained', highlight = {enable = true}, textobjects = {enable = true}, incremental_selection = {enable = true}}
 
 -- fzf configuration.
-vim.cmd([[
-    nnoremap ; :Buffers<CR>
-    nnoremap <C-p> :Files<CR>
-
-    nnoremap <Leader>f :GFiles<CR>
-    nnoremap <Leader>h :History<CR>
-    nnoremap <Leader>l :BLines<CR>
-    nnoremap <Leader>L :Lines<CR>
-    nnoremap <Leader>g :Rg<CR>
-    nnoremap <Leader>H :Helptags!<CR>
-    nnoremap <Leader>: :History:<CR>
-    nnoremap <Leader>/ :History/<CR>
-    "nnoremap <C-r> :Rg<CR>
-    "cabbrev tabe Files<CR>
-]])
+map('n', ';', '<Cmd>Buffers<CR>')
+map('n', '<C-p>', '<Cmd>Files<CR>')
 
 -- UltiSnips configuration.
 vim.g.UltiSnipsExpandTrigger = "<Tab>"
@@ -101,7 +84,8 @@ local custom_lsp_attach = function()
     -- For plugins with an `on_attach` callback, call them here. For example:
     -- require('completion').on_attach()
 end
-require('lspconfig').solargraph.setup {on_attach = custom_lsp_attach}
+-- require('lspconfig').solargraph.setup {on_attach = custom_lsp_attach}
+require('lspconfig').svelte.setup {}
 require('lspconfig').sumneko_lua.setup {
     cmd = {"lua-language-server"},
     root_dir = require('lspconfig').util.root_pattern(".git", "init.lua"),
@@ -126,9 +110,12 @@ require('lspconfig').sumneko_lua.setup {
         }
     }
 }
+
+local prettier = {formatCommand = "prettier --stdin --stdin-filepath ${INPUT}", formatStdin = true}
+
 require"lspconfig".efm.setup {
     init_options = {documentFormatting = true},
-    filetypes = {"lua"},
+    filetypes = {"lua", "javascript", "html", "css", "json"},
     settings = {
         rootMarkers = {".git", "init.lua"},
         languages = {
@@ -137,17 +124,33 @@ require"lspconfig".efm.setup {
                     formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=150 --break-after-table-lb",
                     formatStdin = true
                 }
-            }
+            },
+            javascript = {prettier},
+            html = {prettier},
+            css = {prettier},
+            json = {prettier}
         }
     }
 }
 require('lspconfig').vimls.setup {}
-require('lspconfig').tsserver.setup {on_attach = custom_lsp_attach}
+
+-- require('lspconfig').denols.setup {}
+
+-- require('lspconfig').efm.setup {
+--    settings = {languages = {}},
+--    filetypes = {'javascript'},
+--    on_attach = function(client)
+--        -- mappings(client)
+--        client.resolved_capabilities.document_formatting = true
+--    end
+-- }
+-- require('lspconfig').tsserver.setup {on_attach = custom_lsp_attach}
 require('lspconfig').html.setup {cmd = {"vscode-html-languageserver", "--stdio"}}
 vim.api.nvim_command [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
 
 -- Colors, hidden Characters.
-vim.cmd("colorscheme velvetopia")
+vim.g.tokyonight_style = "night"
+vim.cmd("colorscheme tokyonight")
 vim.opt.termguicolors = true -- Use 'gui' highlight attributes instead of cterm.
 vim.opt.list = true -- Show whitespace characters...
 vim.opt.listchars = {tab = '› ', trail = '·', extends = '❭', precedes = '❬'} -- ... like this!
@@ -193,6 +196,7 @@ vim.opt.clipboard = {'unnamed', 'unnamedplus'} -- Use * and + in yank/paste oper
 vim.opt.lazyredraw = true -- Redraw only when we need to.
 vim.opt.splitright = true -- Open vertical splits on the right side.
 vim.opt.splitbelow = true -- Open horizontal splits on the bottom
+-- vim.opt.number = true -- Show line numbers.
 
 -- Working with buffers.
 vim.opt.hidden = true
@@ -234,20 +238,9 @@ map('n', '<Leader>s', '<Cmd>UltiSnipsEdit<CR>')
 
 -- AUTOCOMMANDS
 
--- When opening a file, always jump to the last known cursor position.
-vim.cmd([[autocmd bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | execute 'normal! g`"zv' | let b:doopenfold = 1 | endif]])
-
--- Resize splits when the window is resized.
-vim.cmd('au Vimresized * :wincmd =')
-
--- Location of my private wiki.
-vim.cmd('au BufRead,BufNewFile ~/permanent/wiki/* set ft=vimboy')
-
--- Location of the Prototype Fund wiki.
-vim.cmd('au BufRead,BufNewFile ~/permanent/pf2-wiki/* set ft=vimboy')
-
--- Highlight second-level markdown headings properly.
-vim.cmd([[syn match Special '---[-]*']])
-
--- Don't create temporary files of gopass secrets.
-vim.cmd('au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile')
+vim.cmd([[autocmd bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | execute 'normal! g`"zv' | let b:doopenfold = 1 | endif]]) -- When opening a file, always jump to the last known cursor position.
+vim.cmd('au Vimresized * :wincmd =') -- Resize splits when the window is resized.
+vim.cmd('au BufRead ~/permanent/wiki/* set ft=vimboy') -- Location of my private wiki.
+vim.cmd('au BufRead,BufNewFile ~/permanent/pf2-wiki/* set ft=vimboy') -- Location of the Prototype Fund wiki.
+vim.cmd([[syn match Special '---[-]*']]) -- Highlight second-level markdown headings properly.
+vim.cmd('au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile') -- Don't create temporary files of gopass secrets.

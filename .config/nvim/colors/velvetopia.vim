@@ -17,7 +17,7 @@ hi Statement  ctermfg=yellow cterm=bold
 hi Operator   ctermfg=darkblue cterm=bold
 hi PreProc    ctermfg=darkgray
 hi Type       ctermfg=yellow cterm=bold
-hi Special    ctermfg=blue cterm=bold "red
+hi Special    ctermfg=blue cterm=bold
 hi Delimiter  ctermfg=darkblue
 hi Underlined ctermfg=blue cterm=underline
 hi Error      ctermfg=white ctermbg=red
