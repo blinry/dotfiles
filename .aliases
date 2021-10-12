@@ -31,6 +31,11 @@ alias gd='git diff'
 alias gg='git graph'
 alias gs='git status --short'
 
+# Modern alternatives
+
+alias cat='bat'
+alias l='exa -al --time-style=long-iso --sort=modified'
+
 # Set default options for some tools
 
 alias vi='nvim'
@@ -49,10 +54,10 @@ alias youtube-dl='youtube-dl --no-mtime'
 alias gdb='gdb -q'
 alias ffprobe='ffprobe -hide_banner'
 alias ffmpeg='ffmpeg -hide_banner'
+alias dmesg='sudo dmesg -Hw'
 
 # Lazyness
 
-alias l='ls -Alh --time-style=long-iso'
 alias o='xdg-open'
 alias chx='chmod u+x'
 alias ..='cd ..'
@@ -67,10 +72,7 @@ alias si='sudoedit'
 alias vimrc='vim -c \'e $MYVIMRC\''
 alias yt='youtube-dl'
 
-alias t='wiki Todo'
-alias h='habitctl'
-alias mm='mosh morr.cc'
-alias qemu='qemu-system-x86_64'
+alias kanji='evince ~/library/books/kklc.pdf'
 
 alias x-single='xrandr --output eDP1 --mode 2560x1440 --output HDMI1 --off --output HDMI2 --off --output DP2-1 --off --output DP2-3 --off --output DP2-2 --off'
 alias x-dual='xrandr --output eDP1 --mode 2560x1440 --pos 632x2160 --output DP2-1 --mode 3840x2160'
@@ -80,11 +82,14 @@ alias x-dual-1080p='xrandr --output eDP1 --mode 1920x1080 --output HDMI2 --mode 
 alias x-triple='xrandr --output VIRTUAL1 --off --output eDP1 --mode 2560x1440 --pos 0x720 --rotate normal --output DP1 --off --output DP2-1 --mode 1600x1200 --pos 6400x560 --rotate left; xrandr --output DP2-2 --primary --mode 3840x2160 --pos 2560x0 --rotate normal --output DP2-3 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off'
 alias x-dock='xrandr --output eDP1 --primary --mode 2560x1440 --pos 640x2160 --output DP2-1 --mode 3840x2160 --pos 0x0'
 
-alias pa-hdmi='pacmd set-card-profile 0 output:hdmi-stereo-extra1 && pkill -RTMIN+1 i3blocks'
-alias pa-analog='pacmd set-card-profile 0 output:analog-stereo && pkill -RTMIN+1 i3blocks'
+alias pa-hdmi='pacmd set-card-profile 1 output:hdmi-stereo-extra1 && pkill -RTMIN+1 i3blocks'
+alias pa-analog='pacmd set-card-profile 1 output:analog-stereo && pkill -RTMIN+1 i3blocks'
 
 alias usb-mount='sudo mount -o uid=seb,gid=users /dev/sdb1 /mnt'
 alias usb-umount='sudo umount /mnt'
+
+alias lowres='autorandr triple-lowres'
+alias highres='autorandr triple'
 
 # Programs in unusual locations
 
