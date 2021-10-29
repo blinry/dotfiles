@@ -1,7 +1,12 @@
 sudo pacman -Sy \
 acpi \
+alacritty \
 alsa-utils \
+anki \
+arandr \
+ardour \
 atool \
+audacity \
 autorandr \
 bash-completion \
 blender \
@@ -21,9 +26,11 @@ feh \
 fish \
 flex \
 fzf \
+gdb \
 gimp \
 git \
 gnuplot \
+gopass \
 gparted \
 htop \
 httpie \
@@ -37,6 +44,8 @@ lsof \
 m4 \
 maim \
 make \
+man-db \
+man-pages \
 mlocate \
 mosh \
 mpc \
@@ -73,7 +82,6 @@ rsync \
 ruby \
 slop \
 sudo \
-termite \
 texlive-core \
 texlive-latexextra \
 time \
