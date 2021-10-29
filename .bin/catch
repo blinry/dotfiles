@@ -1,0 +1,6 @@
+#!/bin/bash
+
+FILENAME=$(which "$1")
+if [ -n "$FILENAME" ]; then
+    cat "$FILENAME"
+fi

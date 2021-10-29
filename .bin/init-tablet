@@ -1,0 +1,3 @@
+#!/bin/sh
+
+xinput map-to-output 9 DP2-2

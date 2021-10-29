@@ -1,0 +1,8 @@
+#!/bin/sh
+
+mpc listall | fzf -m --bind enter:select-all+accept --no-sort > /tmp/music
+if [ -s /tmp/music ]; then
+    mpc clear
+    mpc add </tmp/music
+    mpc play
+fi
