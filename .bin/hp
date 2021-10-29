@@ -2,15 +2,15 @@
 
 cd ~/permanent/homepage || exit
 
-$TERMINAL -e 'fish -c "bundle exec nanoc live"' &
+$TERMINAL -e fish -c "bundle exec nanoc live" &
 
 if [ -n "$1" ]; then
     DIR="content/$1"
     mkdir -p "$DIR"
-    $TERMINAL -d "$HOME/permanent/homepage/$DIR" -e 'fish -c "vim index.md; fish"' &
+    $TERMINAL --working-directory "$HOME/permanent/homepage/$DIR" -e fish -c "vim index.md; fish" &
     xdg-open "http://localhost:3000/$1/"
 else
-    $TERMINAL -d "$HOME/permanent/homepage/" &
+    $TERMINAL --working-directory "$HOME/permanent/homepage/" &
     xdg-open "http://localhost:3000/"
 fi
 
