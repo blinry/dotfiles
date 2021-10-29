@@ -1,3 +1,3 @@
 #!/bin/bash
 test -f "$1" && echo 'File exists, opening.' && vim "$1" && exit 1
-echo -e "#!/bin/sh\n\n" > $1 && chmod u+x "$1" && vim "$1" +:3 +star!
+echo -e "#!/usr/bin/env bash\n\nset -eu -o pipefail\n\n" > $1 && chmod u+x "$1" && vim "$1" +:5 +star!
