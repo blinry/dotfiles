@@ -3,6 +3,10 @@ command=mpd-status
 interval=1
 signal=2
 
+[todo]
+command=todo-status
+interval=60
+
 [mail]
 command=echo $(mlist ~/permanent/mail/INBOX | wc -l) mails
 interval=60
