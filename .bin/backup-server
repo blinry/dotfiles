@@ -4,4 +4,4 @@ notify-send -t 3000 "Starting server backup..."
 
 export SSHPASS="$(gopass show morr.cc/root)"
 
-sudo -E rsync -avXAh -zz --partial --delete --info=progress2 -e "sshpass -e ssh" root@morr.cc:/ /home/blinry/permanent/backups/morr.cc/ --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/lost+found,/home/blinry/tmp/*,/home/blinry/Maildir/*,/home/blinry/permanent/backups/thinkerbell/*} && notify-send -t 3000 "Finished server backup." || notify-send -u critical "Server backup failed or interrupted."
+sudo -E rsync -avXAh -zz --partial --delete --info=progress2 -e "sshpass -e ssh" root@morr.cc:/ /home/blinry/permanent/backups/morr.cc/ --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/lost+found,/home/sebastian/tmp/*,/home/sebastian/Maildir/*,/home/sebastian/permanent/backups/thinkerbell/*} && notify-send -t 3000 "Finished server backup." || notify-send -u critical "Server backup failed or interrupted."
