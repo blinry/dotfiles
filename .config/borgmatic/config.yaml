@@ -61,6 +61,10 @@ location:
          - /home/blinry/library/books
          - /home/blinry/library/games
          - /home/blinry/permanent/backups/morr.cc
+         - /home/blinry/permanent/mail
+         - /home/blinry/.local/share/Steam
+         - /home/blinry/.local/share/godot/templates
+         - /home/blinry/.local/share/nvim/undo
     #    - '*.pyc'
     #    - ~/*/.cache
     #    - /etc/ssl
@@ -148,13 +152,13 @@ retention:
     #keep_hourly: 24
 
     # Number of daily archives to keep.
-    keep_daily: 7
+    keep_daily: 1
 
     # Number of weekly archives to keep.
-    keep_weekly: 4
+    keep_weekly: 1
 
     # Number of monthly archives to keep.
-    keep_monthly: 6
+    keep_monthly: 1
 
     # Number of yearly archives to keep.
     keep_yearly: 1
