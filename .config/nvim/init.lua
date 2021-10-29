@@ -15,7 +15,6 @@ if fn.empty(fn.glob(install_path)) > 0 then fn.system({'git', 'clone', '--depth=
 require 'paq' {
     'savq/paq-nvim', -- Let paq manage itself.
     'neovim/nvim-lspconfig', -- Quickstart LSP configurations.
-    'folke/tokyonight.nvim', -- Pretty colorscheme.
     --- Advanced syntax highlighting.
     {
         'nvim-treesitter/nvim-treesitter',
@@ -40,7 +39,8 @@ require 'paq' {
     'wellle/targets.vim', -- Additional text objects.
     -- Better support for various filetypes.
     'slim-template/vim-slim', 'tikhomirov/vim-glsl', 'rust-lang/rust.vim', 'matze/vim-lilypond', 'philj56/vim-asm-indent',
-    'itchyny/vim-haskell-indent', 'neovimhaskell/haskell-vim', 'calviken/vim-gdscript3', 'dag/vim-fish', '907th/vim-auto-save'
+    'itchyny/vim-haskell-indent', 'neovimhaskell/haskell-vim', 'calviken/vim-gdscript3', 'dag/vim-fish', '907th/vim-auto-save', --
+    'github/copilot.vim' -- GitHub Copilot
 }
 
 -- Treesitter configuration.
@@ -150,7 +150,7 @@ vim.api.nvim_command [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
 
 -- Colors, hidden Characters.
 vim.g.tokyonight_style = "night"
-vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme velvetopia")
 vim.opt.termguicolors = true -- Use 'gui' highlight attributes instead of cterm.
 vim.opt.list = true -- Show whitespace characters...
 vim.opt.listchars = {tab = '› ', trail = '·', extends = '❭', precedes = '❬'} -- ... like this!
