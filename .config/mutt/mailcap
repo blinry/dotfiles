@@ -1,0 +1,15 @@
+# Images
+image/jpg; ~/.config/mutt/view_attachment.sh %s jpg
+image/jpeg; ~/.config/mutt/view_attachment.sh %s jpg
+image/pjpeg; ~/.config/mutt/view_attachment.sh %s jpg
+image/png; ~/.config/mutt/view_attachment.sh %s png
+image/gif; ~/.config/mutt/view_attachment.sh %s gif
+
+# PDFs
+application/pdf; ~/.config/mutt/view_attachment.sh %s pdf
+
+# HTML
+text/html; ~/.config/mutt/view_attachment.sh %s html
+
+# Unidentified files
+application/octet-stream; ~/.config/mutt/view_attachment.sh %s "-"

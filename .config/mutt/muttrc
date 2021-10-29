@@ -1,11 +1,11 @@
 set folder = ~/permanent/mail
 mailboxes +INBOX +Sent +Archive +Drafts
 
-set alias_file = ~/.mutt/alias
-set header_cache = ~/.mutt/cache/headers
-set message_cachedir = ~/.mutt/cache/bodies
-set mailcap_path = ~/.mutt/mailcap
-set tmpdir = ~/.mutt/tmp
+set alias_file = ~/.config/mutt/aliases
+set header_cache = ~/.cashe/mutt/headers
+set message_cachedir = ~/.cache/mutt/bodies
+set mailcap_path = ~/.config/mutt/mailcap
+set tmpdir = ~/.cache/mutt/tmp/
 
 set wait_key = no
 set mbox_type = Maildir
@@ -25,10 +25,10 @@ set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)
 
 set date_format = "%Y-%m-%d"
 set index_format = "%Z %D %-20.20F %s"
-set sort = last-date-received  # like gmail
+set sort = reverse-date-received  # like gmail
 set uncollapse_jump                        # don't collapse on an unread message
 
-source ~/.mutt/mutt.color
+source ~/.config/mutt/mutt.color
 
 # Index Key Bindings ---------------------------------
 bind index gg       first-entry
@@ -79,15 +79,14 @@ set forward_format = "Fwd: %s"       # format of subject when forwarding
 set forward_decode                   # decode when forwarding
 set attribution = ""                 # don't use a quoting header
 set reply_to                         # reply to Reply to: field
-set reverse_name                     # reply as whomever it was to
+#set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
 
 set from     = ${EMAIL}
+alternates sebastian@morr.cc
 set sendmail = "/usr/bin/msmtp"
 set sendmail_wait = 0
 
-set alias_file = "~/.mutt/aliases"
-
-source ~/.mutt/gpg
-source ~/.mutt/aliases
+#source ~/.config/mutt/gpg
+source ~/.config/mutt/aliases
