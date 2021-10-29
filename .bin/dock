@@ -7,5 +7,5 @@ i3-msg workspace 1
 i3-msg move workspace to output eDP1
 i3-msg workspace 2
 i3-msg move workspace to output DP2-1
-i3-msg for_window [class="termite"] move window to workspace 1
+i3-msg for_window [class="alacritty"] move window to workspace 1
 i3-msg for_window [class="chromium"] move window to workspace 2
