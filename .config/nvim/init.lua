@@ -56,6 +56,9 @@ vim.g.UltiSnipsExpandTrigger = "<Tab>"
 vim.g.UltiSnipsJumpForwardTrigger = "<Tab>"
 vim.g.UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 
+-- Copilot configuration
+vim.g.copilot_filetypes = {vimboy = false, mail = false}
+
 -- LSP configuration.
 local custom_lsp_attach = function()
     local opts = {}
