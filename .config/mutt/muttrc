@@ -88,5 +88,15 @@ alternates sebastian@morr.cc
 set sendmail = "/usr/bin/msmtp"
 set sendmail_wait = 0
 
+# Look up contacts via khard.
+set query_command= "khard email --parsable --search-in-source-files %s"
+bind editor <Tab> complete-query
+
+# Add email address to contact book with A
+macro index,pager a "<pipe-message>khard add-email<return>"
+
+# Don't suggest recalling postponed message.
+set recall = no
+
 #source ~/.config/mutt/gpg
 source ~/.config/mutt/aliases
