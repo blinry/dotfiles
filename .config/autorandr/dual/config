@@ -1,18 +1,24 @@
-output DP-1
+output DP1
 off
-output DP-2
+output DP2
 off
-output HDMI-1
+output DP2-1
 off
-output VIRTUAL-1
+output DP2-2
 off
-output HDMI-2
+output DP2-3
+off
+output HDMI1
+off
+output VIRTUAL1
+off
+output HDMI2
 crtc 1
 gamma 1.0:0.833:0.714
 mode 1920x1080
 pos 320x0
 rate 60.00
-output eDP-1
+output eDP1
 crtc 0
 gamma 1.0:0.833:0.714
 mode 2560x1440

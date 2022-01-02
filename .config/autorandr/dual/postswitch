@@ -1,0 +1,4 @@
+#!/bin/sh
+
+pa-hdmi
+notify-send "postswitch dual"

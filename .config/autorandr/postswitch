@@ -1,0 +1,4 @@
+#!/bin/sh
+
+pa-analog
+notify-send "postswitch global"
