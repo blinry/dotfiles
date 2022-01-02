@@ -1,3 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -eu -o pipefail
 
 sudo sed -i 's/#0/0/' /etc/hosts && notify-send -t 3000 "Distractions blocked"

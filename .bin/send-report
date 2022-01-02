@@ -1,9 +1,0 @@
-#!/bin/sh
-
-echo "To: Sebastian Morr <sebastian@morr.cc>
-From: thinkerbell <thinkerbell@morr.cc>
-Subject: Hey, listen!
-
-$(report)
-
-Love, thinkerbell" | msmtp sebastian@morr.cc

@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -eu -o pipefail
 
 # By default, re-enable block after 5 minutes.
 MINUTES="${1:-5}"

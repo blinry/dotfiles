@@ -1,3 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -eu -o pipefail
 
 /usr/bin/anki -b ~/.config/anki/

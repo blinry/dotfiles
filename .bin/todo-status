@@ -1,3 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -eu -o pipefail
 
 cat ~/permanent/wiki/Tagesplan | sed -n "/$(date -I)/,\$p" | sed '1,2d' | grep '^-' | head -1 | cut -c 3-

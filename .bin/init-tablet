@@ -1,3 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-xinput map-to-output 9 DP2-2
+set -eu -o pipefail
+
+xinput map-to-output $(xinput list --id-only "Wacom Bamboo Pen stylus") DP2-2

@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -eu -o pipefail
+
 # This script is designed for urxvt, see urxvt(7).
 
 SIZE=${1:-18}

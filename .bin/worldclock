@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -eu -o pipefail
 
 time_ny=`LC_TIME="C" TZ="America/New_York" date +"%-I:%M %P"`
 time_la=`LC_TIME="C" TZ="America/Los_Angeles" date +"%-I:%M %P"`

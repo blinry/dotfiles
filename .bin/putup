@@ -1,6 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-scp -p $1 blinry.org:/web/blinry.org/files/
-ssh blinry.org chmod a+r /web/blinry.org/files/$(basename $1)
+set -eu -o pipefail
+
+scp -p "$1" blinry.org:/web/blinry.org/files/
+ssh blinry.org chmod a+r "/web/blinry.org/files/$(basename "$1")"
 echo "https://files.blinry.org/$1" | xclip
 echo file is at "https://files.blinry.org/$1 (copied to X selection)"

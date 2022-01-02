@@ -1,3 +1,16 @@
-#!/bin/bash
-test -f "$1" && echo 'File exists, opening.' && vim "$1" && exit 1
-echo -e "#!/usr/bin/env bash\n\nset -eu -o pipefail\n\n" > $1 && chmod u+x "$1" && vim "$1" +:5 +star!
+#!/usr/bin/env bash
+
+set -eu -o pipefail
+
+if [ -f "$1" ]; then
+    vim "$1"
+    exit 1
+else
+    read -p 'File does not exist, create it? (y/N) '
+
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        echo -e "#!/usr/bin/env bash\n\nset -eu -o pipefail\n\n" > $1
+        chmod u+x "$1"
+        vim "$1" +:5 +star!
+    fi
+fi

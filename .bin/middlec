@@ -1,3 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -eu -o pipefail
 
 play -q ~/library/sounds/middle-c.wav

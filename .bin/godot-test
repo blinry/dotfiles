@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -eu -o pipefail
 
 cd ~/wip/godot-tests/mess-around/
 godot project.godot

@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -eu -o pipefail
 
 killall -9 $1 && ps -e | grep $1
 echo Any survivors?

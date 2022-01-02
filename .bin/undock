@@ -1,3 +1,0 @@
-#!/bin/sh
-
-xrandr --output DP2-2 --off --output DP2-1 --off

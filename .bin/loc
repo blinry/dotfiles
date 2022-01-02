@@ -1,3 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -eu -o pipefail
 
 locate -i "$1" | grep "$HOME" | fgrep "$1" -i --color=always

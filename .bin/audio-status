@@ -1,11 +1,13 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -eu -o pipefail
 
 volume=$(pamixer --get-volume)
 
 echo "$volume%"
 echo "$volume%"
 
-if [ -n "$(pacmd list-sinks | grep "analog-stereo")" ]; then
+if [ -n "$(pactl list sinks | grep "analog-stereo")" ]; then
     # Analog output is on.
     test -n "$(amixer get 'Master'|grep '\[on\]')" && echo "#ffffff" || echo "#777777"
 else

@@ -1,3 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -eu -o pipefail
 
 maim -u $HOME/tmp/screenshot-$(date +%F_%T).png

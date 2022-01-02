@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -eu -o pipefail
 
 DIR="$HOME/permanent/homepage/content/$1"
 FILE="$DIR/index.md"

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -eu -o pipefail
+
+ffmpeg -i "$1" -c:v libx264 -crf 20 -pix_fmt yuv420p -preset slow -c:a aac -b:a 384k "$1"-fixed.mp4

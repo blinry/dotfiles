@@ -2,5 +2,4 @@
 
 set -eu -o pipefail
 
-init-keyboard
-init-mouse
+cat "$1" | xclip -selection clipboard

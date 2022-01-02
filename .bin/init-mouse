@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -eu -o pipefail
 
 xinput set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' 0
 xinput set-prop 'TPPS/2 IBM TrackPoint' 'libinput Button Scrolling Button' 0

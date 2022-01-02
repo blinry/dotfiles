@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -eu -o pipefail
 
 PREFIX=/sys/class/power_supply
 MINUTES=0
