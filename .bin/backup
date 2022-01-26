@@ -4,4 +4,4 @@ set -eu -o pipefail
 
 notify-send -t 3000 "Starting notebook backup..."
 
-borgmatic -p -C && notify-send -t 3000 "Finished notebook backup." || notify-send -u critical "Notebook backup failed or interrupted."
+cd ~/permanent/restic/thinkerbell/ && ./backup && notify-send -t 3000 "Finished notebook backup." || notify-send -u critical "Notebook backup failed."
