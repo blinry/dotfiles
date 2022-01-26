@@ -1,4 +1,3 @@
 #!/bin/sh
 
 init-keyboard
-notify-send "postswitch triple"
