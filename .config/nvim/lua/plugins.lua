@@ -18,7 +18,8 @@ require "paq" {
     "SirVer/ultisnips", -- Snippet support.
     "tommcdo/vim-exchange", -- Exchange visual selection using "X".
     "tpope/vim-commentary", -- Toggle comments using "gc".
-    "tpope/vim-endwise" -- In Ruby, insert "end" statements automatically.
+    "tpope/vim-endwise", -- In Ruby, insert "end" statements automatically.
+    "tpope/vim-fugitive" -- Tight Git integration.
 }
 
 --- Treesitter configuration.
