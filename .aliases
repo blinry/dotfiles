@@ -35,6 +35,7 @@ alias gs='git status --short'
 
 alias cat='bat'
 alias l='exa -al --time-style=long-iso --sort=modified'
+alias dig='dog'
 
 # Set default options for some tools
 
@@ -80,6 +81,7 @@ alias highres='autorandr triple'
 # Programs in unusual locations
 
 alias nom='ruby -I~/permanent/nom/lib ~/permanent/nom/bin/nom'
+alias tic80='~/wip/TIC-80/build/bin/tic80'
 
 # Handy tools
 
