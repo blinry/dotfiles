@@ -7,6 +7,11 @@ signal=2
 command=todo-status
 interval=60
 
+[helferli]
+command=helferli
+interval=60
+color=#2fa85a
+
 [mail]
 command=echo $(mlist ~/permanent/mail/INBOX | wc -l) mails
 interval=60
