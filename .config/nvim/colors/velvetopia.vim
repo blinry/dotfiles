@@ -10,40 +10,42 @@ let g:colors_name = "velvetopia"
 
 " Syntax Elements
 hi Comment    ctermfg=green cterm=italic
-hi Constant   ctermfg=none
 hi String     ctermfg=blue
-hi Identifier ctermfg=gray cterm=none
 hi Statement  ctermfg=yellow cterm=bold
 hi Operator   ctermfg=darkblue cterm=bold
 hi PreProc    ctermfg=darkgray
 hi Type       ctermfg=yellow cterm=bold
 hi Special    ctermfg=blue cterm=bold
-hi Delimiter  ctermfg=darkblue
+hi Delimiter  ctermfg=blue cterm=bold
 hi Underlined ctermfg=blue cterm=underline
 hi Error      ctermfg=white ctermbg=red
 hi Todo       ctermfg=green ctermbg=none cterm=inverse
 hi Define     ctermfg=yellow cterm=bold
 
-hi link Define Statement
+"hi link Define Statement
 
 " Vim GUI
 hi ColorColumn  ctermbg=black
 hi LineNr       ctermfg=black
-hi StatusLine   ctermbg=black cterm=none
-hi StatusLineNC ctermfg=darkgray cterm=inverse
+hi StatusLine   ctermbg=darkgray cterm=none
+hi StatusLineNC ctermfg=white ctermbg=black cterm=none
 hi TabLine      ctermbg=black cterm=none
 hi TabLineFill  ctermbg=black cterm=none
-hi TabLineSel   ctermbg=none cterm=none
+hi TabLineSel   ctermbg=darkgray cterm=none
 hi VertSplit    ctermfg=darkgray cterm=inverse
-hi Visual       ctermbg=black
+hi Visual       ctermbg=darkgray
 
 " Git stuff
 
-hi DiffAdd ctermbg=black
+hi DiffAdd ctermfg=green ctermbg=none
 hi DiffChange ctermbg=black
-hi DiffDelete ctermbg=black
+hi DiffDelete ctermfg=red ctermbg=none
 
-" Terminal cursor
+hi link diffAdded DiffAdd
+hi link diffChanged DiffChange
+hi link diffRemoved DiffDelete
 
+"" Terminal cursor
+"
 "hi link TermCursor Cursor
 "hi TermCursorNC ctermbg=white
