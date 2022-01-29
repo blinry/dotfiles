@@ -45,7 +45,6 @@ opt.clipboard = {"unnamed", "unnamedplus"} -- Use * and + in yank/paste operatio
 opt.lazyredraw = true -- Redraw only when we need to.
 opt.splitright = true -- Open vertical splits on the right side.
 opt.splitbelow = true -- Open horizontal splits on the bottom
--- opt.number = true -- Show line numbers.
 
 -- Working with buffers.
 opt.hidden = true -- Allow hiding buffers with modifications.
