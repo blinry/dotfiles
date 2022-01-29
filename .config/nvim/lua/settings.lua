@@ -7,7 +7,6 @@ g.mapleader = "," -- Use comma as a <Leader>.
 
 -- Colors, hidden Characters.
 cmd("colorscheme velvetopia") -- My own little colorscheme.
-opt.termguicolors = true -- Use 'gui' highlight attributes instead of cterm.
 opt.list = true -- Show whitespace characters...
 opt.listchars = {tab = "› ", trail = "·", extends = "❭", precedes = "❬"} -- ... like this!
 cmd("au InsertLeave * :set listchars+=trail:·") -- Show trailing whitespace in all modes...
