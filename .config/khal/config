@@ -1,0 +1,5 @@
+[calendars]
+
+[[calendar]]
+path = ~/permanent/calendar/*
+type = discover
