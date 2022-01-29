@@ -17,6 +17,7 @@ require "paq" {
     "savq/paq-nvim", -- Let paq manage itself.
     "SirVer/ultisnips", -- Snippet support.
     "tommcdo/vim-exchange", -- Exchange visual selection using "X".
+    "907th/vim-auto-save", -- Autosave in some filetypes.
     "tpope/vim-commentary", -- Toggle comments using "gc".
     "tpope/vim-endwise", -- In Ruby, insert "end" statements automatically.
     "tpope/vim-sleuth", -- Detect indentation settings automatically.
