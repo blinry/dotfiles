@@ -1,0 +1,6 @@
+[Unit]
+Description=Block distractions
+
+[Service]
+Type=oneshot
+ExecStart=/home/blinry/.bin/web-block
