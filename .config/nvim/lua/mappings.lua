@@ -30,3 +30,7 @@ map('n', '<Leader>sr', ':so ' .. sessions_dir)
 
 -- Edit snippets.
 map('n', '<Leader>s', '<Cmd>UltiSnipsEdit<CR>')
+
+-- Show syntax element under cursor.
+map('n', '<F10>',
+    '<Cmd>echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . \'> trans<\' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>')
