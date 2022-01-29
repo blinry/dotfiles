@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -eu -o pipefail
+
+echo "Before: $(mlist ~/permanent/mail/INBOX | wc -l) mails"
+
+mlist ~/permanent/mail/INBOX | magrep "subject:(Wir.haben.Neuigkeiten.*Sie|replied.to.your.post.in.r|replied.to.your.comment.in.r|TinyLetter.*You.have.a.new.subscriber|\[poly-de\]|Beleg.*Ihre.Zahlung.an|Best.*igung.Ihrer.Zahlung.an|Nutzer-Anfrage.zu.deiner.Anzeige)" | mrefile ~/permanent/mail/Archive || true
+
+mlist ~/permanent/mail/INBOX | magrep "from:(foodsharing.de|notifications@github.com|googlealerts-noreply@google.com|fulfillment@info.printful.com|Zulip-Benachrichtigungen|news@mg2.metaculus.com|notifications@mg2.metaculus.com|sc-noreply@google.com|OkCupid|patreon.com|prototypefund.de|rechnungsstelle@1und1.de)" | mrefile ~/permanent/mail/Archive || true
+
+mlist ~/permanent/mail/INBOX | magrep "to:(lists.community.recurse.com)" | mrefile ~/permanent/mail/Archive || true
+
+echo "After: $(mlist ~/permanent/mail/INBOX | wc -l) mails"
