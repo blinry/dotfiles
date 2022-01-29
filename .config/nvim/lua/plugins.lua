@@ -29,6 +29,7 @@ require"nvim-treesitter.configs".setup {ensure_installed = "maintained", highlig
 -- fzf configuration.
 utils.map("n", ";", "<Cmd>Buffers<CR>")
 utils.map("n", "<C-p>", "<Cmd>Files<CR>")
+vim.g.fzf_preview_window = {}
 
 -- UltiSnips configuration.
 vim.g.UltiSnipsExpandTrigger = "<Tab>"
