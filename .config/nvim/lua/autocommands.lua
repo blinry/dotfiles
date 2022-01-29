@@ -1,4 +1,5 @@
-vim.cmd([[autocmd bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | execute 'normal! g`"zv' | let b:doopenfold = 1 | endif]]) -- When opening a file, always jump to the last known cursor position.
+vim.cmd(
+    [[autocmd bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | execute 'normal! g`"zv' | let b:doopenfold = 1 | endif]]) -- When opening a file, always jump to the last known cursor position.
 vim.cmd('au Vimresized * :wincmd =') -- Resize splits when the window is resized.
 vim.cmd('au BufNewFile,BufRead ~/permanent/wiki/* set ft=vimboy') -- Location of my private wiki.
 vim.cmd([[syn match Special '---[-]*']]) -- Highlight second-level markdown headings properly.
