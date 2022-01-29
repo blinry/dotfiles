@@ -29,12 +29,7 @@ opt.inccommand = "nosplit" -- Show preview of substitutions while typing.
 -- Editing.
 opt.joinspaces = false -- When joining lines, don't insert two spaces after punctuation.
 
--- Indentation, line break.
-local indent = 4
-opt.tabstop = indent -- A <Tab> is 4 characters long.
-opt.softtabstop = indent -- When editing indentations, edit 4 characters at once.
-opt.shiftwidth = indent -- Use 4 spaces when autoindenting.
-opt.expandtab = true -- On a <Tab>, insert spaces.
+-- Line break.
 opt.colorcolumn = "+1" -- Draw a line after 'textwidth'.
 opt.breakindent = true -- Keep indentation when wrapping lines.
 

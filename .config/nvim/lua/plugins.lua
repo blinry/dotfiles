@@ -19,6 +19,7 @@ require "paq" {
     "tommcdo/vim-exchange", -- Exchange visual selection using "X".
     "tpope/vim-commentary", -- Toggle comments using "gc".
     "tpope/vim-endwise", -- In Ruby, insert "end" statements automatically.
+    "tpope/vim-sleuth", -- Detect indentation settings automatically.
     "tpope/vim-fugitive" -- Tight Git integration.
 }
 
