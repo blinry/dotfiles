@@ -4,3 +4,4 @@ vim.cmd('au Vimresized * :wincmd =') -- Resize splits when the window is resized
 vim.cmd('au BufNewFile,BufRead ~/permanent/wiki/* set ft=vimboy') -- Location of my private wiki.
 vim.cmd([[syn match Special '---[-]*']]) -- Highlight second-level markdown headings properly.
 vim.cmd('au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile') -- Don't create temporary files of gopass secrets.
+vim.cmd('au BufWinEnter * setlocal formatoptions-=o formatoptions-=r') -- Don't continue comments on next line.
