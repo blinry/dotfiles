@@ -1,36 +1,53 @@
-local utils = require "utils"
-local map = utils.map
-
 -- Expand %% to the directory of the curent file.
-map('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%%'", {expr = true})
-
--- Bubble lines
-map('n', '<C-k>', '[e')
-map('n', '<C-j>', ']e')
-map('v', '<C-k>', '[egv')
-map('v', '<C-j>', ']egv')
+vim.keymap.set('c', '%%', function()
+    if vim.fn.getcmdtype() == ':' then
+        return vim.fn.expand('%:h') .. '/'
+    else
+        return '%%'
+    end
+end, {expr = true})
 
 -- Toggle search highlight.
-map('n', '<Leader><Space>', '<Cmd>lua vim.o.hlsearch = not vim.o.hlsearch<CR>')
+vim.keymap.set('n', '<Leader><Space>', function()
+    vim.opt.hlsearch = not vim.opt.hlsearch:get()
+end)
 
 -- Add more undo-steps when writing prose.
-for _, v in pairs({'.', '?', '!', ','}) do map('i', v, v .. '<C-g>u') end
+for _, v in pairs({'.', '?', '!', ','}) do
+    vim.keymap.set('i', v, v .. '<C-g>u')
+end
 
 -- Underline the current line with - or =.
-map('n', '<Leader>-', '"ayy"ap:s/./-/g<CR>')
-map('n', '<Leader>=', '"ayy"ap:s/./=/g<CR>')
+for _, v in pairs({'-', '='}) do
+    vim.keymap.set('n', '<Leader>' .. v, function()
+        local len = #vim.api.nvim_get_current_line()
+        local underline = string.rep(v, len)
+        vim.api.nvim_put({underline}, "l", true, true)
+    end)
+end
 
 -- Mark bulleted item as done
-map('n', '+', ':s/^\\s*\\zs[-x~?]/+<CR>:w<CR>')
+vim.keymap.set('n', '+', function()
+    vim.cmd('s/^\\s*\\zs[-x~?]/+')
+    vim.cmd('w')
+end)
 
 -- Save and restore sessions.
 local sessions_dir = '~/.local/share/nvim/sessions/'
-map('n', '<Leader>ss', ':mks! ' .. sessions_dir)
-map('n', '<Leader>sr', ':so ' .. sessions_dir)
-
--- Edit snippets.
-map('n', '<Leader>s', '<Cmd>UltiSnipsEdit<CR>')
+vim.keymap.set('n', '<leader>ss', ':Obsession ' .. sessions_dir)
+vim.keymap.set('n', '<leader>sr', ':so ' .. sessions_dir)
 
 -- Show syntax element under cursor.
-map('n', '<F10>',
-    '<Cmd>echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . \'> trans<\' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>')
+vim.keymap.set('n', '<F10>', function()
+    local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+    col = col + 1
+
+    local synIDrevealed = vim.fn.synID(row, col, true)
+    local synIDtransparent = vim.fn.synID(row, col, false)
+
+    local hi = vim.fn.synIDattr(synIDrevealed, "name")
+    local trans = vim.fn.synIDattr(synIDtransparent, "name")
+    local lo = vim.fn.synIDattr(vim.fn.synIDtrans(synIDrevealed), "name")
+
+    print("hi<" .. hi .. "> trans<" .. trans .. "> lo<" .. lo .. ">")
+end)

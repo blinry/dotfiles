@@ -28,18 +28,17 @@ options.sumneko_lua = {
 }
 
 local prettier = {formatCommand = "prettier --stdin --stdin-filepath ${INPUT}", formatStdin = true}
+local lua = {
+    formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-keep-simple-control-block-one-line --no-break-after-operator --column-limit=100 --break-after-table-lb",
+    formatStdin = true
+}
 options.efm = {
     init_options = {documentFormatting = true},
     filetypes = {"lua", "javascript", "html", "css", "json"},
     settings = {
         rootMarkers = {".git", "init.lua"},
         languages = {
-            lua = {
-                {
-                    formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=120 --break-after-table-lb",
-                    formatStdin = true
-                }
-            },
+            lua = {lua},
             javascript = {prettier},
             html = {prettier},
             css = {prettier},
@@ -49,7 +48,13 @@ options.efm = {
 }
 
 -- Setup all language servers.
-for lsp, opts in pairs(options) do lspconfig[lsp].setup(opts) end
+for lsp, opts in pairs(options) do
+    lspconfig[lsp].setup(opts)
+end
 
 -- Format automatically on save.
-vim.api.nvim_command "autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()"
+vim.api.nvim_create_autocmd("bufwritepre", {
+    callback = function()
+        vim.lsp.buf.formatting_sync()
+    end
+})
