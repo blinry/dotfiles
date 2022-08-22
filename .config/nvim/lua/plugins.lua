@@ -13,6 +13,11 @@ require "paq" {
     "github/copilot.vim", -- GitHub Copilot
     "junegunn/fzf.vim", -- Fuzzy-find everything!
     "neovim/nvim-lspconfig", -- A collection of LSP configurations.
+    "hrsh7th/nvim-cmp", -- Completion engine.
+    "hrsh7th/cmp-nvim-lsp", -- Completions for LSP.
+    'hrsh7th/cmp-path', -- Completions for path names.
+    'hrsh7th/cmp-cmdline', -- Completions for the command line.
+    'quangnguyen30192/cmp-nvim-ultisnips', -- Completions for UltiSnips.
     "nvim-treesitter/nvim-treesitter", -- Advanced syntax highlighting.
     "savq/paq-nvim", -- Let paq manage itself.
     "SirVer/ultisnips", -- Snippet support.
@@ -22,15 +27,25 @@ require "paq" {
     "tpope/vim-commentary", -- Toggle comments using "gc".
     "tpope/vim-endwise", -- In Ruby, insert "end" statements automatically.
     "tpope/vim-obsession", -- Automatically update sessions.
-    "tpope/vim-sleuth", -- Detect indentation settings automatically.
-    "tpope/vim-fugitive" -- Tight Git integration.
+    "tpope/vim-fugitive", -- Tight Git integration.
+    "tidalcycles/vim-tidal" -- TidalCycles support.
 }
 
+-- nvim-cmp configuration.
+local cmp = require "cmp"
+cmp.setup({
+    snippet = {
+        expand = function(args)
+            vim.fn["UltiSnips#Anon"](args.body)
+        end
+    },
+    mapping = {['<CR>'] = cmp.mapping.confirm({select = true})},
+    sources = cmp.config.sources({{name = "nvim_lsp"}, {name = "ultisnips"}})
+})
+cmp.setup.cmdline(":", {sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}})})
+
 --- Treesitter configuration.
-require"nvim-treesitter.configs".setup {
-    ensure_installed = "maintained",
-    highlight = {enable = true}
-}
+require"nvim-treesitter.configs".setup {ensure_installed = "all", highlight = {enable = true}}
 
 -- fzf configuration.
 vim.keymap.set("n", ";", "<Cmd>Buffers<CR>")
@@ -47,3 +62,6 @@ vim.g.copilot_filetypes = {vimboy = false, mail = false}
 
 -- Taboo configuration.
 vim.g.taboo_modified_tab_flag = ""
+
+-- vim-tidal configuration.
+vim.g.tidal_target = "terminal"

@@ -10,7 +10,7 @@ options.vimls = {}
 options.tsserver = {
     on_attach = function(client)
         -- Disable formatting, I'm using Prettier.
-        client.resolved_capabilities.document_formatting = false
+        client.server_capabilities.document_formatting = false
     end
 }
 
@@ -49,12 +49,14 @@ options.efm = {
 
 -- Setup all language servers.
 for lsp, opts in pairs(options) do
+    opts.capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol
+                                                                        .make_client_capabilities())
     lspconfig[lsp].setup(opts)
 end
 
 -- Format automatically on save.
 vim.api.nvim_create_autocmd("bufwritepre", {
     callback = function()
-        vim.lsp.buf.formatting_sync()
+        vim.lsp.buf.format()
     end
 })

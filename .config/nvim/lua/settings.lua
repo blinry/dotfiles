@@ -42,6 +42,7 @@ opt.joinspaces = false -- When joining lines, don't insert two spaces after punc
 
 -- Indentation, line break.
 local indent = 4
+opt.expandtab = true -- When pressing tab, insert spaces
 opt.tabstop = indent -- A <Tab> is 4 characters long.
 opt.softtabstop = indent -- When editing indentations, edit 4 characters at once.
 opt.shiftwidth = indent -- Use 4 spaces when autoindenting.
