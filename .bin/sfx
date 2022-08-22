@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -eu -o pipefail
+
+FOLDER="$HOME/library/notification-sounds/short/"
+
+SFX="$(ls "$FOLDER" | sort -R | head -n 1)"
+mpv "$FOLDER$SFX" --really-quiet
