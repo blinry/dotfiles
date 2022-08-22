@@ -73,6 +73,8 @@ alias si='sudo vim'
 alias vimrc='vim -c \'e $MYVIMRC\''
 alias yt='yt-dlp'
 
+alias hs-disconnect='bluetoothctl disconnect 20:74:CF:EB:43:EC'
+
 alias kanji='evince ~/library/books/kklc.pdf'
 
 alias lowres='autorandr triple-lowres'

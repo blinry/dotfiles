@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -eu -o pipefail
+
+bluetoothctl connect 20:74:CF:EB:43:EC
+
+newSink="bluez_output.20_74_CF_EB_43_EC.a2dp-sink"
+
+pactl list short sink-inputs|while read stream; do
+    streamId=$(echo $stream|cut '-d ' -f1)
+    echo "moving stream $streamId"
+    pactl move-sink-input "$streamId" "$newSink"
+done
