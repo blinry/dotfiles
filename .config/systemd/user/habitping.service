@@ -1,0 +1,4 @@
+[Service]
+Type=simple
+ExecStart=%h/.bin/habitping
+Environment="LANG=en_US.UTF-8" "PATH=%h/.bin:/usr/bin"
