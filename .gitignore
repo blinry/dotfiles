@@ -23,6 +23,7 @@
 /.config/ardour6/
 /.config/aseprite/
 /.config/.atv4*
+/.config/audapolis/
 /.config/beets/
 /.config/binwalk/
 /.config/blender/
@@ -58,6 +59,7 @@
 /.config/inkscape/
 /.config/Jamulus/
 /.config/kanshi/
+/.config/kicad/
 /.config/kritadisplayrc
 /.config/kritarc
 /.config/libreoffice/
@@ -77,6 +79,7 @@
 /.config/Opentrons/
 /.config/patchagerc
 /.config/pavucontrol.ini
+/.config/Pd/
 /.config/pijul/
 /.config/pipewire/
 /.config/PrusaSlicer/
@@ -91,14 +94,17 @@
 /.config/Signal/
 /.config/skypeforlinux/
 /.config/spek/
+/.config/sqlitebrowser/
+/.config/SuperCollider/
 /.config/systemd/user/*.wants/
 /.config/torbrowser/
 /.config/transmission/
 /.config/unity3d/
-/.config/Unknown Organization/zoom.conf
+/.config/Unknown Organization/
 /.config/VirtualBox/
 /.config/vlc/
 /.config/wireshark/
+/.config/yarn/global/
 /.config/zoomus.conf
 /.electrum/
 /.emptyepsilon/
