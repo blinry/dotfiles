@@ -2,19 +2,18 @@ output DP1
 off
 output DP2
 off
-output DP2-1
-off
-output DP2-2
-off
-output DP2-3
-off
 output HDMI1
-off
-output HDMI2
 off
 output VIRTUAL1
 off
 output eDP1
-mode 2560x1440
+crtc 0
+mode 3840x2160
 pos 0x0
-rate 60.00
+primary
+rate 60.01
+x-prop-broadcast_rgb Automatic
+x-prop-colorspace Default
+x-prop-max_bpc 12
+x-prop-non_desktop 0
+x-prop-scaling_mode Full aspect

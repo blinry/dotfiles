@@ -2,34 +2,41 @@ output DP1
 off
 output DP1-1
 off
-output DP1-1-6
+output DP1-1-5
 off
-output DP1-2
+output DP1-1-6
 off
 output DP1-3
 off
 output DP2
 off
+output DP2-1
+off
+output DP2-1-5
+off
+output DP2-1-6
+off
+output DP2-2
+off
+output DP2-3
+off
 output HDMI1
 off
 output VIRTUAL1
 off
-output DP1-1-5
+output DP1-2
 crtc 1
-gamma 1.0:0.833:0.714
 mode 3840x2160
-pos 3840x0
+pos 0x0
 rate 60.00
-transform 1.500000,0.000000,0.000000,0.000000,1.500000,0.000000,0.000000,0.000000,1.000000
 x-prop-audio auto
 x-prop-broadcast_rgb Automatic
 x-prop-max_bpc 12
 x-prop-non_desktop 0
 output eDP1
 crtc 0
-gamma 1.0:0.833:0.714
 mode 3840x2160
-pos 0x540
+pos 0x2160
 primary
 rate 60.01
 x-prop-broadcast_rgb Automatic
