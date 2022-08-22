@@ -2,6 +2,4 @@
 
 set -eu -o pipefail
 
-xinput set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' 0
-xinput set-prop 'TPPS/2 IBM TrackPoint' 'libinput Button Scrolling Button' 0
-sudo sh -c "echo 150 > /sys/bus/serio/devices/serio2/sensitivity"
+xinput set-prop 'TPPS/2 Elan TrackPoint' 'libinput Scroll Method Enabled' 0 0 0
