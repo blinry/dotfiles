@@ -2,8 +2,4 @@
 
 set -eu -o pipefail
 
-# By default, re-enable block after 5 minutes.
-MINUTES="${1:-5}"
-systemd-run --user --on-active="$MINUTES"m web-block
-
-sudo sed -i 's/^0/#0/' /etc/hosts && notify-send -t 3000 "Distractions unblocked for $MINUTES min"
+sudo sed -i 's/^0/#0/' /etc/hosts && notify-send -t 3000 "Distractions unblocked"

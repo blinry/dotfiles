@@ -2,4 +2,8 @@
 
 set -eu -o pipefail
 
-sudo sed -i 's/#0/0/' /etc/hosts && notify-send -t 3000 "Distractions blocked"
+# By default, disable block after 60 minutes.
+MINUTES="${1:-60}"
+systemd-run --user --on-active="$MINUTES"m web-unblock
+
+sudo sed -i 's/#0/0/' /etc/hosts && notify-send -t 3000 "Distractions blocked for $MINUTES min"
