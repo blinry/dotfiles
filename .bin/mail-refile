@@ -1,13 +1,49 @@
 #!/usr/bin/env bash
 
-set -eu -o pipefail
+set -u -o pipefail
 
 echo "Before: $(mlist ~/permanent/mail/INBOX | wc -l) mails"
 
-mlist ~/permanent/mail/INBOX | magrep "subject:(Wir.haben.Neuigkeiten.*Sie|replied.to.your.post.in.r|replied.to.your.comment.in.r|TinyLetter.*You.have.a.new.subscriber|\[poly-de\]|Beleg.*Ihre.Zahlung.an|Best.*igung.Ihrer.Zahlung.an|Nutzer-Anfrage.zu.deiner.Anzeige)" | mrefile ~/permanent/mail/Archive || true
+{
+    mlist ~/permanent/mail/INBOX | magrep -d "subject:Wir haben Neuigkeiten für Sie" # ING
+    mlist ~/permanent/mail/INBOX | magrep -d "subject:replied to your post in r" # Reddit
+    mlist ~/permanent/mail/INBOX | magrep -d "subject:replied to your comment in r" # Reddit
+    mlist ~/permanent/mail/INBOX | magrep -d "subject:\[haecksen\]"
+    mlist ~/permanent/mail/INBOX | magrep -d "subject:\[TinyLetter\] You have a new subscriber"
+    mlist ~/permanent/mail/INBOX | magrep -d "subject:\[poly-de\]"
+    mlist ~/permanent/mail/INBOX | magrep -d "subject:Beleg.*Ihre Zahlung an" # PayPal
+    mlist ~/permanent/mail/INBOX | magrep -d "subject:Bestäigung Ihrer Zahlung an"
+    mlist ~/permanent/mail/INBOX | magrep -d "subject:Nutzer-Anfrage zu deiner Anzeige"
+    mlist ~/permanent/mail/INBOX | magrep -d "subject:new roles\$"
+    mlist ~/permanent/mail/INBOX | magrep -d "subject:EA Forum Digest"
 
-mlist ~/permanent/mail/INBOX | magrep "from:(foodsharing.de|notifications@github.com|googlealerts-noreply@google.com|fulfillment@info.printful.com|Zulip-Benachrichtigungen|news@mg2.metaculus.com|notifications@mg2.metaculus.com|sc-noreply@google.com|OkCupid|patreon.com|prototypefund.de|rechnungsstelle@1und1.de)" | mrefile ~/permanent/mail/Archive || true
+    mlist ~/permanent/mail/INBOX | magrep -d "from:foodsharing.de"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:notifications.github.com"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:noreply@github.com"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:fulfillment@info.printful.com"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:updates@newsletter.printful.com"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:Zulip-Benachrichtigungen"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:rocketchat@haecksen.org"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:info@mail.bahncard.bahn.de"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:noreply@youtube.com"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:no-reply@twitch.tv"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:notifications@github.com"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:gitlab@mg.gitlab.com"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:googlealerts-noreply@google.com"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:news@mg2.metaculus.com"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:notifications@mg2.metaculus.com"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:sc-noreply@google.com"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:OkCupid"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:patreon.com"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:prototypefund.de"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:rechnungsstelle@1und1.de"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:noreply@deutschebahn.com"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:no-reply@deutschepost.de"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:versandbestaetigung@amazon.de"
+    mlist ~/permanent/mail/INBOX | magrep -d "from:bestellbestaetigung@amazon.de"
 
-mlist ~/permanent/mail/INBOX | magrep "to:(lists.community.recurse.com)" | mrefile ~/permanent/mail/Archive || true
+    mlist ~/permanent/mail/INBOX | magrep -d "to:lists.community.recurse.com"
+
+} | mrefile ~/permanent/mail/Archive
 
 echo "After: $(mlist ~/permanent/mail/INBOX | wc -l) mails"
