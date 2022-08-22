@@ -1,0 +1,4 @@
+[Service]
+Type=simple
+ExecStart=%h/.bin/doing
+Environment="DISPLAY=:0" "LANG=en_US.UTF-8"

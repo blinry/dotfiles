@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -eu -o pipefail
+
+WHAT=$(zenity --entry --text="Wie geht's dir? Was machst du grad? Könntest du an einem deiner Ziele arbeiten?")
+
+if [ -n "$WHAT" ]; then
+    echo "$(date +'%Y-%m-%d %H:%M') $WHAT" >> ~/permanent/wiki/Doing
+fi
