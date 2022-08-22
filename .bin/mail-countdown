@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -eu -o pipefail
+
+while true; do
+    N="$(mlist ~/permanent/mail/INBOX | wc -l)"
+    echo -n "$N "
+    for i in `seq $N`; do
+        echo -n "#"
+    done
+    echo
+    sleep 60
+done
