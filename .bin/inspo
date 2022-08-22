@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+puts IO.readlines("#{ENV["HOME"]}/permanent/wiki/Ideen").select{|l|
+    l[0] != "+" and l != ""
+}.sample.strip[2..-1]
+
+ideas = <<HERE
+Make on a demoscene demo!
+Make a 3D animation!
+Make a silly game prototype!
+Make a sketch in Krita!
+Make a sketch on paper!
+Make a cardbox model!
+HERE
+
+puts ideas.split("\n").sample
