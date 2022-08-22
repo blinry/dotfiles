@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -eu -o pipefail
+
+systemctl --user start habitping.service
+systemctl --user start habitping.timer
+
+dunstify -t 3000 "Habit ping re-enabled"

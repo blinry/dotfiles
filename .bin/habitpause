@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -eu -o pipefail
+
+# By default, re-enable block after 5 minutes.
+MINUTES="${1:-5}"
+systemd-run --user --on-active="$MINUTES"m habitresume
+
+systemctl --user stop habitping.timer
+systemctl --user stop habitping.service
