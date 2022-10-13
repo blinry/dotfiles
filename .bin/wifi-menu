@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+connected = `iwctl station wlan0 show | grep "Connected network"`
+
+unless connected.empty?
+    puts "Connected to: " + connected.strip.split("  ").last.strip
+end
+
+`iwctl station wlan0 scan`
+sleep 1
+
+networks = `iwctl station wlan0 get-networks`.lines[4..-2]
+networks = networks.map do |n|
+    n.split("  ")[2..-1].find{|n| n != ""}
+end
+
+file = "/tmp/iwd-networks"
+# write to file
+File.write(file, networks.join("\n"))
+
+network = `cat #{file} | fzf`.chomp
+
+if network and not network.empty?
+    cmd = "iwctl station wlan0 connect '#{network}\'"
+    p cmd
+    system(cmd)
+end

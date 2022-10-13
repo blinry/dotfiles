@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+line = `iwctl station wlan0 show`.lines.find{|l| l =~ /Connected network/}
+if line
+    puts line.strip.split("    ").last.strip
+else
+    puts "no network"
+end

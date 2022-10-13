@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -eu -o pipefail
+
+pen-init
+
+if [ $# -eq 0 ]; then
+    DAY=$(date +%d)
+else
+    DAY=$(printf "%02d" $1)
+fi
+
+echo "$DAY"
+
+cd ~/wip/inkdiary-2022/
+
+cp -n template.kra "$DAY.kra"
+krita "$DAY.kra"
