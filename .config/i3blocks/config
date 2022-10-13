@@ -11,6 +11,10 @@ interval=60
 command=echo $(mlist ~/permanent/mail/INBOX | wc -l) mails
 interval=60
 
+[wifi]
+command=wifi-status
+interval=60
+
 [volume]
 command=audio-status
 interval=once
