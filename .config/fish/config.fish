@@ -84,4 +84,6 @@ for mode in insert default visual
     bind -M $mode \cf forward-char
 end
 
+direnv hook fish | source
+
 . ~/.aliases
