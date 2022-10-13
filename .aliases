@@ -59,7 +59,6 @@ alias dmesg='sudo dmesg -Hw'
 
 # Lazyness
 
-alias o='xdg-open'
 alias chx='chmod u+x'
 alias ..='cd ..'
 alias ...='cd ../..'

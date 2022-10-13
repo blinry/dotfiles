@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -eu
+
+if [ $# -eq 0 ]; then
+    # Open newest file
+    FILE=$(ls -t | head -n 1)
+    xdg-open ~/tmp/"$FILE"
+else
+    xdg-open "$1"
+fi
