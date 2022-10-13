@@ -37,6 +37,7 @@
 /.config/configstore/
 /.config/darktable/
 /.config/dconf/
+/.config/Electron/
 /.config/enchant/
 /.config/eog/
 /.config/evince/
@@ -65,6 +66,7 @@
 /.config/libreoffice/
 /.config/liferea/
 /.config/mapeditor.org/
+/.config/menus/
 /.config/mpd/
 /.config/mpv/scripts/
 /.config/mpv/watch_later/
@@ -90,8 +92,10 @@
 /.config/ranger/history
 /.config/Raspberry Pi/
 /.config/rclone/
+/.config/rncbc.org/
 /.config/Sabaki/
 /.config/Signal/
+/.config/simple-scan/
 /.config/skypeforlinux/
 /.config/spek/
 /.config/sqlitebrowser/
@@ -117,6 +121,8 @@
 /.googleearth/
 /.gramps/
 /.habitctl/
+/.helm/
+/.helm-synth/
 /.hoogle/
 /.irb_history
 /.lesshst
@@ -131,6 +137,8 @@
 /.mozc/
 /.mozilla/
 /.mutt/cache/
+/.nix-defexpr/
+/.nix-profile
 /.node_repl_history
 /.nom/
 /.notmuch-config
@@ -170,6 +178,8 @@
 /.viminfo
 /.VirtualBox VMs/
 /.visidata/
+/.vital/
+/.vscode-oss/
 /.wine/
 /.Xauthority
 /.zoom/
