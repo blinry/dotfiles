@@ -55,8 +55,7 @@ options.efm = {
 
 -- Setup all language servers.
 for lsp, opts in pairs(options) do
-    opts.capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol
-        .make_client_capabilities())
+    opts.capabilities = require("cmp_nvim_lsp").default_capabilities()
     lspconfig[lsp].setup(opts)
 end
 
@@ -64,11 +63,8 @@ end
 vim.api.nvim_create_autocmd("bufwritepre", {
     callback = function()
         vim.lsp.buf.format({
-            filter = function(clients)
-                return vim.tbl_filter(function(client)
-                    return client.name ~= "copilot"
-                end, clients)
-            end
+            -- Don't use Copilot LSP for formatting.
+            filter = function(client) return client.name ~= "copilot" end
         })
     end
 })
