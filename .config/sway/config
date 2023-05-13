@@ -21,7 +21,7 @@ floating_modifier $mod
 bindsym XF86Tools exec i3lock -fo
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+d kill
@@ -196,10 +196,9 @@ exec --no-startup-id mako
 exec --no-startup-id udiskie -nas
 #exec --no-startup-id redshift
 exec --no-startup-id mpd
-exec --no-startup-id fcitx -d
+exec --no-startup-id fcitx5 -d
 exec --no-startup-id kanshi
 
 input * {
-    xkb_layout "us"
-    xkb_options "altwin:swap_lalt_lwin,compose:ralt"
+    xkb_layout "blinry"
 }
