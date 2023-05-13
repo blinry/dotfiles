@@ -22,7 +22,7 @@ floating_modifier $mod
 bindsym XF86Tools exec i3lock -fo
 
 # start a terminal
-bindsym $mod+Return exec alacritty --working-directory="`xcwd`"
+bindsym $mod+Return exec kitty --working-directory="`xcwd`"
 
 # kill focused window
 bindsym $mod+d kill
@@ -31,7 +31,7 @@ bindsym $mod+d kill
 bindsym $mod+z [class=".*"] kill
 
 # start dmenu
-bindsym $mod+p exec --no-startup-id dmenu_run -b -h 42 -fn "monospace-12" -nb "#000000" -sf "#ffffff" -sb "#000000" -nf "#555555"
+bindsym $mod+p exec --no-startup-id dmenu_run -b -fn "monospace-12" -nb "#000000" -sf "#ffffff" -sb "#000000" -nf "#555555"
 
 # change focus
 bindsym $mod+h focus left
@@ -153,27 +153,28 @@ bar {
 }
 
 # Assign workspaces to outputs
-workspace 1 output eDP1
-workspace 2 output DP1-1-5 eDP1
-workspace 3 output DP1-1-5 eDP1
-workspace 4 output DP1-1-5 eDP1
-workspace 5 output DP1-1-5 eDP1
+workspace 1 output DP1-1-5
+workspace 2 output DP1-1-5
+workspace 3 output DP1-2
+workspace 4 output DP1-2
+workspace 5 output eDP1
+workspace 6 output eDP1
 
 # Assign programs to workspaces
 assign [class="Signal"] workspace 5
 
 # Various hotkeys
 bindsym $mod+F1 exec chromium
-bindsym $mod+F2 exec alacritty --working-directory=$HOME/tmp -e mutt
-bindsym $mod+F3 exec alacritty -e nvim -S ~/.local/share/nvim/sessions/plans.vim
-bindsym $mod+F4 exec alacritty -e ncmpcpp
+bindsym $mod+F2 exec kitty --working-directory=$HOME/tmp mutt
+bindsym $mod+F3 exec kitty nvim -S ~/.local/share/nvim/sessions/plans.vim
+bindsym $mod+F4 exec kitty ncmpcpp
 bindsym $mod+F5 exec signal-desktop
 bindsym $mod+F6 exec pavucontrol
 bindsym XF86AudioRaiseVolume exec pamixer --allow-boost -i 5 && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec pamixer --allow-boost -d 5 && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMute exec pamixer -t && pkill -RTMIN+1 i3blocks
-bindsym XF86MonBrightnessUp exec sudo xbacklight -inc 19
-bindsym XF86MonBrightnessDown exec sudo xbacklight -dec 19
+bindsym XF86MonBrightnessUp exec sudo xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec sudo xbacklight -dec 5
 bindsym Print exec screenshot
 bindsym Control+Print exec screencast
 bindsym $mod+Down exec mpc toggle && pkill -RTMIN+2 i3blocks
@@ -182,11 +183,13 @@ bindsym $mod+Left exec mpc prev && pkill -RTMIN+2 i3blocks
 bindsym $mod+Next exec mpc seek +30 && pkill -RTMIN+2 i3blocks
 bindsym $mod+Prior exec mpc seek -30 && pkill -RTMIN+2 i3blocks
 bindsym $mod+c exec middlec
+bindsym $mod+r exec whisper-mic
 
-exec --no-startup-id alacritty
+exec --no-startup-id kitty
 exec --no-startup-id dunst
 exec --no-startup-id udiskie -nas
 exec --no-startup-id redshift
 exec --no-startup-id mpd
 exec --no-startup-id unclutter --hide-on-touch
 exec --no-startup-id init-mouse
+exec --no-startup-id fcitx5 -d
