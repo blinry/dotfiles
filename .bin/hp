@@ -4,7 +4,7 @@ set -eu -o pipefail
 
 cd ~/permanent/homepage || exit
 
-$TERMINAL -e fish -c "bundle exec nanoc live" &
+$TERMINAL -e fish -c "nanoc live" &
 
 if [ -z "${1+x}" ]; then
     $TERMINAL --working-directory "$HOME/permanent/homepage/" &
