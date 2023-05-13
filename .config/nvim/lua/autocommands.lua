@@ -25,3 +25,11 @@ vim.api.nvim_create_autocmd("bufwinenter", {
         vim.opt.formatoptions:remove({"o", "r"})
     end
 })
+
+---- Ethersync development
+--vim.api.nvim_create_autocmd({"textchanged", "textchangedi"}, {
+--    pattern = os.getenv("HOME") .. "/wip/ethersync/output/*",
+--    callback = function()
+--        vim.cmd("silent write")
+--    end
+--})

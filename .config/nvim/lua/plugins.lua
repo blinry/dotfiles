@@ -28,7 +28,9 @@ require "paq" {
     "tpope/vim-endwise", -- In Ruby, insert "end" statements automatically.
     "tpope/vim-obsession", -- Automatically update sessions.
     "tpope/vim-fugitive", -- Tight Git integration.
-    "tidalcycles/vim-tidal" -- TidalCycles support.
+    "tidalcycles/vim-tidal", -- TidalCycles support.
+    "jbyuki/instant.nvim", -- Coediting.
+    "h-hg/fcitx.nvim", -- Disable/enable second input method automatically.
 }
 
 -- nvim-cmp configuration.
@@ -65,3 +67,6 @@ vim.g.taboo_modified_tab_flag = ""
 
 -- vim-tidal configuration.
 vim.g.tidal_target = "terminal"
+
+-- instant configuration.
+vim.g.instant_username = "blinry"
