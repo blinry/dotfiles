@@ -3,3 +3,4 @@
 set -eu -o pipefail
 
 xinput disable "Wacom Pen and multitouch sensor Finger touch"
+xinput map-to-output (xinput list --id-only "Wacom Pen and multitouch sensor Pen stylus") eDP1
