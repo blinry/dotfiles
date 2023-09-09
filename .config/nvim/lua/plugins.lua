@@ -41,13 +41,13 @@ cmp.setup({
             vim.fn["UltiSnips#Anon"](args.body)
         end
     },
-    mapping = {['<CR>'] = cmp.mapping.confirm({select = true})},
-    sources = cmp.config.sources({{name = "nvim_lsp"}, {name = "ultisnips"}})
+    mapping = { ['<CR>'] = cmp.mapping.confirm({ select = true }) },
+    sources = cmp.config.sources({ { name = "nvim_lsp" }, { name = "ultisnips" } })
 })
-cmp.setup.cmdline(":", {sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}})})
+cmp.setup.cmdline(":", { sources = cmp.config.sources({ { name = 'path' } }, { { name = 'cmdline' } }) })
 
 --- Treesitter configuration.
-require"nvim-treesitter.configs".setup {ensure_installed = "all", highlight = {enable = true}}
+require "nvim-treesitter.configs".setup { ensure_installed = "all", highlight = { enable = true } }
 
 -- fzf configuration.
 vim.keymap.set("n", ";", "<Cmd>Buffers<CR>")
@@ -60,7 +60,7 @@ vim.g.UltiSnipsJumpForwardTrigger = "<Tab>"
 vim.g.UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 
 -- Copilot configuration
-vim.g.copilot_filetypes = {vimboy = false, mail = false}
+vim.g.copilot_filetypes = { vimboy = false, mail = false }
 
 -- Taboo configuration.
 vim.g.taboo_modified_tab_flag = ""
