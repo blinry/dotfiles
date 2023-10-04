@@ -31,7 +31,10 @@ require "paq" {
     "tidalcycles/vim-tidal", -- TidalCycles support.
     "jbyuki/instant.nvim", -- Coediting.
     "h-hg/fcitx.nvim", -- Disable/enable second input method automatically.
+    "73/vim-klog", -- Support for klog format.
 }
+
+vim.opt.runtimepath:append("~/wip/ethersync-vim")
 
 -- nvim-cmp configuration.
 local cmp = require "cmp"

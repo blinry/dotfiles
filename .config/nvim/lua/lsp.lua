@@ -9,12 +9,12 @@ options.vimls = {}
 
 options.rnix = {}
 
--- options.tsserver = {
---    on_attach = function(client)
---        -- Disable formatting, I'm using Prettier.
---        client.server_capabilities.document_formatting = false
---    end
--- }
+options.tsserver = {
+    on_attach = function(client)
+        -- Disable formatting, I'm using Prettier.
+        client.server_capabilities.document_formatting = false
+    end
+}
 
 options.lua_ls = {
     on_init = function(client)
