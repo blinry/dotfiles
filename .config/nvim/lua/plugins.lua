@@ -13,6 +13,8 @@ require "paq" {
     "github/copilot.vim", -- GitHub Copilot
     "junegunn/fzf.vim", -- Fuzzy-find everything!
     "neovim/nvim-lspconfig", -- A collection of LSP configurations.
+    "neovim/nvim-lspconfig", -- A collection of LSP configurations.
+    "creativenull/efmls-configs-nvim", -- Collection of linters/formatters for efm-langserver.
     "hrsh7th/nvim-cmp", -- Completion engine.
     "hrsh7th/cmp-nvim-lsp", -- Completions for LSP.
     'hrsh7th/cmp-path', -- Completions for path names.

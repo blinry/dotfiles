@@ -9,6 +9,8 @@ options.vimls = {}
 
 options.rnix = {}
 
+options.bashls = {}
+
 options.tsserver = {
     on_attach = function(client)
         -- Disable formatting, I'm using Prettier.
@@ -39,30 +41,6 @@ options.lua_ls = {
     end
 }
 
-local prettierFiletypes = {
-    "javascript", "typescript", "html", "css", "scss", "less", "json", "yaml"
-}
-local filetypes = {}
-local efmSettingsLanguages = {}
-for _, filetype in ipairs(prettierFiletypes) do
-    efmSettingsLanguages[filetype] = { { formatCommand = "prettierd ${INPUT}", formatStdin = true } }
-    table.insert(filetypes, filetype)
-end
-
--- efmSettingsLanguages["lua"] = {
---    {
---        formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-keep-simple-control-block-one-line --no-break-after-operator --column-limit=100 --break-after-table-lb",
---        formatStdin = true
---    }
--- }
--- table.insert(filetypes, "lua")
-
-options.efm = {
-    init_options = { documentFormatting = true },
-    filetypes = filetypes,
-    settings = { rootMarkers = { ".git", "init.lua" }, languages = efmSettingsLanguages }
-}
-
 options.rust_analyzer = {
     settings = {
         ["rust-analyzer"] = {
@@ -72,6 +50,8 @@ options.rust_analyzer = {
         }
     }
 }
+
+options.efm = require("efm")
 
 -- Setup all language servers.
 for lsp, opts in pairs(options) do
