@@ -1,14 +1,6 @@
 -- Resize splits when the window is resized.
 vim.api.nvim_create_autocmd("vimresized", {command = "wincmd ="})
 
--- Location of my private wiki.
-vim.api.nvim_create_autocmd({"bufnewfile", "bufread"}, {
-    pattern = os.getenv("HOME") .. "/permanent/wiki/*",
-    callback = function()
-        vim.bo.filetype = "vimboy"
-    end
-})
-
 -- Don't create temporary files of gopass secrets.
 vim.api.nvim_create_autocmd({"bufnewfile", "bufread"}, {
     pattern = "/dev/shm/gopass.*",

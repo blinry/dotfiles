@@ -3,17 +3,16 @@ local cmd = vim.cmd
 local opt = vim.opt
 local g = vim.g
 
-g.mapleader = "," -- Use comma as a <Leader>.
-
 -- Colors, hidden Characters.
-cmd("colorscheme velvetopia") -- My own little colorscheme.
+opt.termguicolors = true
+cmd.colorscheme("melange") -- My own little colorscheme.
 opt.list = true -- Show whitespace characters...
-opt.listchars = {tab = "› ", trail = "·", extends = "❭", precedes = "❬"} -- ... like this!
+opt.listchars = { tab = "› ", trail = "·", extends = "❭", precedes = "❬" } -- ... like this!
 
 -- Show trailing whitespace in all modes...
 vim.api.nvim_create_autocmd("insertleave", {
     callback = function()
-        opt.listchars:append({trail = "·"})
+        opt.listchars:append({ trail = "·" })
     end
 })
 -- ... except in insert mode.
@@ -57,7 +56,7 @@ opt.wildmode = "longest:list,full" -- Tab-complete to longest common match, then
 opt.mouse = "a" -- Enable mouse in all modes.
 opt.timeout = false -- Don't timeout on mappings.
 opt.shell = "/bin/bash"
-opt.clipboard = {"unnamed", "unnamedplus"} -- Use * and + in yank/paste operations.
+opt.clipboard = { "unnamed", "unnamedplus" } -- Use * and + in yank/paste operations.
 opt.lazyredraw = true -- Redraw only when we need to.
 opt.splitright = true -- Open vertical splits on the right side.
 opt.splitbelow = true -- Open horizontal splits on the bottom
