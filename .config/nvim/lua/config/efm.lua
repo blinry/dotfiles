@@ -2,8 +2,8 @@
 
 local languages = {}
 
-for _, filetype in ipairs({ "javascript", "typescript", "html", "css", "scss", "less", "json", "yaml" }) do
-    languages[filetype] = { require('efmls-configs.formatters.prettier') }
+for _, filetype in ipairs({ "javascript", "typescript", "html", "css", "scss", "less", "json", "jsonc", "yaml" }) do
+    languages[filetype] = { require('efmls-configs.formatters.prettier_d') }
 end
 
 return {

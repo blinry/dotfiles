@@ -6,5 +6,23 @@ return {
         "MunifTanjim/nui.nvim",
         "s1n7ax/nvim-window-picker",
     },
+    opts = {
+        sources = {
+            "filesystem",
+            "git_status",
+            "document_symbols"
+        },
+        source_selector = {
+            winbar = false,
+            sources = {
+                { source = "filesystem" },
+                { source = "git_status" },
+                { source = "document_symbols" },
+            },
+        }
+    },
     cmd = "Neotree",
+    keys = {
+        { "|", "<cmd>Neotree toggle<cr>" },
+    }
 }
