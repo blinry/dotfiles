@@ -1,21 +1,21 @@
 -- Resize splits when the window is resized.
-vim.api.nvim_create_autocmd("vimresized", {command = "wincmd ="})
+vim.api.nvim_create_autocmd("vimresized", { command = "wincmd =" })
 
 -- Don't create temporary files of gopass secrets.
-vim.api.nvim_create_autocmd({"bufnewfile", "bufread"}, {
+vim.api.nvim_create_autocmd({ "bufnewfile", "bufread" }, {
     pattern = "/dev/shm/gopass.*",
     callback = function()
         vim.opt.swapfile = false
         vim.opt.backup = false
         vim.opt.undofile = false
-    end
+    end,
 })
 
 -- Don't continue comments on next line.
 vim.api.nvim_create_autocmd("bufwinenter", {
     callback = function()
-        vim.opt.formatoptions:remove({"o", "r"})
-    end
+        vim.opt.formatoptions:remove({ "o", "r" })
+    end,
 })
 
 ---- Ethersync development

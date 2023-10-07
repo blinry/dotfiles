@@ -1,3 +1,3 @@
 return {
-    "907th/vim-auto-save"
+    "907th/vim-auto-save",
 }

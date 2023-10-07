@@ -7,7 +7,7 @@ return {
             pattern = os.getenv("HOME") .. "/permanent/wiki/*",
             callback = function()
                 vim.bo.filetype = "vimboy"
-            end
+            end,
         })
-    end
+    end,
 }

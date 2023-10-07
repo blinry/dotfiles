@@ -1,4 +1,4 @@
 return {
     "typicode/bg.nvim",
-    lazy = false
+    lazy = false,
 }

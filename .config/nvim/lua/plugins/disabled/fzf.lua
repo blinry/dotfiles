@@ -1,7 +1,7 @@
 return {
     "junegunn/fzf.vim",
     dependencies = {
-        "junegunn/fzf"
+        "junegunn/fzf",
     },
     keys = {
         { ";", "<cmd>Buffers<cr>" },

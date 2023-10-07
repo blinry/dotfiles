@@ -10,7 +10,7 @@ return {
         sources = {
             "filesystem",
             "git_status",
-            "document_symbols"
+            "document_symbols",
         },
         source_selector = {
             winbar = false,
@@ -19,10 +19,10 @@ return {
                 { source = "git_status" },
                 { source = "document_symbols" },
             },
-        }
+        },
     },
     cmd = "Neotree",
     keys = {
         { "|", "<cmd>Neotree toggle<cr>" },
-    }
+    },
 }

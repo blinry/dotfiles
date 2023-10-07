@@ -1,11 +1,11 @@
 -- https://github.com/creativenull/efmls-configs-nvim/blob/main/doc/SUPPORTED_LIST.md
 
 local languages = {
-    lua = require('efmls-configs.formatters.stylua'),
+    lua = require("efmls-configs.formatters.stylua"),
 }
 
 for _, filetype in ipairs({ "javascript", "typescript", "html", "css", "scss", "less", "json", "jsonc", "yaml" }) do
-    languages[filetype] = { require('efmls-configs.formatters.prettier_d') }
+    languages[filetype] = { require("efmls-configs.formatters.prettier_d") }
 end
 
 return {

@@ -1,44 +1,44 @@
 -- Expand %% to the directory of the curent file.
-vim.keymap.set('c', '%%', function()
-    if vim.fn.getcmdtype() == ':' then
-        return vim.fn.expand('%:h') .. '/'
+vim.keymap.set("c", "%%", function()
+    if vim.fn.getcmdtype() == ":" then
+        return vim.fn.expand("%:h") .. "/"
     else
-        return '%%'
+        return "%%"
     end
-end, {expr = true})
+end, { expr = true })
 
 -- Toggle search highlight.
-vim.keymap.set('n', '<Leader><Space>', function()
+vim.keymap.set("n", "<Leader><Space>", function()
     vim.opt.hlsearch = not vim.opt.hlsearch:get()
 end)
 
 -- Add more undo-steps when writing prose.
-for _, v in pairs({'.', '?', '!', ','}) do
-    vim.keymap.set('i', v, v .. '<C-g>u')
+for _, v in pairs({ ".", "?", "!", "," }) do
+    vim.keymap.set("i", v, v .. "<C-g>u")
 end
 
 -- Underline the current line with - or =.
-for _, v in pairs({'-', '='}) do
-    vim.keymap.set('n', '<Leader>' .. v, function()
+for _, v in pairs({ "-", "=" }) do
+    vim.keymap.set("n", "<Leader>" .. v, function()
         local len = #vim.api.nvim_get_current_line()
         local underline = string.rep(v, len)
-        vim.api.nvim_put({underline}, "l", true, true)
+        vim.api.nvim_put({ underline }, "l", true, true)
     end)
 end
 
 -- Mark bulleted item as done
-vim.keymap.set('n', '+', function()
-    vim.cmd('s/^\\s*\\zs[-x~?]/+')
-    vim.cmd('w')
+vim.keymap.set("n", "+", function()
+    vim.cmd("s/^\\s*\\zs[-x~?]/+")
+    vim.cmd("w")
 end)
 
 -- Save and restore sessions.
-local sessions_dir = '~/.local/share/nvim/sessions/'
-vim.keymap.set('n', '<leader>ss', ':Obsession ' .. sessions_dir)
-vim.keymap.set('n', '<leader>sr', ':so ' .. sessions_dir)
+local sessions_dir = "~/.local/share/nvim/sessions/"
+vim.keymap.set("n", "<leader>ss", ":Obsession " .. sessions_dir)
+vim.keymap.set("n", "<leader>sr", ":so " .. sessions_dir)
 
 -- Show syntax element under cursor.
-vim.keymap.set('n', '<F10>', function()
+vim.keymap.set("n", "<F10>", function()
     local row, col = unpack(vim.api.nvim_win_get_cursor(0))
     col = col + 1
 

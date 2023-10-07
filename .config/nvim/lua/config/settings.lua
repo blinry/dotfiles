@@ -13,13 +13,13 @@ opt.listchars = { tab = "› ", trail = "·", extends = "❭", precedes = "❬" 
 vim.api.nvim_create_autocmd("insertleave", {
     callback = function()
         opt.listchars:append({ trail = "·" })
-    end
+    end,
 })
 -- ... except in insert mode.
 vim.api.nvim_create_autocmd("insertenter", {
     callback = function()
         opt.listchars:remove("trail")
-    end
+    end,
 })
 
 opt.showbreak = "↳" -- Display this character in front of wrapped lines.
