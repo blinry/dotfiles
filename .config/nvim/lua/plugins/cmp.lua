@@ -21,8 +21,15 @@ return {
                     vim.fn["UltiSnips#Anon"](args.body)
                 end
             },
-            mapping = { ['<CR>'] = cmp.mapping.confirm({ select = true }) },
-            sources = cmp.config.sources({ { name = "nvim_lsp" }, { name = "ultisnips" } })
+            mapping = {
+                ['<cr>'] = cmp.mapping.confirm({ select = true }),
+                ['<up>'] = cmp.mapping.select_prev_item(select_opts),
+                ['<down>'] = cmp.mapping.select_next_item(select_opts),
+            },
+            sources = cmp.config.sources({
+                { name = "nvim_lsp" },
+                { name = "ultisnips" },
+            })
         })
         cmp.setup.cmdline(":", { sources = cmp.config.sources({ { name = 'path' } }, { { name = 'cmdline' } }) })
     end
