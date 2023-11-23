@@ -1,12 +1,6 @@
 output DP1
 off
-output DP1-1
-off
-output DP1-1-5
-off
-output DP1-1-6
-off
-output DP1-3
+output DP1-2
 off
 output DP2
 off
@@ -14,13 +8,15 @@ output HDMI1
 off
 output VIRTUAL1
 off
-output DP1-2
+output DP1-1
+off
+output DP1-3
 crtc 1
 filter bilinear
-mode 3840x2160
+mode 2560x1440
 pos 0x0
-rate 60.00
-transform 1.500000,0.000000,0.000000,0.000000,1.500000,0.000000,0.000000,0.000000,1.000000
+rate 59.95
+transform 2.000000,0.000000,0.000000,0.000000,2.000000,0.000000,0.000000,0.000000,1.000000
 x-prop-audio auto
 x-prop-broadcast_rgb Automatic
 x-prop-max_bpc 12
@@ -28,7 +24,7 @@ x-prop-non_desktop 0
 output eDP1
 crtc 0
 mode 3840x2160
-pos 5760x157
+pos 5120x0
 primary
 rate 60.01
 x-prop-broadcast_rgb Automatic

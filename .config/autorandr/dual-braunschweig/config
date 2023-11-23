@@ -6,29 +6,31 @@ output DP1-1-5
 off
 output DP1-1-6
 off
+output DP1-2
+off
 output DP1-3
 off
 output DP2
 off
-output HDMI1
-off
 output VIRTUAL1
 off
-output DP1-2
+output HDMI1
 crtc 1
-filter bilinear
-mode 3840x2160
-pos 0x0
+gamma 1.0:0.909:0.909
+mode 1920x1080
+pos 960x0
 rate 60.00
-transform 1.500000,0.000000,0.000000,0.000000,1.500000,0.000000,0.000000,0.000000,1.000000
+x-prop-aspect_ratio Automatic
 x-prop-audio auto
 x-prop-broadcast_rgb Automatic
+x-prop-colorspace Default
 x-prop-max_bpc 12
 x-prop-non_desktop 0
 output eDP1
 crtc 0
+gamma 1.0:0.909:0.909
 mode 3840x2160
-pos 5760x157
+pos 0x1080
 primary
 rate 60.01
 x-prop-broadcast_rgb Automatic
