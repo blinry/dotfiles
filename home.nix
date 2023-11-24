@@ -9,6 +9,7 @@ in
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    BROWSER = "firefox";
   };
 
   home.packages = with pkgs; [
