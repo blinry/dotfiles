@@ -1,15 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  nixGLIntel = (pkgs.callPackage "${builtins.fetchTarball {
-      url = https://github.com/nix-community/nixGL/archive/489d6b095ab9d289fe11af0219a9ff00fe87c7c5.tar.gz;
-      sha256 = "03kwsz8mf0p1v1clz42zx8cmy6hxka0cqfbfasimbj858lyd930k";
-    }}/nixGL.nix"
-    { }).nixGLIntel;
-  wrapGL = pkg:
-    pkgs.writeShellScriptBin (pkgs.lib.getName pkg) ''
-      ${nixGLIntel}/bin/nixGLIntel ${pkgs.lib.getExe pkg} "$@"
-    '';
+  wrapNixGL = import ./wrap-nix-gl.nix { inherit pkgs; };
 in
 {
   home.username = "blinry";
@@ -51,7 +43,7 @@ in
     prusa-slicer
     mpv
   ] ++ (
-    map wrapGL (with pkgs; [
+    map wrapNixGL (with pkgs; [
       blender
     ])
   );
@@ -96,7 +88,7 @@ in
 
     kitty = {
       enable = true;
-      package = wrapGL pkgs.kitty;
+      package = wrapNixGL pkgs.kitty;
       settings = {
         window_padding_width = 4;
         scrollback_lines = 100000;
