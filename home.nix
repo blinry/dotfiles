@@ -113,7 +113,6 @@ in
     mutt
     neovim
     nmap
-    offlineimap
     prettierd
     prusa-slicer
     qbittorrent
@@ -165,6 +164,10 @@ in
       enable = true;
       userName = "blinry";
       userEmail = "mail@blinry.org";
+      aliases = {
+        graph = "log --graph --pretty=oneline --abbrev-commit --all --decorate";
+        take = "checkout -b";
+      };
     };
 
     ssh = {
@@ -271,6 +274,38 @@ in
         o = "script-message-to subloop replay-subtitle";
         l = "script-message-to subloop ab-loop-sub";
         #L = "script-message-to subloop ab-loop-sub pause";
+      };
+    };
+
+    offlineimap.enable = true;
+    msmtp.enable = true;
+    notmuch.enable = true;
+  };
+
+  accounts.email = {
+    maildirBasePath = "permanent/mail";
+    accounts = {
+      blinry = {
+        address = "mail@blinry.org";
+        primary = true;
+        realName = "blinry";
+        userName = "blinry";
+        passwordCommand = "gopass show blinry.org/blinry";
+        maildir.path = ".";
+
+        imap = {
+          host = "blinry.org";
+          port = 993;
+        };
+
+        smtp = {
+          host = "blinry.org";
+          port = 587;
+        };
+
+        msmtp.enable = true;
+        offlineimap.enable = true;
+        notmuch.enable = true;
       };
     };
   };
