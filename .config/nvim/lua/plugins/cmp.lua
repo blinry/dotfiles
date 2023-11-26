@@ -7,7 +7,6 @@ return {
         "hrsh7th/cmp-cmdline",
         "SirVer/ultisnips",
     },
-    event = "InsertEnter",
     init = function()
         vim.g.UltiSnipsExpandTrigger = "<Tab>"
         vim.g.UltiSnipsJumpForwardTrigger = "<Tab>"

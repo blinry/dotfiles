@@ -4,29 +4,38 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-ui-select.nvim",
+        {
+            "nvim-telescope/telescope-fzf-native.nvim",
+            build = "make",
+        },
     },
-    cmd = "Telescope",
+    --cmd = "Telescope",
     keys = {
         { ";", "<cmd>Telescope buffers<cr>" },
         { "<c-p>", "<cmd>Telescope find_files<cr>" },
+        { "<Leader>/", "<cmd>Telescope live_grep<cr>" },
+        --{ "\\", "<cmd>Telescope lsp_workspace_symbols<cr>" },
     },
-    setup = function()
+    config = function()
+        local actions = require("telescope.actions")
         require("telescope").setup({
+            pickers = {
+                buffers = { sort_lastused = true },
+            },
             defaults = {
                 mappings = {
                     i = {
-                        ["<esc>"] = require("telescope.actions").close,
+                        ["<esc>"] = actions.close,
                     },
                 },
             },
             extensions = {
                 ["ui-select"] = {
-                    require("telescope.themes").get_dropdown({
-                        -- even more opts
-                    }),
+                    require("telescope.themes").get_dropdown({}),
                 },
             },
         })
         require("telescope").load_extension("ui-select")
+        require("telescope").load_extension("fzf")
     end,
 }

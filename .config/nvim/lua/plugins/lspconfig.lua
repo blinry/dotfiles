@@ -3,6 +3,21 @@ return {
         "neovim/nvim-lspconfig",
         dependencies = {
             "creativenull/efmls-configs-nvim",
+            {
+                "SmiteshP/nvim-navbuddy",
+                dependencies = {
+                    "SmiteshP/nvim-navic",
+                    "MunifTanjim/nui.nvim",
+                },
+                opts = {
+                    lsp = {
+                        auto_attach = true,
+                    },
+                },
+                keys = {
+                    { "\\", "<cmd>Navbuddy<cr>" },
+                },
+            },
         },
         config = function()
             local lspconfig = require("lspconfig")
