@@ -11,9 +11,10 @@
       url = "github:guibou/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { nixpkgs, home-manager, nixGL, ... }:
+  outputs = { nixpkgs, home-manager, nixGL, nur, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -22,7 +23,12 @@
       homeConfigurations.blinry = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          { nixpkgs.overlays = [ nixGL.overlay ]; }
+          {
+            nixpkgs.overlays = [
+              nixGL.overlay
+              nur.overlay
+            ];
+          }
           ./home.nix
         ];
       };

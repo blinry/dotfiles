@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 let
   wrapNixGL = import ./wrap-nix-gl.nix { inherit pkgs; };
@@ -99,10 +99,8 @@ in
     eza
     fd
     feh
-    firefox
     fzf
     gimp
-    git
     gnome.eog
     gnuplot
     gopass
@@ -141,6 +139,7 @@ in
       shellInit = ''
         set fish_greeting
         set -gp PATH $HOME/.nix-profile/bin
+        set -gp PATH $HOME/.bin
         bind -M insert \cf forward-char
       '';
       functions = {
@@ -160,6 +159,12 @@ in
           echo -n " "
         '';
       };
+    };
+
+    git = {
+      enable = true;
+      userName = "blinry";
+      userEmail = "mail@blinry.org";
     };
 
     ssh = {
@@ -210,6 +215,47 @@ in
         size = 15;
       };
     };
+
+    firefox = {
+      enable = true;
+      profiles.blinry = {
+        path = "7zkoarj1.blinry";
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          ublock-origin
+          privacy-badger
+          browserpass
+          sponsorblock
+          firefox-color
+          refined-github
+        ];
+        search = {
+          force = true;
+          engines = {
+            "Nix Packages" = {
+              urls = [{
+                template = "https://search.nixos.org/packages";
+                params = [
+                  { name = "type"; value = "packages"; }
+                  { name = "query"; value = "{searchTerms}"; }
+                ];
+              }];
+
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = [ "@np" ];
+            };
+
+            "NixOS Wiki" = {
+              urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}"; }];
+              iconUpdateURL = "https://nixos.wiki/favicon.png";
+              updateInterval = 24 * 60 * 60 * 1000; # every day
+              definedAliases = [ "@nw" ];
+            };
+          };
+        };
+      };
+    };
+
+    browserpass.enable = true;
 
     mpv = {
       enable = true;
