@@ -123,6 +123,7 @@ in
     ripgrep
     rsync
     ruby
+    shellcheck
     signal-desktop
     visidata
     wireshark
@@ -284,24 +285,9 @@ in
     offlineimap.enable = true;
     msmtp.enable = true;
     notmuch.enable = true;
+    neomutt.enable = true;
 
-    autorandr = {
-      enable = true;
-      profiles = {
-        single = {
-          fingerprint = {
-            "eDP-1" = "00ffffffffffff0009e5ce0800000000011d0104b51f11780306c4ac5344b12511515a0000000101010101010101010101010101010126ca0050f07028803020350035ae1000001a00000000000000000000000000000000001a000000fe00424f452048460a202020202020000000fe004e4531343051554d2d4e36310a01ca02030f00e3058000e60605016a6a24000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000009a";
-          };
-          config = {
-            "eDP-1" = {
-              enable = true;
-              dpi = 192;
-              mode = "3840x2160";
-            };
-          };
-        };
-      };
-    };
+    autorandr = import ./autorandr.nix;
   };
 
   accounts.email = {
@@ -314,6 +300,13 @@ in
         userName = "blinry";
         passwordCommand = "gopass show blinry.org/blinry";
         maildir.path = ".";
+
+        folders = {
+          inbox = "INBOX";
+          drafts = "Drafts";
+          trash = "Junk";
+          sent = "Sent";
+        };
 
         imap = {
           host = "blinry.org";
@@ -328,6 +321,7 @@ in
         msmtp.enable = true;
         offlineimap.enable = true;
         notmuch.enable = true;
+        neomutt.enable = true;
       };
     };
   };
