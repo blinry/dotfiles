@@ -141,13 +141,15 @@ in
     fish = {
       enable = true;
       shellInit = ''
-        set fish_greeting
         set -gp PATH $HOME/.nix-profile/bin
         set -gp PATH $HOME/.bin
         bind -M insert \cf forward-char
+        bind -M insert \cp fzfcd
       '';
       functions = {
+        fish_greeting = "";
         fish_mode_prompt = "";
+        fish_title = "prompt_pwd";
         take = "mkdir -p $argv; cd $argv";
         fish_prompt = ''
           echo -n (set_color blue --bold)
@@ -161,6 +163,32 @@ in
               end
           end
           echo -n " "
+        '';
+        unwrap = ''
+          set DIR (aunpack -q "$argv" 2>&1 | grep -Po "(?<=\`).*(?=')")
+          if test -d "$DIR"
+              rm "$argv"
+              cd "$DIR"
+          end
+        '';
+        fzfcd = ''
+          cd ~
+
+          # Select from everything not ignored, and not unignored by ~/.fdignore
+          fd -H -d5 -E /permanent/mail/ | sort -V | fzf | read SELECTION
+
+          # And perform an appropriate action
+          if test -d "$SELECTION"
+              cd "$SELECTION"
+          else if test -e "$SELECTION"
+              cd (dirname "$SELECTION")
+              cd (git rev-parse --show-toplevel)
+              vim ~/"$SELECTION"
+          else
+              cd -
+          end
+
+          commandline -f force-repaint
         '';
       };
     };
