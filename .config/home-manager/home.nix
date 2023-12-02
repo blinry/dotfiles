@@ -315,41 +315,94 @@ in
     notmuch.enable = true;
     neomutt.enable = true;
 
+    vdirsyncer.enable = true;
+    khal.enable = true;
+    khard.enable = true;
+
     autorandr = import ./autorandr.nix;
   };
 
-  accounts.email = {
-    maildirBasePath = "permanent/mail";
-    accounts = {
-      blinry = {
-        address = "mail@blinry.org";
-        primary = true;
-        realName = "blinry";
-        userName = "blinry";
-        passwordCommand = "gopass show blinry.org/blinry";
-        maildir.path = ".";
+  accounts = {
+    email = {
+      maildirBasePath = "permanent/mail";
+      accounts = {
+        blinry = {
+          address = "mail@blinry.org";
+          primary = true;
+          realName = "blinry";
+          userName = "blinry";
+          passwordCommand = "gopass show blinry.org/blinry";
+          maildir.path = ".";
 
-        folders = {
-          inbox = "INBOX";
-          drafts = "Drafts";
-          trash = "Junk";
-          sent = "Sent";
+          folders = {
+            inbox = "INBOX";
+            drafts = "Drafts";
+            trash = "Junk";
+            sent = "Sent";
+          };
+
+          imap = {
+            host = "blinry.org";
+            port = 993;
+          };
+
+          smtp = {
+            host = "blinry.org";
+            port = 587;
+            tls.useStartTls = true;
+          };
+
+          msmtp.enable = true;
+          offlineimap.enable = true;
+          notmuch.enable = true;
+          neomutt.enable = true;
         };
-
-        imap = {
-          host = "blinry.org";
-          port = 993;
+      };
+    };
+    calendar = {
+      accounts = {
+        blinry = {
+          primary = true;
+          primaryCollection = "calendar";
+          local = {
+            fileExt = ".ics";
+            path = "~/permanent/calendar";
+            type = "filesystem";
+          };
+          remote = {
+            url = "https://cal.blinry.org";
+            userName = "blinry";
+            type = "caldav";
+            passwordCommand = [ "gopass" "show" "-o" "cal.blinry.org" ];
+          };
+          vdirsyncer = {
+            enable = true;
+            metadata = [ "color" "displayname" ];
+          };
+          khal = {
+            enable = true;
+            type = "discover";
+          };
         };
-
-        smtp = {
-          host = "blinry.org";
-          port = 587;
+      };
+    };
+    contact = {
+      accounts = {
+        blinry = {
+          local = {
+            path = "~/permanent/contacts";
+            type = "filesystem";
+            fileExt = ".vcf";
+          };
+          remote = {
+            url = "https://cal.blinry.org/025d65a1-0209-1c28-b394-38ea87a4ef08/";
+            userName = "blinry";
+            type = "carddav";
+            passwordCommand = [ "gopass" "show" "-o" "cal.blinry.org" ];
+          };
+          vdirsyncer.enable = true;
+          khard.enable = true;
         };
-
-        msmtp.enable = true;
-        offlineimap.enable = true;
-        notmuch.enable = true;
-        neomutt.enable = true;
       };
     };
   };
