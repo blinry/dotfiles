@@ -12,9 +12,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
+    nom = {
+      url = "github:blinry/nom";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, nixGL, nur, ... }:
+  outputs = { nixpkgs, home-manager, nixGL, nur, nom, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -22,6 +26,7 @@
     {
       homeConfigurations.blinry = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+
         modules = [
           {
             nixpkgs.overlays = [
@@ -31,6 +36,10 @@
           }
           ./home.nix
         ];
+
+        extraSpecialArgs = {
+          nom = nom.packages.${system}.default;
+        };
       };
     };
 }

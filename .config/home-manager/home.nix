@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, nom, ... }:
 
 let
   wrapNixGL = import ./wrap-nix-gl.nix { inherit pkgs; };
@@ -96,24 +96,30 @@ in
     ardour
     audacity
     autorandr
+    calibre
     chromium
     curl
+    digikam
     dmenu
     evince
     eza
     fd
     feh
+    ffmpeg
     fzf
     gimp
+    gnome.cheese
     gnome.eog
+    gnupg
     gnuplot
     gopass
     gparted
     httpie
     inkscape
+    krita
     libreoffice
+    maim
     mblaze
-    mpv
     mutt
     neovim
     nmap
@@ -123,8 +129,10 @@ in
     ripgrep
     rsync
     ruby
+    scrcpy
     shellcheck
     signal-desktop
+    termdown
     visidata
     wireshark
     wget
@@ -133,7 +141,9 @@ in
     map wrapNixGL (with pkgs; [
       blender
     ])
-  );
+  ) ++ [
+    nom
+  ];
 
   programs = {
     home-manager.enable = true;
