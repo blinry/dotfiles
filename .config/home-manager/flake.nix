@@ -29,10 +29,13 @@
 
         modules = [
           {
-            nixpkgs.overlays = [
-              nixGL.overlay
-              nur.overlay
-            ];
+            nixpkgs = {
+              overlays = [
+                nixGL.overlay
+                nur.overlay
+              ];
+              config.allowUnfree = true;
+            };
           }
           ./home.nix
         ];

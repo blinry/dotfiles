@@ -47,5 +47,3 @@ in
     triple = sideBySide [ side center notebook ];
   };
 }
-
-

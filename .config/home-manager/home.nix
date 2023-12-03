@@ -105,6 +105,7 @@ in
     eza
     fd
     feh
+    foliate
     ffmpeg
     fzf
     gimp
@@ -118,8 +119,11 @@ in
     inkscape
     krita
     libreoffice
+    libresprite
+    love
     maim
     mblaze
+    mullvad-vpn
     mutt
     neovim
     nmap
@@ -130,9 +134,13 @@ in
     rsync
     ruby
     scrcpy
+    screen-message
     shellcheck
     signal-desktop
+    strace
+    stylua
     termdown
+    texlive.combined.scheme-small
     visidata
     wireshark
     wget
@@ -414,6 +422,26 @@ in
           khard.enable = true;
         };
       };
+    };
+  };
+
+  xdg = {
+    enable = true;
+    userDirs =
+      {
+        enable = true;
+        desktop = "$HOME/tmp";
+        documents = "$HOME/tmp";
+        download = "$HOME/tmp";
+        music = "$HOME/library/music";
+        pictures = "$HOME/tmp";
+        publicShare = "$HOME/tmp";
+        templates = "$HOME/tmp";
+        videos = "$HOME/tmp";
+      };
+    mimeApps = {
+      enable = true;
+      defaultApplications = import ./mimeapps.nix;
     };
   };
 
