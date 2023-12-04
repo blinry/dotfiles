@@ -1,7 +1,7 @@
 { pkgs, nom, ... }:
 
 let
-  wrapNixGL = import ./wrap-nix-gl.nix { inherit pkgs; };
+  wrapNixGL = pkgs.callPackage (import ./wrap-nix-gl.nix) { };
 in
 {
   home.stateVersion = "23.05";
@@ -272,6 +272,7 @@ in
 
     firefox = {
       enable = true;
+      package = wrapNixGL pkgs.firefox;
       profiles.blinry = {
         path = "7zkoarj1.blinry";
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
