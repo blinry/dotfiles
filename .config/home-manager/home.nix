@@ -217,6 +217,10 @@ in
       enable = true;
       userName = "blinry";
       userEmail = "mail@blinry.org";
+      extraConfig = {
+        init.defaultBranch = "main";
+        pull.rebase = false;
+      };
       aliases = {
         graph = "log --graph --pretty=oneline --abbrev-commit --all --decorate";
         take = "checkout -b";
