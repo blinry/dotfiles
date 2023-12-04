@@ -164,7 +164,7 @@ in
         set -gp XDG_DATA_DIRS $HOME/.nix-profile/share
 
         bind -M insert \cf forward-char
-        bind -M insert \cp fzfcd
+        bind -M default \cp fzfcd
       '';
       functions = {
         fish_greeting = "";
