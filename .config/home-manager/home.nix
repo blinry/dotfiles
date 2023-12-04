@@ -161,6 +161,8 @@ in
       shellInit = ''
         set -gp PATH $HOME/.nix-profile/bin
         set -gp PATH $HOME/.bin
+        set -gp XDG_DATA_DIRS $HOME/.nix-profile/share
+
         bind -M insert \cf forward-char
         bind -M insert \cp fzfcd
       '';
