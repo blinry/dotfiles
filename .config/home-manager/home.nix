@@ -4,7 +4,7 @@ let
   wrapNixGL = pkgs.callPackage (import ./wrap-nix-gl.nix) { };
 in
 {
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
 
   home.username = "blinry";
   home.homeDirectory = "/home/blinry";
