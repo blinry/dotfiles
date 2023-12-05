@@ -13,8 +13,20 @@ in
     EDITOR = "nvim";
     BROWSER = "firefox";
     TERMINAL = "kitty";
-    LC_ALL = "en_US.UTF-8";
   };
+
+  home.language =
+    let native = "de_DE.UTF-8";
+    in
+    {
+      base = "en_US.UTF-8";
+      address = native;
+      measurement = native;
+      monetary = native;
+      paper = native;
+      telephone = native;
+      time = native;
+    };
 
   xresources.properties = {
     "Xft.dpi" = 192;
