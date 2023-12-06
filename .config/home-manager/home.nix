@@ -128,20 +128,25 @@ in
     gopass
     gparted
     httpie
+    imagemagick
     inkscape
     krita
     libreoffice
     libresprite
     love
     maim
+    magic-wormhole
     mblaze
     mullvad-vpn
+    mumble
     mutt
     neovim
     nmap
     prettierd
     prusa-slicer
+    python3
     qbittorrent
+    redshift
     ripgrep
     rsync
     ruby
@@ -149,19 +154,24 @@ in
     screen-message
     shellcheck
     signal-desktop
+    steam
     strace
     stylua
     termdown
     texlive.combined.scheme-small
     visidata
+    wineWowPackages.stable
     wireshark
     wget
     xcwd
+    xdg-utils
   ] ++ (
     map wrapNixGL (with pkgs; [
       blender
     ])
   ) ++ [
+    font-awesome
+  ] ++ [
     nom
   ];
 
