@@ -360,7 +360,41 @@ in
     offlineimap.enable = true;
     msmtp.enable = true;
     notmuch.enable = true;
-    neomutt.enable = true;
+
+    neomutt =
+      {
+        enable = true;
+        sort = "reverse-date-received";
+        extraConfig = ''
+          color normal default default
+          color indicator default green
+          color status brightwhite blue
+          color tree green default
+          color header green default .
+        '';
+        macros = [
+          {
+            map = [ "index" ];
+            key = "O";
+            action = "<shell-escape>PYTHONDONTWRITEBYTECODE='Y' offlineimap<enter>";
+          }
+          {
+            map = [ "index" ];
+            key = "o";
+            action = "<shell-escape>PYTHONDONTWRITEBYTECODE='Y' offlineimap -qf INBOX<enter>";
+          }
+          {
+            map = [ "index" ];
+            key = "A";
+            action = ":set confirmappend=no\n<save-message>=Archive\n:set confirmappend=yes\n";
+          }
+          {
+            map = [ "index" ];
+            key = "S";
+            action = ":set confirmappend=no\n<save-message>=Junk\n:set confirmappend=yes\n";
+          }
+        ];
+      };
 
     vdirsyncer.enable = true;
     khal.enable = true;
