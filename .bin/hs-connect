@@ -4,7 +4,7 @@ set -eu -o pipefail
 
 bluetoothctl connect 20:74:CF:EB:43:EC
 
-newSink="bluez_output.20_74_CF_EB_43_EC.a2dp-sink"
+newSink="bluez_output.20_74_CF_EB_43_EC.1"
 
 pactl list short sink-inputs|while read stream; do
     streamId=$(echo $stream|cut '-d ' -f1)
