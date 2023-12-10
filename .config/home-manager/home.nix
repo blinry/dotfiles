@@ -247,6 +247,9 @@ in
         graph = "log --graph --pretty=oneline --abbrev-commit --all --decorate";
         take = "checkout -b";
       };
+      ignores = [
+        ".direnv/"
+      ];
     };
 
     ssh = {
