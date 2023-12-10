@@ -401,6 +401,231 @@ in
     khard.enable = true;
 
     autorandr = import ./autorandr.nix;
+
+    i3blocks = {
+      enable = true;
+      blocks = [
+        {
+          name = "mpd";
+          config = {
+            command = "mpd-status";
+            interval = 1;
+            signal = 2;
+          };
+        }
+        {
+          name = "todo";
+          config = {
+            command = "todo-status";
+            interval = 60;
+          };
+        }
+        {
+          name = "mail";
+          config = {
+            command = "echo $(mlist ~/permanent/mail/INBOX | wc -l) mails";
+            interval = 60;
+          };
+        }
+        {
+          name = "wifi";
+          config = {
+            command = "wifi-status";
+            interval = 60;
+          };
+        }
+        {
+          name = "volume";
+          config = {
+            command = "audio-status";
+            interval = "once";
+            signal = 1;
+          };
+        }
+        {
+          name = "battery";
+          config = {
+            command = "battery-status";
+            interval = 60;
+          };
+        }
+        {
+          name = "battery2";
+          config = {
+            command = "battery-status-2";
+            interval = 60;
+          };
+        }
+        {
+          name = "worldclock";
+          config = {
+            command = "worldclock";
+            interval = 1;
+          };
+        }
+        {
+          name = "time";
+          config = {
+            command = "date +\"%Y-%m-%d %H:%M \"";
+            interval = 1;
+          };
+        }
+      ];
+    };
+  };
+
+  xsession = {
+    enable = true;
+    windowManager.i3 = {
+      enable = true;
+      config =
+        let
+          mod = "Mod4";
+          fonts = {
+            names = [ "monospace" ];
+            size = 11.0;
+          };
+          colors = {
+            bg = "#000000";
+            tx = "#ffffff";
+            ac = "#005500";
+            gr = "#555555";
+            rd = "#aa0000";
+          };
+        in
+        {
+          modifier = mod; # Win key (but I usually swap Alt and Win via setxkbmap)
+          inherit fonts;
+          floating = {
+            modifier = mod;
+          };
+          assigns = {
+            "5" = [{
+              class = "Signal";
+            }];
+          };
+          bars =
+            [
+              {
+                command = "i3bar";
+                position = "bottom";
+                statusCommand = "${pkgs.i3blocks}/bin/i3blocks";
+                inherit fonts;
+                colors = {
+                  background = colors.bg;
+                  statusline = colors.tx;
+                  focusedWorkspace = {
+                    background = colors.bg;
+                    border = colors.bg;
+                    text = colors.tx;
+                  };
+                  activeWorkspace = {
+                    background = colors.bg;
+                    border = colors.bg;
+                    text = colors.tx;
+                  };
+                  inactiveWorkspace = {
+                    background = colors.bg;
+                    border = colors.bg;
+                    text = colors.gr;
+                  };
+                  urgentWorkspace = {
+                    background = colors.rd;
+                    border = colors.rd;
+                    text = colors.tx;
+                  };
+                  separator = colors.gr;
+                };
+              }
+            ];
+          #colors = { };
+          keybindings =
+            pkgs.lib.mkOptionDefault
+              {
+                "${mod}+Return" = "exec kitty --working-directory=\"`xcwd`\"";
+                "${mod}+d" = "kill";
+                "${mod}+p" = "exec --no-startup-id ${pkgs.dmenu}/bin/dmenu_run -b -fn \"monospace-12\" -nb \"${colors.bg}\" -sf \"${colors.tx}\" -sb \"${colors.bg}\" -nf \"${colors.gr}\"";
+
+                "${mod}+h" = "focus left";
+                "${mod}+j" = "focus down";
+                "${mod}+k" = "focus up";
+                "${mod}+l" = "focus right";
+
+                "${mod}+Shift+h" = "move left";
+                "${mod}+Shift+j" = "move down";
+                "${mod}+Shift+k" = "move up";
+                "${mod}+Shift+l" = "move right";
+
+                "${mod}+Control+h" = "resize shrink width 10 px or 10 ppt";
+                "${mod}+Control+j" = "resize grow height 10 px or 10 ppt";
+                "${mod}+Control+k" = "resize shrink height 10 px or 10 ppt";
+                "${mod}+Control+l" = "resize grow width 10 px or 10 ppt";
+
+                "${mod}+F1" = "exec firefox";
+                "${mod}+F2" = "exec kitty --working-directory=$HOME/tmp mutt";
+                "${mod}+F3" = "exec kitty nvim -S ~/.local/share/nvim/sessions/plans.vim";
+                "${mod}+F4" = "exec kitty ncmpcpp";
+                "${mod}+F5" = "exec signal-desktop";
+                "${mod}+F6" = "exec pavucontrol";
+
+                "XF86AudioLowerVolume" = "exec pamixer --allow-boost -d 5 && pkill -RTMIN+1 i3blocks";
+                "XF86AudioRaiseVolume" = "exec pamixer --allow-boost -i 5 && pkill -RTMIN+1 i3blocks";
+                "XF86AudioMute" = "exec pamixer -t && pkill -RTMIN+1 i3blocks";
+                "XF86MonBrightnessUp" = "exec sudo xbacklight -inc 5";
+                "XF86MonBrightnessDown" = "exec sudo xbacklight -dec 5";
+
+                "Print" = "exec screenshot";
+                "Control+Print" = "exec screencast";
+
+                "${mod}+Down" = "exec mpc toggle && pkill -RTMIN+2 i3blocks";
+                "${mod}+Right" = "exec mpc next && pkill -RTMIN+2 i3blocks";
+                "${mod}+Left" = "exec mpc prev && pkill -RTMIN+2 i3blocks";
+                "${mod}+Next" = "exec mpc seek +30 && pkill -RTMIN+2 i3blocks";
+                "${mod}+Prior" = "exec mpc seek -30 && pkill -RTMIN+2 i3blocks";
+
+                "${mod}+c" = "exec middlec";
+
+                "${mod}+b" = "bar mode toggle";
+              };
+          workspaceOutputAssign = [
+            {
+              workspace = "1";
+              output = "DP-1-1-5";
+            }
+            {
+              workspace = "2";
+              output = "DP-1-1-5";
+            }
+            {
+              workspace = "3";
+              output = "DP-1-2";
+            }
+            {
+              workspace = "4";
+              output = "DP-1-2";
+            }
+            {
+              workspace = "5";
+              output = "eDP-1";
+            }
+            {
+              workspace = "6";
+              output = "eDP-1";
+            }
+          ];
+          startup = map (p: { command = p; notification = false; }) [ "kitty" "dunst" "udiskie -nas" "redshift" "mpd" "unclutter --hide-on-touch" "init-mouse" ];
+          window =
+            {
+              titlebar = false;
+            };
+          workspaceAutoBackAndForth = true;
+        };
+      extraConfig = ''
+        new_window pixel 0
+        new_float pixel 0
+        popup_during_fullscreen smart
+      '';
+    };
   };
 
   accounts = {
