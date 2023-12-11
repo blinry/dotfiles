@@ -136,6 +136,9 @@ in
     mullvad-vpn
     mumble
     neovim
+    nodejs
+    nodePackages.svelte-language-server
+    nodePackages.typescript-language-server
     nmap
     prettierd
     prusa-slicer
@@ -155,11 +158,13 @@ in
     termdown
     texlive.combined.scheme-small
     visidata
+    vscode-langservers-extracted
     wineWowPackages.stable
     wireshark
     wget
     xcwd
     xdg-utils
+    yt-dlp
   ] ++ (
     map wrapNixGL (with pkgs; [
       blender
