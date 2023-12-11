@@ -5,6 +5,7 @@ set -u -o pipefail
 FFMPEG=$(pidof ffmpeg)
 
 if [ -z "$FFMPEG" ]; then
+    # Select a region interactively.
     read -r X Y W H G ID < <(slop -f "%x %y %w %h %g %i")
 
     # Make sizes even (x264 requires that).

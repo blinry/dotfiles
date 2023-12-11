@@ -60,12 +60,11 @@ in
     gs = "git status --short";
 
     # Modern alternatives
-    l = "exa -al --time-style=long-iso --sort=modified";
+    l = "eza -al";
 
     # Set default options for some tools
     vi = "nvim";
     vim = "nvim";
-    ls = "ls --color=auto -tr -N";
     grep = "grep --color=auto";
     egrep = "egrep --color=auto";
     df = "df -h";
@@ -107,19 +106,16 @@ in
     arandr
     ardour
     audacity
-    autorandr
     calibre
     chromium
     curl
     digikam
     dmenu
     evince
-    eza
     fd
     feh
     foliate
     ffmpeg
-    fzf
     gimp
     gnome.cheese
     gnome.eog
@@ -139,7 +135,6 @@ in
     mblaze
     mullvad-vpn
     mumble
-    mutt
     neovim
     nmap
     prettierd
@@ -389,12 +384,12 @@ in
           {
             map = [ "index" ];
             key = "A";
-            action = ":set confirmappend=no\n<save-message>=Archive\n:set confirmappend=yes\n";
+            action = ":set confirmappend=no\\n<save-message>=Archive\\n:set confirmappend=yes\\n";
           }
           {
             map = [ "index" ];
             key = "S";
-            action = ":set confirmappend=no\n<save-message>=Junk\n:set confirmappend=yes\n";
+            action = ":set confirmappend=no\\n<save-message>=Junk\\n:set confirmappend=yes\\n";
           }
         ];
       };
@@ -474,6 +469,19 @@ in
           };
         }
       ];
+    };
+
+    eza = {
+      enable = true;
+      enableAliases = true;
+      extraOptions = [
+        "--time-style=long-iso"
+        "--sort=modified"
+      ];
+    };
+
+    fzf = {
+      enable = true;
     };
   };
 
@@ -565,7 +573,7 @@ in
                 "${mod}+Control+l" = "resize grow width 10 px or 10 ppt";
 
                 "${mod}+F1" = "exec firefox";
-                "${mod}+F2" = "exec kitty --working-directory=$HOME/tmp mutt";
+                "${mod}+F2" = "exec kitty --working-directory=$HOME/tmp neomutt";
                 "${mod}+F3" = "exec kitty nvim -S ~/.local/share/nvim/sessions/plans.vim";
                 "${mod}+F4" = "exec kitty ncmpcpp";
                 "${mod}+F5" = "exec signal-desktop";
@@ -631,6 +639,10 @@ in
     };
   };
 
+  services = {
+    autorandr.enable = true;
+  };
+
   accounts = {
     email = {
       maildirBasePath = "permanent/mail";
@@ -640,7 +652,7 @@ in
           primary = true;
           realName = "blinry";
           userName = "blinry";
-          passwordCommand = "gopass show blinry.org/blinry";
+          passwordCommand = "gopass show -o blinry.org/blinry";
           maildir.path = ".";
 
           folders = {
