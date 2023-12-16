@@ -1,0 +1,36 @@
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#waybar {
+  background: black;
+  color: white;
+  font-family: Iosevka Nerd Font;
+  font-size: 16px;
+}
+
+#battery,
+#clock,
+#cpu,
+#custom-keyboard-layout,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#tray {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+#workspaces button {
+  color: #444;
+}
+
+#workspaces button.active {
+  color: white;
+}
