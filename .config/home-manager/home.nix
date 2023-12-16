@@ -293,6 +293,7 @@ in
         scrollback_lines = 100000;
         confirm_os_window_close = 0;
         resize_in_steps = true;
+        enable_audio_bell = false;
         color0 = "#202425";
         color1 = "#ff3333";
         color2 = "#307000";
@@ -314,6 +315,9 @@ in
         name = "monospace";
         size = 15;
       };
+      extraConfig = ''
+        visual_bell_duration 0.1
+      '';
     };
 
     firefox = {
