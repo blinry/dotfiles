@@ -387,6 +387,12 @@ in
       {
         enable = true;
         sort = "reverse-date-received";
+        settings = {
+          edit_headers = "yes"; # Show headers when composing.
+          fast_reply = "yes"; # Skip to compose when replying
+          date_format = "'%Y-%m-%d'";
+          index_format = "'%Z %D %-20.20F %s'";
+        };
         extraConfig = ''
           color normal default default
           color indicator default green
