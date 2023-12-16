@@ -513,6 +513,138 @@ in
     fzf = {
       enable = true;
     };
+
+    waybar = {
+      enable = true;
+      settings = {
+        mainBar = {
+          layer = "top";
+          position = "bottom";
+          height = 25;
+          spacing = 15;
+
+          modules-left = [
+            "hyprland/workspaces"
+          ];
+          modules-center = [
+          ];
+          modules-right = [
+            "network"
+            "battery"
+            "tray"
+            "clock#date"
+            "clock#time"
+          ];
+
+          network = {
+            interval = 5;
+            format-wifi = "{essid}";
+            format-ethernet = "{ifname}: {ipaddr}/{cidr}";
+            format-disconnected = "(disconnected)";
+            tooltip-format = "{ifname}: {ipaddr}";
+          };
+
+          "clock#date" = {
+            format = "{:%Y-%m-%d}";
+          };
+        };
+      };
+      style = ''
+        * {
+          border: none;
+          border-radius: 0;
+          min-height: 0;
+          margin: 0;
+          padding: 0;
+        }
+
+        #waybar {
+          background: black;
+          color: white;
+          font-family: Iosevka Nerd Font;
+          font-size: 16px;
+        }
+
+        #workspaces button {
+          color: #444;
+        }
+
+        #workspaces button.active {
+          color: white;
+        }
+      '';
+    };
+  };
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    package = wrapNixGL pkgs.hyprland;
+    settings =
+      let
+        mod = "super";
+      in
+      {
+        exec-once = map pkgs.lib.meta.getExe (with pkgs; [ hyprpaper swaynotificationcenter waybar ]);
+
+        general = {
+          gaps_in = 4;
+          gaps_out = 6;
+          border_size = 0;
+          layout = "dwindle";
+        };
+
+        input = {
+          kb_layout = "blinry";
+          scroll_method = "edge";
+        };
+
+        decoration = {
+          rounding = 10;
+        };
+
+        dwindle = {
+          preserve_split = true;
+        };
+
+        bind =
+          [
+            "${mod}, return, exec, kitty"
+            "${mod}, f1, exec, firefox"
+            "${mod}, f2, exec, kitty --working-directory=$HOME/tmp neomutt"
+            "${mod}, f4, exec, kitty ncmpcpp"
+            "${mod}, f5, exec, pavucontrol"
+
+            "${mod}, h, movefocus, l"
+            "${mod}, j, movefocus, d"
+            "${mod}, k, movefocus, u"
+            "${mod}, l, movefocus, r"
+
+            "${mod} shift, h, movewindow, l"
+            "${mod} shift, j, movewindow, d"
+            "${mod} shift, k, movewindow, u"
+            "${mod} shift, l, movewindow, r"
+
+            "${mod}, d, killactive"
+            "${mod}, f, fullscreen"
+            "${mod}, v, togglesplit" # Doesn't work?
+
+            ", XF86MonBrightnessUp, exec, brightnessctl s +10%"
+            ", XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+          ] ++ builtins.concatLists
+            (map
+              (n: [
+                "${mod}, ${n}, workspace, ${n}"
+                "${mod} shift, ${n}, movetoworkspace, ${n}"
+              ])
+              (map toString (pkgs.lib.lists.range 1 9)));
+
+        bindm = [
+          "${mod}, mouse:272, movewindow"
+          "${mod}, mouse:273, resizewindow"
+        ];
+      };
+    extraConfig = ''
+    '';
   };
 
   xsession = {
