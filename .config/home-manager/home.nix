@@ -100,80 +100,95 @@ in
     ja = "python -m jamdict lookup";
   };
 
-  home.packages = with pkgs; [
-    acpi
-    anki
-    arandr
-    ardour
-    audacity
-    calibre
-    chromium
-    curl
-    digikam
-    dmenu
-    evince
-    fd
-    feh
-    foliate
-    ffmpeg
-    gimp
-    gnome.cheese
-    gnome.eog
-    gnupg
-    gnuplot
-    gopass
-    gparted
-    httpie
-    imagemagick
-    inkscape
-    krita
-    libreoffice
-    libresprite
-    love
-    maim
-    magic-wormhole
-    mblaze
-    mullvad-vpn
-    mumble
-    neovim
-    nodejs
-    nodePackages.svelte-language-server
-    nodePackages.typescript-language-server
-    nmap
-    prettierd
-    prusa-slicer
-    python3
-    qbittorrent
-    redshift
-    ripgrep
-    rsync
-    ruby
-    scrcpy
-    screen-message
-    shellcheck
-    signal-desktop
-    steam
-    strace
-    stylua
-    termdown
-    texlive.combined.scheme-small
-    visidata
-    vscode-langservers-extracted
-    wineWowPackages.stable
-    wireshark
-    wget
-    xcwd
-    xdg-utils
-    yt-dlp
-  ] ++ (
-    map wrapNixGL (with pkgs; [
-      blender
-    ])
-  ) ++ [
-    font-awesome
-  ] ++ [
-    nom
-  ];
+  home.packages = with pkgs;
+    let
+      flattenValues = attrSet: lib.flatten (lib.attrValues attrSet);
+    in
+    flattenValues {
+      commandline = [
+        curl
+        fd
+        ripgrep
+        rsync
+        wget
+      ];
+      misc = [
+        acpi
+        anki
+        arandr
+        ardour
+        audacity
+        calibre
+        chromium
+        digikam
+        dmenu
+        evince
+        feh
+        ffmpeg
+        foliate
+        gimp
+        gnome.cheese
+        gnome.eog
+        gnupg
+        gnuplot
+        gopass
+        gparted
+        httpie
+        imagemagick
+        inkscape
+        krita
+        libreoffice
+        libresprite
+        love
+        magic-wormhole
+        maim
+        mblaze
+        mullvad-vpn
+        mumble
+        neovim
+        nmap
+        prettierd
+        prusa-slicer
+        qbittorrent
+        redshift
+        scrcpy
+        screen-message
+        shellcheck
+        signal-desktop
+        steam
+        strace
+        termdown
+        texlive.combined.scheme-small
+        visidata
+        wineWowPackages.stable
+        wireshark
+        xclip
+        xcwd
+        xdg-utils
+        yt-dlp
+      ];
+      opengl = map wrapNixGL [
+        blender
+      ];
+      dev = [
+        nodejs
+        python3
+        ruby
+        stylua
+      ];
+      languageservers = [
+        nodePackages.svelte-language-server
+        nodePackages.typescript-language-server
+        rust-analyzer
+        vscode-langservers-extracted
+      ];
+      fonts = [
+        font-awesome
+      ];
+      my-tools = [
+        nom
+      ];
+    };
 
   programs = {
     home-manager.enable = true;
