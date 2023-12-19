@@ -612,7 +612,8 @@ in
             "${mod}, f1, exec, firefox"
             "${mod}, f2, exec, kitty --working-directory=$HOME/tmp neomutt"
             "${mod}, f4, exec, kitty ncmpcpp"
-            "${mod}, f5, exec, pavucontrol"
+            "${mod}, f5, exec, signal-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland"
+            "${mod}, f6, exec, pavucontrol"
 
             "${mod}, h, movefocus, l"
             "${mod}, j, movefocus, d"
@@ -771,11 +772,11 @@ in
             }
             {
               workspace = "3";
-              output = "DP-1-2";
+              output = "DP-1-1-6";
             }
             {
               workspace = "4";
-              output = "DP-1-2";
+              output = "DP-1-1-6";
             }
             {
               workspace = "5";
