@@ -2,6 +2,7 @@
 
 let
   wrapNixGL = pkgs.callPackage (import ./wrap-nix-gl.nix) { };
+  screens = import ./screens.nix;
 in
 {
   home.stateVersion = "23.11";
@@ -764,27 +765,27 @@ in
           workspaceOutputAssign = [
             {
               workspace = "1";
-              output = "DP-1-1-5";
+              output = screens.side.name;
             }
             {
               workspace = "2";
-              output = "DP-1-1-5";
+              output = screens.side.name;
             }
             {
               workspace = "3";
-              output = "DP-1-1-6";
+              output = screens.center.name;
             }
             {
               workspace = "4";
-              output = "DP-1-1-6";
+              output = screens.center.name;
             }
             {
               workspace = "5";
-              output = "eDP-1";
+              output = screens.notebook.name;
             }
             {
               workspace = "6";
-              output = "eDP-1";
+              output = screens.notebook.name;
             }
           ];
           startup = map (p: { command = p; notification = false; }) [ "kitty" "dunst" "udiskie -nas" "redshift" "mpd" "unclutter --hide-on-touch" "init-mouse" ];
