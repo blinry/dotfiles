@@ -197,9 +197,8 @@ in
     fish = {
       enable = true;
       shellInit = ''
-        set -gp PATH $HOME/.nix-profile/bin
-        set -gp PATH $HOME/.bin
-        set -gp XDG_DATA_DIRS $HOME/.nix-profile/share
+        set -gpx PATH $HOME/.nix-profile/bin
+        set -gpx PATH $HOME/.bin
 
         bind -M insert \cf forward-char
         bind -M default \cp fzfcd
@@ -894,6 +893,9 @@ in
 
   xdg = {
     enable = true;
+    systemDirs = {
+      data = [ "$HOME/.nix-profile/share" ];
+    };
     userDirs =
       {
         enable = true;
