@@ -132,7 +132,6 @@ in
         gnome.eog
         gnupg
         gnuplot
-        gopass
         gparted
         httpie
         imagemagick
@@ -148,6 +147,7 @@ in
         mumble
         neovim
         nmap
+        pass
         prettierd
         prusa-slicer
         qbittorrent
@@ -158,6 +158,7 @@ in
         signal-desktop
         steam
         strace
+        subdl
         termdown
         texlive.combined.scheme-small
         visidata
@@ -650,6 +651,9 @@ in
 
   xsession = {
     enable = true;
+    initExtra = ''
+      init-touchpad
+    '';
     windowManager.i3 = {
       enable = true;
       config =
@@ -804,6 +808,10 @@ in
 
   services = {
     autorandr.enable = true;
+
+    dunst.enable = true;
+
+    mpd.enable = true;
   };
 
   accounts = {
@@ -908,12 +916,25 @@ in
         templates = "${config.home.homeDirectory}/tmp";
         videos = "${config.home.homeDirectory}/tmp";
       };
+    mime.enable = true;
     mimeApps = {
       enable = true;
       defaultApplications = import ./mimeapps.nix;
     };
   };
 
+  gtk =
+    {
+      enable = true;
+      theme = {
+        package = pkgs.gnome.gnome-themes-extra;
+        name = "Adwaita";
+      };
+      iconTheme = {
+        package = pkgs.gnome.adwaita-icon-theme;
+        name = "adwaita";
+      };
+    };
+
   fonts.fontconfig.enable = true;
 }
-
