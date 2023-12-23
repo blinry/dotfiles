@@ -1,4 +1,4 @@
-{ pkgs, nom, ... }:
+{ config, pkgs, nom, ... }:
 
 let
   wrapNixGL = pkgs.callPackage (import ./wrap-nix-gl.nix) { };
@@ -894,19 +894,19 @@ in
   xdg = {
     enable = true;
     systemDirs = {
-      data = [ "$HOME/.nix-profile/share" ];
+      data = [ "${config.home.homeDirectory}/.nix-profile/share" ];
     };
     userDirs =
       {
         enable = true;
-        desktop = "$HOME/tmp";
-        documents = "$HOME/tmp";
-        download = "$HOME/tmp";
-        music = "$HOME/library/music";
-        pictures = "$HOME/tmp";
-        publicShare = "$HOME/tmp";
-        templates = "$HOME/tmp";
-        videos = "$HOME/tmp";
+        desktop = "${config.home.homeDirectory}/tmp";
+        documents = "${config.home.homeDirectory}/tmp";
+        download = "${config.home.homeDirectory}/tmp";
+        music = "${config.home.homeDirectory}/library/music";
+        pictures = "${config.home.homeDirectory}/tmp";
+        publicShare = "${config.home.homeDirectory}/tmp";
+        templates = "${config.home.homeDirectory}/tmp";
+        videos = "${config.home.homeDirectory}/tmp";
       };
     mimeApps = {
       enable = true;
