@@ -16,9 +16,13 @@
       url = "github:blinry/nom";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pacecalc = {
+      url = "git+https://codeberg.org/blinry/pacecalc";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, nixGL, nur, nom, ... }:
+  outputs = { nixpkgs, home-manager, nixGL, nur, nom, pacecalc, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -43,6 +47,7 @@
 
         extraSpecialArgs = {
           nom = nom.packages.${system}.default;
+          pacecalc = pacecalc.packages.${system}.default;
         };
       };
     };

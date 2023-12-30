@@ -1,4 +1,4 @@
-{ config, pkgs, nom, ... }:
+{ config, pkgs, nom, pacecalc, ... }:
 
 let
   wrapNixGL = pkgs.callPackage (import ./wrap-nix-gl.nix) { };
@@ -189,6 +189,7 @@ in
       ];
       my-tools = [
         nom
+        pacecalc
       ];
     };
 
