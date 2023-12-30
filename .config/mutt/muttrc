@@ -83,9 +83,9 @@ set reply_to                         # reply to Reply to: field
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
 
-set from     = ${EMAIL}
+set from     = "mail@blinry.org"
 alternates sebastian@morr.cc
-set sendmail = "/usr/bin/msmtp"
+set sendmail = "msmtp"
 set sendmail_wait = 0
 
 # Look up contacts via khard.

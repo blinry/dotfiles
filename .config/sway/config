@@ -113,9 +113,9 @@ set $gr #555555
 set $rd #aa0000
 
 # Window appearance
-# gaps inner 10
-# gaps outer 0
-# border_radius 8
+#gaps inner 10
+#gaps outer 0
+#border_radius 8
 
 default_border pixel 0
 default_floating_border pixel 0
@@ -171,9 +171,9 @@ workspace 9 output DP-2-3 e-DP-1
 
 # Various hotkeys
 bindsym $mod+F1 exec chromium
-bindsym $mod+F2 exec alacritty --working-directory=$HOME/tmp -e mutt
-bindsym $mod+F3 exec alacritty -e nvim -S ~/.local/share/nvim/sessions/plans.vim
-bindsym $mod+F4 exec alacritty -e ncmpcpp
+bindsym $mod+F2 exec kitty --directory=$HOME/tmp  mutt
+bindsym $mod+F3 exec kitty nvim -S ~/.local/share/nvim/sessions/plans.vim
+bindsym $mod+F4 exec kitty ncmpcpp
 bindsym $mod+F5 exec signal-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
 bindsym XF86AudioRaiseVolume exec pamixer --allow-boost -i 5 && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec pamixer --allow-boost -d 5 && pkill -RTMIN+1 i3blocks
@@ -191,14 +191,14 @@ bindsym $mod+c exec middlec
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec "systemctl --user import-environment"
-exec --no-startup-id alacritty
+exec --no-startup-id kitty
 exec --no-startup-id mako
-exec --no-startup-id udiskie -nas
-#exec --no-startup-id redshift
-exec --no-startup-id mpd
-exec --no-startup-id fcitx5 -d
 exec --no-startup-id kanshi
 
 input * {
     xkb_layout "blinry"
+}
+
+input '1739:52619:SYNA8006:00_06CB:CD8B_Touchpad' {
+    scroll_method "edge"
 }

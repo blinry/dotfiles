@@ -1,3 +1,3 @@
 return {
-    dir = "/home/blinry/wip/ethersync-vim",
+    dir = "/home/blinry/wip/ethersync/vim-plugin",
 }
