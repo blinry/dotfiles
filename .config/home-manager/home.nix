@@ -824,7 +824,7 @@ in
           primary = true;
           realName = "blinry";
           userName = "blinry";
-          passwordCommand = "gopass show -o blinry.org/blinry";
+          passwordCommand = "pass blinry.org/blinry";
           maildir.path = ".";
 
           folders = {
@@ -866,7 +866,7 @@ in
             url = "https://cal.blinry.org";
             userName = "blinry";
             type = "caldav";
-            passwordCommand = [ "gopass" "show" "-o" "cal.blinry.org" ];
+            passwordCommand = [ "pass" "cal.blinry.org" ];
           };
           vdirsyncer = {
             enable = true;
@@ -891,7 +891,7 @@ in
             url = "https://cal.blinry.org/025d65a1-0209-1c28-b394-38ea87a4ef08/";
             userName = "blinry";
             type = "carddav";
-            passwordCommand = [ "gopass" "show" "-o" "cal.blinry.org" ];
+            passwordCommand = [ "pass" "cal.blinry.org" ];
           };
           vdirsyncer.enable = true;
           khard.enable = true;
