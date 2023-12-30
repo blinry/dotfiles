@@ -151,7 +151,6 @@ in
         prettierd
         prusa-slicer
         qbittorrent
-        redshift
         scrcpy
         screen-message
         shellcheck
@@ -793,7 +792,7 @@ in
               output = screens.notebook.name;
             }
           ];
-          startup = map (p: { command = p; notification = false; }) [ "kitty" "dunst" "udiskie -nas" "redshift" "mpd" "unclutter --hide-on-touch" "init-mouse" ];
+          startup = map (p: { command = p; notification = false; }) [ "kitty" "init-mouse" ];
           window =
             {
               titlebar = false;
@@ -810,10 +809,14 @@ in
 
   services = {
     autorandr.enable = true;
-
     dunst.enable = true;
-
     mpd.enable = true;
+    redshift = {
+      enable = true;
+      provider = "geoclue2";
+    };
+    udiskie.enable = true;
+    unclutter.enable = true;
   };
 
   accounts = {
