@@ -391,7 +391,8 @@ in
         sort = "reverse-date-received";
         settings = {
           edit_headers = "yes"; # Show headers when composing.
-          fast_reply = "yes"; # Skip to compose when replying
+          fast_reply = "yes"; # Skip to compose when replying.
+          recall = "no"; # Don't offer to recall postponed messages.
           date_format = "'%Y-%m-%d'";
           index_format = "'%Z %D %-20.20F %s'";
         };
