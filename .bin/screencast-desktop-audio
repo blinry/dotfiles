@@ -14,7 +14,7 @@ if [ -z "$FFMPEG" ]; then
 
     AUDIODEVICE=$(pactl get-default-source)
 
-    ffmpeg -threads 0 -f pulse -i "$AUDIODEVICE.monitor" -s "$W"x"$H" -framerate 30 -f x11grab -thread_queue_size 1024 -show_region 1 -i "$DISPLAY.0+$X,$Y" -c:v libx264 -pix_fmt yuv420p -preset ultrafast -c:a aac "$HOME"/tmp/screencast-$(date +%F_%T).mp4
+    ffmpeg -threads 0 -f pulse -i "$AUDIODEVICE.monitor" -s "$W"x"$H" -framerate 60 -f x11grab -thread_queue_size 1024 -show_region 1 -i "$DISPLAY.0+$X,$Y" -c:v libx264 -pix_fmt yuv420p -preset ultrafast -c:a aac "$HOME"/tmp/screencast-$(date +%F_%T).mp4
     # no audio: ffmpeg -threads 0 -f pulse -s "$W"x"$H" -framerate 30 -f x11grab -thread_queue_size 1024 -show_region 1 -i "$DISPLAY.0+$X,$Y" -c:v libx264 -pix_fmt yuv420p -preset ultrafast "$HOME"/tmp/screencast-$(date +%F_%T).mp4
 else
     echo "ffmpeg is already running, stop the recording!"
