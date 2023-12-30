@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-set -eu -o pipefail
-
-status-line
-while true; do
-    status-line
-done

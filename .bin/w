@@ -5,7 +5,7 @@ set -eu -o pipefail
 cd ~/permanent/wiki/
 
 if [ -z "$*" ]; then
-    PAGE="$(ls|fzf --print-query|tail -1)" || true
+    PAGE="$(fd|fzf --print-query|tail -1)" || true
 else
     PAGE="$*"
 fi
