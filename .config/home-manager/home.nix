@@ -902,7 +902,7 @@ in
   xdg = {
     enable = true;
     systemDirs = {
-      data = [ "${config.home.homeDirectory}/.nix-profile/share" ];
+      data = [ "${config.home.homeDirectory}/.nix-profile/share" "/usr/local/share" "/usr/share" ];
     };
     userDirs =
       {
