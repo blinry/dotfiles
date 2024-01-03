@@ -137,6 +137,7 @@ in
         imagemagick
         inkscape
         krita
+        libnotify # For notify-send.
         libreoffice
         libresprite
         love
@@ -148,6 +149,7 @@ in
         neovim
         nmap
         pass
+        pavucontrol
         prettierd
         prusa-slicer
         qbittorrent

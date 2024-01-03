@@ -4,8 +4,7 @@ let
     "org.gnome.eog" = [ "image/png" "image/jpeg" "image/gif" ];
     "org.inkscape.Inkscape" = [ "image/svg+xml" ];
     "mpv" = [ "video/mp4" "video/mpeg" "audio/mpeg" ];
-    "org.gnome.Evince" = [ "application/pdf" ];
-    "firefox" = [ "text/html" "x-scheme-handler/http" "x-scheme-handler/https" ];
+    "firefox" = [ "text/html" "x-scheme-handler/http" "x-scheme-handler/https" "application/pdf" ];
     "org.qbittorrent.qBittorrent" = [ "x-scheme-handler/magnet" ];
     "com.github.johnfactotum.Foliate" = [ "application/epub+zip" ];
     "writer" = [ "application/vnd.oasis.opendocument.text" ];
