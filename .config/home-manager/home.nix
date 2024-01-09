@@ -1,4 +1,4 @@
-{ config, pkgs, nom, pacecalc, ... }:
+{ config, pkgs, lib, nom, pacecalc, ... }:
 
 let
   wrapNixGL = pkgs.callPackage (import ./wrap-nix-gl.nix) { };
@@ -436,73 +436,48 @@ in
 
     i3blocks = {
       enable = true;
-      blocks = [
-        {
-          name = "mpd";
-          config = {
+      bars = {
+        bottom = {
+          mpd = {
             command = "mpd-status";
             interval = 1;
             signal = 2;
           };
-        }
-        {
-          name = "todo";
-          config = {
+          todo = lib.hm.dag.entryAfter [ "mpd" ] {
             command = "todo-status";
             interval = 60;
           };
-        }
-        {
-          name = "mail";
-          config = {
+          mail = lib.hm.dag.entryAfter [ "todo" ] {
             command = "echo $(mlist ~/permanent/mail/INBOX | wc -l) mails";
             interval = 60;
           };
-        }
-        {
-          name = "wifi";
-          config = {
+          wifi = lib.hm.dag.entryAfter [ "mail" ] {
             command = "wifi-status";
             interval = 60;
           };
-        }
-        {
-          name = "volume";
-          config = {
+          volume = lib.hm.dag.entryAfter [ "wifi" ] {
             command = "audio-status";
             interval = "once";
             signal = 1;
           };
-        }
-        {
-          name = "battery";
-          config = {
+          battery = lib.hm.dag.entryAfter [ "volume" ] {
             command = "battery-status";
             interval = 60;
           };
-        }
-        {
-          name = "battery2";
-          config = {
+          battery2 = lib.hm.dag.entryAfter [ "battery" ] {
             command = "battery-status-2";
             interval = 60;
           };
-        }
-        {
-          name = "worldclock";
-          config = {
+          worldclock = lib.hm.dag.entryAfter [ "battery2" ] {
             command = "worldclock";
             interval = 1;
           };
-        }
-        {
-          name = "time";
-          config = {
+          time = lib.hm.dag.entryAfter [ "worldclock" ] {
             command = "date +\"%Y-%m-%d %H:%M \"";
             interval = 1;
           };
-        }
-      ];
+        };
+      };
     };
 
     eza = {
@@ -690,7 +665,7 @@ in
               {
                 command = "i3bar";
                 position = "bottom";
-                statusCommand = "${pkgs.i3blocks}/bin/i3blocks";
+                statusCommand = "${pkgs.i3blocks}/bin/i3blocks -c $HOME/.config/i3blocks/bottom";
                 inherit fonts;
                 colors = {
                   background = colors.bg;

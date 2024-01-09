@@ -41,7 +41,6 @@
               config.allowUnfree = true;
             };
           }
-          ./modules/i3blocks.nix
           ./home.nix
         ];
 
