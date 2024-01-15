@@ -320,7 +320,7 @@ in
         color15 = "#eeeeec";
       };
       font = {
-        name = "monospace";
+        name = "Iosevka Nerd Font";
         size = 15;
       };
       extraConfig = ''
@@ -409,6 +409,13 @@ in
           color tree green default
           color header green default .
         '';
+        binds = [
+          {
+            map = [ "index" ];
+            key = "<tab>";
+            action = "sync-mailbox";
+          }
+        ];
         macros = [
           {
             map = [ "index" ];
@@ -643,7 +650,7 @@ in
         let
           mod = "Mod4";
           fonts = {
-            names = [ "monospace" ];
+            names = [ "Iosevka Nerd Font" ];
             size = 11.0;
           };
           colors = {
