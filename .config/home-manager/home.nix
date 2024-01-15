@@ -139,7 +139,7 @@ in
         krita
         libnotify # For notify-send.
         libreoffice
-        libresprite
+        #libresprite does not build
         love
         magic-wormhole
         maim
@@ -162,6 +162,7 @@ in
         subdl
         termdown
         texlive.combined.scheme-small
+        usbutils
         visidata
         wineWowPackages.stable
         wireshark
@@ -169,6 +170,10 @@ in
         xcwd
         xdg-utils
         yt-dlp
+      ];
+      hardware = [
+        kicad
+        platformio-core
       ];
       opengl = map wrapNixGL [
         blender
