@@ -401,6 +401,7 @@ in
           recall = "no"; # Don't offer to recall postponed messages.
           date_format = "'%Y-%m-%d'";
           index_format = "'%Z %D %-20.20F %s'";
+          markers = "no"; # Don't show + signs after linebreaks
         };
         extraConfig = ''
           color normal default default
