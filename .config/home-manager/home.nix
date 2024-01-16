@@ -161,7 +161,7 @@ in
         strace
         subdl
         termdown
-        texlive.combined.scheme-small
+        texlive.combined.scheme-medium
         usbutils
         visidata
         wineWowPackages.stable
